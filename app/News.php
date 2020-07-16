@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class News extends Model
 {
-    protected $fillable = ['slug', 'category_id', 'province_id', 'status', 'keywords', 'order', 'author_id','news_label'];
+    protected $fillable = ['slug', 'category_id', 'province_id', 'status', 'keywords', 'order', 'author_id', 'featured_image', 'news_label'];
 
     public function category() {
         return $this->belongsTo('App\Category');

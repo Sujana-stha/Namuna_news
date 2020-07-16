@@ -23,6 +23,7 @@ $factory->define(News::class, function (Faker $faker) {
         'author_id'=>function() {
             return User::all()->random();
         },
+        'featured_image'=>$faker->word.".jpg",
         'news_label'=>$faker->randomElement($array = array('featured','breaking'), $count = 1)
     ];
 });

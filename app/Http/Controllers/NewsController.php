@@ -45,7 +45,8 @@ class NewsController extends Controller
             "province_id"=>"required|min:1",
             "status"=>"required",
             "author_id"=>"required|min:1",
-            "news_label"=>"required"
+            "news_label"=>"required",
+            "featured_image"=>"required|mimes:jpg,jpeg,png"
         ]);
 
         News::create([
@@ -56,7 +57,8 @@ class NewsController extends Controller
             "order"=>News::max('order')+1,
             "keywords"=>$request->keywords,
             "author_id"=>$request->author_id,
-            "news_label"=>$request->news_label
+            "news_label"=>$request->news_label,
+            "featured_image"=>$request->featured_image,
         ]);
 
         return response(['success'=>'News stored successfully'], 201);

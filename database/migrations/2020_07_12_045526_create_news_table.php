@@ -25,6 +25,7 @@ class CreateNewsTable extends Migration
             $table->integer('order');
             $table->unsignedBigInteger('author_id');
             $table->foreign('author_id')->references('id')->on('users')->onDelete('cascade');
+            $table->string('featured_image', 256);
             $table->enum('news_label', ['featured','breaking']);
             $table->timestamps();
         });
