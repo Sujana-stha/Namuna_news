@@ -17,7 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->id();
             $table->string('slug', 256);
             $table->integer('parent_id');
-            $table->enum('display_status', ['show', 'hide']);
+            $table->enum('display_status', ['0', '1']);
             $table->integer('order');
             $table->timestamps();
         });
