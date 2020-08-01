@@ -16,7 +16,7 @@ class CreateSubscribersTable extends Migration
         Schema::create('subscribers', function (Blueprint $table) {
             $table->id();
             $table->string('email');
-            $table->json('category_id');
+            $table->longtext('category_id')->nullable();
             $table->enum('preference', ['daily','weekly','monthly','none']);
             $table->timestamps();
         });
