@@ -90780,7 +90780,7 @@ module.exports = function(module) {
 /*!**********************************************!*\
   !*** ./resources/js/actions/action-types.js ***!
   \**********************************************/
-/*! exports provided: REQUEST_LOGIN, LOGIN_SUCCESS, LOGIN_ERROR, LOGOUT_ERROR, REQUEST_CATEGORIES, GET_CATEGORIES_SUCCESS, REQUEST_CATEGORIES_FAILED, REQUEST_ADD_CATEGORIES, ADD_CATEGORIES_SUCCESS, REQUEST_EDIT_CATEGORIES, EDIT_CATEGORIES_SUCCESS, REQUEST_DELETE_CATEGORIES, DELETE_CATEGORIES_SUCCESS, REQUEST_LANGUAGES, GET_LANGUAGES_SUCCESS, REQUEST_LANGUAGES_FAILED, REQUEST_ADD_LANGUAGES, ADD_LANGUAGES_SUCCESS, REQUEST_EDIT_LANGUAGES, EDIT_LANGUAGES_SUCCESS, REQUEST_DELETE_LANGUAGES, DELETE_LANGUAGES_SUCCESS, REQUEST_NEWS, GET_NEWS_SUCCESS, REQUEST_NEWS_FAILED, REQUEST_ADD_NEWS, ADD_NEWS_SUCCESS, REQUEST_EDIT_NEWS, EDIT_NEWS_SUCCESS, REQUEST_DELETE_NEWS, DELETE_NEWS_SUCCESS, REQUEST_PROVINCES, GET_PROVINCES_SUCCESS, REQUEST_PROVINCES_FAILED, REQUEST_ADD_PROVINCES, ADD_PROVINCES_SUCCESS, REQUEST_EDIT_PROVINCES, EDIT_PROVINCES_SUCCESS, REQUEST_DELETE_PROVINCES, DELETE_PROVINCES_SUCCESS, REQUEST_RESOURCES, GET_RESOURCES_SUCCESS, REQUEST_RESOURCES_FAILED, REQUEST_ADD_RESOURCES, ADD_RESOURCES_SUCCESS, REQUEST_EDIT_RESOURCES, EDIT_RESOURCES_SUCCESS, REQUEST_DELETE_RESOURCES, DELETE_RESOURCES_SUCCESS */
+/*! exports provided: REQUEST_LOGIN, LOGIN_SUCCESS, LOGIN_ERROR, LOGOUT_ERROR, REQUEST_CATEGORIES, GET_CATEGORIES_SUCCESS, REQUEST_CATEGORIES_FAILED, REQUEST_ADD_CATEGORIES, ADD_CATEGORIES_SUCCESS, REQUEST_EDIT_CATEGORIES, EDIT_CATEGORIES_SUCCESS, REQUEST_DELETE_CATEGORIES, DELETE_CATEGORIES_SUCCESS, REQUEST_CHANGE_CATEGORIES_STATUS, CHANGE_CATEGORIES_STATUS_SUCCESS, REQUEST_LANGUAGES, GET_LANGUAGES_SUCCESS, REQUEST_LANGUAGES_FAILED, REQUEST_ADD_LANGUAGES, ADD_LANGUAGES_SUCCESS, REQUEST_EDIT_LANGUAGES, EDIT_LANGUAGES_SUCCESS, REQUEST_DELETE_LANGUAGES, DELETE_LANGUAGES_SUCCESS, REQUEST_NEWS, GET_NEWS_SUCCESS, REQUEST_NEWS_FAILED, REQUEST_ADD_NEWS, ADD_NEWS_SUCCESS, REQUEST_EDIT_NEWS, EDIT_NEWS_SUCCESS, REQUEST_DELETE_NEWS, DELETE_NEWS_SUCCESS, REQUEST_PROVINCES, GET_PROVINCES_SUCCESS, REQUEST_PROVINCES_FAILED, REQUEST_ADD_PROVINCES, ADD_PROVINCES_SUCCESS, REQUEST_EDIT_PROVINCES, EDIT_PROVINCES_SUCCESS, REQUEST_DELETE_PROVINCES, DELETE_PROVINCES_SUCCESS, REQUEST_RESOURCES, GET_RESOURCES_SUCCESS, REQUEST_RESOURCES_FAILED, REQUEST_ADD_RESOURCES, ADD_RESOURCES_SUCCESS, REQUEST_EDIT_RESOURCES, EDIT_RESOURCES_SUCCESS, REQUEST_DELETE_RESOURCES, DELETE_RESOURCES_SUCCESS */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -90798,6 +90798,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EDIT_CATEGORIES_SUCCESS", function() { return EDIT_CATEGORIES_SUCCESS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REQUEST_DELETE_CATEGORIES", function() { return REQUEST_DELETE_CATEGORIES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE_CATEGORIES_SUCCESS", function() { return DELETE_CATEGORIES_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REQUEST_CHANGE_CATEGORIES_STATUS", function() { return REQUEST_CHANGE_CATEGORIES_STATUS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CHANGE_CATEGORIES_STATUS_SUCCESS", function() { return CHANGE_CATEGORIES_STATUS_SUCCESS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REQUEST_LANGUAGES", function() { return REQUEST_LANGUAGES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_LANGUAGES_SUCCESS", function() { return GET_LANGUAGES_SUCCESS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REQUEST_LANGUAGES_FAILED", function() { return REQUEST_LANGUAGES_FAILED; });
@@ -90848,7 +90850,9 @@ var ADD_CATEGORIES_SUCCESS = 'ADD_CATEGORIES_SUCCESS';
 var REQUEST_EDIT_CATEGORIES = 'REQUEST_EDIT_CATEGORIES';
 var EDIT_CATEGORIES_SUCCESS = 'EDIT_CATEGORIES_SUCCESS';
 var REQUEST_DELETE_CATEGORIES = 'DELETE_CATEGORIES';
-var DELETE_CATEGORIES_SUCCESS = 'DELETE_CATEGORIES_SUCCESS'; //LANGUAGES
+var DELETE_CATEGORIES_SUCCESS = 'DELETE_CATEGORIES_SUCCESS';
+var REQUEST_CHANGE_CATEGORIES_STATUS = 'REQUEST_CHANGE_CATEGORIES_STATUS';
+var CHANGE_CATEGORIES_STATUS_SUCCESS = 'CHANGE_CATEGORIES_STATUS_SUCCESS'; //LANGUAGES
 
 var REQUEST_LANGUAGES = 'REQUEST_LANGUAGES';
 var GET_LANGUAGES_SUCCESS = 'GET_LANGUAGES_SUCCESS';
@@ -90896,7 +90900,7 @@ var DELETE_RESOURCES_SUCCESS = 'DELETE_RESOURCES_SUCCESS';
 /*!***************************************************!*\
   !*** ./resources/js/actions/categories-action.js ***!
   \***************************************************/
-/*! exports provided: requestCategories, getCategoriesSuccess, requestCategoriesFailed, requestAddCategories, addCategoriesSuccess, requestUpdateCategories, updateCategoriesSuccess, requestDeleteCategories, deleteCategoriesSuccess */
+/*! exports provided: requestCategories, getCategoriesSuccess, requestCategoriesFailed, requestAddCategories, addCategoriesSuccess, requestUpdateCategories, updateCategoriesSuccess, requestDeleteCategories, deleteCategoriesSuccess, requestCategoriesStatus, CategoriesStatusSuccess */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -90910,6 +90914,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateCategoriesSuccess", function() { return updateCategoriesSuccess; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestDeleteCategories", function() { return requestDeleteCategories; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteCategoriesSuccess", function() { return deleteCategoriesSuccess; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestCategoriesStatus", function() { return requestCategoriesStatus; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CategoriesStatusSuccess", function() { return CategoriesStatusSuccess; });
 /* harmony import */ var _action_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./action-types */ "./resources/js/actions/action-types.js");
  //GET LIST OF CATEGORIES
 
@@ -90968,6 +90974,22 @@ function requestDeleteCategories(categoryId) {
 function deleteCategoriesSuccess(categoryId, message) {
   return {
     type: _action_types__WEBPACK_IMPORTED_MODULE_0__["DELETE_CATEGORIES_SUCCESS"],
+    categoryId: categoryId,
+    message: message
+  };
+} //CHANHE CATEGORIES STATUS
+
+function requestCategoriesStatus(categoryId, values) {
+  return {
+    type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_CHANGE_CATEGORIES_STATUS"],
+    values: values,
+    categoryId: categoryId
+  };
+}
+function CategoriesStatusSuccess(categoryId, values) {
+  return {
+    type: _action_types__WEBPACK_IMPORTED_MODULE_0__["CHANGE_CATEGORIES_STATUS_SUCCESS"],
+    values: values,
     categoryId: categoryId,
     message: message
   };
@@ -91125,7 +91147,7 @@ var getHeaders = function getHeaders() {
 /*!********************************************!*\
   !*** ./resources/js/api/categories-api.js ***!
   \********************************************/
-/*! exports provided: getCategories, addCategories, deleteCategories, updateCategories, getSingleCategories */
+/*! exports provided: getCategories, addCategories, deleteCategories, updateCategories, updateCategoriesStatus, getSingleCategories */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -91134,6 +91156,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addCategories", function() { return addCategories; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteCategories", function() { return deleteCategories; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateCategories", function() { return updateCategories; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateCategoriesStatus", function() { return updateCategoriesStatus; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSingleCategories", function() { return getSingleCategories; });
 /* harmony import */ var _axiosInstance__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./axiosInstance */ "./resources/js/api/axiosInstance.js");
  //GET ALL CATEGORIES API
@@ -91179,6 +91202,19 @@ function deleteCategories(categoryId) {
 } // UPDATE CATEGORIES API
 
 function updateCategories(categoryId, values) {
+  var access_token = window.localStorage.getItem('access_token');
+  var headers = Object(_axiosInstance__WEBPACK_IMPORTED_MODULE_0__["getHeaders"])(access_token);
+  return _axiosInstance__WEBPACK_IMPORTED_MODULE_0__["default"].put('/api/categories/' + categoryId, values, {
+    headers: headers
+  })["catch"](function (error) {
+    console.log(error);
+    return {
+      errors: error
+    };
+  });
+} // TOGGLE STATUS API
+
+function updateCategoriesStatus(categoryId, values) {
   var access_token = window.localStorage.getItem('access_token');
   var headers = Object(_axiosInstance__WEBPACK_IMPORTED_MODULE_0__["getHeaders"])(access_token);
   return _axiosInstance__WEBPACK_IMPORTED_MODULE_0__["default"].put('/api/categories/' + categoryId, values, {
@@ -91560,7 +91596,28 @@ var CategoriesList = function CategoriesList(props) {
     }, "Yes"), " \xA0", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       href: "javascript:void(0);",
       onClick: props.hideConfirmBox.bind(null)
-    }, "No")) : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, category.display_status));
+    }, "No")) : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, category.display_status == "show" ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      type: "checkbox",
+      onClick: function onClick() {
+        return props.categoryStatus(category.id, category.status);
+      },
+      name: "display_status",
+      checked: true,
+      "data-bootstrap-switch": true,
+      "data-off-color": "danger",
+      "data-on-color": "success",
+      value: category.display_status
+    }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      type: "checkbox",
+      onClick: function onClick() {
+        return props.categoryStatus(category.id, category.status);
+      },
+      name: "display_status",
+      "data-bootstrap-switch": true,
+      "data-off-color": "danger",
+      "data-on-color": "success",
+      value: category.display_status
+    })));
   }));
 };
 
@@ -92823,6 +92880,7 @@ var CategoriesListContainer = /*#__PURE__*/function (_Component) {
     _this.editCategories = _this.editCategories.bind(_assertThisInitialized(_this));
     _this.deleteItem = _this.deleteItem.bind(_assertThisInitialized(_this));
     _this.hideDiv = _this.hideDiv.bind(_assertThisInitialized(_this));
+    _this.toggleStatus = _this.toggleStatus.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -92856,6 +92914,15 @@ var CategoriesListContainer = /*#__PURE__*/function (_Component) {
       this.setState({
         isEditing: values
       });
+    } // toggle status function
+
+  }, {
+    key: "toggleStatus",
+    value: function toggleStatus(categoryId, status) {
+      var newCategoriesStatus = {
+        status: !status
+      };
+      this.props.requestCategoriesStatus(categoryId, newCategoriesStatus);
     }
   }, {
     key: "deleteCategoryAction",
@@ -92903,7 +92970,8 @@ var CategoriesListContainer = /*#__PURE__*/function (_Component) {
         confirmText: this.state.confirmText,
         showConfirmBox: this.deleteItem,
         hideConfirmBox: this.hideDiv,
-        deleteCategory: this.props.requestDeleteCategories
+        deleteCategory: this.props.requestDeleteCategories,
+        categoryStatus: this.toggleStatus
       }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "No Results Found !")))))));
     }
   }]);
@@ -92924,7 +92992,8 @@ function mapStateToProps(store) {
   requestCategories: _actions_categories_action__WEBPACK_IMPORTED_MODULE_3__["requestCategories"],
   requestDeleteCategories: _actions_categories_action__WEBPACK_IMPORTED_MODULE_3__["requestDeleteCategories"],
   requestAddCategories: _actions_categories_action__WEBPACK_IMPORTED_MODULE_3__["requestAddCategories"],
-  requestUpdateCategories: _actions_categories_action__WEBPACK_IMPORTED_MODULE_3__["requestUpdateCategories"]
+  requestUpdateCategories: _actions_categories_action__WEBPACK_IMPORTED_MODULE_3__["requestUpdateCategories"],
+  requestCategoriesStatus: _actions_categories_action__WEBPACK_IMPORTED_MODULE_3__["requestCategoriesStatus"]
 })(CategoriesListContainer));
 
 /***/ }),
@@ -93566,6 +93635,23 @@ var categoriesReducer = function categoriesReducer() {
         sending: false
       });
 
+    case _actions_action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_CHANGE_CATEGORIES_STATUS"]:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        fetching: true
+      });
+
+    case _actions_action_types__WEBPACK_IMPORTED_MODULE_0__["CHANGE_CATEGORIES_STATUS_SUCCESS"]:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        categories: state.categories.map(function (category) {
+          if (category.id === action.resp.id) {
+            return action.resp;
+          }
+
+          return category;
+        }),
+        fetching: false
+      });
+
     case _actions_action_types__WEBPACK_IMPORTED_MODULE_0__["DELETE_CATEGORIES_SUCCESS"]:
       var newCategory = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.filter(state.categories, function (category) {
         return category.id !== action.categoryId;
@@ -94018,7 +94104,7 @@ var resourcesReducer = function resourcesReducer() {
 /*!**********************************************!*\
   !*** ./resources/js/sagas/categoriesSaga.js ***!
   \**********************************************/
-/*! exports provided: CategoryWatcher, submitCategoriesSaga, editCategoriesSaga, deleteCategoriesSaga */
+/*! exports provided: CategoryWatcher, submitCategoriesSaga, editCategoriesSaga, toggleCategoriesStatusSaga, deleteCategoriesSaga */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -94026,6 +94112,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CategoryWatcher", function() { return CategoryWatcher; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "submitCategoriesSaga", function() { return submitCategoriesSaga; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editCategoriesSaga", function() { return editCategoriesSaga; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "toggleCategoriesStatusSaga", function() { return toggleCategoriesStatusSaga; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteCategoriesSaga", function() { return deleteCategoriesSaga; });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
@@ -94044,8 +94131,10 @@ var _marked = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0
     _marked4 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callCategoriesSubmit),
     _marked5 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(editCategoriesSaga),
     _marked6 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callEditCategory),
-    _marked7 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(deleteCategoriesSaga),
-    _marked8 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callDeleteCategory);
+    _marked7 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(toggleCategoriesStatusSaga),
+    _marked8 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callCategoryToggleStatus),
+    _marked9 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(deleteCategoriesSaga),
+    _marked10 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callDeleteCategory);
 
 
 
@@ -94274,16 +94363,16 @@ function callEditCategory(action) {
       }
     }
   }, _marked6);
-} // delete CATEGORIES data from table
+} // change status value
 
 
-function deleteCategoriesSaga() {
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function deleteCategoriesSaga$(_context7) {
+function toggleCategoriesStatusSaga() {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function toggleCategoriesStatusSaga$(_context7) {
     while (1) {
       switch (_context7.prev = _context7.next) {
         case 0:
           _context7.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_DELETE_CATEGORIES"], callDeleteCategory);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_CHANGE_CATEGORIES_STATUS"], callCategoryToggleStatus);
 
         case 2:
         case "end":
@@ -94293,24 +94382,88 @@ function deleteCategoriesSaga() {
   }, _marked7);
 }
 
-function callDeleteCategory(action) {
-  var result;
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callDeleteCategory$(_context8) {
+function callCategoryToggleStatus(action) {
+  var result, resp;
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callCategoryToggleStatus$(_context8) {
     while (1) {
       switch (_context8.prev = _context8.next) {
         case 0:
           _context8.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_categories_api__WEBPACK_IMPORTED_MODULE_4__["deleteCategories"], action.categoryId);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_categories_api__WEBPACK_IMPORTED_MODULE_4__["updateCategoriesStatus"], action.categoryId, action.values);
 
         case 2:
           result = _context8.sent;
+          resp = result.data;
 
           if (!result.errors) {
-            _context8.next = 10;
+            _context8.next = 11;
             break;
           }
 
-          _context8.next = 6;
+          _context8.next = 7;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_CATEGORIES_FAILED"],
+            errors: result.error
+          });
+
+        case 7:
+          error = result.error;
+          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot update status", "error", 5000);
+          _context8.next = 14;
+          break;
+
+        case 11:
+          _context8.next = 13;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_CATEGORIES"]
+          });
+
+        case 13:
+          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Status updated successfully!", "success", 5000);
+
+        case 14:
+        case "end":
+          return _context8.stop();
+      }
+    }
+  }, _marked8);
+} // delete CATEGORIES data from table
+
+
+function deleteCategoriesSaga() {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function deleteCategoriesSaga$(_context9) {
+    while (1) {
+      switch (_context9.prev = _context9.next) {
+        case 0:
+          _context9.next = 2;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_DELETE_CATEGORIES"], callDeleteCategory);
+
+        case 2:
+        case "end":
+          return _context9.stop();
+      }
+    }
+  }, _marked9);
+}
+
+function callDeleteCategory(action) {
+  var result;
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callDeleteCategory$(_context10) {
+    while (1) {
+      switch (_context10.prev = _context10.next) {
+        case 0:
+          _context10.next = 2;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_categories_api__WEBPACK_IMPORTED_MODULE_4__["deleteCategories"], action.categoryId);
+
+        case 2:
+          result = _context10.sent;
+
+          if (!result.errors) {
+            _context10.next = 10;
+            break;
+          }
+
+          _context10.next = 6;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_CATEGORIES_FAILED"],
             errors: result.error
@@ -94319,11 +94472,11 @@ function callDeleteCategory(action) {
         case 6:
           error = result.error;
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Delete failed", "error", 5000);
-          _context8.next = 13;
+          _context10.next = 13;
           break;
 
         case 10:
-          _context8.next = 12;
+          _context10.next = 12;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(_actions_categories_action__WEBPACK_IMPORTED_MODULE_5__["deleteCategoriesSuccess"](action.categoryId));
 
         case 12:
@@ -94331,10 +94484,10 @@ function callDeleteCategory(action) {
 
         case 13:
         case "end":
-          return _context8.stop();
+          return _context10.stop();
       }
     }
-  }, _marked8);
+  }, _marked10);
 }
 
 /***/ }),

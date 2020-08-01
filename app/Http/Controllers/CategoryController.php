@@ -43,7 +43,7 @@ class CategoryController extends Controller
     {
         $validateData = $request->validate([
             'slug'=>'unique:categories',
-            'display_status' => 'required|in:show,hide'
+            'display_status' => 'required|in:0,1'
         ]);
 
         Category::create([
@@ -89,7 +89,7 @@ class CategoryController extends Controller
     {
         $validateData = $request->validate([
             'slug'=>'unique:categories',
-            'display_status' => 'required|in:show,hide'
+            'display_status' => 'required|in:0,1'
         ]);
 
         $category->update($request->all());
