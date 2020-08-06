@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Category;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class CategoryResource extends JsonResource
@@ -17,7 +18,7 @@ class CategoryResource extends JsonResource
         return [
             'id' => $this->id,
             'slug' => $this->slug,
-            'parent' => ($this->parent_id !== 0) ? route('categories.show', $this->parent_id) : 'No Parent',
+            'parent' => ($this->parent_id !== 0) ? Category::find($this->parent_id)->slug : 'No Parent',
             'display_status' => $this->display_status,
             'order' => $this->order,
             'category-translations' => [
