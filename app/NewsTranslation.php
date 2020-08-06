@@ -11,4 +11,8 @@ class NewsTranslation extends Model
     public function news() {
         return $this->belongsTo('App\News');
     }
+
+    public function language() {
+        return $this->belongsTo('App\Language');
+    }
 }

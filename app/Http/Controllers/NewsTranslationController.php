@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\NewsTranslationResource;
 use App\NewsTranslation;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,7 @@ class NewsTranslationController extends Controller
     {
         $translations = NewsTranslation::all();
 
-        return response()->json($translations);
+        return NewsTranslationResource::collection($translations);
     }
 
     /**
@@ -57,7 +58,7 @@ class NewsTranslationController extends Controller
      */
     public function show(NewsTranslation $news_translation)
     {
-        return response()->json($news_translation);
+        return new NewsTranslationResource($news_translation);
     }
 
     /**

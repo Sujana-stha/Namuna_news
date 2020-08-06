@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ResourcesTranslationResource;
 use App\ResourceTranslation;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,7 @@ class ResourceTranslationController extends Controller
     {
         $translations = ResourceTranslation::all();
 
-        return response()->json($translations);
+        return ResourcesTranslationResource::collection($translations);
     }
 
     /**
@@ -56,7 +57,7 @@ class ResourceTranslationController extends Controller
      */
     public function show(ResourceTranslation $resource_translation)
     {
-        return response()->json($resource_translation);
+        return new ResourcesTranslationResource($resource_translation);
     }
 
     /**
