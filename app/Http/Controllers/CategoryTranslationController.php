@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\CategoryTranslation;
+use App\Http\Resources\CategoryTranslationResource;
 use Illuminate\Http\Request;
 
 class CategoryTranslationController extends Controller
@@ -19,7 +20,7 @@ class CategoryTranslationController extends Controller
     {
         $translations = CategoryTranslation::all();
 
-        return response()->json($translations);
+        return CategoryTranslationResource::collection($translations);
     }
 
     /**
@@ -59,7 +60,7 @@ class CategoryTranslationController extends Controller
      */
     public function show(CategoryTranslation $categoryTranslation)
     {
-        return response()->json($categoryTranslation);
+        return new CategoryTranslationResource($categoryTranslation);
     }
 
     /**
