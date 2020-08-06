@@ -17,8 +17,8 @@ class NewsResource extends JsonResource
         return [
             'id' => $this->id,
             'slug' => $this->slug,
-            'category' => $this->category->slug,
-            'province' => $this->province->slug,
+            'category' => collect($this->category)->only('id','slug'),
+            'province' => collect($this->province)->only('id','slug'),
             'status' => $this->status,
             'keywords' => $this->keywords,
             'order' => $this->order,
