@@ -11,4 +11,8 @@ class ProvinceTranslation extends Model
     public function province() {
         return $this->belongsTo('App\Province');
     }
+
+    public function language() {
+        return $this->belongsTo('App\Language');
+    }
 }

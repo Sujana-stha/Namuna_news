@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ProvinceTranslationResource;
 use App\ProvinceTranslation;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,7 @@ class ProvinceTranslationController extends Controller
     {
         $translations = ProvinceTranslation::all();
 
-        return response()->json($translations);
+        return ProvinceTranslationResource::collection($translations);
     }
 
     /**
@@ -59,7 +60,7 @@ class ProvinceTranslationController extends Controller
      */
     public function show(ProvinceTranslation $provinceTranslation)
     {
-        return response()->json($provinceTranslation);
+        return new ProvinceTranslationResource($provinceTranslation);
     }
 
     /**
