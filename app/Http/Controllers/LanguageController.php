@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\LanguageResource;
 use App\Language;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -21,7 +22,7 @@ class LanguageController extends Controller
     {
         $languages = Language::all();
 
-        return response()->json($languages);
+        return LanguageResource::collection($languages);
     }
 
     /**
@@ -60,7 +61,7 @@ class LanguageController extends Controller
      */
     public function show(Language $language)
     {
-        return response()->json($language);
+        return new LanguageResource($language);
     }
 
     /**
