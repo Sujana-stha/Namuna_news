@@ -44,12 +44,12 @@ class ProvinceController extends Controller
     {
         $request->validate([
             'slug'=>'required|unique:provinces',
-            'display_order'=>'required|in:show,hide'
+            'display_status'=>'required|in:0,1'
         ]);
 
         Province::create([
             'slug'=>$request->slug,
-            'display_order'=>$request->display_order,
+            'display_status'=>$request->display_status,
             'order'=>Province::max('order')+1
         ]);
 
