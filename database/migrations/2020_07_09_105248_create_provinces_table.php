@@ -16,7 +16,7 @@ class CreateProvincesTable extends Migration
         Schema::create('provinces', function (Blueprint $table) {
             $table->id();
             $table->string('slug', 100);
-            $table->enum('display_status', ['show','hide']);
+            $table->enum('display_status', ['0','1']);
             $table->integer('order');
             $table->timestamps();
         });
