@@ -17,8 +17,10 @@ export function getCategories() {
 
 // ADD NEW CATEGORIES API
 export function addCategories(values) {
+    // console.log(values);
     const access_token = window.localStorage.getItem('access_token')
     const headers = getHeaders(access_token)
+    console.log(headers);
     return axios.post('/api/categories', values,{headers})
     .catch(error=> {
         console.log(error)

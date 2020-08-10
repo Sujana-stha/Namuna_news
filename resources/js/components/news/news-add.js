@@ -24,7 +24,7 @@ const onFileChange = async (e) => {
     const { input } = this.props
     const targetFile = e.target.files[0]
     if (targetFile) {
-      
+
       input.onChange(val)
     } else {
       input.onChange(null)
@@ -53,7 +53,7 @@ let InsertNews = props => {
                         <h3 className="card-title">Add News</h3>
                     </div>
 
-                    <form onSubmit={handleSubmit} >
+                    <form onSubmit={handleSubmit}>
                         <div className="card-body">
                             <Field
                                 label="Enter Title"

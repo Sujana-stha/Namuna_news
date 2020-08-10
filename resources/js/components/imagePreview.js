@@ -42,7 +42,7 @@ import Dropzone from 'react-dropzone';
 // export default ImagePreviewField;
 class ImagePreviewField extends Component {
 
-    
+
     onFileChange (e) {
       console.log(e)
       console.log("p", this.props)
@@ -54,12 +54,13 @@ class ImagePreviewField extends Component {
         this.props.input.onChange(null)
       }
     }
-  
+
     render() {
-  
+
       return (
         <input
           type="file"
+          name="featured_image"
           onChange={this.onFileChange.bind(this)}
         />
       )

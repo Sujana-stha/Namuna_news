@@ -100793,8 +100793,10 @@ function getCategories() {
 } // ADD NEW CATEGORIES API
 
 function addCategories(values) {
+  // console.log(values);
   var access_token = window.localStorage.getItem('access_token');
   var headers = Object(_axiosInstance__WEBPACK_IMPORTED_MODULE_0__["getHeaders"])(access_token);
+  console.log(headers);
   return _axiosInstance__WEBPACK_IMPORTED_MODULE_0__["default"].post('/api/categories', values, {
     headers: headers
   })["catch"](function (error) {
@@ -101096,16 +101098,16 @@ function formValues(values) {
   formData.append('keywords', values.keywords);
   formData.append('news_label', values.news_label);
   formData.append('province_id', values.province_id);
-  formData.append('status', values.status); // if(images) { images.map(image=>{
-
-  formData.append('featured_image', images); // })
-  // }
+  formData.append('status', values.status);
+  formData.append('featured_image', images);
+  return formData;
 } // ADD NEW NEWS API
 
 
 function addNews(values) {
   var access_token = window.localStorage.getItem('access_token');
   var headers = Object(_axiosInstance__WEBPACK_IMPORTED_MODULE_0__["getHeaders"])(access_token);
+  console.log(headers);
   var data = formValues(values);
   return _axiosInstance__WEBPACK_IMPORTED_MODULE_0__["default"].post('/api/news', data, {
     headers: headers
@@ -102727,6 +102729,7 @@ var ImagePreviewField = /*#__PURE__*/function (_Component) {
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "file",
+        name: "featured_image",
         onChange: this.onFileChange.bind(this)
       });
     }
@@ -112436,8 +112439,8 @@ sagaMiddleware.run(_sagas_main__WEBPACK_IMPORTED_MODULE_3__["default"]);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! E:\Freelancing\Namuna-news\namuna_news\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! E:\Freelancing\Namuna-news\namuna_news\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! F:\xampp\htdocs\namunarestapi\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! F:\xampp\htdocs\namunarestapi\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
