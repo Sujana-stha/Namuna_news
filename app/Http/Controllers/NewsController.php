@@ -44,10 +44,11 @@ class NewsController extends Controller
             "category_id"=>"required|min:1",
             "province_id"=>"required|min:1",
             "status"=>"required",
-            "author_id"=>"required|min:1",
             "news_label"=>"required",
             "featured_image"=>"required|mimes:jpg,jpeg,png"
         ]);
+
+        $featured_image = $request->file('featured_image')->store('public/news');
 
         News::create([
             "slug"=>$request->slug,
@@ -56,9 +57,9 @@ class NewsController extends Controller
             "status"=>$request->status,
             "order"=>News::max('order')+1,
             "keywords"=>$request->keywords,
-            "author_id"=>$request->author_id,
+            "author_id"=>auth()->id(),
             "news_label"=>$request->news_label,
-            "featured_image"=>$request->featured_image,
+            "featured_image"=>$featured_image,
         ]);
 
         return response(['success'=>'News stored successfully'], 201);
@@ -95,7 +96,15 @@ class NewsController extends Controller
      */
     public function update(Request $request, News $news)
     {
-        $news->update($request->all());
+        $featured_image = $news->featured_image;
+
+        if($request->file('featured_image')) {
+            \Storage::delete($featured_image);
+            $featured_image = $request->file('featured_image')->store('public/news');
+            $news->update(['featured_image'=>$featured_image]);
+        }
+
+        $news->update($request->except('featured_image'));
 
         return response(['success'=>'News updated successfully'], 200);
     }
