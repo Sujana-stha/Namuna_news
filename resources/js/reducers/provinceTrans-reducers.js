@@ -1,0 +1,54 @@
+import * as types from '../actions/action-types';
+import _ from 'lodash';
+
+const initialState = {
+    provincesTrans: [],
+    fetching: false,
+    sending: false
+}
+
+const provincesTransReducer =  function(state = initialState, action) {
+    switch(action.type) {
+        
+        case types.REQUEST_PROVINCE_TRANSLATION: 
+            console.log(state);
+
+            return {...state, fetching: true};
+           
+        case types.GET_PROVINCE_TRANSLATION_SUCCESS:
+            return Object.assign({}, state, {
+                provincesTrans: action.provincesTrans,
+                fetching: false,
+                sending: false
+            })
+        
+        case types.REQUEST_ADD_PROVINCE_TRANSLATION:
+            return {...state, sending: true}
+
+        case types.REQUEST_EDIT_PROVINCE_TRANSLATION:
+            return {...state, sending: true}
+
+        case types.EDIT_PROVINCE_TRANSLATION_SUCCESS:
+            return {
+                ...state, 
+                provincesTrans: state.provincesTrans.map(provinceTrans => {
+                    if (provinceTrans.id === action.resp.id) {
+                    return action.resp;
+                    }
+                    return provinceTrans;
+                }),
+                sending: false
+            };
+        
+            case types.DELETE_PROVINCE_TRANSLATION_SUCCESS:
+                const newProvincesTrans = _.filter(state.provincesTrans, provinceTrans => provinceTrans.id !== action.provinceTransId);
+                return Object.assign({}, state, {
+                    provincesTrans: newProvincesTrans
+                });
+    
+            default: 
+            return state;
+    }
+}
+
+export default provincesTransReducer;

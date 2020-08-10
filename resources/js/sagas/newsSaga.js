@@ -4,7 +4,7 @@ import * as types from '../actions/action-types';
 import * as api from '../api/news-api';
 import * as newsAction from '../actions/news-action';
 import {notify} from 'react-notify-toast';
-
+import { push } from 'connected-react-router';
 
 //Get news data in table
 export function* NewsWatcher() {
@@ -31,6 +31,7 @@ export function* submitNewsSaga() {
 function* callNewsSubmit(action) {
     yield put(startSubmit('AddNews'));
     let error = {};
+    console.log('action-news', action)
     const result =  yield call(api.addNews, action.values);
     const resp = result.data
 
@@ -44,7 +45,8 @@ function* callNewsSubmit(action) {
     } else {
         // yield put({type: types.ADD_CATEGORIES_SUCCESS, resp, message: result.statusText});
         yield put({type: types.REQUEST_NEWS})
-        notify.show("News created successfully!", "success", 5000)
+        notify.show("News created successfully!", "success", 5000);
+        yield put(push('/news'));
     }
     yield put(stopSubmit('AddNews', error));
     yield put(reset('AddNews'));
@@ -69,6 +71,7 @@ function* callEditNews (action) {
         // yield put({type: types.UPDATE_CATEGORIES_SUCCESS, resp, message: result.statusText});
         yield put({type: types.REQUEST_NEWS})
         notify.show("Updated successfully!", "success", 5000)
+        yield put(push('/news'));
     }
     yield put(stopSubmit('EditNews', error));
     yield put(reset('EditNews'));

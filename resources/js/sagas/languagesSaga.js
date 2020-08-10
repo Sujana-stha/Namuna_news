@@ -14,7 +14,7 @@ function* LanguageSaga(action) {
     console.log('aaa', action);
     const response = yield call(api.getLanguages);
     console.log('cat', response)
-    const languages = response.data
+    const languages = response.data.data
     if (response.errors) {
         yield put({ type: types.REQUEST_LANGUAGES_FAILED, errors: response.error});
         error = response.errors;
@@ -84,7 +84,8 @@ export function* deleteLanguagesSaga() {
 }
 
 function* callDeleteLanguage(action) {
-    const result = yield call(api.deleteLanguages, action.LanguageId);
+    console.log('saga',action )
+    const result = yield call(api.deleteLanguages, action.languageId);
 
     if(result.errors) {
         yield put({ type: types.REQUEST_LANGUAGES_FAILED, errors: result.error});

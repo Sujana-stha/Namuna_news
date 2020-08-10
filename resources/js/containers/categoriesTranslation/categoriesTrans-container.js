@@ -1,0 +1,144 @@
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import store from '../../store';
+import { requestCategoriesTranslation, requestDeleteCategoriesTranslation, requestAddCategoriesTranslation, requestUpdateCategoriesTranslation } from '../../actions/categoriesTranslation-action';
+import {requestCategories} from '../../actions/categories-action';
+import {requestLanguages} from '../../actions/languages-action';
+
+//COMPONENT
+import CategoryTransForm from '../../components/categoriesTranslation/categoriesTrans-add';
+import EditCategoryTrans from '../../components/categoriesTranslation/categoriesTrans-edit';
+import CategoriesTransList from '../../components/categoriesTranslation/categoriesTrans';
+import Loading from '../../components/loading';
+
+class CategoriesTransListContainer extends Component {
+    constructor() {
+        super();
+        this.state = {
+            isEditing: false,
+            confirmText: null,
+            
+        }
+        this.editCategoriesTrans = this.editCategoriesTrans.bind(this)
+        this.deleteItem = this.deleteItem.bind(this)
+        this.hideDiv = this.hideDiv.bind(this)
+        // this.toggleStatus = this.toggleStatus.bind(this)
+    }
+
+    componentDidMount() {
+        // call action to run the relative saga
+        this.props.requestCategories();
+        this.props.requestCategoriesTranslation();
+        this.props.requestLanguages();
+        console.log(this.props)
+
+    }
+
+    // submit function for new data
+    submitCategoryTrans(values) {
+        console.log('val', values)
+        this.props.requestAddCategoriesTranslation(values);
+    }
+
+    // submit function to update data
+    submitEditCategoryTrans(values) {
+        
+        this.props.requestUpdateCategoriesTranslation(values);
+        this.setState({
+            isEditing: false
+        })
+    }
+
+    //function to call form of edit
+    editCategoriesTrans(values) {
+        this.setState({
+            isEditing: values
+        })
+    }
+
+    
+    deleteCategoryTrans(categoryTransId) {
+        this.props.requestDeleteCategoriesTranslation(categoryTransId);
+    }
+
+    deleteItem(id) {
+        this.setState({
+            confirmText: id
+        })
+    }
+
+    hideDiv() {
+        this.setState({ confirmText: null })
+    }
+
+    render() {
+        console.log('prp', this.props)
+        return (
+            <div className="nm-content">
+                <div className="row">
+                    <div className="col-sm-12 col-md-4 col-lg-4">
+                        {this.state.isEditing ? (
+                            <EditCategoryTrans
+                                onSubmit={this.submitEditCategoryTrans.bind(this)}
+                                editId={this.state.isEditing} categories={this.props.categories} languages={this.props.languages} />
+                        ) : (
+                                <CategoryTransForm onSubmit={this.submitCategoryTrans.bind(this)} categories={this.props.categories} languages={this.props.languages}/>
+                            )}
+
+                    </div>
+                    <div className="col-sm-12 col-md-8 col-lg-8">
+                        {/* {this.props.fetching ? (
+                                <Loading />
+                            ) : (
+                                <div className="wr-not-loading"></div>
+                        )} */}
+                        <table className="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>S.N</th>
+                                    <th >Title</th>
+                                    <th>Category</th>
+                                    <th>Language</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            
+                            {this.props.categoriesTrans.length ? (
+                                <CategoriesTransList
+                                    categoriesTrans={this.props.categoriesTrans}
+                                    onEditCategoryTrans={this.editCategoriesTrans}
+                                    confirmText={this.state.confirmText}
+                                    showConfirmBox={this.deleteItem}
+                                    hideConfirmBox={this.hideDiv}
+                                    deleteCategoryTrans={this.props.requestDeleteCategoriesTranslation}
+                                    categories={this.props.categories}
+                                    languages={this.props.languages}
+                                />
+
+                            ) : (
+                                    <tbody>
+                                        <tr>
+                                            <td >No Results Found !</td>
+                                        </tr>
+                                    </tbody>
+                                )}
+                        </table>
+                        
+                    </div>
+                </div>
+            </div>
+        );
+    }
+};
+
+function mapStateToProps(store) {
+    
+    return {
+        categoriesTrans: store.categoryTransState.categoriesTrans,
+        categories: store.categoryState.categories,
+        languages: store.languageState.languages,
+        fetching: store.categoryState.fetching
+    }
+}
+
+export default connect(mapStateToProps, { requestCategories, requestCategoriesTranslation, requestDeleteCategoriesTranslation, requestAddCategoriesTranslation, requestUpdateCategoriesTranslation, requestLanguages })(CategoriesTransListContainer);

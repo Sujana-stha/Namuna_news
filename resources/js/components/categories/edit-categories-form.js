@@ -64,9 +64,8 @@ class EditCategory extends Component {
                                     name="display_status"
                                     component={this.renderSelectField}
                                 >
-                                    <option value="">Choose your option</option>
-                                    <option value="hide">Hide</option>
-                                    <option value="show">Show</option>
+                                    <option value="1">Show</option>
+                                    <option value="0">Hide</option>
                                 </Field>
                                 <Field
                                     label="Select Parent Category"
@@ -80,7 +79,6 @@ class EditCategory extends Component {
                                             <option key={category.id} value={category.id}>{category.slug}</option>
                                         )
                                     })}
-                                    <option value="show">Show</option>
                                 </Field>
                             </div>
                             <div className="card-footer">

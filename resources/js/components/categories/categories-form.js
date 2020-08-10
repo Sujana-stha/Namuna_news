@@ -39,48 +39,46 @@ const CategoryForm = props => {
                     <div className="card-header">
                         <h3 className="card-title">Add Categories</h3>
                     </div>
-                
-            
 
-            <form onSubmit={handleSubmit} >
-                <div className="card-body">
-                    <Field
-                        label="Enter Category"
-                        id="categories"
-                        name="slug"
-                        type="text"
-                        placeholder="Enter Catergory"
-                        component={renderInputField}
-                    />
-                    <Field
-                        label="Select Status"
-                        name="display_status"
-                        component={renderSelectField}
-                    >
-                        <option value="">Choose your option</option>
-                        <option value="hide">Hide</option>
-                        <option value="show">Show</option>
-                    </Field>
-                    <Field
-                        label="Select Parent Category"
-                        name="parent_id"
-                        component={renderSelectField}
-                    >
-                        <option value="">Choose your option</option>
-                        <option value="0">Parent Category</option>
-                        {props.categories.map(category => {
-                            return (
-                            <option key={category.id} value={category.id}>{category.slug}</option>
-                            )
-                        })}
-                        <option value="show">Show</option>
-                    </Field>
+                    <form onSubmit={handleSubmit} >
+                        <div className="card-body">
+                            <Field
+                                label="Enter Category"
+                                id="categories"
+                                name="slug"
+                                type="text"
+                                placeholder="Enter Catergory"
+                                component={renderInputField}
+                            />
+                            <Field
+                                label="Select Status"
+                                name="display_status"
+                                component={renderSelectField}
+                            >
+                                <option value="">Choose your option</option>
+                                <option value="0">Hide</option>
+                                <option value="1">Show</option>
+                            </Field>
+                            <Field
+                                label="Select Parent Category"
+                                name="parent_id"
+                                component={renderSelectField}
+                            >
+                                <option value="">Choose your option</option>
+                                <option value="0">Parent Category</option>
+                                {props.categories.map(category => {
+                                    return (
+                                        <option key={category.id} value={category.id}>{category.slug}</option>
+                                    )
+                                })}
+                                <option value="show">Show</option>
+                            </Field>
+                        </div>
+                        <div className="card-footer">
+                            <button type="submit" className="btn btn-primary">Submit</button>
+                        </div>
+                    </form>
                 </div>
-                <div className="card-footer">
-                    <button type="submit" className="btn btn-primary">Submit</button>
-                </div>
-            </form>
-            </div>
             </div>
         </div>
 

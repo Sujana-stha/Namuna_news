@@ -6,7 +6,7 @@ class EditLanguages extends Component {
     componentDidMount() {
         const id = this.props.editId;
         languageApi.getSingleLanguages(id).then((response)=> {
-            const data =  response.data;
+            const data =  response.data.data;
             this.props.initialize(data);
         })  
     }
@@ -29,7 +29,7 @@ class EditLanguages extends Component {
             <div className="col-md-12 col-xs-12 col-lg-12">
                 <div className="card card-primary">
                     <div className="card-header">
-                        <h3 className="card-title">Add Languages</h3>
+                        <h3 className="card-title">Edit Languages</h3>
                     </div>
 
                     <form onSubmit={handleSubmit} >

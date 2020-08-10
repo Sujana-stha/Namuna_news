@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import store from '../../store';
 import { requestCategories, requestDeleteCategories, requestAddCategories, requestUpdateCategories, requestCategoriesStatus } from '../../actions/categories-action';
+import $ from 'jquery';
 
 //COMPONENT
 import CategoryForm from '../../components/categories/categories-form';
@@ -27,7 +28,9 @@ class CategoriesListContainer extends Component {
         // call action to run the relative saga
         this.props.requestCategories();
         console.log(this.props)
-
+        $("input[data-bootstrap-switch]").each(function(){
+            $(this).bootstrapSwitch();
+        });
     }
 
     // submit function for new data
@@ -101,6 +104,7 @@ class CategoriesListContainer extends Component {
                                 <tr>
                                     <th>S.N</th>
                                     <th >Title</th>
+                                    <th>Parent Category</th>
                                     <th>Action</th>
                                     <th>Status</th>
                                 </tr>

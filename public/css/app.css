@@ -10974,3 +10974,94 @@ a.text-dark:focus {
   text-decoration: underline;
 }
 
+.nm-uploader .drop-zone {
+  width: 100%;
+  height: 150px;
+  border: 2px solid #e5e5e5;
+  padding: 5px 10px;
+  font-size: 15px;
+  transition: border-color 0.15s linear;
+  cursor: pointer;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+.nm-uploader .drop-zone i {
+  font-size: 4rem;
+  margin-top: 15px;
+}
+
+.nm-uploader .drop-zone span {
+  font-size: 18px;
+}
+
+.nm-uploader .drop-zone:hover {
+  background-size: 30px 30px;
+  background-image: linear-gradient(-45deg, #F6F6F6 25%, transparent 25%, transparent 50%, #F6F6F6 50%, #F6F6F6 75%, transparent 75%, transparent);
+  -webkit-animation: stripes 2s linear infinite;
+  animation: stripes 2s linear infinite;
+}
+
+.nm-uploader .nm-images {
+  height: auto;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.nm-uploader .nm-images .nm-image-list {
+  position: relative;
+  height: 200px;
+  width: 225px;
+  display: inline-block;
+  margin: 10px;
+}
+
+.nm-uploader .nm-images .nm-image-list span {
+  padding-left: 25px !important;
+}
+
+.nm-uploader .nm-images .nm-image-list img {
+  width: 200px;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.nm-uploader .nm-images .nm-image-list .overlay {
+  position: absolute;
+  bottom: 0;
+  left: 25px;
+  top: 0px;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  width: 0;
+  height: 200px;
+  transition: 0.5s ease;
+}
+
+.nm-uploader .nm-images .nm-image-list .close {
+  display: none;
+  position: absolute;
+  z-index: 7;
+  background: none;
+  border: 2px solid #FFF;
+  font-size: 11px;
+  padding: 4px 8px;
+  font-weight: bold;
+  color: #FFF;
+  transition: all 0.15s linear;
+  top: 10px;
+  right: 10px;
+}
+
+.nm-uploader .nm-images .nm-image-list:hover .overlay {
+  width: 200px;
+  height: 200px;
+}
+
+.nm-uploader .nm-images .nm-image-list:hover .close {
+  display: block;
+  background: rgba(255, 255, 255, 0.2);
+}
+

@@ -73,27 +73,71 @@ class Sidebar extends Component {
                                 </ul>
                             </li>
                             <li className="nav-item has-treeview">
+                                <NavLink to="/categrories-translation" className="nav-link">
+                                    <i className="nav-icon fas fa-globe"></i>
+                                    <p>
+                                        Categories Translation
+                                    </p>
+                                </NavLink>
+                                
+                            </li>
+                            <li className="nav-item has-treeview">
                                 <NavLink to="/languages" className="nav-link">
                                     <i className="nav-icon fas fa-globe"></i>
                                     <p>
                                         Languages
-                                        {/* <i className="right fas fa-angle-left"></i> */}
                                     </p>
                                 </NavLink>
-                                {/* <ul className="nav nav-treeview">
-                                    <li className="nav-item">
-                                        <a href="pages/charts/chartjs.html" className="nav-link">
-                                            <i className="far fa-circle nav-icon"></i>
-                                            <p>Languages List</p>
-                                        </a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a href="pages/charts/flot.html" className="nav-link">
-                                            <i className="far fa-circle nav-icon"></i>
-                                            <p>Add Languages</p>
-                                        </a>
-                                    </li>
-                                </ul> */}
+                                
+                            </li>
+                            <li className="nav-item has-treeview">
+                                <NavLink to="/news" className="nav-link">
+                                    <i className="nav-icon fas fa-globe"></i>
+                                    <p>
+                                        News
+                                    </p>
+                                </NavLink>
+                                
+                            </li>
+                            <li className="nav-item has-treeview">
+                                <NavLink to="/news-translation" className="nav-link">
+                                    <i className="nav-icon fas fa-globe"></i>
+                                    <p>
+                                        News Translation
+                                    </p>
+                                </NavLink>
+                            </li>
+                            <li className="nav-item has-treeview">
+                                <NavLink to="/provinces" className="nav-link">
+                                    <i className="nav-icon fas fa-globe"></i>
+                                    <p>
+                                        Provinces
+                                    </p>
+                                </NavLink>
+                            </li>
+                            <li className="nav-item has-treeview">
+                                <NavLink to="/provinces-translation" className="nav-link">
+                                    <i className="nav-icon fas fa-globe"></i>
+                                    <p>
+                                        Provinces Translation
+                                    </p>
+                                </NavLink>
+                            </li>
+                            <li className="nav-item has-treeview">
+                                <NavLink to="/resources" className="nav-link">
+                                    <i className="nav-icon fas fa-globe"></i>
+                                    <p>
+                                        Resources
+                                    </p>
+                                </NavLink>
+                            </li>
+                            <li className="nav-item has-treeview">
+                                <NavLink to="/translated-resources" className="nav-link">
+                                    <i className="nav-icon fas fa-globe"></i>
+                                    <p>
+                                        Resources Translation
+                                    </p>
+                                </NavLink>
                             </li>
                         </ul>
                     </nav>
