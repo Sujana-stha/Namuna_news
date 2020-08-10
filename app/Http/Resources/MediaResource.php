@@ -19,6 +19,7 @@ class MediaResource extends JsonResource
             'type' => $this->type,
             'url' => $this->url,
             'status' => $this->status,
+            'keywords' => $this->keywords,
             'videos' => $this->videoResources,
             'translations' => [$this->resourceTranslations]
         ];
