@@ -87,12 +87,12 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        $validateData = $request->validate([
-            'slug'=>'unique:categories',
-            'display_status' => 'required|in:0,1'
+        $category->update([
+            'slug'=>$request->slug,
+            'parent_id'=>$request->parent_id,
+            'display_status'=>$request->display_status,
+            'order'=>$request->order
         ]);
-
-        $category->update($request->all());
 
         return response(['success'=>'Category updated successfully'], 200);
     }

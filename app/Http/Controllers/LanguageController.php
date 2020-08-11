@@ -84,11 +84,6 @@ class LanguageController extends Controller
      */
     public function update(Request $request, Language $language)
     {
-        $validateData = $request->validate([
-            'code'=>'unique:languages|max:3',
-            'language'=>'max:20'
-        ]);
-
         $language->update($request->all());
 
         return response(['success'=>'Language updated successfully'], 200);

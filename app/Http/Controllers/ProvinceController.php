@@ -88,11 +88,6 @@ class ProvinceController extends Controller
      */
     public function update(Request $request, Province $province)
     {
-        $request->validate([
-            'slug'=>'unique:provinces',
-            'display_status'=>'in:hide,show'
-        ]);
-
         $province->update($request->all());
 
         return response(['success'=>'Province updated successfully'], 200);
