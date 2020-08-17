@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Storage;
 
 class NewsResource extends JsonResource
 {
@@ -24,7 +25,7 @@ class NewsResource extends JsonResource
             'order' => $this->order,
             'author' => $this->author->name,
             'news_label' => $this->news_label,
-            'featured_image' => $this->featured_image,
+            'featured_image' => Storage::url($this->featured_image),
             'news_translations' => [$this->newsTranslations]
         ];
     }
