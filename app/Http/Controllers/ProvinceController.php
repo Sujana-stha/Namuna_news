@@ -19,7 +19,7 @@ class ProvinceController extends Controller
      */
     public function index()
     {
-        $provinces = Province::all();
+        $provinces = Province::paginate(10);
 
         return ProvinceResource::collection($provinces);
     }

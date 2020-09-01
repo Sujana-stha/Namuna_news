@@ -1,4 +1,5 @@
 import React from 'react';
+import Switch from 'react-switch';
 
 const CategoriesList = (props) => {
     return (
@@ -6,7 +7,7 @@ const CategoriesList = (props) => {
             {props.categories.map((category, index) => {
                 return (
                     <tr key={category.id} className={`row-${category.id}`}>
-                        <td>{index}</td>
+                        <td>{((props.activePage-1)*props.itemsCountPerPage)+(index+1)}</td>
                         <td>{category.slug == null ? '-': category.slug}</td>
                         <td>{category.parent =="No Parent" ? '-': category.parent}</td>
                         <td className="action">
@@ -21,16 +22,30 @@ const CategoriesList = (props) => {
                             ): null}
                         </td>
                         <td>
-                            <div className="switch">
-                                <label>
-                                    {category.display_status== 1 ? (
-                                        <input onClick={() => props.categoryStatus(category.id, category.display_status)} defaultChecked type="checkbox" value={category.display_status} />
+                            <div className="nm-switch">
+                                    {category.display_status == 1 ? (
+                                        <Switch 
+                                        onChange={() => props.categoryStatus(category.id, category.display_status)} 
+                                        checked 
+                                        className="react-switch"
+                                        />
+                                    ):
+                                        <Switch 
+                                        onChange={() => props.categoryStatus(category.id, category.display_status)} 
+                                        checked ={props.isChecked}
+                                        className="react-switch"
+                                        />
+                                    }
+                                    
+                                    {/* {category.display_status== 1 ? (
+                                        <input onClick={() => props.categoryStatus(category.id, category.display_status)} defaultChecked type="checkbox" className="custom-control-input" value={category.display_status} />
 
                                     ) :
-                                        <input onClick={() => props.categoryStatus(category.id, category.display_status)} type="checkbox" value={category.display_status} />
+                                    <input onClick={() => props.categoryStatus(category.id, category.display_status)}  type="checkbox" className="custom-control-input" value={category.display_status} />
                                     }
-                                    <span className="lever"></span>
-                                </label>
+                                    Show */}
+                                    {/* <span className="lever"></span> */}
+                            
                             </div>
                         </td>
                     </tr>

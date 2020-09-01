@@ -16,15 +16,22 @@ function* loginFlow(action) {
         const result =  yield call(api.login, action.data)
         console.log('saga',result);
         const resp= result.data;
+        var hours = 1
+        var now = new Date().getTime();
+        // var setupTime = localStorage.getItem('setupTime'); 
+        
         if(result.status == 200) {
             window.localStorage.setItem("access_token", resp.access_token);
-            window.localStorage.setItem("refresh_token", resp.refresh_token);
+            // window.localStorage.setItem("refresh_token", resp.refresh_token);
+            localStorage.setItem('setupTime', now)
+
             yield put({ type: types.LOGIN_SUCCESS, resp});
             // yield put({type: types.REQUEST_LOGGED_USER});
             yield put(push('/'));
             // notify.show("Login Successfull!", "success", 5000);
         } else if(result.errors) {
             notify.show("Incorrect Email or Password!","error",5000);
+            localStorage.clear();
         }
     } catch(error) {
         yield put({type: types.LOGIN_ERROR, error})

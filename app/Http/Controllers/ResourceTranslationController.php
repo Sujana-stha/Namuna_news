@@ -15,7 +15,7 @@ class ResourceTranslationController extends Controller
      */
     public function index()
     {
-        $translations = ResourceTranslation::all();
+        $translations = ResourceTranslation::paginate(10);
 
         return ResourcesTranslationResource::collection($translations);
     }

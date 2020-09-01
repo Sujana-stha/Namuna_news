@@ -18,7 +18,7 @@ class CategoryTranslationController extends Controller
      */
     public function index()
     {
-        $translations = CategoryTranslation::all();
+        $translations = CategoryTranslation::paginate(10);
 
         return CategoryTranslationResource::collection($translations);
     }

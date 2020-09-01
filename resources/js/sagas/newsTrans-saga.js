@@ -14,7 +14,7 @@ function* NewsTransSaga(action) {
     console.log('aaa', action);
     const response = yield call(api.getNewsTrans);
     console.log('cat', response)
-    const newsTrans = response.data
+    const newsTrans = response
     if (response.errors) {
         yield put({ type: types.REQUEST_NEWS_TRANSLATION_FAILED, errors: response.error});
         error = response.errors;
@@ -33,6 +33,7 @@ function* callNewsTransSubmit(action) {
     let error = {};
     const result =  yield call(api.addNewsTrans, action.values);
     const resp = result.data
+    const pageNumber= action.pageNumber
 
     if ((result.errors && !resp.success)|| (result.errors || !resp.success)) {
         yield put({ type: types.REQUEST_NEWS_TRANSLATION_FAILED, errors: result.error || resp.errormsg});
@@ -43,7 +44,7 @@ function* callNewsTransSubmit(action) {
         notify.show("Cannot create new News Translation!", "error", 5000)
     } else {
         // yield put({type: types.ADD_CATEGORIES_SUCCESS, resp, message: result.statusText});
-        yield put({type: types.REQUEST_NEWS_TRANSLATION})
+        yield put({type: types.REQUEST_NEWS_TRANSLATION, pageNumber})
         notify.show("News Translation created successfully!", "success", 5000)
         yield put(push('/news-translation'));
     }
@@ -61,14 +62,15 @@ function* callEditNewsTrans (action) {
     let error = {};
     const result =  yield call(api.updateNewsTrans, action.values.id, action.values);
     const resp = result.data;
-    
+    const pageNumber= action.pageNumber
+   
     if (result.errors) {
         yield put({ type: types.REQUEST_NEWS_TRANSLATION_FAILED, errors: result.error});
         error = result.error;
         notify.show("Update failed", "error", 5000)
     } else {
         // yield put({type: types.UPDATE_CATEGORIES_SUCCESS, resp, message: result.statusText});
-        yield put({type: types.REQUEST_NEWS_TRANSLATION})
+        yield put({type: types.REQUEST_NEWS_TRANSLATION, pageNumber})
         notify.show("Updated successfully!", "success", 5000)
         yield put(push('/news-translation'));
     }

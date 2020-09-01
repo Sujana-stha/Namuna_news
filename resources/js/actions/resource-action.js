@@ -1,9 +1,10 @@
 import * as types from './action-types';
 
 //GET LIST OF RESOURCES
-export function requestResources() {
+export function requestResources(pageNumber) {
     return {
-        type: types.REQUEST_RESOURCES
+        type: types.REQUEST_RESOURCES,
+        pageNumber
     }
 }
 
@@ -21,10 +22,10 @@ export function requestResourcesFailed() {
 }
 
 // ADD NEW RESOURCES
-export function requestAddResources(values) {
+export function requestAddResources(values, pageNumber) {
     return {
         type: types.REQUEST_ADD_RESOURCES,
-        values
+        values, pageNumber
     }
 }
 
@@ -37,10 +38,10 @@ export function addResourcesSuccess(values, message) {
 }
 
 //EDIT RESOURCES
-export function requestUpdateResources( values) {
+export function requestUpdateResources( values, pageNumber) {
     return {
         type: types.REQUEST_EDIT_RESOURCES,
-        values
+        values, pageNumber
     }
 }
 

@@ -4,6 +4,10 @@ import _ from 'lodash';
 const initialState = {
     provinces: [],
     fetching: false,
+    activePage: 1,
+    itemsCountPerPage: 10,
+    totalItemsCount: 1,
+    pageRangeDisplayed: 5,
     sending: false
 }
 
@@ -17,8 +21,11 @@ const provincesReducer =  function(state = initialState, action) {
            
         case types.GET_PROVINCES_SUCCESS:
             return Object.assign({}, state, {
-                provinces: action.provinces.data,
+                provinces: action.provinces.data.data,
                 fetching: false,
+                itemsCountPerPage: action.provinces.data.meta.per_page,
+                totalItemsCount: action.provinces.data.meta.total,
+                activePage: action.provinces.data.meta.current_page,
                 sending: false
             })
         

@@ -22,12 +22,14 @@ class CategoriesTransListContainer extends Component {
         this.editCategoriesTrans = this.editCategoriesTrans.bind(this)
         this.deleteItem = this.deleteItem.bind(this)
         this.hideDiv = this.hideDiv.bind(this)
+        this.handlePageChange = this.handlePageChange.bind(this)
         // this.toggleStatus = this.toggleStatus.bind(this)
     }
 
     componentDidMount() {
         // call action to run the relative saga
-        this.props.requestCategories();
+        const pageNumber = this.props.activePage;
+        this.props.requestCategories(pageNumber);
         this.props.requestCategoriesTranslation();
         this.props.requestLanguages();
         console.log(this.props)
@@ -36,14 +38,15 @@ class CategoriesTransListContainer extends Component {
 
     // submit function for new data
     submitCategoryTrans(values) {
-        console.log('val', values)
-        this.props.requestAddCategoriesTranslation(values);
+        
+        const pageNumber = this.props.activePage;
+        this.props.requestAddCategoriesTranslation(values, pageNumber);
     }
 
     // submit function to update data
     submitEditCategoryTrans(values) {
-        
-        this.props.requestUpdateCategoriesTranslation(values);
+        const pageNumber = this.props.activePage;
+        this.props.requestUpdateCategoriesTranslation(values, pageNumber);
         this.setState({
             isEditing: false
         })
@@ -66,7 +69,11 @@ class CategoriesTransListContainer extends Component {
             confirmText: id
         })
     }
-
+    // pagination function
+    handlePageChange(pageNumber) {
+        
+        this.props.requestNews(pageNumber)
+    }
     hideDiv() {
         this.setState({ confirmText: null })
     }
@@ -123,7 +130,18 @@ class CategoriesTransListContainer extends Component {
                                     </tbody>
                                 )}
                         </table>
-                        
+                        <div className="col-sm-12 left-align">
+                            <Pagination
+                                activePage={this.props.activePage}
+                                itemsCountPerPage={this.props.itemsCountPerPage}
+                                totalItemsCount={this.props.totalItemsCount}
+                                pageRangeDisplayed={this.props.pageRangeDisplayed}
+                                onChange={this.handlePageChange}
+                                firstPageText='First'
+                                lastPageText='Last'
+                                
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -137,7 +155,11 @@ function mapStateToProps(store) {
         categoriesTrans: store.categoryTransState.categoriesTrans,
         categories: store.categoryState.categories,
         languages: store.languageState.languages,
-        fetching: store.categoryState.fetching
+        fetching: store.categoryTransState.fetching,
+        activePage: store.categoryTransState.activePage,
+        itemsCountPerPage: store.categoryTransState.itemsCountPerPage,
+        totalItemsCount: store.categoryTransState.totalItemsCount,
+        pageRangeDisplayed: store.categoryTransState.pageRangeDisplayed,
     }
 }
 

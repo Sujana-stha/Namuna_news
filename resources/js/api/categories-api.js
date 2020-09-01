@@ -2,11 +2,10 @@
 import axios, {getHeaders} from './axiosInstance'
 
 //GET ALL CATEGORIES API
-export function getCategories() {
+export function getCategories(pageNumber) {
     const access_token = window.localStorage.getItem('access_token')
     const headers = getHeaders(access_token)
-    console.log('api', headers)
-    return axios.get('/api/categories',{headers})
+    return axios.get(`/api/categories?page=${pageNumber}`,{headers})
     .catch(error=> {
         console.log(error)
         return {

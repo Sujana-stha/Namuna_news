@@ -1,9 +1,10 @@
 import * as types from './action-types';
 
 //GET LIST OF NEWS
-export function requestNews() {
+export function requestNews(pageNumber) {
     return {
-        type: types.REQUEST_NEWS
+        type: types.REQUEST_NEWS,
+        pageNumber
     }
 }
 
@@ -21,10 +22,10 @@ export function requestNewsFailed() {
 }
 
 // ADD NEW NEWS
-export function requestAddNews(values) {
+export function requestAddNews(values, pageNumber) {
     return {
         type: types.REQUEST_ADD_NEWS,
-        values
+        values, pageNumber
     }
 }
 
@@ -37,10 +38,10 @@ export function addNewsSuccess(values, message) {
 }
 
 //EDIT NEWS
-export function requestUpdateNews( values) {
+export function requestUpdateNews( values, pageNumber) {
     return {
         type: types.REQUEST_EDIT_NEWS,
-        values
+        values, pageNumber
     }
 }
 

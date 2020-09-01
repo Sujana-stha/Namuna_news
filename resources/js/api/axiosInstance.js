@@ -10,7 +10,6 @@ export const getHeaders = ()=> {
     const access_token = window.localStorage.getItem('access_token')
     return {
         Accept: "application/json",
-        ContentType: 'multipart/form-data',
         Authorization: `Bearer ${access_token}`
     }
 }

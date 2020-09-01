@@ -4,7 +4,11 @@ import _ from 'lodash';
 const initialState = {
     news: [],
     fetching: false,
-    sending: false
+    sending: false,
+    activePage: 1,
+    itemsCountPerPage: 10,
+    totalItemsCount: 1,
+    pageRangeDisplayed: 5,
 }
 
 const newsReducer =  function(state = initialState, action) {
@@ -16,9 +20,13 @@ const newsReducer =  function(state = initialState, action) {
             return {...state, fetching: true};
            
         case types.GET_NEWS_SUCCESS:
+            console.log('sdfsfasfa',action.news.data.meta.per_page)
             return Object.assign({}, state, {
-                news: action.news.data,
+                news: action.news.data.data,
                 fetching: false,
+                itemsCountPerPage: action.news.data.meta.per_page,
+                totalItemsCount: action.news.data.meta.total,
+                activePage: action.news.data.meta.current_page,
                 sending: false
             })
         

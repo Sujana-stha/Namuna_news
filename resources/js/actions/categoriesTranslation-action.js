@@ -1,10 +1,10 @@
 import * as types from './action-types';
 
 //GET LIST OF CATEGORIES
-export function requestCategoriesTranslation() {
+export function requestCategoriesTranslation(pageNumber) {
     return {
-        type: types.REQUEST_CATEGORIES_TRANSLATION
-        
+        type: types.REQUEST_CATEGORIES_TRANSLATION,
+        pageNumber
     }
 }
 
@@ -22,10 +22,10 @@ export function requestCategoriesTranslationFailed() {
 }
 
 // ADD NEW CATEGORIES
-export function requestAddCategoriesTranslation(values) {
+export function requestAddCategoriesTranslation(values, pageNumber) {
     return {
         type: types.REQUEST_ADD_CATEGORIES_TRANSLATION,
-        values
+        values, pageNumber
     }
 }
 
@@ -38,10 +38,10 @@ export function addCategoriesTranslationSuccess(values, message) {
 }
 
 //EDIT CATEGORIES
-export function requestUpdateCategoriesTranslation( values) {
+export function requestUpdateCategoriesTranslation( values, pageNumber) {
     return {
         type: types.REQUEST_EDIT_CATEGORIES_TRANSLATION,
-        values
+        values, pageNumber
     }
 }
 

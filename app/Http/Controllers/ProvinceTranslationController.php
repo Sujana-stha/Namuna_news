@@ -18,7 +18,7 @@ class ProvinceTranslationController extends Controller
      */
     public function index()
     {
-        $translations = ProvinceTranslation::all();
+        $translations = ProvinceTranslation::paginate(10);
 
         return ProvinceTranslationResource::collection($translations);
     }

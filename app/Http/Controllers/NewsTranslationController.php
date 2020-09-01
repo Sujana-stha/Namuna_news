@@ -15,7 +15,7 @@ class NewsTranslationController extends Controller
      */
     public function index()
     {
-        $translations = NewsTranslation::all();
+        $translations = NewsTranslation::paginate(10);
 
         return NewsTranslationResource::collection($translations);
     }

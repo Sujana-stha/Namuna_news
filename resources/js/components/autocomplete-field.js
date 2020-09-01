@@ -36,6 +36,7 @@ class AutocompleteField extends Component {
             })
         
     }
+
     handleBlur() {
         this.setState({
             placeholderText: 'Select one...'
@@ -54,8 +55,8 @@ class AutocompleteField extends Component {
         const { itemList, input } = this.props
             return (
                 <div className="nm-select-field">
-                    <label className="col-sm-12">{this.props.label}</label>
-                    <div className="col-sm-12">
+                    <label className="">{this.props.label}</label>
+                    <div className="">
                         <Select
                         {...input}
                         className="nm-select-box"

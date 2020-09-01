@@ -30,7 +30,6 @@ const renderSelectField = ({ input, label, meta: { touched, error }, defaultValu
 const ResourceForm = props => {
     const { handleSubmit } = props;
     return (
-        <div className="row">
             <div className="col-md-12 col-xs-12 col-lg-12">
                 <div className="card card-primary">
                     <div className="card-header">
@@ -90,7 +89,6 @@ const ResourceForm = props => {
                     </form>
                 </div>
             </div>
-        </div>
 
     );
 

@@ -5742,52 +5742,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./node_modules/attr-accept/src/index.js":
-/*!***********************************************!*\
-  !*** ./node_modules/attr-accept/src/index.js ***!
-  \***********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/**
- * Check if the provided file type should be accepted by the input with accept attribute.
- * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input#attr-accept
- *
- * Inspired by https://github.com/enyo/dropzone
- *
- * @param file {File} https://developer.mozilla.org/en-US/docs/Web/API/File
- * @param acceptedFiles {string}
- * @returns {boolean}
- */
-
-/* harmony default export */ __webpack_exports__["default"] = (function(file, acceptedFiles) {
-  if (file && acceptedFiles) {
-    const acceptedFilesArray = Array.isArray(acceptedFiles)
-      ? acceptedFiles
-      : acceptedFiles.split(',')
-    const fileName = file.name || ''
-    const mimeType = file.type || ''
-    const baseMimeType = mimeType.replace(/\/.*$/, '')
-
-    return acceptedFilesArray.some(type => {
-      const validType = type.trim()
-      if (validType.charAt(0) === '.') {
-        return fileName.toLowerCase().endsWith(validType.toLowerCase())
-      } else if (validType.endsWith('/*')) {
-        // This is something like a image/* mime type
-        return baseMimeType === validType.replace(/\/.*$/, '')
-      }
-      return mimeType === validType
-    })
-  }
-  return true
-});
-
-
-/***/ }),
-
 /***/ "./node_modules/axios/index.js":
 /*!*************************************!*\
   !*** ./node_modules/axios/index.js ***!
@@ -12031,6 +11985,68 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/classnames/index.js":
+/*!******************************************!*\
+  !*** ./node_modules/classnames/index.js ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+  Copyright (c) 2017 Jed Watson.
+  Licensed under the MIT License (MIT), see
+  http://jedwatson.github.io/classnames
+*/
+/* global define */
+
+(function () {
+	'use strict';
+
+	var hasOwn = {}.hasOwnProperty;
+
+	function classNames () {
+		var classes = [];
+
+		for (var i = 0; i < arguments.length; i++) {
+			var arg = arguments[i];
+			if (!arg) continue;
+
+			var argType = typeof arg;
+
+			if (argType === 'string' || argType === 'number') {
+				classes.push(arg);
+			} else if (Array.isArray(arg) && arg.length) {
+				var inner = classNames.apply(null, arg);
+				if (inner) {
+					classes.push(inner);
+				}
+			} else if (argType === 'object') {
+				for (var key in arg) {
+					if (hasOwn.call(arg, key) && arg[key]) {
+						classes.push(key);
+					}
+				}
+			}
+		}
+
+		return classes.join(' ');
+	}
+
+	if ( true && module.exports) {
+		classNames.default = classNames;
+		module.exports = classNames;
+	} else if (true) {
+		// register as 'classnames', consistent with npm package name
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = (function () {
+			return classNames;
+		}).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {}
+}());
+
+
+/***/ }),
+
 /***/ "./node_modules/connected-react-router/esm/ConnectedRouter.js":
 /*!********************************************************************!*\
   !*** ./node_modules/connected-react-router/esm/ConnectedRouter.js ***!
@@ -12754,275 +12770,6 @@ var ExtendableError = function (_extendableBuiltin2) {
 
 /* harmony default export */ __webpack_exports__["default"] = (ExtendableError);
 
-
-/***/ }),
-
-/***/ "./node_modules/file-selector/dist/es5/file-selector.js":
-/*!**************************************************************!*\
-  !*** ./node_modules/file-selector/dist/es5/file-selector.js ***!
-  \**************************************************************/
-/*! exports provided: fromEvent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fromEvent", function() { return fromEvent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _file__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./file */ "./node_modules/file-selector/dist/es5/file.js");
-
-
-var FILES_TO_IGNORE = [
-    // Thumbnail cache files for macOS and Windows
-    '.DS_Store',
-    'Thumbs.db' // Windows
-];
-/**
- * Convert a DragEvent's DataTrasfer object to a list of File objects
- * NOTE: If some of the items are folders,
- * everything will be flattened and placed in the same list but the paths will be kept as a {path} property.
- * @param evt
- */
-function fromEvent(evt) {
-    return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-            return [2 /*return*/, isDragEvt(evt) && evt.dataTransfer
-                    ? getDataTransferFiles(evt.dataTransfer, evt.type)
-                    : getInputFiles(evt)];
-        });
-    });
-}
-function isDragEvt(value) {
-    return !!value.dataTransfer;
-}
-function getInputFiles(evt) {
-    var files = isInput(evt.target)
-        ? evt.target.files
-            ? fromList(evt.target.files)
-            : []
-        : [];
-    return files.map(function (file) { return Object(_file__WEBPACK_IMPORTED_MODULE_1__["toFileWithPath"])(file); });
-}
-function isInput(value) {
-    return value !== null;
-}
-function getDataTransferFiles(dt, type) {
-    return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-        var items, files;
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    if (!dt.items) return [3 /*break*/, 2];
-                    items = fromList(dt.items)
-                        .filter(function (item) { return item.kind === 'file'; });
-                    // According to https://html.spec.whatwg.org/multipage/dnd.html#dndevents,
-                    // only 'dragstart' and 'drop' has access to the data (source node)
-                    if (type !== 'drop') {
-                        return [2 /*return*/, items];
-                    }
-                    return [4 /*yield*/, Promise.all(items.map(toFilePromises))];
-                case 1:
-                    files = _a.sent();
-                    return [2 /*return*/, noIgnoredFiles(flatten(files))];
-                case 2: return [2 /*return*/, noIgnoredFiles(fromList(dt.files)
-                        .map(function (file) { return Object(_file__WEBPACK_IMPORTED_MODULE_1__["toFileWithPath"])(file); }))];
-            }
-        });
-    });
-}
-function noIgnoredFiles(files) {
-    return files.filter(function (file) { return FILES_TO_IGNORE.indexOf(file.name) === -1; });
-}
-// IE11 does not support Array.from()
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from#Browser_compatibility
-// https://developer.mozilla.org/en-US/docs/Web/API/FileList
-// https://developer.mozilla.org/en-US/docs/Web/API/DataTransferItemList
-function fromList(items) {
-    var files = [];
-    // tslint:disable: prefer-for-of
-    for (var i = 0; i < items.length; i++) {
-        var file = items[i];
-        files.push(file);
-    }
-    return files;
-}
-// https://developer.mozilla.org/en-US/docs/Web/API/DataTransferItem
-function toFilePromises(item) {
-    if (typeof item.webkitGetAsEntry !== 'function') {
-        return fromDataTransferItem(item);
-    }
-    var entry = item.webkitGetAsEntry();
-    // Safari supports dropping an image node from a different window and can be retrieved using
-    // the DataTransferItem.getAsFile() API
-    // NOTE: FileSystemEntry.file() throws if trying to get the file
-    if (entry && entry.isDirectory) {
-        return fromDirEntry(entry);
-    }
-    return fromDataTransferItem(item);
-}
-function flatten(items) {
-    return items.reduce(function (acc, files) { return tslib__WEBPACK_IMPORTED_MODULE_0__["__spread"](acc, (Array.isArray(files) ? flatten(files) : [files])); }, []);
-}
-function fromDataTransferItem(item) {
-    var file = item.getAsFile();
-    if (!file) {
-        return Promise.reject(item + " is not a File");
-    }
-    var fwp = Object(_file__WEBPACK_IMPORTED_MODULE_1__["toFileWithPath"])(file);
-    return Promise.resolve(fwp);
-}
-// https://developer.mozilla.org/en-US/docs/Web/API/FileSystemEntry
-function fromEntry(entry) {
-    return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-            return [2 /*return*/, entry.isDirectory ? fromDirEntry(entry) : fromFileEntry(entry)];
-        });
-    });
-}
-// https://developer.mozilla.org/en-US/docs/Web/API/FileSystemDirectoryEntry
-function fromDirEntry(entry) {
-    var reader = entry.createReader();
-    return new Promise(function (resolve, reject) {
-        var entries = [];
-        function readEntries() {
-            var _this = this;
-            // https://developer.mozilla.org/en-US/docs/Web/API/FileSystemDirectoryEntry/createReader
-            // https://developer.mozilla.org/en-US/docs/Web/API/FileSystemDirectoryReader/readEntries
-            reader.readEntries(function (batch) { return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](_this, void 0, void 0, function () {
-                var files, err_1, items;
-                return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-                    switch (_a.label) {
-                        case 0:
-                            if (!!batch.length) return [3 /*break*/, 5];
-                            _a.label = 1;
-                        case 1:
-                            _a.trys.push([1, 3, , 4]);
-                            return [4 /*yield*/, Promise.all(entries)];
-                        case 2:
-                            files = _a.sent();
-                            resolve(files);
-                            return [3 /*break*/, 4];
-                        case 3:
-                            err_1 = _a.sent();
-                            reject(err_1);
-                            return [3 /*break*/, 4];
-                        case 4: return [3 /*break*/, 6];
-                        case 5:
-                            items = Promise.all(batch.map(fromEntry));
-                            entries.push(items);
-                            // Continue reading
-                            readEntries();
-                            _a.label = 6;
-                        case 6: return [2 /*return*/];
-                    }
-                });
-            }); }, function (err) {
-                reject(err);
-            });
-        }
-        readEntries();
-    });
-}
-// https://developer.mozilla.org/en-US/docs/Web/API/FileSystemFileEntry
-function fromFileEntry(entry) {
-    return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, function () {
-        return tslib__WEBPACK_IMPORTED_MODULE_0__["__generator"](this, function (_a) {
-            return [2 /*return*/, new Promise(function (resolve, reject) {
-                    entry.file(function (file) {
-                        var fwp = Object(_file__WEBPACK_IMPORTED_MODULE_1__["toFileWithPath"])(file, entry.fullPath);
-                        resolve(fwp);
-                    }, function (err) {
-                        reject(err);
-                    });
-                })];
-        });
-    });
-}
-//# sourceMappingURL=file-selector.js.map
-
-/***/ }),
-
-/***/ "./node_modules/file-selector/dist/es5/file.js":
-/*!*****************************************************!*\
-  !*** ./node_modules/file-selector/dist/es5/file.js ***!
-  \*****************************************************/
-/*! exports provided: COMMON_MIME_TYPES, toFileWithPath */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "COMMON_MIME_TYPES", function() { return COMMON_MIME_TYPES; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "toFileWithPath", function() { return toFileWithPath; });
-var COMMON_MIME_TYPES = new Map([
-    ['avi', 'video/avi'],
-    ['gif', 'image/gif'],
-    ['ico', 'image/x-icon'],
-    ['jpeg', 'image/jpeg'],
-    ['jpg', 'image/jpeg'],
-    ['mkv', 'video/x-matroska'],
-    ['mov', 'video/quicktime'],
-    ['mp4', 'video/mp4'],
-    ['pdf', 'application/pdf'],
-    ['png', 'image/png'],
-    ['zip', 'application/zip'],
-    ['doc', 'application/msword'],
-    ['docx', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document']
-]);
-function toFileWithPath(file, path) {
-    var f = withMimeType(file);
-    if (typeof f.path !== 'string') { // on electron, path is already set to the absolute path
-        var webkitRelativePath = file.webkitRelativePath;
-        Object.defineProperty(f, 'path', {
-            value: typeof path === 'string'
-                ? path
-                // If <input webkitdirectory> is set,
-                // the File will have a {webkitRelativePath} property
-                // https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/webkitdirectory
-                : typeof webkitRelativePath === 'string' && webkitRelativePath.length > 0
-                    ? webkitRelativePath
-                    : file.name,
-            writable: false,
-            configurable: false,
-            enumerable: true
-        });
-    }
-    return f;
-}
-function withMimeType(file) {
-    var name = file.name;
-    var hasExtension = name && name.lastIndexOf('.') !== -1;
-    if (hasExtension && !file.type) {
-        var ext = name.split('.')
-            .pop().toLowerCase();
-        var type = COMMON_MIME_TYPES.get(ext);
-        if (type) {
-            Object.defineProperty(file, 'type', {
-                value: type,
-                writable: false,
-                configurable: false,
-                enumerable: true
-            });
-        }
-    }
-    return file;
-}
-//# sourceMappingURL=file.js.map
-
-/***/ }),
-
-/***/ "./node_modules/file-selector/dist/es5/index.js":
-/*!******************************************************!*\
-  !*** ./node_modules/file-selector/dist/es5/index.js ***!
-  \******************************************************/
-/*! exports provided: fromEvent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _file_selector__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./file-selector */ "./node_modules/file-selector/dist/es5/file-selector.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "fromEvent", function() { return _file_selector__WEBPACK_IMPORTED_MODULE_0__["fromEvent"]; });
-
-
-//# sourceMappingURL=index.js.map
 
 /***/ }),
 
@@ -48813,6 +48560,105 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 /***/ }),
 
+/***/ "./node_modules/paginator/index.js":
+/*!*****************************************!*\
+  !*** ./node_modules/paginator/index.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = Paginator;
+
+// Paginator constructor
+//
+// `per_page` is the number of results per page, `length` is the number of
+// pages to display. They default to `25` and `10` respectively.
+function Paginator(per_page, length) {
+  // You really should be calling this with `new Paginator`, but WHATEVER.
+  if (!(this instanceof Paginator)) {
+    return new Paginator(per_page, length);
+  }
+
+  // Woo, defaults!
+  this.per_page = per_page || 25;
+  this.length = length || 10;
+}
+
+// Build an object with all the necessary information for outputting pagination
+// controls.
+//
+// (new Paginator(paginator.build(100, 2)
+Paginator.prototype.build = function(total_results, current_page) {
+  // We want the number of pages, rounded up to the nearest page.
+  var total_pages = Math.ceil(total_results / this.per_page);
+
+  // Ensure both total_results and current_page are treated as Numbers
+  total_results = parseInt(total_results, 10);
+  current_page  = parseInt(current_page, 10) || 1;
+
+  // Obviously we can't be on a negative or 0 page.
+  if (current_page < 1) { current_page = 1; }
+  // If the user has done something like /page/99999 we want to clamp that back
+  // down.
+  if (current_page > total_pages) { current_page = total_pages; }
+
+  // This is the first page to be displayed as a numbered link.
+  var first_page = Math.max(1, current_page - Math.floor(this.length / 2));
+
+  // And here's the last page to be displayed specifically.
+  var last_page = Math.min(total_pages, current_page + Math.floor(this.length / 2));
+
+  // This is triggered if we're at or near one of the extremes; we won't have
+  // enough page links. We need to adjust our bounds accordingly.
+  if (last_page - first_page + 1 < this.length) {
+    if (current_page < (total_pages / 2)) {
+      last_page = Math.min(total_pages, last_page + (this.length - (last_page - first_page)));
+    } else {
+      first_page = Math.max(1, first_page - (this.length - (last_page - first_page)));
+    }
+  }
+
+  // This can be triggered if the user wants an odd number of pages.
+  if (last_page - first_page + 1 > this.length) {
+    // We want to move towards whatever extreme we're closest to at the time.
+    if (current_page > (total_pages / 2)) {
+      first_page++;
+    } else {
+      last_page--;
+    }
+  }
+
+  // First result on the page. This, along with the field below, can be used to
+  // do "showing x to y of z results" style things.
+  var first_result = this.per_page * (current_page - 1);
+  if (first_result < 0) { first_result = 0; }
+
+  // Last result on the page.
+  var last_result = (this.per_page * current_page) - 1;
+  if (last_result < 0) { last_result = 0; }
+  if (last_result > Math.max(total_results - 1, 0)) { last_result = Math.max(total_results - 1, 0); }
+
+  // GIMME THAT OBJECT
+  return {
+    total_pages: total_pages,
+    pages: Math.min(last_page - first_page + 1, total_pages),
+    current_page: current_page,
+    first_page: first_page,
+    last_page: last_page,
+    previous_page: current_page - 1,
+    next_page: current_page + 1,
+    has_previous_page: current_page > 1,
+    has_next_page: current_page < total_pages,
+    total_results: total_results,
+    results: Math.min(last_result - first_result + 1, total_results),
+    first_result: first_result,
+    last_result: last_result,
+  };
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/popper.js/dist/esm/popper.js":
 /*!***************************************************!*\
   !*** ./node_modules/popper.js/dist/esm/popper.js ***!
@@ -77474,1025 +77320,6 @@ if (false) {} else {
 
 /***/ }),
 
-/***/ "./node_modules/react-dropzone/dist/es/index.js":
-/*!******************************************************!*\
-  !*** ./node_modules/react-dropzone/dist/es/index.js ***!
-  \******************************************************/
-/*! exports provided: default, useDropzone */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "useDropzone", function() { return useDropzone; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var file_selector__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! file-selector */ "./node_modules/file-selector/dist/es5/index.js");
-/* harmony import */ var _utils_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utils/index */ "./node_modules/react-dropzone/dist/es/utils/index.js");
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
-
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
-
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
-
-function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
-
-function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
-
-/* eslint prefer-template: 0 */
-
-
-
-
-/**
- * Convenience wrapper component for the `useDropzone` hook
- *
- * ```jsx
- * <Dropzone>
- *   {({getRootProps, getInputProps}) => (
- *     <div {...getRootProps()}>
- *       <input {...getInputProps()} />
- *       <p>Drag 'n' drop some files here, or click to select files</p>
- *     </div>
- *   )}
- * </Dropzone>
- * ```
- */
-
-var Dropzone = Object(react__WEBPACK_IMPORTED_MODULE_0__["forwardRef"])(function (_ref, ref) {
-  var children = _ref.children,
-      params = _objectWithoutProperties(_ref, ["children"]);
-
-  var _useDropzone = useDropzone(params),
-      open = _useDropzone.open,
-      props = _objectWithoutProperties(_useDropzone, ["open"]);
-
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useImperativeHandle"])(ref, function () {
-    return {
-      open: open
-    };
-  }, [open]); // TODO: Figure out why react-styleguidist cannot create docs if we don't return a jsx element
-
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, children(_objectSpread({}, props, {
-    open: open
-  })));
-});
-Dropzone.displayName = 'Dropzone';
-Dropzone.propTypes = {
-  /**
-   * Render function that exposes the dropzone state and prop getter fns
-   *
-   * @param {object} params
-   * @param {Function} params.getRootProps Returns the props you should apply to the root drop container you render
-   * @param {Function} params.getInputProps Returns the props you should apply to hidden file input you render
-   * @param {Function} params.open Open the native file selection dialog
-   * @param {boolean} params.isFocused Dropzone area is in focus
-   * @param {boolean} params.isFileDialogActive File dialog is opened
-   * @param {boolean} params.isDragActive Active drag is in progress
-   * @param {boolean} params.isDragAccept Dragged files are accepted
-   * @param {boolean} params.isDragReject Some dragged files are rejected
-   * @param {File[]} params.draggedFiles Files in active drag
-   * @param {File[]} params.acceptedFiles Accepted files
-   * @param {FileRejection[]} params.fileRejections Rejected files and why they were rejected
-   */
-  children: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
-
-  /**
-   * Set accepted file types.
-   * See https://github.com/okonet/attr-accept for more information.
-   * Keep in mind that mime type determination is not reliable across platforms. CSV files,
-   * for example, are reported as text/plain under macOS but as application/vnd.ms-excel under
-   * Windows. In some cases there might not be a mime type set at all.
-   * See: https://github.com/react-dropzone/react-dropzone/issues/276
-   */
-  accept: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string, prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.string)]),
-
-  /**
-   * Allow drag 'n' drop (or selection from the file dialog) of multiple files
-   */
-  multiple: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool,
-
-  /**
-   * If false, allow dropped items to take over the current browser window
-   */
-  preventDropOnDocument: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool,
-
-  /**
-   * If true, disables click to open the native file selection dialog
-   */
-  noClick: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool,
-
-  /**
-   * If true, disables SPACE/ENTER to open the native file selection dialog.
-   * Note that it also stops tracking the focus state.
-   */
-  noKeyboard: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool,
-
-  /**
-   * If true, disables drag 'n' drop
-   */
-  noDrag: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool,
-
-  /**
-   * If true, stops drag event propagation to parents
-   */
-  noDragEventsBubbling: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool,
-
-  /**
-   * Minimum file size (in bytes)
-   */
-  minSize: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number,
-
-  /**
-   * Maximum file size (in bytes)
-   */
-  maxSize: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.number,
-
-  /**
-   * Enable/disable the dropzone
-   */
-  disabled: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool,
-
-  /**
-   * Use this to provide a custom file aggregator
-   *
-   * @param {(DragEvent|Event)} event A drag event or input change event (if files were selected via the file dialog)
-   */
-  getFilesFromEvent: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
-
-  /**
-   * Cb for when closing the file dialog with no selection
-   */
-  onFileDialogCancel: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
-
-  /**
-   * Cb for when the `dragenter` event occurs.
-   *
-   * @param {DragEvent} event
-   */
-  onDragEnter: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
-
-  /**
-   * Cb for when the `dragleave` event occurs
-   *
-   * @param {DragEvent} event
-   */
-  onDragLeave: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
-
-  /**
-   * Cb for when the `dragover` event occurs
-   *
-   * @param {DragEvent} event
-   */
-  onDragOver: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
-
-  /**
-   * Cb for when the `drop` event occurs.
-   * Note that this callback is invoked after the `getFilesFromEvent` callback is done.
-   *
-   * Files are accepted or rejected based on the `accept`, `multiple`, `minSize` and `maxSize` props.
-   * `accept` must be a valid [MIME type](http://www.iana.org/assignments/media-types/media-types.xhtml) according to [input element specification](https://www.w3.org/wiki/HTML/Elements/input/file) or a valid file extension.
-   * If `multiple` is set to false and additional files are droppped,
-   * all files besides the first will be rejected.
-   * Any file which does not have a size in the [`minSize`, `maxSize`] range, will be rejected as well.
-   *
-   * Note that the `onDrop` callback will always be invoked regardless if the dropped files were accepted or rejected.
-   * If you'd like to react to a specific scenario, use the `onDropAccepted`/`onDropRejected` props.
-   *
-   * `onDrop` will provide you with an array of [File](https://developer.mozilla.org/en-US/docs/Web/API/File) objects which you can then process and send to a server.
-   * For example, with [SuperAgent](https://github.com/visionmedia/superagent) as a http/ajax library:
-   *
-   * ```js
-   * function onDrop(acceptedFiles) {
-   *   const req = request.post('/upload')
-   *   acceptedFiles.forEach(file => {
-   *     req.attach(file.name, file)
-   *   })
-   *   req.end(callback)
-   * }
-   * ```
-   *
-   * @param {File[]} acceptedFiles
-   * @param {FileRejection[]} fileRejections
-   * @param {(DragEvent|Event)} event A drag event or input change event (if files were selected via the file dialog)
-   */
-  onDrop: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
-
-  /**
-   * Cb for when the `drop` event occurs.
-   * Note that if no files are accepted, this callback is not invoked.
-   *
-   * @param {File[]} files
-   * @param {(DragEvent|Event)} event
-   */
-  onDropAccepted: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func,
-
-  /**
-   * Cb for when the `drop` event occurs.
-   * Note that if no files are rejected, this callback is not invoked.
-   *
-   * @param {FileRejection[]} fileRejections
-   * @param {(DragEvent|Event)} event
-   */
-  onDropRejected: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func
-};
-/* harmony default export */ __webpack_exports__["default"] = (Dropzone);
-/**
- * A function that is invoked for the `dragenter`,
- * `dragover` and `dragleave` events.
- * It is not invoked if the items are not files (such as link, text, etc.).
- *
- * @callback dragCb
- * @param {DragEvent} event
- */
-
-/**
- * A function that is invoked for the `drop` or input change event.
- * It is not invoked if the items are not files (such as link, text, etc.).
- *
- * @callback dropCb
- * @param {File[]} acceptedFiles List of accepted files
- * @param {FileRejection[]} fileRejections List of rejected files and why they were rejected
- * @param {(DragEvent|Event)} event A drag event or input change event (if files were selected via the file dialog)
- */
-
-/**
- * A function that is invoked for the `drop` or input change event.
- * It is not invoked if the items are files (such as link, text, etc.).
- *
- * @callback dropAcceptedCb
- * @param {File[]} files List of accepted files that meet the given criteria
- * (`accept`, `multiple`, `minSize`, `maxSize`)
- * @param {(DragEvent|Event)} event A drag event or input change event (if files were selected via the file dialog)
- */
-
-/**
- * A function that is invoked for the `drop` or input change event.
- *
- * @callback dropRejectedCb
- * @param {File[]} files List of rejected files that do not meet the given criteria
- * (`accept`, `multiple`, `minSize`, `maxSize`)
- * @param {(DragEvent|Event)} event A drag event or input change event (if files were selected via the file dialog)
- */
-
-/**
- * A function that is used aggregate files,
- * in a asynchronous fashion, from drag or input change events.
- *
- * @callback getFilesFromEvent
- * @param {(DragEvent|Event)} event A drag event or input change event (if files were selected via the file dialog)
- * @returns {(File[]|Promise<File[]>)}
- */
-
-/**
- * An object with the current dropzone state and some helper functions.
- *
- * @typedef {object} DropzoneState
- * @property {Function} getRootProps Returns the props you should apply to the root drop container you render
- * @property {Function} getInputProps Returns the props you should apply to hidden file input you render
- * @property {Function} open Open the native file selection dialog
- * @property {boolean} isFocused Dropzone area is in focus
- * @property {boolean} isFileDialogActive File dialog is opened
- * @property {boolean} isDragActive Active drag is in progress
- * @property {boolean} isDragAccept Dragged files are accepted
- * @property {boolean} isDragReject Some dragged files are rejected
- * @property {File[]} draggedFiles Files in active drag
- * @property {File[]} acceptedFiles Accepted files
- * @property {FileRejection[]} fileRejections Rejected files and why they were rejected
- */
-
-var initialState = {
-  isFocused: false,
-  isFileDialogActive: false,
-  isDragActive: false,
-  isDragAccept: false,
-  isDragReject: false,
-  draggedFiles: [],
-  acceptedFiles: [],
-  fileRejections: []
-};
-/**
- * A React hook that creates a drag 'n' drop area.
- *
- * ```jsx
- * function MyDropzone(props) {
- *   const {getRootProps, getInputProps} = useDropzone({
- *     onDrop: acceptedFiles => {
- *       // do something with the File objects, e.g. upload to some server
- *     }
- *   });
- *   return (
- *     <div {...getRootProps()}>
- *       <input {...getInputProps()} />
- *       <p>Drag and drop some files here, or click to select files</p>
- *     </div>
- *   )
- * }
- * ```
- *
- * @function useDropzone
- *
- * @param {object} props
- * @param {string|string[]} [props.accept] Set accepted file types.
- * See https://github.com/okonet/attr-accept for more information.
- * Keep in mind that mime type determination is not reliable across platforms. CSV files,
- * for example, are reported as text/plain under macOS but as application/vnd.ms-excel under
- * Windows. In some cases there might not be a mime type set at all.
- * See: https://github.com/react-dropzone/react-dropzone/issues/276
- * @param {boolean} [props.multiple=true] Allow drag 'n' drop (or selection from the file dialog) of multiple files
- * @param {boolean} [props.preventDropOnDocument=true] If false, allow dropped items to take over the current browser window
- * @param {boolean} [props.noClick=false] If true, disables click to open the native file selection dialog
- * @param {boolean} [props.noKeyboard=false] If true, disables SPACE/ENTER to open the native file selection dialog.
- * Note that it also stops tracking the focus state.
- * @param {boolean} [props.noDrag=false] If true, disables drag 'n' drop
- * @param {boolean} [props.noDragEventsBubbling=false] If true, stops drag event propagation to parents
- * @param {number} [props.minSize=0] Minimum file size (in bytes)
- * @param {number} [props.maxSize=Infinity] Maximum file size (in bytes)
- * @param {boolean} [props.disabled=false] Enable/disable the dropzone
- * @param {getFilesFromEvent} [props.getFilesFromEvent] Use this to provide a custom file aggregator
- * @param {Function} [props.onFileDialogCancel] Cb for when closing the file dialog with no selection
- * @param {dragCb} [props.onDragEnter] Cb for when the `dragenter` event occurs.
- * @param {dragCb} [props.onDragLeave] Cb for when the `dragleave` event occurs
- * @param {dragCb} [props.onDragOver] Cb for when the `dragover` event occurs
- * @param {dropCb} [props.onDrop] Cb for when the `drop` event occurs.
- * Note that this callback is invoked after the `getFilesFromEvent` callback is done.
- *
- * Files are accepted or rejected based on the `accept`, `multiple`, `minSize` and `maxSize` props.
- * `accept` must be a valid [MIME type](http://www.iana.org/assignments/media-types/media-types.xhtml) according to [input element specification](https://www.w3.org/wiki/HTML/Elements/input/file) or a valid file extension.
- * If `multiple` is set to false and additional files are droppped,
- * all files besides the first will be rejected.
- * Any file which does not have a size in the [`minSize`, `maxSize`] range, will be rejected as well.
- *
- * Note that the `onDrop` callback will always be invoked regardless if the dropped files were accepted or rejected.
- * If you'd like to react to a specific scenario, use the `onDropAccepted`/`onDropRejected` props.
- *
- * `onDrop` will provide you with an array of [File](https://developer.mozilla.org/en-US/docs/Web/API/File) objects which you can then process and send to a server.
- * For example, with [SuperAgent](https://github.com/visionmedia/superagent) as a http/ajax library:
- *
- * ```js
- * function onDrop(acceptedFiles) {
- *   const req = request.post('/upload')
- *   acceptedFiles.forEach(file => {
- *     req.attach(file.name, file)
- *   })
- *   req.end(callback)
- * }
- * ```
- * @param {dropAcceptedCb} [props.onDropAccepted]
- * @param {dropRejectedCb} [props.onDropRejected]
- *
- * @returns {DropzoneState}
- */
-
-function useDropzone() {
-  var _ref2 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
-      accept = _ref2.accept,
-      _ref2$disabled = _ref2.disabled,
-      disabled = _ref2$disabled === void 0 ? false : _ref2$disabled,
-      _ref2$getFilesFromEve = _ref2.getFilesFromEvent,
-      getFilesFromEvent = _ref2$getFilesFromEve === void 0 ? file_selector__WEBPACK_IMPORTED_MODULE_2__["fromEvent"] : _ref2$getFilesFromEve,
-      _ref2$maxSize = _ref2.maxSize,
-      maxSize = _ref2$maxSize === void 0 ? Infinity : _ref2$maxSize,
-      _ref2$minSize = _ref2.minSize,
-      minSize = _ref2$minSize === void 0 ? 0 : _ref2$minSize,
-      _ref2$multiple = _ref2.multiple,
-      multiple = _ref2$multiple === void 0 ? true : _ref2$multiple,
-      onDragEnter = _ref2.onDragEnter,
-      onDragLeave = _ref2.onDragLeave,
-      onDragOver = _ref2.onDragOver,
-      onDrop = _ref2.onDrop,
-      onDropAccepted = _ref2.onDropAccepted,
-      onDropRejected = _ref2.onDropRejected,
-      onFileDialogCancel = _ref2.onFileDialogCancel,
-      _ref2$preventDropOnDo = _ref2.preventDropOnDocument,
-      preventDropOnDocument = _ref2$preventDropOnDo === void 0 ? true : _ref2$preventDropOnDo,
-      _ref2$noClick = _ref2.noClick,
-      noClick = _ref2$noClick === void 0 ? false : _ref2$noClick,
-      _ref2$noKeyboard = _ref2.noKeyboard,
-      noKeyboard = _ref2$noKeyboard === void 0 ? false : _ref2$noKeyboard,
-      _ref2$noDrag = _ref2.noDrag,
-      noDrag = _ref2$noDrag === void 0 ? false : _ref2$noDrag,
-      _ref2$noDragEventsBub = _ref2.noDragEventsBubbling,
-      noDragEventsBubbling = _ref2$noDragEventsBub === void 0 ? false : _ref2$noDragEventsBub;
-
-  var rootRef = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(null);
-  var inputRef = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(null);
-
-  var _useReducer = Object(react__WEBPACK_IMPORTED_MODULE_0__["useReducer"])(reducer, initialState),
-      _useReducer2 = _slicedToArray(_useReducer, 2),
-      state = _useReducer2[0],
-      dispatch = _useReducer2[1];
-
-  var isFocused = state.isFocused,
-      isFileDialogActive = state.isFileDialogActive,
-      draggedFiles = state.draggedFiles; // Fn for opening the file dialog programmatically
-
-  var openFileDialog = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(function () {
-    if (inputRef.current) {
-      dispatch({
-        type: 'openDialog'
-      });
-      inputRef.current.value = null;
-      inputRef.current.click();
-    }
-  }, [dispatch]); // Update file dialog active state when the window is focused on
-
-  var onWindowFocus = function onWindowFocus() {
-    // Execute the timeout only if the file dialog is opened in the browser
-    if (isFileDialogActive) {
-      setTimeout(function () {
-        if (inputRef.current) {
-          var files = inputRef.current.files;
-
-          if (!files.length) {
-            dispatch({
-              type: 'closeDialog'
-            });
-
-            if (typeof onFileDialogCancel === 'function') {
-              onFileDialogCancel();
-            }
-          }
-        }
-      }, 300);
-    }
-  };
-
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    window.addEventListener('focus', onWindowFocus, false);
-    return function () {
-      window.removeEventListener('focus', onWindowFocus, false);
-    };
-  }, [inputRef, isFileDialogActive, onFileDialogCancel]); // Cb to open the file dialog when SPACE/ENTER occurs on the dropzone
-
-  var onKeyDownCb = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(function (event) {
-    // Ignore keyboard events bubbling up the DOM tree
-    if (!rootRef.current || !rootRef.current.isEqualNode(event.target)) {
-      return;
-    }
-
-    if (event.keyCode === 32 || event.keyCode === 13) {
-      event.preventDefault();
-      openFileDialog();
-    }
-  }, [rootRef, inputRef]); // Update focus state for the dropzone
-
-  var onFocusCb = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(function () {
-    dispatch({
-      type: 'focus'
-    });
-  }, []);
-  var onBlurCb = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(function () {
-    dispatch({
-      type: 'blur'
-    });
-  }, []); // Cb to open the file dialog when click occurs on the dropzone
-
-  var onClickCb = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(function () {
-    if (noClick) {
-      return;
-    } // In IE11/Edge the file-browser dialog is blocking, therefore, use setTimeout()
-    // to ensure React can handle state changes
-    // See: https://github.com/react-dropzone/react-dropzone/issues/450
-
-
-    if (Object(_utils_index__WEBPACK_IMPORTED_MODULE_3__["isIeOrEdge"])()) {
-      setTimeout(openFileDialog, 0);
-    } else {
-      openFileDialog();
-    }
-  }, [inputRef, noClick]);
-  var dragTargetsRef = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])([]);
-
-  var onDocumentDrop = function onDocumentDrop(event) {
-    if (rootRef.current && rootRef.current.contains(event.target)) {
-      // If we intercepted an event for our instance, let it propagate down to the instance's onDrop handler
-      return;
-    }
-
-    event.preventDefault();
-    dragTargetsRef.current = [];
-  };
-
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    if (preventDropOnDocument) {
-      document.addEventListener('dragover', _utils_index__WEBPACK_IMPORTED_MODULE_3__["onDocumentDragOver"], false);
-      document.addEventListener('drop', onDocumentDrop, false);
-    }
-
-    return function () {
-      if (preventDropOnDocument) {
-        document.removeEventListener('dragover', _utils_index__WEBPACK_IMPORTED_MODULE_3__["onDocumentDragOver"]);
-        document.removeEventListener('drop', onDocumentDrop);
-      }
-    };
-  }, [rootRef, preventDropOnDocument]);
-  var onDragEnterCb = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(function (event) {
-    event.preventDefault(); // Persist here because we need the event later after getFilesFromEvent() is done
-
-    event.persist();
-    stopPropagation(event);
-    dragTargetsRef.current = [].concat(_toConsumableArray(dragTargetsRef.current), [event.target]);
-
-    if (Object(_utils_index__WEBPACK_IMPORTED_MODULE_3__["isEvtWithFiles"])(event)) {
-      Promise.resolve(getFilesFromEvent(event)).then(function (draggedFiles) {
-        if (Object(_utils_index__WEBPACK_IMPORTED_MODULE_3__["isPropagationStopped"])(event) && !noDragEventsBubbling) {
-          return;
-        }
-
-        dispatch({
-          draggedFiles: draggedFiles,
-          isDragActive: true,
-          type: 'setDraggedFiles'
-        });
-
-        if (onDragEnter) {
-          onDragEnter(event);
-        }
-      });
-    }
-  }, [getFilesFromEvent, onDragEnter, noDragEventsBubbling]);
-  var onDragOverCb = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(function (event) {
-    event.preventDefault();
-    event.persist();
-    stopPropagation(event);
-
-    if (event.dataTransfer) {
-      try {
-        event.dataTransfer.dropEffect = 'copy';
-      } catch (_unused) {}
-      /* eslint-disable-line no-empty */
-
-    }
-
-    if (Object(_utils_index__WEBPACK_IMPORTED_MODULE_3__["isEvtWithFiles"])(event) && onDragOver) {
-      onDragOver(event);
-    }
-
-    return false;
-  }, [onDragOver, noDragEventsBubbling]);
-  var onDragLeaveCb = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(function (event) {
-    event.preventDefault();
-    event.persist();
-    stopPropagation(event); // Only deactivate once the dropzone and all children have been left
-
-    var targets = dragTargetsRef.current.filter(function (target) {
-      return rootRef.current && rootRef.current.contains(target);
-    }); // Make sure to remove a target present multiple times only once
-    // (Firefox may fire dragenter/dragleave multiple times on the same element)
-
-    var targetIdx = targets.indexOf(event.target);
-
-    if (targetIdx !== -1) {
-      targets.splice(targetIdx, 1);
-    }
-
-    dragTargetsRef.current = targets;
-
-    if (targets.length > 0) {
-      return;
-    }
-
-    dispatch({
-      isDragActive: false,
-      type: 'setDraggedFiles',
-      draggedFiles: []
-    });
-
-    if (Object(_utils_index__WEBPACK_IMPORTED_MODULE_3__["isEvtWithFiles"])(event) && onDragLeave) {
-      onDragLeave(event);
-    }
-  }, [rootRef, onDragLeave, noDragEventsBubbling]);
-  var onDropCb = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(function (event) {
-    event.preventDefault(); // Persist here because we need the event later after getFilesFromEvent() is done
-
-    event.persist();
-    stopPropagation(event);
-    dragTargetsRef.current = [];
-
-    if (Object(_utils_index__WEBPACK_IMPORTED_MODULE_3__["isEvtWithFiles"])(event)) {
-      Promise.resolve(getFilesFromEvent(event)).then(function (files) {
-        if (Object(_utils_index__WEBPACK_IMPORTED_MODULE_3__["isPropagationStopped"])(event) && !noDragEventsBubbling) {
-          return;
-        }
-
-        var acceptedFiles = [];
-        var fileRejections = [];
-        files.forEach(function (file) {
-          var _fileAccepted = Object(_utils_index__WEBPACK_IMPORTED_MODULE_3__["fileAccepted"])(file, accept),
-              _fileAccepted2 = _slicedToArray(_fileAccepted, 2),
-              accepted = _fileAccepted2[0],
-              acceptError = _fileAccepted2[1];
-
-          var _fileMatchSize = Object(_utils_index__WEBPACK_IMPORTED_MODULE_3__["fileMatchSize"])(file, minSize, maxSize),
-              _fileMatchSize2 = _slicedToArray(_fileMatchSize, 2),
-              sizeMatch = _fileMatchSize2[0],
-              sizeError = _fileMatchSize2[1];
-
-          if (accepted && sizeMatch) {
-            acceptedFiles.push(file);
-          } else {
-            var errors = [acceptError, sizeError].filter(function (e) {
-              return e;
-            });
-            fileRejections.push({
-              file: file,
-              errors: errors
-            });
-          }
-        });
-
-        if (!multiple && acceptedFiles.length > 1) {
-          // Reject everything and empty accepted files
-          acceptedFiles.forEach(function (file) {
-            fileRejections.push({
-              file: file,
-              errors: [_utils_index__WEBPACK_IMPORTED_MODULE_3__["TOO_MANY_FILES_REJECTION"]]
-            });
-          });
-          acceptedFiles.splice(0);
-        }
-
-        dispatch({
-          acceptedFiles: acceptedFiles,
-          fileRejections: fileRejections,
-          type: 'setFiles'
-        });
-
-        if (onDrop) {
-          onDrop(acceptedFiles, fileRejections, event);
-        }
-
-        if (fileRejections.length > 0 && onDropRejected) {
-          onDropRejected(fileRejections, event);
-        }
-
-        if (acceptedFiles.length > 0 && onDropAccepted) {
-          onDropAccepted(acceptedFiles, event);
-        }
-      });
-    }
-
-    dispatch({
-      type: 'reset'
-    });
-  }, [multiple, accept, minSize, maxSize, getFilesFromEvent, onDrop, onDropAccepted, onDropRejected, noDragEventsBubbling]);
-
-  var composeHandler = function composeHandler(fn) {
-    return disabled ? null : fn;
-  };
-
-  var composeKeyboardHandler = function composeKeyboardHandler(fn) {
-    return noKeyboard ? null : composeHandler(fn);
-  };
-
-  var composeDragHandler = function composeDragHandler(fn) {
-    return noDrag ? null : composeHandler(fn);
-  };
-
-  var stopPropagation = function stopPropagation(event) {
-    if (noDragEventsBubbling) {
-      event.stopPropagation();
-    }
-  };
-
-  var getRootProps = Object(react__WEBPACK_IMPORTED_MODULE_0__["useMemo"])(function () {
-    return function () {
-      var _ref3 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
-          _ref3$refKey = _ref3.refKey,
-          refKey = _ref3$refKey === void 0 ? 'ref' : _ref3$refKey,
-          onKeyDown = _ref3.onKeyDown,
-          onFocus = _ref3.onFocus,
-          onBlur = _ref3.onBlur,
-          onClick = _ref3.onClick,
-          onDragEnter = _ref3.onDragEnter,
-          onDragOver = _ref3.onDragOver,
-          onDragLeave = _ref3.onDragLeave,
-          onDrop = _ref3.onDrop,
-          rest = _objectWithoutProperties(_ref3, ["refKey", "onKeyDown", "onFocus", "onBlur", "onClick", "onDragEnter", "onDragOver", "onDragLeave", "onDrop"]);
-
-      return _objectSpread(_defineProperty({
-        onKeyDown: composeKeyboardHandler(Object(_utils_index__WEBPACK_IMPORTED_MODULE_3__["composeEventHandlers"])(onKeyDown, onKeyDownCb)),
-        onFocus: composeKeyboardHandler(Object(_utils_index__WEBPACK_IMPORTED_MODULE_3__["composeEventHandlers"])(onFocus, onFocusCb)),
-        onBlur: composeKeyboardHandler(Object(_utils_index__WEBPACK_IMPORTED_MODULE_3__["composeEventHandlers"])(onBlur, onBlurCb)),
-        onClick: composeHandler(Object(_utils_index__WEBPACK_IMPORTED_MODULE_3__["composeEventHandlers"])(onClick, onClickCb)),
-        onDragEnter: composeDragHandler(Object(_utils_index__WEBPACK_IMPORTED_MODULE_3__["composeEventHandlers"])(onDragEnter, onDragEnterCb)),
-        onDragOver: composeDragHandler(Object(_utils_index__WEBPACK_IMPORTED_MODULE_3__["composeEventHandlers"])(onDragOver, onDragOverCb)),
-        onDragLeave: composeDragHandler(Object(_utils_index__WEBPACK_IMPORTED_MODULE_3__["composeEventHandlers"])(onDragLeave, onDragLeaveCb)),
-        onDrop: composeDragHandler(Object(_utils_index__WEBPACK_IMPORTED_MODULE_3__["composeEventHandlers"])(onDrop, onDropCb))
-      }, refKey, rootRef), !disabled && !noKeyboard ? {
-        tabIndex: 0
-      } : {}, {}, rest);
-    };
-  }, [rootRef, onKeyDownCb, onFocusCb, onBlurCb, onClickCb, onDragEnterCb, onDragOverCb, onDragLeaveCb, onDropCb, noKeyboard, noDrag, disabled]);
-  var onInputElementClick = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(function (event) {
-    event.stopPropagation();
-  }, []);
-  var getInputProps = Object(react__WEBPACK_IMPORTED_MODULE_0__["useMemo"])(function () {
-    return function () {
-      var _ref4 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
-          _ref4$refKey = _ref4.refKey,
-          refKey = _ref4$refKey === void 0 ? 'ref' : _ref4$refKey,
-          onChange = _ref4.onChange,
-          onClick = _ref4.onClick,
-          rest = _objectWithoutProperties(_ref4, ["refKey", "onChange", "onClick"]);
-
-      var inputProps = _defineProperty({
-        accept: accept,
-        multiple: multiple,
-        type: 'file',
-        style: {
-          display: 'none'
-        },
-        onChange: composeHandler(Object(_utils_index__WEBPACK_IMPORTED_MODULE_3__["composeEventHandlers"])(onChange, onDropCb)),
-        onClick: composeHandler(Object(_utils_index__WEBPACK_IMPORTED_MODULE_3__["composeEventHandlers"])(onClick, onInputElementClick)),
-        autoComplete: 'off',
-        tabIndex: -1
-      }, refKey, inputRef);
-
-      return _objectSpread({}, inputProps, {}, rest);
-    };
-  }, [inputRef, accept, multiple, onDropCb, disabled]);
-  var fileCount = draggedFiles.length;
-  var isDragAccept = fileCount > 0 && Object(_utils_index__WEBPACK_IMPORTED_MODULE_3__["allFilesAccepted"])({
-    files: draggedFiles,
-    accept: accept,
-    minSize: minSize,
-    maxSize: maxSize,
-    multiple: multiple
-  });
-  var isDragReject = fileCount > 0 && !isDragAccept;
-  return _objectSpread({}, state, {
-    isDragAccept: isDragAccept,
-    isDragReject: isDragReject,
-    isFocused: isFocused && !disabled,
-    getRootProps: getRootProps,
-    getInputProps: getInputProps,
-    rootRef: rootRef,
-    inputRef: inputRef,
-    open: composeHandler(openFileDialog)
-  });
-}
-
-function reducer(state, action) {
-  /* istanbul ignore next */
-  switch (action.type) {
-    case 'focus':
-      return _objectSpread({}, state, {
-        isFocused: true
-      });
-
-    case 'blur':
-      return _objectSpread({}, state, {
-        isFocused: false
-      });
-
-    case 'openDialog':
-      return _objectSpread({}, state, {
-        isFileDialogActive: true
-      });
-
-    case 'closeDialog':
-      return _objectSpread({}, state, {
-        isFileDialogActive: false
-      });
-
-    case 'setDraggedFiles':
-      /* eslint no-case-declarations: 0 */
-      var isDragActive = action.isDragActive,
-          draggedFiles = action.draggedFiles;
-      return _objectSpread({}, state, {
-        draggedFiles: draggedFiles,
-        isDragActive: isDragActive
-      });
-
-    case 'setFiles':
-      return _objectSpread({}, state, {
-        acceptedFiles: action.acceptedFiles,
-        fileRejections: action.fileRejections
-      });
-
-    case 'reset':
-      return _objectSpread({}, state, {
-        isFileDialogActive: false,
-        isDragActive: false,
-        draggedFiles: [],
-        acceptedFiles: [],
-        fileRejections: []
-      });
-
-    default:
-      return state;
-  }
-}
-
-/***/ }),
-
-/***/ "./node_modules/react-dropzone/dist/es/utils/index.js":
-/*!************************************************************!*\
-  !*** ./node_modules/react-dropzone/dist/es/utils/index.js ***!
-  \************************************************************/
-/*! exports provided: FILE_INVALID_TYPE, FILE_TOO_LARGE, FILE_TOO_SMALL, TOO_MANY_FILES, getInvalidTypeRejectionErr, getTooLargeRejectionErr, getTooSmallRejectionErr, TOO_MANY_FILES_REJECTION, fileAccepted, fileMatchSize, allFilesAccepted, isPropagationStopped, isEvtWithFiles, isKindFile, onDocumentDragOver, isIeOrEdge, composeEventHandlers */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FILE_INVALID_TYPE", function() { return FILE_INVALID_TYPE; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FILE_TOO_LARGE", function() { return FILE_TOO_LARGE; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FILE_TOO_SMALL", function() { return FILE_TOO_SMALL; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TOO_MANY_FILES", function() { return TOO_MANY_FILES; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getInvalidTypeRejectionErr", function() { return getInvalidTypeRejectionErr; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTooLargeRejectionErr", function() { return getTooLargeRejectionErr; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getTooSmallRejectionErr", function() { return getTooSmallRejectionErr; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TOO_MANY_FILES_REJECTION", function() { return TOO_MANY_FILES_REJECTION; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fileAccepted", function() { return fileAccepted; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fileMatchSize", function() { return fileMatchSize; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "allFilesAccepted", function() { return allFilesAccepted; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isPropagationStopped", function() { return isPropagationStopped; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isEvtWithFiles", function() { return isEvtWithFiles; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isKindFile", function() { return isKindFile; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onDocumentDragOver", function() { return onDocumentDragOver; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isIeOrEdge", function() { return isIeOrEdge; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "composeEventHandlers", function() { return composeEventHandlers; });
-/* harmony import */ var attr_accept__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! attr-accept */ "./node_modules/attr-accept/src/index.js");
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
-
-function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
- // Error codes
-
-var FILE_INVALID_TYPE = 'file-invalid-type';
-var FILE_TOO_LARGE = 'file-too-large';
-var FILE_TOO_SMALL = 'file-too-small';
-var TOO_MANY_FILES = 'too-many-files'; // File Errors
-
-var getInvalidTypeRejectionErr = function getInvalidTypeRejectionErr(accept) {
-  accept = Array.isArray(accept) && accept.length === 1 ? accept[0] : accept;
-  var messageSuffix = Array.isArray(accept) ? "one of ".concat(accept.join(', ')) : accept;
-  return {
-    code: FILE_INVALID_TYPE,
-    message: "File type must be ".concat(messageSuffix)
-  };
-};
-var getTooLargeRejectionErr = function getTooLargeRejectionErr(maxSize) {
-  return {
-    code: FILE_TOO_LARGE,
-    message: "File is larger than ".concat(maxSize, " bytes")
-  };
-};
-var getTooSmallRejectionErr = function getTooSmallRejectionErr(minSize) {
-  return {
-    code: FILE_TOO_SMALL,
-    message: "File is smaller than ".concat(minSize, " bytes")
-  };
-};
-var TOO_MANY_FILES_REJECTION = {
-  code: TOO_MANY_FILES,
-  message: 'Too many files'
-}; // Firefox versions prior to 53 return a bogus MIME type for every file drag, so dragovers with
-// that MIME type will always be accepted
-
-function fileAccepted(file, accept) {
-  var isAcceptable = file.type === 'application/x-moz-file' || Object(attr_accept__WEBPACK_IMPORTED_MODULE_0__["default"])(file, accept);
-  return [isAcceptable, isAcceptable ? null : getInvalidTypeRejectionErr(accept)];
-}
-function fileMatchSize(file, minSize, maxSize) {
-  if (isDefined(file.size)) {
-    if (isDefined(minSize) && isDefined(maxSize)) {
-      if (file.size > maxSize) return [false, getTooLargeRejectionErr(maxSize)];
-      if (file.size < minSize) return [false, getTooSmallRejectionErr(minSize)];
-    } else if (isDefined(minSize) && file.size < minSize) return [false, getTooSmallRejectionErr(minSize)];else if (isDefined(maxSize) && file.size > maxSize) return [false, getTooLargeRejectionErr(maxSize)];
-  }
-
-  return [true, null];
-}
-
-function isDefined(value) {
-  return value !== undefined && value !== null;
-}
-
-function allFilesAccepted(_ref) {
-  var files = _ref.files,
-      accept = _ref.accept,
-      minSize = _ref.minSize,
-      maxSize = _ref.maxSize,
-      multiple = _ref.multiple;
-
-  if (!multiple && files.length > 1) {
-    return false;
-  }
-
-  return files.every(function (file) {
-    var _fileAccepted = fileAccepted(file, accept),
-        _fileAccepted2 = _slicedToArray(_fileAccepted, 1),
-        accepted = _fileAccepted2[0];
-
-    var _fileMatchSize = fileMatchSize(file, minSize, maxSize),
-        _fileMatchSize2 = _slicedToArray(_fileMatchSize, 1),
-        sizeMatch = _fileMatchSize2[0];
-
-    return accepted && sizeMatch;
-  });
-} // React's synthetic events has event.isPropagationStopped,
-// but to remain compatibility with other libs (Preact) fall back
-// to check event.cancelBubble
-
-function isPropagationStopped(event) {
-  if (typeof event.isPropagationStopped === 'function') {
-    return event.isPropagationStopped();
-  } else if (typeof event.cancelBubble !== 'undefined') {
-    return event.cancelBubble;
-  }
-
-  return false;
-}
-function isEvtWithFiles(event) {
-  if (!event.dataTransfer) {
-    return !!event.target && !!event.target.files;
-  } // https://developer.mozilla.org/en-US/docs/Web/API/DataTransfer/types
-  // https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types#file
-
-
-  return Array.prototype.some.call(event.dataTransfer.types, function (type) {
-    return type === 'Files' || type === 'application/x-moz-file';
-  });
-}
-function isKindFile(item) {
-  return _typeof(item) === 'object' && item !== null && item.kind === 'file';
-} // allow the entire document to be a drag target
-
-function onDocumentDragOver(event) {
-  event.preventDefault();
-}
-
-function isIe(userAgent) {
-  return userAgent.indexOf('MSIE') !== -1 || userAgent.indexOf('Trident/') !== -1;
-}
-
-function isEdge(userAgent) {
-  return userAgent.indexOf('Edge/') !== -1;
-}
-
-function isIeOrEdge() {
-  var userAgent = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : window.navigator.userAgent;
-  return isIe(userAgent) || isEdge(userAgent);
-}
-/**
- * This is intended to be used to compose event handlers
- * They are executed in order until one of them calls `event.isPropagationStopped()`.
- * Note that the check is done on the first invoke too,
- * meaning that if propagation was stopped before invoking the fns,
- * no handlers will be executed.
- *
- * @param {Function} fns the event hanlder functions
- * @return {Function} the event handler to add to an element
- */
-
-function composeEventHandlers() {
-  for (var _len = arguments.length, fns = new Array(_len), _key = 0; _key < _len; _key++) {
-    fns[_key] = arguments[_key];
-  }
-
-  return function (event) {
-    for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
-      args[_key2 - 1] = arguments[_key2];
-    }
-
-    return fns.some(function (fn) {
-      if (!isPropagationStopped(event) && fn) {
-        fn.apply(void 0, [event].concat(args));
-      }
-
-      return isPropagationStopped(event);
-    });
-  };
-}
-
-/***/ }),
-
 /***/ "./node_modules/react-input-autosize/lib/AutosizeInput.js":
 /*!****************************************************************!*\
   !*** ./node_modules/react-input-autosize/lib/AutosizeInput.js ***!
@@ -78979,6 +77806,404 @@ if (false) {} else {
   module.exports = __webpack_require__(/*! ./cjs/react-is.development.js */ "./node_modules/react-is/cjs/react-is.development.js");
 }
 
+
+/***/ }),
+
+/***/ "./node_modules/react-js-pagination/dist/Page.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/react-js-pagination/dist/Page.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
+
+var _classnames = _interopRequireDefault(__webpack_require__(/*! classnames */ "./node_modules/classnames/index.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var Page =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(Page, _Component);
+
+  function Page() {
+    _classCallCheck(this, Page);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Page).apply(this, arguments));
+  }
+
+  _createClass(Page, [{
+    key: "handleClick",
+    value: function handleClick(e) {
+      var _this$props = this.props,
+          isDisabled = _this$props.isDisabled,
+          pageNumber = _this$props.pageNumber;
+      e.preventDefault();
+
+      if (isDisabled) {
+        return;
+      }
+
+      this.props.onClick(pageNumber);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _cx;
+
+      var _this$props2 = this.props,
+          pageText = _this$props2.pageText,
+          pageNumber = _this$props2.pageNumber,
+          activeClass = _this$props2.activeClass,
+          itemClass = _this$props2.itemClass,
+          linkClass = _this$props2.linkClass,
+          activeLinkClass = _this$props2.activeLinkClass,
+          disabledClass = _this$props2.disabledClass,
+          isActive = _this$props2.isActive,
+          isDisabled = _this$props2.isDisabled,
+          href = _this$props2.href,
+          ariaLabel = _this$props2.ariaLabel;
+      var css = (0, _classnames["default"])(itemClass, (_cx = {}, _defineProperty(_cx, activeClass, isActive), _defineProperty(_cx, disabledClass, isDisabled), _cx));
+      var linkCss = (0, _classnames["default"])(linkClass, _defineProperty({}, activeLinkClass, isActive));
+      return _react["default"].createElement("li", {
+        className: css,
+        onClick: this.handleClick.bind(this)
+      }, _react["default"].createElement("a", {
+        className: linkCss,
+        href: href,
+        "aria-label": ariaLabel
+      }, pageText));
+    }
+  }]);
+
+  return Page;
+}(_react.Component);
+
+exports["default"] = Page;
+
+_defineProperty(Page, "propTypes", {
+  pageText: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].element]),
+  pageNumber: _propTypes["default"].number.isRequired,
+  onClick: _propTypes["default"].func.isRequired,
+  isActive: _propTypes["default"].bool.isRequired,
+  isDisabled: _propTypes["default"].bool,
+  activeClass: _propTypes["default"].string,
+  activeLinkClass: _propTypes["default"].string,
+  itemClass: _propTypes["default"].string,
+  linkClass: _propTypes["default"].string,
+  disabledClass: _propTypes["default"].string,
+  href: _propTypes["default"].string
+});
+
+_defineProperty(Page, "defaultProps", {
+  activeClass: "active",
+  disabledClass: "disabled",
+  itemClass: undefined,
+  linkClass: undefined,
+  activeLinkCLass: undefined,
+  isActive: false,
+  isDisabled: false,
+  href: "#"
+});
+
+/***/ }),
+
+/***/ "./node_modules/react-js-pagination/dist/Pagination.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/react-js-pagination/dist/Pagination.js ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _react = _interopRequireWildcard(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+
+var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
+
+var _paginator = _interopRequireDefault(__webpack_require__(/*! paginator */ "./node_modules/paginator/index.js"));
+
+var _Page = _interopRequireDefault(__webpack_require__(/*! ./Page */ "./node_modules/react-js-pagination/dist/Page.js"));
+
+var _classnames = _interopRequireDefault(__webpack_require__(/*! classnames */ "./node_modules/classnames/index.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var Pagination =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Pagination, _React$Component);
+
+  function Pagination() {
+    _classCallCheck(this, Pagination);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(Pagination).apply(this, arguments));
+  }
+
+  _createClass(Pagination, [{
+    key: "isFirstPageVisible",
+    value: function isFirstPageVisible(has_previous_page) {
+      var _this$props = this.props,
+          hideDisabled = _this$props.hideDisabled,
+          hideNavigation = _this$props.hideNavigation,
+          hideFirstLastPages = _this$props.hideFirstLastPages;
+      if (hideFirstLastPages || hideDisabled && !has_previous_page) return false;
+      return true;
+    }
+  }, {
+    key: "isPrevPageVisible",
+    value: function isPrevPageVisible(has_previous_page) {
+      var _this$props2 = this.props,
+          hideDisabled = _this$props2.hideDisabled,
+          hideNavigation = _this$props2.hideNavigation;
+      if (hideNavigation || hideDisabled && !has_previous_page) return false;
+      return true;
+    }
+  }, {
+    key: "isNextPageVisible",
+    value: function isNextPageVisible(has_next_page) {
+      var _this$props3 = this.props,
+          hideDisabled = _this$props3.hideDisabled,
+          hideNavigation = _this$props3.hideNavigation;
+      if (hideNavigation || hideDisabled && !has_next_page) return false;
+      return true;
+    }
+  }, {
+    key: "isLastPageVisible",
+    value: function isLastPageVisible(has_next_page) {
+      var _this$props4 = this.props,
+          hideDisabled = _this$props4.hideDisabled,
+          hideNavigation = _this$props4.hideNavigation,
+          hideFirstLastPages = _this$props4.hideFirstLastPages;
+      if (hideFirstLastPages || hideDisabled && !has_next_page) return false;
+      return true;
+    }
+  }, {
+    key: "buildPages",
+    value: function buildPages() {
+      var pages = [];
+      var _this$props5 = this.props,
+          itemsCountPerPage = _this$props5.itemsCountPerPage,
+          pageRangeDisplayed = _this$props5.pageRangeDisplayed,
+          activePage = _this$props5.activePage,
+          prevPageText = _this$props5.prevPageText,
+          nextPageText = _this$props5.nextPageText,
+          firstPageText = _this$props5.firstPageText,
+          lastPageText = _this$props5.lastPageText,
+          totalItemsCount = _this$props5.totalItemsCount,
+          onChange = _this$props5.onChange,
+          activeClass = _this$props5.activeClass,
+          itemClass = _this$props5.itemClass,
+          itemClassFirst = _this$props5.itemClassFirst,
+          itemClassPrev = _this$props5.itemClassPrev,
+          itemClassNext = _this$props5.itemClassNext,
+          itemClassLast = _this$props5.itemClassLast,
+          activeLinkClass = _this$props5.activeLinkClass,
+          disabledClass = _this$props5.disabledClass,
+          hideDisabled = _this$props5.hideDisabled,
+          hideNavigation = _this$props5.hideNavigation,
+          linkClass = _this$props5.linkClass,
+          linkClassFirst = _this$props5.linkClassFirst,
+          linkClassPrev = _this$props5.linkClassPrev,
+          linkClassNext = _this$props5.linkClassNext,
+          linkClassLast = _this$props5.linkClassLast,
+          hideFirstLastPages = _this$props5.hideFirstLastPages,
+          getPageUrl = _this$props5.getPageUrl;
+      var paginationInfo = new _paginator["default"](itemsCountPerPage, pageRangeDisplayed).build(totalItemsCount, activePage);
+
+      for (var i = paginationInfo.first_page; i <= paginationInfo.last_page; i++) {
+        pages.push(_react["default"].createElement(_Page["default"], {
+          isActive: i === activePage,
+          key: i,
+          href: getPageUrl(i),
+          pageNumber: i,
+          pageText: i + "",
+          onClick: onChange,
+          itemClass: itemClass,
+          linkClass: linkClass,
+          activeClass: activeClass,
+          activeLinkClass: activeLinkClass,
+          ariaLabel: "Go to page number ".concat(i)
+        }));
+      }
+
+      this.isPrevPageVisible(paginationInfo.has_previous_page) && pages.unshift(_react["default"].createElement(_Page["default"], {
+        key: "prev" + paginationInfo.previous_page,
+        href: getPageUrl(paginationInfo.previous_page),
+        pageNumber: paginationInfo.previous_page,
+        onClick: onChange,
+        pageText: prevPageText,
+        isDisabled: !paginationInfo.has_previous_page,
+        itemClass: (0, _classnames["default"])(itemClass, itemClassPrev),
+        linkClass: (0, _classnames["default"])(linkClass, linkClassPrev),
+        disabledClass: disabledClass,
+        ariaLabel: "Go to previous page"
+      }));
+      this.isFirstPageVisible(paginationInfo.has_previous_page) && pages.unshift(_react["default"].createElement(_Page["default"], {
+        key: "first",
+        href: getPageUrl(1),
+        pageNumber: 1,
+        onClick: onChange,
+        pageText: firstPageText,
+        isDisabled: !paginationInfo.has_previous_page,
+        itemClass: (0, _classnames["default"])(itemClass, itemClassFirst),
+        linkClass: (0, _classnames["default"])(linkClass, linkClassFirst),
+        disabledClass: disabledClass,
+        ariaLabel: "Go to first page"
+      }));
+      this.isNextPageVisible(paginationInfo.has_next_page) && pages.push(_react["default"].createElement(_Page["default"], {
+        key: "next" + paginationInfo.next_page,
+        href: getPageUrl(paginationInfo.next_page),
+        pageNumber: paginationInfo.next_page,
+        onClick: onChange,
+        pageText: nextPageText,
+        isDisabled: !paginationInfo.has_next_page,
+        itemClass: (0, _classnames["default"])(itemClass, itemClassNext),
+        linkClass: (0, _classnames["default"])(linkClass, linkClassNext),
+        disabledClass: disabledClass,
+        ariaLabel: "Go to next page"
+      }));
+      this.isLastPageVisible(paginationInfo.has_next_page) && pages.push(_react["default"].createElement(_Page["default"], {
+        key: "last",
+        href: getPageUrl(paginationInfo.total_pages),
+        pageNumber: paginationInfo.total_pages,
+        onClick: onChange,
+        pageText: lastPageText,
+        isDisabled: paginationInfo.current_page === paginationInfo.total_pages,
+        itemClass: (0, _classnames["default"])(itemClass, itemClassLast),
+        linkClass: (0, _classnames["default"])(linkClass, linkClassLast),
+        disabledClass: disabledClass,
+        ariaLabel: "Go to last page"
+      }));
+      return pages;
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var pages = this.buildPages();
+      return _react["default"].createElement("ul", {
+        className: this.props.innerClass
+      }, pages);
+    }
+  }]);
+
+  return Pagination;
+}(_react["default"].Component);
+
+exports["default"] = Pagination;
+
+_defineProperty(Pagination, "propTypes", {
+  totalItemsCount: _propTypes["default"].number.isRequired,
+  onChange: _propTypes["default"].func.isRequired,
+  activePage: _propTypes["default"].number,
+  itemsCountPerPage: _propTypes["default"].number,
+  pageRangeDisplayed: _propTypes["default"].number,
+  prevPageText: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].element]),
+  nextPageText: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].element]),
+  lastPageText: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].element]),
+  firstPageText: _propTypes["default"].oneOfType([_propTypes["default"].string, _propTypes["default"].element]),
+  disabledClass: _propTypes["default"].string,
+  hideDisabled: _propTypes["default"].bool,
+  hideNavigation: _propTypes["default"].bool,
+  innerClass: _propTypes["default"].string,
+  itemClass: _propTypes["default"].string,
+  itemClassFirst: _propTypes["default"].string,
+  itemClassPrev: _propTypes["default"].string,
+  itemClassNext: _propTypes["default"].string,
+  itemClassLast: _propTypes["default"].string,
+  linkClass: _propTypes["default"].string,
+  activeClass: _propTypes["default"].string,
+  activeLinkClass: _propTypes["default"].string,
+  linkClassFirst: _propTypes["default"].string,
+  linkClassPrev: _propTypes["default"].string,
+  linkClassNext: _propTypes["default"].string,
+  linkClassLast: _propTypes["default"].string,
+  hideFirstLastPages: _propTypes["default"].bool,
+  getPageUrl: _propTypes["default"].func
+});
+
+_defineProperty(Pagination, "defaultProps", {
+  itemsCountPerPage: 10,
+  pageRangeDisplayed: 5,
+  activePage: 1,
+  prevPageText: "⟨",
+  firstPageText: "«",
+  nextPageText: "⟩",
+  lastPageText: "»",
+  innerClass: "pagination",
+  itemClass: undefined,
+  linkClass: undefined,
+  activeLinkClass: undefined,
+  hideFirstLastPages: false,
+  getPageUrl: function getPageUrl(i) {
+    return "#";
+  }
+});
 
 /***/ }),
 
@@ -87391,6 +86616,551 @@ function isMobileDevice() {
 }
 
 
+
+
+/***/ }),
+
+/***/ "./node_modules/react-switch/dist/react-switch.dev.js":
+/*!************************************************************!*\
+  !*** ./node_modules/react-switch/dist/react-switch.dev.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var PropTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+/*
+The MIT License (MIT)
+
+Copyright (c) 2015 instructure-react
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+var uncheckedIcon = React.createElement('svg', {
+  viewBox: "-2 -5 14 20",
+  height: "100%",
+  width: "100%",
+  style: {
+    position: "absolute",
+    top: 0
+  }
+}, React.createElement('path', {
+  d: "M9.9 2.12L7.78 0 4.95 2.828 2.12 0 0 2.12l2.83 2.83L0 7.776 2.123 9.9 4.95 7.07 7.78 9.9 9.9 7.776 7.072 4.95 9.9 2.12",
+  fill: "#fff",
+  fillRule: "evenodd"
+}));
+var checkedIcon = React.createElement('svg', {
+  height: "100%",
+  width: "100%",
+  viewBox: "-2 -5 17 21",
+  style: {
+    position: "absolute",
+    top: 0
+  }
+}, React.createElement('path', {
+  d: "M11.264 0L5.26 6.004 2.103 2.847 0 4.95l5.26 5.26 8.108-8.107L11.264 0",
+  fill: "#fff",
+  fillRule: "evenodd"
+}));
+
+function createBackgroundColor(pos, checkedPos, uncheckedPos, offColor, onColor) {
+  var relativePos = (pos - uncheckedPos) / (checkedPos - uncheckedPos);
+
+  if (relativePos === 0) {
+    return offColor;
+  }
+
+  if (relativePos === 1) {
+    return onColor;
+  }
+
+  var newColor = "#";
+
+  for (var i = 1; i < 6; i += 2) {
+    var offComponent = parseInt(offColor.substr(i, 2), 16);
+    var onComponent = parseInt(onColor.substr(i, 2), 16);
+    var weightedValue = Math.round((1 - relativePos) * offComponent + relativePos * onComponent);
+    var newComponent = weightedValue.toString(16);
+
+    if (newComponent.length === 1) {
+      newComponent = "0" + newComponent;
+    }
+
+    newColor += newComponent;
+  }
+
+  return newColor;
+}
+
+function convertShorthandColor(color) {
+  if (color.length === 7) {
+    return color;
+  }
+
+  var sixDigitColor = "#";
+
+  for (var i = 1; i < 4; i += 1) {
+    sixDigitColor += color[i] + color[i];
+  }
+
+  return sixDigitColor;
+}
+
+function getBackgroundColor(pos, checkedPos, uncheckedPos, offColor, onColor) {
+  var sixDigitOffColor = convertShorthandColor(offColor);
+  var sixDigitOnColor = convertShorthandColor(onColor);
+  return createBackgroundColor(pos, checkedPos, uncheckedPos, sixDigitOffColor, sixDigitOnColor);
+}
+
+// Make sure color props are strings that start with "#" since other ways to write colors are not supported.
+var hexColorPropType = function (props, propName, componentName) {
+  var prop = props[propName];
+
+  if (typeof prop !== "string" || prop[0] !== "#" || prop.length !== 4 && prop.length !== 7) {
+    return new Error("Invalid prop '" + propName + "' supplied to '" + componentName + "'. '" + propName + "' has to be either a 3-digit or 6-digit hex-color string. Valid examples: '#abc', '#123456'");
+  }
+
+  return null;
+};
+
+function objectWithoutProperties(obj, exclude) {
+  var target = {};
+
+  for (var k in obj) if (Object.prototype.hasOwnProperty.call(obj, k) && exclude.indexOf(k) === -1) target[k] = obj[k];
+
+  return target;
+}
+
+var ReactSwitch =
+/*@__PURE__*/
+function (Component) {
+  function ReactSwitch(props) {
+    Component.call(this, props);
+    var height = props.height;
+    var width = props.width;
+    var handleDiameter = props.handleDiameter;
+    var checked = props.checked;
+    this.$handleDiameter = handleDiameter || height - 2;
+    this.$checkedPos = Math.max(width - height, width - (height + this.$handleDiameter) / 2);
+    this.$uncheckedPos = Math.max(0, (height - this.$handleDiameter) / 2);
+    this.state = {
+      $pos: checked ? this.$checkedPos : this.$uncheckedPos
+    };
+    this.$lastDragAt = 0;
+    this.$lastKeyUpAt = 0;
+    this.$onMouseDown = this.$onMouseDown.bind(this);
+    this.$onMouseMove = this.$onMouseMove.bind(this);
+    this.$onMouseUp = this.$onMouseUp.bind(this);
+    this.$onTouchStart = this.$onTouchStart.bind(this);
+    this.$onTouchMove = this.$onTouchMove.bind(this);
+    this.$onTouchEnd = this.$onTouchEnd.bind(this);
+    this.$onClick = this.$onClick.bind(this);
+    this.$onInputChange = this.$onInputChange.bind(this);
+    this.$onKeyUp = this.$onKeyUp.bind(this);
+    this.$setHasOutline = this.$setHasOutline.bind(this);
+    this.$unsetHasOutline = this.$unsetHasOutline.bind(this);
+    this.$getInputRef = this.$getInputRef.bind(this);
+  }
+
+  if (Component) ReactSwitch.__proto__ = Component;
+  ReactSwitch.prototype = Object.create(Component && Component.prototype);
+  ReactSwitch.prototype.constructor = ReactSwitch;
+
+  ReactSwitch.prototype.componentDidUpdate = function componentDidUpdate(prevProps) {
+    if (prevProps.checked === this.props.checked) {
+      return;
+    }
+
+    var $pos = this.props.checked ? this.$checkedPos : this.$uncheckedPos;
+    this.setState({
+      $pos: $pos
+    });
+  };
+
+  ReactSwitch.prototype.$onDragStart = function $onDragStart(clientX) {
+    this.$inputRef.focus();
+    this.setState({
+      $startX: clientX,
+      $hasOutline: true,
+      $dragStartingTime: Date.now()
+    });
+  };
+
+  ReactSwitch.prototype.$onDrag = function $onDrag(clientX) {
+    var ref = this.state;
+    var $startX = ref.$startX;
+    var $isDragging = ref.$isDragging;
+    var $pos = ref.$pos;
+    var ref$1 = this.props;
+    var checked = ref$1.checked;
+    var startPos = checked ? this.$checkedPos : this.$uncheckedPos;
+    var mousePos = startPos + clientX - $startX; // We need this check to fix a windows glitch where onDrag is triggered onMouseDown in some cases
+
+    if (!$isDragging && clientX !== $startX) {
+      this.setState({
+        $isDragging: true
+      });
+    }
+
+    var newPos = Math.min(this.$checkedPos, Math.max(this.$uncheckedPos, mousePos)); // Prevent unnecessary rerenders
+
+    if (newPos !== $pos) {
+      this.setState({
+        $pos: newPos
+      });
+    }
+  };
+
+  ReactSwitch.prototype.$onDragStop = function $onDragStop(event) {
+    var ref = this.state;
+    var $pos = ref.$pos;
+    var $isDragging = ref.$isDragging;
+    var $dragStartingTime = ref.$dragStartingTime;
+    var ref$1 = this.props;
+    var checked = ref$1.checked;
+    var halfwayCheckpoint = (this.$checkedPos + this.$uncheckedPos) / 2; // Simulate clicking the handle
+
+    var timeSinceStart = Date.now() - $dragStartingTime;
+
+    if (!$isDragging || timeSinceStart < 250) {
+      this.$onChange(event); // Handle dragging from checked position
+    } else if (checked) {
+      if ($pos > halfwayCheckpoint) {
+        this.setState({
+          $pos: this.$checkedPos
+        });
+      } else {
+        this.$onChange(event);
+      } // Handle dragging from unchecked position
+
+    } else if ($pos < halfwayCheckpoint) {
+      this.setState({
+        $pos: this.$uncheckedPos
+      });
+    } else {
+      this.$onChange(event);
+    }
+
+    this.setState({
+      $isDragging: false,
+      $hasOutline: false
+    });
+    this.$lastDragAt = Date.now();
+  };
+
+  ReactSwitch.prototype.$onMouseDown = function $onMouseDown(event) {
+    event.preventDefault(); // Ignore right click and scroll
+
+    if (typeof event.button === "number" && event.button !== 0) {
+      return;
+    }
+
+    this.$onDragStart(event.clientX);
+    window.addEventListener("mousemove", this.$onMouseMove);
+    window.addEventListener("mouseup", this.$onMouseUp);
+  };
+
+  ReactSwitch.prototype.$onMouseMove = function $onMouseMove(event) {
+    event.preventDefault();
+    this.$onDrag(event.clientX);
+  };
+
+  ReactSwitch.prototype.$onMouseUp = function $onMouseUp(event) {
+    this.$onDragStop(event);
+    window.removeEventListener("mousemove", this.$onMouseMove);
+    window.removeEventListener("mouseup", this.$onMouseUp);
+  };
+
+  ReactSwitch.prototype.$onTouchStart = function $onTouchStart(event) {
+    this.$checkedStateFromDragging = null;
+    this.$onDragStart(event.touches[0].clientX);
+  };
+
+  ReactSwitch.prototype.$onTouchMove = function $onTouchMove(event) {
+    this.$onDrag(event.touches[0].clientX);
+  };
+
+  ReactSwitch.prototype.$onTouchEnd = function $onTouchEnd(event) {
+    event.preventDefault();
+    this.$onDragStop(event);
+  };
+
+  ReactSwitch.prototype.$onInputChange = function $onInputChange(event) {
+    // This condition is unfortunately needed in some browsers where the input's change event might get triggered
+    // right after the dragstop event is triggered (occurs when dropping over a label element)
+    if (Date.now() - this.$lastDragAt > 50) {
+      this.$onChange(event); // Prevent clicking label, but not key activation from setting outline to true - yes, this is absurd
+
+      if (Date.now() - this.$lastKeyUpAt > 50) {
+        this.setState({
+          $hasOutline: false
+        });
+      }
+    }
+  };
+
+  ReactSwitch.prototype.$onKeyUp = function $onKeyUp() {
+    this.$lastKeyUpAt = Date.now();
+  };
+
+  ReactSwitch.prototype.$setHasOutline = function $setHasOutline() {
+    this.setState({
+      $hasOutline: true
+    });
+  };
+
+  ReactSwitch.prototype.$unsetHasOutline = function $unsetHasOutline() {
+    this.setState({
+      $hasOutline: false
+    });
+  };
+
+  ReactSwitch.prototype.$getInputRef = function $getInputRef(el) {
+    this.$inputRef = el;
+  };
+
+  ReactSwitch.prototype.$onClick = function $onClick(event) {
+    event.preventDefault();
+    this.$inputRef.focus();
+    this.$onChange(event);
+    this.setState({
+      $hasOutline: false
+    });
+  };
+
+  ReactSwitch.prototype.$onChange = function $onChange(event) {
+    var ref = this.props;
+    var checked = ref.checked;
+    var onChange = ref.onChange;
+    var id = ref.id;
+    onChange(!checked, event, id);
+  };
+
+  ReactSwitch.prototype.render = function render() {
+    var ref = this.props;
+    var disabled = ref.disabled;
+    var className = ref.className;
+    var offColor = ref.offColor;
+    var onColor = ref.onColor;
+    var offHandleColor = ref.offHandleColor;
+    var onHandleColor = ref.onHandleColor;
+    var checkedIcon$$1 = ref.checkedIcon;
+    var uncheckedIcon$$1 = ref.uncheckedIcon;
+    var boxShadow = ref.boxShadow;
+    var activeBoxShadow = ref.activeBoxShadow;
+    var height = ref.height;
+    var width = ref.width;
+    var handleDiameter = ref.handleDiameter;
+    var rest$1 = objectWithoutProperties(ref, ["disabled", "className", "offColor", "onColor", "offHandleColor", "onHandleColor", "checkedIcon", "uncheckedIcon", "boxShadow", "activeBoxShadow", "height", "width", "handleDiameter"]);
+    var rest = rest$1;
+    var ref$1 = this.state;
+    var $pos = ref$1.$pos;
+    var $isDragging = ref$1.$isDragging;
+    var $hasOutline = ref$1.$hasOutline;
+    var rootStyle = {
+      position: "relative",
+      display: "inline-block",
+      textAlign: "left",
+      opacity: disabled ? 0.5 : 1,
+      direction: "ltr",
+      borderRadius: height / 2,
+      WebkitTransition: "opacity 0.25s",
+      MozTransition: "opacity 0.25s",
+      transition: "opacity 0.25s",
+      touchAction: "none",
+      WebkitTapHighlightColor: "rgba(0, 0, 0, 0)",
+      WebkitUserSelect: "none",
+      MozUserSelect: "none",
+      msUserSelect: "none",
+      userSelect: "none"
+    };
+    var backgroundStyle = {
+      height: height,
+      width: width,
+      margin: Math.max(0, (this.$handleDiameter - height) / 2),
+      position: "relative",
+      background: getBackgroundColor($pos, this.$checkedPos, this.$uncheckedPos, offColor, onColor),
+      borderRadius: height / 2,
+      cursor: disabled ? "default" : "pointer",
+      WebkitTransition: $isDragging ? null : "background 0.25s",
+      MozTransition: $isDragging ? null : "background 0.25s",
+      transition: $isDragging ? null : "background 0.25s"
+    };
+    var checkedIconStyle = {
+      height: height,
+      width: Math.min(height * 1.5, width - (this.$handleDiameter + height) / 2 + 1),
+      position: "relative",
+      opacity: ($pos - this.$uncheckedPos) / (this.$checkedPos - this.$uncheckedPos),
+      pointerEvents: "none",
+      WebkitTransition: $isDragging ? null : "opacity 0.25s",
+      MozTransition: $isDragging ? null : "opacity 0.25s",
+      transition: $isDragging ? null : "opacity 0.25s"
+    };
+    var uncheckedIconStyle = {
+      height: height,
+      width: Math.min(height * 1.5, width - (this.$handleDiameter + height) / 2 + 1),
+      position: "absolute",
+      opacity: 1 - ($pos - this.$uncheckedPos) / (this.$checkedPos - this.$uncheckedPos),
+      right: 0,
+      top: 0,
+      pointerEvents: "none",
+      WebkitTransition: $isDragging ? null : "opacity 0.25s",
+      MozTransition: $isDragging ? null : "opacity 0.25s",
+      transition: $isDragging ? null : "opacity 0.25s"
+    };
+    var handleStyle = {
+      height: this.$handleDiameter,
+      width: this.$handleDiameter,
+      background: getBackgroundColor($pos, this.$checkedPos, this.$uncheckedPos, offHandleColor, onHandleColor),
+      display: "inline-block",
+      cursor: disabled ? "default" : "pointer",
+      borderRadius: "50%",
+      position: "absolute",
+      transform: "translateX(" + $pos + "px)",
+      top: Math.max(0, (height - this.$handleDiameter) / 2),
+      outline: 0,
+      boxShadow: $hasOutline ? activeBoxShadow : boxShadow,
+      border: 0,
+      WebkitTransition: $isDragging ? null : "background-color 0.25s, transform 0.25s, box-shadow 0.15s",
+      MozTransition: $isDragging ? null : "background-color 0.25s, transform 0.25s, box-shadow 0.15s",
+      transition: $isDragging ? null : "background-color 0.25s, transform 0.25s, box-shadow 0.15s"
+    };
+    var inputStyle = {
+      border: 0,
+      clip: "rect(0 0 0 0)",
+      height: 1,
+      margin: -1,
+      overflow: "hidden",
+      padding: 0,
+      position: "absolute",
+      width: 1
+    };
+    return React.createElement('div', {
+      className: className,
+      style: rootStyle
+    }, React.createElement('div', {
+      className: "react-switch-bg",
+      style: backgroundStyle,
+      onClick: disabled ? null : this.$onClick,
+      onMouseDown: function (e) {
+        return e.preventDefault();
+      }
+    }, checkedIcon$$1 && React.createElement('div', {
+      style: checkedIconStyle
+    }, checkedIcon$$1), uncheckedIcon$$1 && React.createElement('div', {
+      style: uncheckedIconStyle
+    }, uncheckedIcon$$1)), React.createElement('div', {
+      className: "react-switch-handle",
+      style: handleStyle,
+      onClick: function (e) {
+        return e.preventDefault();
+      },
+      onMouseDown: disabled ? null : this.$onMouseDown,
+      onTouchStart: disabled ? null : this.$onTouchStart,
+      onTouchMove: disabled ? null : this.$onTouchMove,
+      onTouchEnd: disabled ? null : this.$onTouchEnd,
+      onTouchCancel: disabled ? null : this.$unsetHasOutline
+    }), React.createElement('input', _extends({}, {
+      type: "checkbox",
+      role: "switch",
+      disabled: disabled,
+      style: inputStyle
+    }, rest, {
+      ref: this.$getInputRef,
+      onFocus: this.$setHasOutline,
+      onBlur: this.$unsetHasOutline,
+      onKeyUp: this.$onKeyUp,
+      onChange: this.$onInputChange
+    })));
+  };
+
+  return ReactSwitch;
+}(React.Component);
+
+ReactSwitch.propTypes = {
+  checked: PropTypes.bool.isRequired,
+  onChange: PropTypes.func.isRequired,
+  disabled: PropTypes.bool,
+  offColor: hexColorPropType,
+  onColor: hexColorPropType,
+  offHandleColor: hexColorPropType,
+  onHandleColor: hexColorPropType,
+  handleDiameter: PropTypes.number,
+  uncheckedIcon: PropTypes.oneOfType([PropTypes.bool, PropTypes.element]),
+  checkedIcon: PropTypes.oneOfType([PropTypes.bool, PropTypes.element]),
+  boxShadow: PropTypes.string,
+  activeBoxShadow: PropTypes.string,
+  height: PropTypes.number,
+  width: PropTypes.number,
+  id: PropTypes.string,
+  className: PropTypes.string
+};
+ReactSwitch.defaultProps = {
+  disabled: false,
+  offColor: "#888",
+  onColor: "#080",
+  offHandleColor: "#fff",
+  onHandleColor: "#fff",
+  uncheckedIcon: uncheckedIcon,
+  checkedIcon: checkedIcon,
+  boxShadow: null,
+  activeBoxShadow: "0 0 2px 3px #3bf",
+  height: 28,
+  width: 56
+};
+
+exports.default = ReactSwitch;
+
+
+/***/ }),
+
+/***/ "./node_modules/react-switch/index.js":
+/*!********************************************!*\
+  !*** ./node_modules/react-switch/index.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+if (false) {} else {
+  module.exports = __webpack_require__(/*! ./dist/react-switch.dev.js */ "./node_modules/react-switch/dist/react-switch.dev.js");
+}
 
 
 /***/ }),
@@ -99333,260 +99103,6 @@ function warning(condition, message) {
 
 /***/ }),
 
-/***/ "./node_modules/tslib/tslib.es6.js":
-/*!*****************************************!*\
-  !*** ./node_modules/tslib/tslib.es6.js ***!
-  \*****************************************/
-/*! exports provided: __extends, __assign, __rest, __decorate, __param, __metadata, __awaiter, __generator, __createBinding, __exportStar, __values, __read, __spread, __spreadArrays, __await, __asyncGenerator, __asyncDelegator, __asyncValues, __makeTemplateObject, __importStar, __importDefault, __classPrivateFieldGet, __classPrivateFieldSet */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__extends", function() { return __extends; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__assign", function() { return __assign; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__rest", function() { return __rest; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__decorate", function() { return __decorate; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__param", function() { return __param; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__metadata", function() { return __metadata; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__awaiter", function() { return __awaiter; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__generator", function() { return __generator; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__createBinding", function() { return __createBinding; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__exportStar", function() { return __exportStar; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__values", function() { return __values; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__read", function() { return __read; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__spread", function() { return __spread; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__spreadArrays", function() { return __spreadArrays; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__await", function() { return __await; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__asyncGenerator", function() { return __asyncGenerator; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__asyncDelegator", function() { return __asyncDelegator; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__asyncValues", function() { return __asyncValues; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__makeTemplateObject", function() { return __makeTemplateObject; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__importStar", function() { return __importStar; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__importDefault", function() { return __importDefault; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__classPrivateFieldGet", function() { return __classPrivateFieldGet; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "__classPrivateFieldSet", function() { return __classPrivateFieldSet; });
-/*! *****************************************************************************
-Copyright (c) Microsoft Corporation.
-
-Permission to use, copy, modify, and/or distribute this software for any
-purpose with or without fee is hereby granted.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
-AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
-OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-PERFORMANCE OF THIS SOFTWARE.
-***************************************************************************** */
-/* global Reflect, Promise */
-
-var extendStatics = function(d, b) {
-    extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return extendStatics(d, b);
-};
-
-function __extends(d, b) {
-    extendStatics(d, b);
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-}
-
-var __assign = function() {
-    __assign = Object.assign || function __assign(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-        }
-        return t;
-    }
-    return __assign.apply(this, arguments);
-}
-
-function __rest(s, e) {
-    var t = {};
-    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-        t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
-        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
-                t[p[i]] = s[p[i]];
-        }
-    return t;
-}
-
-function __decorate(decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-}
-
-function __param(paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-}
-
-function __metadata(metadataKey, metadataValue) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(metadataKey, metadataValue);
-}
-
-function __awaiter(thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-}
-
-function __generator(thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-}
-
-function __createBinding(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}
-
-function __exportStar(m, exports) {
-    for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) exports[p] = m[p];
-}
-
-function __values(o) {
-    var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
-    if (m) return m.call(o);
-    if (o && typeof o.length === "number") return {
-        next: function () {
-            if (o && i >= o.length) o = void 0;
-            return { value: o && o[i++], done: !o };
-        }
-    };
-    throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
-}
-
-function __read(o, n) {
-    var m = typeof Symbol === "function" && o[Symbol.iterator];
-    if (!m) return o;
-    var i = m.call(o), r, ar = [], e;
-    try {
-        while ((n === void 0 || n-- > 0) && !(r = i.next()).done) ar.push(r.value);
-    }
-    catch (error) { e = { error: error }; }
-    finally {
-        try {
-            if (r && !r.done && (m = i["return"])) m.call(i);
-        }
-        finally { if (e) throw e.error; }
-    }
-    return ar;
-}
-
-function __spread() {
-    for (var ar = [], i = 0; i < arguments.length; i++)
-        ar = ar.concat(__read(arguments[i]));
-    return ar;
-}
-
-function __spreadArrays() {
-    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
-    for (var r = Array(s), k = 0, i = 0; i < il; i++)
-        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
-            r[k] = a[j];
-    return r;
-};
-
-function __await(v) {
-    return this instanceof __await ? (this.v = v, this) : new __await(v);
-}
-
-function __asyncGenerator(thisArg, _arguments, generator) {
-    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
-    var g = generator.apply(thisArg, _arguments || []), i, q = [];
-    return i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i;
-    function verb(n) { if (g[n]) i[n] = function (v) { return new Promise(function (a, b) { q.push([n, v, a, b]) > 1 || resume(n, v); }); }; }
-    function resume(n, v) { try { step(g[n](v)); } catch (e) { settle(q[0][3], e); } }
-    function step(r) { r.value instanceof __await ? Promise.resolve(r.value.v).then(fulfill, reject) : settle(q[0][2], r); }
-    function fulfill(value) { resume("next", value); }
-    function reject(value) { resume("throw", value); }
-    function settle(f, v) { if (f(v), q.shift(), q.length) resume(q[0][0], q[0][1]); }
-}
-
-function __asyncDelegator(o) {
-    var i, p;
-    return i = {}, verb("next"), verb("throw", function (e) { throw e; }), verb("return"), i[Symbol.iterator] = function () { return this; }, i;
-    function verb(n, f) { i[n] = o[n] ? function (v) { return (p = !p) ? { value: __await(o[n](v)), done: n === "return" } : f ? f(v) : v; } : f; }
-}
-
-function __asyncValues(o) {
-    if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
-    var m = o[Symbol.asyncIterator], i;
-    return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i);
-    function verb(n) { i[n] = o[n] && function (v) { return new Promise(function (resolve, reject) { v = o[n](v), settle(resolve, reject, v.done, v.value); }); }; }
-    function settle(resolve, reject, d, v) { Promise.resolve(v).then(function(v) { resolve({ value: v, done: d }); }, reject); }
-}
-
-function __makeTemplateObject(cooked, raw) {
-    if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
-    return cooked;
-};
-
-function __importStar(mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
-    result.default = mod;
-    return result;
-}
-
-function __importDefault(mod) {
-    return (mod && mod.__esModule) ? mod : { default: mod };
-}
-
-function __classPrivateFieldGet(receiver, privateMap) {
-    if (!privateMap.has(receiver)) {
-        throw new TypeError("attempted to get private field on non-instance");
-    }
-    return privateMap.get(receiver);
-}
-
-function __classPrivateFieldSet(receiver, privateMap, value) {
-    if (!privateMap.has(receiver)) {
-        throw new TypeError("attempted to set private field on non-instance");
-    }
-    privateMap.set(receiver, value);
-    return value;
-}
-
-
-/***/ }),
-
 /***/ "./node_modules/value-equal/esm/value-equal.js":
 /*!*****************************************************!*\
   !*** ./node_modules/value-equal/esm/value-equal.js ***!
@@ -99954,9 +99470,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _action_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./action-types */ "./resources/js/actions/action-types.js");
  //GET LIST OF CATEGORIES
 
-function requestCategories() {
+function requestCategories(pageNumber) {
   return {
-    type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_CATEGORIES"]
+    type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_CATEGORIES"],
+    pageNumber: pageNumber
   };
 }
 function getCategoriesSuccess(categories) {
@@ -99971,10 +99488,11 @@ function requestCategoriesFailed() {
   };
 } // ADD NEW CATEGORIES
 
-function requestAddCategories(values) {
+function requestAddCategories(values, pageNumber) {
   return {
     type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_ADD_CATEGORIES"],
-    values: values
+    values: values,
+    pageNumber: pageNumber
   };
 }
 function addCategoriesSuccess(values, message) {
@@ -99985,10 +99503,11 @@ function addCategoriesSuccess(values, message) {
   };
 } //EDIT CATEGORIES
 
-function requestUpdateCategories(values) {
+function requestUpdateCategories(values, pageNumber) {
   return {
     type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_EDIT_CATEGORIES"],
-    values: values
+    values: values,
+    pageNumber: pageNumber
   };
 }
 function updateCategoriesSuccess(categoryId, values, message) {
@@ -100053,9 +99572,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _action_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./action-types */ "./resources/js/actions/action-types.js");
  //GET LIST OF CATEGORIES
 
-function requestCategoriesTranslation() {
+function requestCategoriesTranslation(pageNumber) {
   return {
-    type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_CATEGORIES_TRANSLATION"]
+    type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_CATEGORIES_TRANSLATION"],
+    pageNumber: pageNumber
   };
 }
 function getCategoriesTranslationSuccess(categoriesTrans) {
@@ -100070,10 +99590,11 @@ function requestCategoriesTranslationFailed() {
   };
 } // ADD NEW CATEGORIES
 
-function requestAddCategoriesTranslation(values) {
+function requestAddCategoriesTranslation(values, pageNumber) {
   return {
     type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_ADD_CATEGORIES_TRANSLATION"],
-    values: values
+    values: values,
+    pageNumber: pageNumber
   };
 }
 function addCategoriesTranslationSuccess(values, message) {
@@ -100084,10 +99605,11 @@ function addCategoriesTranslationSuccess(values, message) {
   };
 } //EDIT CATEGORIES
 
-function requestUpdateCategoriesTranslation(values) {
+function requestUpdateCategoriesTranslation(values, pageNumber) {
   return {
     type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_EDIT_CATEGORIES_TRANSLATION"],
-    values: values
+    values: values,
+    pageNumber: pageNumber
   };
 }
 function updateCategoriesTranslationSuccess(categoryTransId, values, message) {
@@ -100136,9 +99658,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _action_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./action-types */ "./resources/js/actions/action-types.js");
  //GET LIST OF CATEGORIES
 
-function requestLanguages() {
+function requestLanguages(pageNumber) {
   return {
-    type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_LANGUAGES"]
+    type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_LANGUAGES"],
+    pageNumber: pageNumber
   };
 }
 function getLanguagesSuccess(languages) {
@@ -100153,10 +99676,11 @@ function requestLanguagesFailed() {
   };
 } // ADD NEW CATEGORIES
 
-function requestAddLanguages(values) {
+function requestAddLanguages(values, pageNumber) {
   return {
     type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_ADD_LANGUAGES"],
-    values: values
+    values: values,
+    pageNumber: pageNumber
   };
 }
 function addLanguagesSuccess(values, message) {
@@ -100167,10 +99691,11 @@ function addLanguagesSuccess(values, message) {
   };
 } //EDIT CATEGORIES
 
-function requestUpdateLanguages(values) {
+function requestUpdateLanguages(values, pageNumber) {
   return {
     type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_EDIT_LANGUAGES"],
-    values: values
+    values: values,
+    pageNumber: pageNumber
   };
 }
 function updateLanguagesSuccess(languageId, values, message) {
@@ -100249,9 +99774,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _action_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./action-types */ "./resources/js/actions/action-types.js");
  //GET LIST OF NEWS
 
-function requestNews() {
+function requestNews(pageNumber) {
   return {
-    type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_NEWS"]
+    type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_NEWS"],
+    pageNumber: pageNumber
   };
 }
 function getNewsSuccess(news) {
@@ -100266,10 +99792,11 @@ function requestNewsFailed() {
   };
 } // ADD NEW NEWS
 
-function requestAddNews(values) {
+function requestAddNews(values, pageNumber) {
   return {
     type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_ADD_NEWS"],
-    values: values
+    values: values,
+    pageNumber: pageNumber
   };
 }
 function addNewsSuccess(values, message) {
@@ -100280,10 +99807,11 @@ function addNewsSuccess(values, message) {
   };
 } //EDIT NEWS
 
-function requestUpdateNews(values) {
+function requestUpdateNews(values, pageNumber) {
   return {
     type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_EDIT_NEWS"],
-    values: values
+    values: values,
+    pageNumber: pageNumber
   };
 }
 function updateNewsSuccess(newsId, values, message) {
@@ -100332,9 +99860,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _action_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./action-types */ "./resources/js/actions/action-types.js");
  //GET LIST OF NEWS_TRANSLATION
 
-function requestNewsTranslation() {
+function requestNewsTranslation(pageNumber) {
   return {
-    type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_NEWS_TRANSLATION"]
+    type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_NEWS_TRANSLATION"],
+    pageNumber: pageNumber
   };
 }
 function getNewsTranslationSuccess(newsTrans) {
@@ -100349,10 +99878,11 @@ function requestNewsTranslationFailed() {
   };
 } // ADD NEW NEWS_TRANSLATION
 
-function requestAddNewsTranslation(values) {
+function requestAddNewsTranslation(values, pageNumber) {
   return {
     type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_ADD_NEWS_TRANSLATION"],
-    values: values
+    values: values,
+    pageNumber: pageNumber
   };
 }
 function addNewsTranslationSuccess(values, message) {
@@ -100363,10 +99893,11 @@ function addNewsTranslationSuccess(values, message) {
   };
 } //EDIT NEWS_TRANSLATION
 
-function requestUpdateNewsTranslation(values) {
+function requestUpdateNewsTranslation(values, pageNumber) {
   return {
     type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_EDIT_NEWS_TRANSLATION"],
-    values: values
+    values: values,
+    pageNumber: pageNumber
   };
 }
 function updateNewsTranslationSuccess(newsTransId, values, message) {
@@ -100415,9 +99946,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _action_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./action-types */ "./resources/js/actions/action-types.js");
  //GET LIST OF PROVINCES
 
-function requestProvinces() {
+function requestProvinces(pageNumber) {
   return {
-    type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_PROVINCES"]
+    type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_PROVINCES"],
+    pageNumber: pageNumber
   };
 }
 function getProvincesSuccess(provinces) {
@@ -100432,10 +99964,11 @@ function requestProvincesFailed() {
   };
 } // ADD NEW PROVINCES
 
-function requestAddProvinces(values) {
+function requestAddProvinces(values, pageNumber) {
   return {
     type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_ADD_PROVINCES"],
-    values: values
+    values: values,
+    pageNumber: pageNumber
   };
 }
 function addProvincesSuccess(values, message) {
@@ -100446,10 +99979,11 @@ function addProvincesSuccess(values, message) {
   };
 } //EDIT PROVINCES
 
-function requestUpdateProvinces(values) {
+function requestUpdateProvinces(values, pageNumber) {
   return {
     type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_EDIT_PROVINCES"],
-    values: values
+    values: values,
+    pageNumber: pageNumber
   };
 }
 function updateProvincesSuccess(provinceId, values, message) {
@@ -100498,9 +100032,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _action_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./action-types */ "./resources/js/actions/action-types.js");
  //GET LIST OF PROVINCES_TRANSLATION
 
-function requestProvincesTranslation() {
+function requestProvincesTranslation(pageNumber) {
   return {
-    type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_PROVINCE_TRANSLATION"]
+    type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_PROVINCE_TRANSLATION"],
+    pageNumber: pageNumber
   };
 }
 function getProvincesTranslationSuccess(procincesTrans) {
@@ -100515,10 +100050,11 @@ function requestProvincesTranslationFailed() {
   };
 } // ADD NEW PROVINCES_TRANSLATION
 
-function requestAddProvincesTranslation(values) {
+function requestAddProvincesTranslation(values, pageNumber) {
   return {
     type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_ADD_PROVINCE_TRANSLATION"],
-    values: values
+    values: values,
+    pageNumber: pageNumber
   };
 }
 function addProvincesTranslationSuccess(values, message) {
@@ -100529,10 +100065,11 @@ function addProvincesTranslationSuccess(values, message) {
   };
 } //EDIT PROVINCES_TRANSLATION
 
-function requestUpdateProvincesTranslation(values) {
+function requestUpdateProvincesTranslation(values, pageNumber) {
   return {
     type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_EDIT_PROVINCE_TRANSLATION"],
-    values: values
+    values: values,
+    pageNumber: pageNumber
   };
 }
 function updateProvincesTranslationSuccess(procinceTransId, values, message) {
@@ -100581,9 +100118,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _action_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./action-types */ "./resources/js/actions/action-types.js");
  //GET LIST OF RESOURCES
 
-function requestResources() {
+function requestResources(pageNumber) {
   return {
-    type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_RESOURCES"]
+    type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_RESOURCES"],
+    pageNumber: pageNumber
   };
 }
 function getResourcesSuccess(resources) {
@@ -100598,10 +100136,11 @@ function requestResourcesFailed() {
   };
 } // ADD NEW RESOURCES
 
-function requestAddResources(values) {
+function requestAddResources(values, pageNumber) {
   return {
     type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_ADD_RESOURCES"],
-    values: values
+    values: values,
+    pageNumber: pageNumber
   };
 }
 function addResourcesSuccess(values, message) {
@@ -100612,10 +100151,11 @@ function addResourcesSuccess(values, message) {
   };
 } //EDIT RESOURCES
 
-function requestUpdateResources(values) {
+function requestUpdateResources(values, pageNumber) {
   return {
     type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_EDIT_RESOURCES"],
-    values: values
+    values: values,
+    pageNumber: pageNumber
   };
 }
 function updateResourcesSuccess(resourceId, values, message) {
@@ -100664,9 +100204,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _action_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./action-types */ "./resources/js/actions/action-types.js");
  //GET LIST OF RESOURCES_TRANSLATION
 
-function requestResourcesTranslation() {
+function requestResourcesTranslation(pageNumber) {
   return {
-    type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_RESOURCE_TRANSLATION"]
+    type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_RESOURCE_TRANSLATION"],
+    pageNumber: pageNumber
   };
 }
 function getResourcesTranslationSuccess(resourceTrans) {
@@ -100681,10 +100222,11 @@ function requestResourcesTranslationFailed() {
   };
 } // ADD NEW RESOURCES_TRANSLATION
 
-function requestAddResourcesTranslation(values) {
+function requestAddResourcesTranslation(values, pageNumber) {
   return {
     type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_ADD_RESOURCE_TRANSLATION"],
-    values: values
+    values: values,
+    pageNumber: pageNumber
   };
 }
 function addResourcesTranslationSuccess(values, message) {
@@ -100695,10 +100237,11 @@ function addResourcesTranslationSuccess(values, message) {
   };
 } //EDIT RESOURCES_TRANSLATION
 
-function requestUpdateResourcesTranslation(values) {
+function requestUpdateResourcesTranslation(values, pageNumber) {
   return {
     type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_EDIT_RESOURCE_TRANSLATION"],
-    values: values
+    values: values,
+    pageNumber: pageNumber
   };
 }
 function updateResourcesTranslationSuccess(resourceTransId, values, message) {
@@ -100752,7 +100295,6 @@ var getHeaders = function getHeaders() {
   var access_token = window.localStorage.getItem('access_token');
   return {
     Accept: "application/json",
-    ContentType: 'multipart/form-data',
     Authorization: "Bearer ".concat(access_token)
   };
 };
@@ -100778,11 +100320,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _axiosInstance__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./axiosInstance */ "./resources/js/api/axiosInstance.js");
  //GET ALL CATEGORIES API
 
-function getCategories() {
+function getCategories(pageNumber) {
   var access_token = window.localStorage.getItem('access_token');
   var headers = Object(_axiosInstance__WEBPACK_IMPORTED_MODULE_0__["getHeaders"])(access_token);
-  console.log('api', headers);
-  return _axiosInstance__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/categories', {
+  return _axiosInstance__WEBPACK_IMPORTED_MODULE_0__["default"].get("/api/categories?page=".concat(pageNumber), {
     headers: headers
   })["catch"](function (error) {
     console.log(error);
@@ -100876,11 +100417,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _axiosInstance__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./axiosInstance */ "./resources/js/api/axiosInstance.js");
  //GET ALL CATEGORIES TRANSLATION TRANSLATION API
 
-function getCategoriesTrans() {
+function getCategoriesTrans(pageNumber) {
   var access_token = window.localStorage.getItem('access_token');
   var headers = Object(_axiosInstance__WEBPACK_IMPORTED_MODULE_0__["getHeaders"])(access_token);
   console.log('api', headers);
-  return _axiosInstance__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/category-translation', {
+  return _axiosInstance__WEBPACK_IMPORTED_MODULE_0__["default"].get("/api/category-translation?page=".concat(pageNumber), {
     headers: headers
   })["catch"](function (error) {
     console.log(error);
@@ -100961,10 +100502,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _axiosInstance__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./axiosInstance */ "./resources/js/api/axiosInstance.js");
  //GET ALL LANGUAGES API
 
-function getLanguages() {
+function getLanguages(pageNumber) {
   var access_token = window.localStorage.getItem('access_token');
   var headers = Object(_axiosInstance__WEBPACK_IMPORTED_MODULE_0__["getHeaders"])(access_token);
-  return _axiosInstance__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/languages', {
+  return _axiosInstance__WEBPACK_IMPORTED_MODULE_0__["default"].get("/api/languages?page=".concat(pageNumber), {
     headers: headers
   })["catch"](function (error) {
     console.log(error);
@@ -101074,10 +100615,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _axiosInstance__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./axiosInstance */ "./resources/js/api/axiosInstance.js");
  //GET ALL NEWS API
 
-function getNews() {
+function getNews(pageNumber) {
   var access_token = window.localStorage.getItem('access_token');
   var headers = Object(_axiosInstance__WEBPACK_IMPORTED_MODULE_0__["getHeaders"])(access_token);
-  return _axiosInstance__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/news', {
+  return _axiosInstance__WEBPACK_IMPORTED_MODULE_0__["default"].get("/api/news?page=".concat(pageNumber), {
     headers: headers
   })["catch"](function (error) {
     console.log(error);
@@ -101099,7 +100640,8 @@ function formValues(values) {
   formData.append('status', values.status); // if(images) { images.map(image=>{
 
   formData.append('featured_image', images); // })
-  // }
+
+  return formData; // }
 } // ADD NEW NEWS API
 
 
@@ -101175,10 +100717,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _axiosInstance__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./axiosInstance */ "./resources/js/api/axiosInstance.js");
  //GET ALL NEWS TRANSLATION API
 
-function getNewsTrans() {
+function getNewsTrans(pageNumber) {
   var access_token = window.localStorage.getItem('access_token');
   var headers = Object(_axiosInstance__WEBPACK_IMPORTED_MODULE_0__["getHeaders"])(access_token);
-  return _axiosInstance__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/news-translation', {
+  return _axiosInstance__WEBPACK_IMPORTED_MODULE_0__["default"].get("/api/news-translation?page=".concat(pageNumber), {
     headers: headers
   })["catch"](function (error) {
     console.log(error);
@@ -101259,10 +100801,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _axiosInstance__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./axiosInstance */ "./resources/js/api/axiosInstance.js");
  //GET ALL PROVINCES TRANSLATION TRANSLATION API
 
-function getProvincesTrans() {
+function getProvincesTrans(pageNumber) {
   var access_token = window.localStorage.getItem('access_token');
   var headers = Object(_axiosInstance__WEBPACK_IMPORTED_MODULE_0__["getHeaders"])(access_token);
-  return _axiosInstance__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/province-translation', {
+  return _axiosInstance__WEBPACK_IMPORTED_MODULE_0__["default"].get("/api/province-translation?page=".concat(pageNumber), {
     headers: headers
   })["catch"](function (error) {
     console.log(error);
@@ -101344,10 +100886,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _axiosInstance__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./axiosInstance */ "./resources/js/api/axiosInstance.js");
  //GET ALL PROVINCES API
 
-function getProvinces() {
+function getProvinces(pageNumber) {
   var access_token = window.localStorage.getItem('access_token');
   var headers = Object(_axiosInstance__WEBPACK_IMPORTED_MODULE_0__["getHeaders"])(access_token);
-  return _axiosInstance__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/province', {
+  return _axiosInstance__WEBPACK_IMPORTED_MODULE_0__["default"].get("/api/province?page=".concat(pageNumber), {
     headers: headers
   })["catch"](function (error) {
     console.log(error);
@@ -101428,10 +100970,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _axiosInstance__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./axiosInstance */ "./resources/js/api/axiosInstance.js");
  //GET ALL RESOURCES API
 
-function getResources() {
+function getResources(pageNumber) {
   var access_token = window.localStorage.getItem('access_token');
   var headers = Object(_axiosInstance__WEBPACK_IMPORTED_MODULE_0__["getHeaders"])(access_token);
-  return _axiosInstance__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/resources', {
+  return _axiosInstance__WEBPACK_IMPORTED_MODULE_0__["default"].get("/api/resources?page=".concat(pageNumber), {
     headers: headers
   })["catch"](function (error) {
     console.log(error);
@@ -101512,10 +101054,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _axiosInstance__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./axiosInstance */ "./resources/js/api/axiosInstance.js");
  //GET ALL RESOURCES TRANSLATION  API
 
-function getResourcesTrans() {
+function getResourcesTrans(pageNumber) {
   var access_token = window.localStorage.getItem('access_token');
   var headers = Object(_axiosInstance__WEBPACK_IMPORTED_MODULE_0__["getHeaders"])(access_token);
-  return _axiosInstance__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/resource-translation', {
+  return _axiosInstance__WEBPACK_IMPORTED_MODULE_0__["default"].get("/api/resource-translation?page=".concat(pageNumber), {
     headers: headers
   })["catch"](function (error) {
     console.log(error);
@@ -101765,9 +101307,9 @@ var AutocompleteField = /*#__PURE__*/function (_Component) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "nm-select-field"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        className: "col-sm-12"
+        className: ""
       }, this.props.label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-sm-12"
+        className: ""
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_select__WEBPACK_IMPORTED_MODULE_1__["default"], _extends({}, input, {
         className: "nm-select-box",
         isClearable: true,
@@ -101939,6 +101481,9 @@ var validate = function validate(values) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_switch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-switch */ "./node_modules/react-switch/index.js");
+/* harmony import */ var react_switch__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_switch__WEBPACK_IMPORTED_MODULE_1__);
+
 
 
 var CategoriesList = function CategoriesList(props) {
@@ -101946,7 +101491,7 @@ var CategoriesList = function CategoriesList(props) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
       key: category.id,
       className: "row-".concat(category.id)
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, index), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, category.slug == null ? '-' : category.slug), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, category.parent == "No Parent" ? '-' : category.parent), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, (props.activePage - 1) * props.itemsCountPerPage + (index + 1)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, category.slug == null ? '-' : category.slug), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, category.parent == "No Parent" ? '-' : category.parent), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
       className: "action"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       type: "button",
@@ -101967,23 +101512,20 @@ var CategoriesList = function CategoriesList(props) {
       href: "javascript:void(0);",
       onClick: props.hideConfirmBox.bind(null)
     }, "No")) : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "switch"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, category.display_status == 1 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-      onClick: function onClick() {
+      className: "nm-switch"
+    }, category.display_status == 1 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_switch__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      onChange: function onChange() {
         return props.categoryStatus(category.id, category.display_status);
       },
-      defaultChecked: true,
-      type: "checkbox",
-      value: category.display_status
-    }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-      onClick: function onClick() {
+      checked: true,
+      className: "react-switch"
+    }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_switch__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      onChange: function onChange() {
         return props.categoryStatus(category.id, category.display_status);
       },
-      type: "checkbox",
-      value: category.display_status
-    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-      className: "lever"
-    })))));
+      checked: props.isChecked,
+      className: "react-switch"
+    }))));
   }));
 };
 
@@ -102519,7 +102061,7 @@ var CategoriesTransList = function CategoriesTransList(props) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
       key: categoryTrans.id,
       className: "row-".concat(categoryTrans.id)
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, index), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, categoryTrans.title == null ? '-' : categoryTrans.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, props.categories.map(function (category) {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, (props.activePage - 1) * props.itemsCountPerPage + (index + 1)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, categoryTrans.title == null ? '-' : categoryTrans.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, props.categories.map(function (category) {
       if (categoryTrans.category_id == category.id) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           key: category.id
@@ -102636,7 +102178,6 @@ var Dashboard = /*#__PURE__*/function (_Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dropzone__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dropzone */ "./node_modules/react-dropzone/dist/es/index.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -102659,8 +102200,77 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-
- // class ImagePreviewField extends Component {
+ // import Dropzone from 'react-dropzone';
+// import React, {useEffect, useState} from 'react';
+// import {useDropzone} from 'react-dropzone';
+// const thumbsContainer = {
+//   display: 'flex',
+//   flexDirection: 'row',
+//   flexWrap: 'wrap',
+//   marginTop: 16
+// };
+// const thumb = {
+//   display: 'inline-flex',
+//   borderRadius: 2,
+//   border: '1px solid #eaeaea',
+//   marginBottom: 8,
+//   marginRight: 8,
+//   width: 100,
+//   height: 100,
+//   padding: 4,
+//   boxSizing: 'border-box'
+// };
+// const thumbInner = {
+//   display: 'flex',
+//   minWidth: 0,
+//   overflow: 'hidden'
+// };
+// const img = {
+//   display: 'block',
+//   width: 'auto',
+//   height: '100%'
+// };
+// function ImagePreviewField(props) {
+//   const [files, setFiles] = useState([]);
+//   const {getRootProps, getInputProps} = useDropzone({
+//     accept: 'image/*',
+//     onDrop: acceptedFiles => {
+//       console.log(acceptedFiles)
+//       setFiles(acceptedFiles.map(file => Object.assign(file, {
+//         preview: URL.createObjectURL(file)
+//       })));
+//       props.input.onChange(acceptedFiles);
+//     }
+//   });
+//   const thumbs = files.map(file => (
+//     <div style={thumb} key={file.name}>
+//       <div style={thumbInner}>
+//         <img
+//           src={file.preview}
+//           style={img}
+//         />
+//       </div>
+//     </div>
+//   ));
+//   useEffect(() => () => {
+//     // Make sure to revoke the data uris to avoid memory leaks
+//     files.forEach(file => URL.revokeObjectURL(file.preview));
+//   }, [files]);
+//   return (
+//     <section className="container">
+//       <div {...getRootProps({className: 'dropzone'})}>
+//         <input {...getInputProps()} />
+//         <p>Drag 'n' drop Image here, or click to select an Image</p>
+//       </div>
+//       <aside style={thumbsContainer}>
+//         {thumbs}
+//       </aside>
+//     </section>
+//   );
+// }
+// {/* <Previews /> */}
+// export default ImagePreviewField;
+// class ImagePreviewField extends Component {
 //   constructor(props) {
 //     super(props);
 //     this.onDrop = (files) => {
@@ -102702,21 +102312,34 @@ var ImagePreviewField = /*#__PURE__*/function (_Component) {
 
   var _super = _createSuper(ImagePreviewField);
 
-  function ImagePreviewField() {
+  function ImagePreviewField(props) {
+    var _this;
+
     _classCallCheck(this, ImagePreviewField);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this, props);
+    _this.state = {
+      files: null
+    };
+    return _this;
   }
 
   _createClass(ImagePreviewField, [{
     key: "onFileChange",
     value: function onFileChange(e) {
       console.log(e);
-      console.log("p", this.props);
       var targetFile = e.target.files[0];
 
       if (targetFile) {
-        // const val = await this.getBase64(targetFile)
+        console.log("p", targetFile);
+        var files = [targetFile];
+        this.setState({
+          files: files.map(function (file) {
+            return Object.assign(file, {
+              preview: URL.createObjectURL(file)
+            });
+          })
+        });
         this.props.input.onChange(targetFile);
       } else {
         this.props.input.onChange(null);
@@ -102725,10 +102348,29 @@ var ImagePreviewField = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "nm-uploader"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "custom-file"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        onChange: this.onFileChange.bind(this),
         type: "file",
-        onChange: this.onFileChange.bind(this)
-      });
+        className: "custom-file-input",
+        id: "customFile"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "custom-file-label",
+        htmlFor: "customFile"
+      }, "Choose file")), this.state.files ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
+        className: "preview-img"
+      }, this.state.files.map(function (file) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "thumbInner",
+          key: file.name
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: file.preview,
+          className: "thumb-img"
+        }));
+      })) : null);
     }
   }]);
 
@@ -103021,7 +102663,7 @@ var LanguagesList = function LanguagesList(props) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
       key: language.id,
       className: "row-".concat(language.id)
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, index), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, language.code == null ? '-' : language.code), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, language.language), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, (props.activePage - 1) * props.itemsCountPerPage + (index + 1)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, language.code == null ? '-' : language.code), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, language.language), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
       className: "action"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       type: "button",
@@ -103427,18 +103069,13 @@ var Sidebar = /*#__PURE__*/function (_Component) {
         react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
           className: "main-sidebar sidebar-dark-primary elevation-4"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-          href: "index3.html",
-          className: "brand-link"
+          href: "# ",
+          className: "brand-link brand-logo"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          src: "dist/img/AdminLTELogo.png",
-          alt: "AdminLTE Logo",
-          className: "brand-image img-circle elevation-3",
-          style: {
-            opacity: .8
-          }
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-          className: "brand-text font-weight-light"
-        }, "AdminLTE 3")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          src: "/dist/img/Namuna News English Logo.png",
+          alt: "Namuna News Logo",
+          className: " img-fluid"
+        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "sidebar"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "user-panel mt-3 pb-3 mb-3 d-flex"
@@ -103875,18 +103512,21 @@ var InsertNews = function InsertNews(props) {
     label: "Provinces",
     itemList: props.provinces,
     component: _autocomplete_field__WEBPACK_IMPORTED_MODULE_3__["default"]
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_2__["Field"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", null, "Featured Image"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_2__["Field"], {
     component: _imagePreview__WEBPACK_IMPORTED_MODULE_5__["default"],
     name: "featured_image",
     type: "file"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_2__["Field"], {
-    label: "Enter News Label",
-    id: "news-label",
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_2__["Field"], {
+    label: "Select News Label",
     name: "news_label",
-    type: "text",
-    placeholder: "Enter News Label",
-    component: renderInputField
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    component: renderSelectField
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
+    value: ""
+  }, "Choose your option"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
+    value: "featured"
+  }, "Featured"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("option", {
+    value: "breaking"
+  }, "Breaking"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     className: "card-footer"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
     type: "submit",
@@ -103900,8 +103540,8 @@ function validate(values) {
 
   if (!values.slug) {
     errors.slug = "This Field is empty";
-  } else if (values.slug.length > 100) {
-    errors.slug = "Must be 100 character or Less!";
+  } else if (values.slug.length > 300) {
+    errors.slug = "Must be 300 character or Less!";
   }
 
   return errors;
@@ -103928,10 +103568,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var redux_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-form */ "./node_modules/redux-form/es/index.js");
 /* harmony import */ var _autocomplete_field__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../autocomplete-field */ "./resources/js/components/autocomplete-field.js");
-/* harmony import */ var _textEditor_field__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../textEditor-field */ "./resources/js/components/textEditor-field.js");
-/* harmony import */ var _imagePreview__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../imagePreview */ "./resources/js/components/imagePreview.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _api_news_api__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../api/news-api */ "./resources/js/api/news-api.js");
+/* harmony import */ var _imagePreview__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../imagePreview */ "./resources/js/components/imagePreview.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _api_news_api__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../api/news-api */ "./resources/js/api/news-api.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -103963,7 +103602,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-
 var EditNews = /*#__PURE__*/function (_Component) {
   _inherits(EditNews, _Component);
 
@@ -103981,7 +103619,7 @@ var EditNews = /*#__PURE__*/function (_Component) {
       var _this = this;
 
       var id = this.props.editId;
-      _api_news_api__WEBPACK_IMPORTED_MODULE_6__["getSingleNews"](id).then(function (response) {
+      _api_news_api__WEBPACK_IMPORTED_MODULE_5__["getSingleNews"](id).then(function (response) {
         var data = response.data.data;
         console.log('data', data);
         var news = {
@@ -103997,7 +103635,8 @@ var EditNews = /*#__PURE__*/function (_Component) {
           status: data.status,
           keywords: data.keywords,
           author: data.author,
-          news_label: data.news_label
+          news_label: data.news_label,
+          id: data.id
         };
 
         _this.props.initialize(news);
@@ -104106,7 +103745,11 @@ var EditNews = /*#__PURE__*/function (_Component) {
         label: "Provinces",
         itemList: this.props.provinces,
         component: _autocomplete_field__WEBPACK_IMPORTED_MODULE_2__["default"]
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_1__["Field"], {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Featured Image"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_1__["Field"], {
+        component: _imagePreview__WEBPACK_IMPORTED_MODULE_3__["default"],
+        name: "featured_image",
+        type: "file"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_1__["Field"], {
         label: "Enter News Label",
         id: "news-label",
         name: "news_label",
@@ -104165,7 +103808,7 @@ var NewsList = function NewsList(props) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
       key: newsList.id,
       className: "row-".concat(newsList.id)
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, index + 1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsList.slug == null ? '-' : newsList.slug), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsList.category.slug), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsList.province.slug), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsList.author), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsList.news_label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsList.status), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, (props.activePage - 1) * props.itemsCountPerPage + (index + 1)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsList.slug == null ? '-' : newsList.slug), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsList.category.slug), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsList.province.slug), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsList.author), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsList.news_label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsList.status), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
       className: "action"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
       to: "/edit-news",
@@ -104378,7 +104021,8 @@ var EditNewsTrans = /*#__PURE__*/function (_Component) {
             label: data.language.language,
             value: data.language.id
           },
-          content: data.content
+          content: data.content,
+          id: data.id
         };
 
         _this.props.initialize(newsTrans);
@@ -104502,7 +104146,7 @@ var NewsTransList = function NewsTransList(props) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
       key: newsTran.id,
       className: "row-".concat(newsTran.id)
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, index + 1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsTran.title == null ? '-' : newsTran.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsTran.news.slug), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsTran.language.language), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsTran.content), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, (props.activePage - 1) * props.itemsCountPerPage + (index + 1)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsTran.title == null ? '-' : newsTran.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsTran.news.slug), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsTran.language.language), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsTran.content), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
       className: "action"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
       to: "/edit-news-translation",
@@ -104851,7 +104495,7 @@ var ProvincesList = function ProvincesList(props) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
       key: province.id,
       className: "row-".concat(province.id)
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, index), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, province.slug == null ? '-' : province.slug), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, province.display_status), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, (props.activePage - 1) * props.itemsCountPerPage + (index + 1)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, province.slug == null ? '-' : province.slug), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, province.display_status), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
       className: "action"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       type: "button",
@@ -105221,7 +104865,7 @@ var ProvinceTransList = function ProvinceTransList(props) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
       key: provinceTrans.id,
       className: "row-".concat(provinceTrans.id)
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, index), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, provinceTrans.title == null ? '-' : provinceTrans.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, props.provinces.map(function (province) {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, (props.activePage - 1) * props.itemsCountPerPage + (index + 1)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, provinceTrans.title == null ? '-' : provinceTrans.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, props.provinces.map(function (province) {
       if (provinceTrans.province_id == province.id) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           key: province.id
@@ -105281,7 +104925,7 @@ var ResourcesList = function ResourcesList(props) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
       key: resource.id,
       className: "row-".concat(resource.id)
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, index + 1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, resource.type == null ? '-' : resource.type), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, resource.url), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, resource.videos.map(function (video, index) {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, (props.activePage - 1) * props.itemsCountPerPage + (index + 1)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, resource.type == null ? '-' : resource.type), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, resource.url), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, resource.videos.map(function (video, index) {
       console.log('vv', video.views);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         key: index
@@ -105376,8 +105020,6 @@ var renderSelectField = function renderSelectField(_ref2) {
 var ResourceForm = function ResourceForm(props) {
   var handleSubmit = props.handleSubmit;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "row"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-md-12 col-xs-12 col-lg-12"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card card-primary"
@@ -105439,7 +105081,7 @@ var ResourceForm = function ResourceForm(props) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "submit",
     className: "btn btn-primary"
-  }, "Submit"))))));
+  }, "Submit")))));
 };
 
 var validate = function validate(values) {
@@ -105577,8 +105219,6 @@ var EditResource = /*#__PURE__*/function (_Component) {
     value: function render() {
       var handleSubmit = this.props.handleSubmit;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-md-12 col-xs-12 col-lg-12"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card card-primary"
@@ -105643,7 +105283,7 @@ var EditResource = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
         className: "btn btn-primary"
-      }, "Update"))))));
+      }, "Update")))));
     }
   }]);
 
@@ -105733,8 +105373,6 @@ var renderSelectField = function renderSelectField(_ref2) {
 var ResourceTransForm = function ResourceTransForm(props) {
   var handleSubmit = props.handleSubmit;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "row"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-md-12 col-xs-12 col-lg-12"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card card-primary"
@@ -105781,7 +105419,7 @@ var ResourceTransForm = function ResourceTransForm(props) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "submit",
     className: "btn btn-primary"
-  }, "Submit"))))));
+  }, "Submit")))));
 };
 
 var validate = function validate(values) {
@@ -105866,8 +105504,18 @@ var EditResource = /*#__PURE__*/function (_Component) {
       _api_resourcesTrans_api__WEBPACK_IMPORTED_MODULE_2__["getSingleResourcesTrans"](id).then(function (response) {
         var data = response.data.data;
         console.log('data', data);
+        var resources = {
+          description: data.description,
+          title: data.title,
+          language_id: data.language == null ? null : {
+            label: data.language.language,
+            value: data.language.id
+          },
+          resource_id: data.resource.id,
+          id: data.id
+        };
 
-        _this.props.initialize(data);
+        _this.props.initialize(resources);
       });
     }
   }, {
@@ -105921,8 +105569,6 @@ var EditResource = /*#__PURE__*/function (_Component) {
     value: function render() {
       var handleSubmit = this.props.handleSubmit;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "row"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-md-12 col-xs-12 col-lg-12"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card card-primary"
@@ -105940,7 +105586,7 @@ var EditResource = /*#__PURE__*/function (_Component) {
         component: this.renderSelectField
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: ""
-      }, "Choose your option"), props.resources.map(function (resource) {
+      }, "Choose your option"), this.props.resources.map(function (resource) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
           key: resource.id,
           value: resource.id
@@ -105948,7 +105594,7 @@ var EditResource = /*#__PURE__*/function (_Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_1__["Field"], {
         name: "language_id",
         label: "Choose Languages",
-        itemList: props.languages,
+        itemList: this.props.languages,
         component: _autocomplete_field__WEBPACK_IMPORTED_MODULE_3__["default"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_1__["Field"], {
         label: "Enter Title",
@@ -105971,7 +105617,7 @@ var EditResource = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
         className: "btn btn-primary"
-      }, "Update"))))));
+      }, "Update")))));
     }
   }]);
 
@@ -106017,7 +105663,7 @@ var ResourcesTransList = function ResourcesTransList(props) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
       key: resourceTrans.id,
       className: "row-".concat(resourceTrans.id)
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, index + 1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, resourceTrans.title == null ? '-' : resourceTrans.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, resourceTrans.description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, resourceTrans.language.language), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, resourceTrans.resource.type), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, (props.activePage - 1) * props.itemsCountPerPage + (index + 1)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, resourceTrans.title == null ? '-' : resourceTrans.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, resourceTrans.description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, resourceTrans.language.language), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, resourceTrans.resource.type), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
       className: "action"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
       to: "/edit-translated-resources",
@@ -106196,8 +105842,10 @@ var CategoriesListContainer = /*#__PURE__*/function (_Component) {
     _this = _super.call(this);
     _this.state = {
       isEditing: false,
-      confirmText: null
+      confirmText: null,
+      isChecked: false
     };
+    _this.handlePageChange = _this.handlePageChange.bind(_assertThisInitialized(_this));
     _this.editCategories = _this.editCategories.bind(_assertThisInitialized(_this));
     _this.deleteItem = _this.deleteItem.bind(_assertThisInitialized(_this));
     _this.hideDiv = _this.hideDiv.bind(_assertThisInitialized(_this));
@@ -106209,24 +105857,22 @@ var CategoriesListContainer = /*#__PURE__*/function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       // call action to run the relative saga
-      this.props.requestCategories();
-      console.log(this.props);
-      jquery__WEBPACK_IMPORTED_MODULE_4___default()("input[data-bootstrap-switch]").each(function () {
-        jquery__WEBPACK_IMPORTED_MODULE_4___default()(this).bootstrapSwitch();
-      });
+      var pageNumber = this.props.activePage;
+      this.props.requestCategories(pageNumber);
     } // submit function for new data
 
   }, {
     key: "submitCategory",
     value: function submitCategory(values) {
-      console.log('val', values);
-      this.props.requestAddCategories(values);
+      var pageNumber = this.props.activePage;
+      this.props.requestAddCategories(values, pageNumber);
     } // submit function to update data
 
   }, {
     key: "submitEditCategory",
     value: function submitEditCategory(values) {
-      this.props.requestUpdateCategories(values);
+      var pageNumber = this.props.activePage;
+      this.props.requestUpdateCategories(values, pageNumber);
       this.setState({
         isEditing: false
       });
@@ -106243,10 +105889,12 @@ var CategoriesListContainer = /*#__PURE__*/function (_Component) {
   }, {
     key: "toggleStatus",
     value: function toggleStatus(categoryId, status) {
+      var pageNumber = this.props.activePage;
       var newCategoriesStatus = {
-        status: !status
+        display_status: status == 1 ? "0" : "1"
       };
-      this.props.requestCategoriesStatus(categoryId, newCategoriesStatus);
+      console.log(newCategoriesStatus);
+      this.props.requestCategoriesStatus(categoryId, newCategoriesStatus, pageNumber);
     }
   }, {
     key: "deleteCategoryAction",
@@ -106259,6 +105907,12 @@ var CategoriesListContainer = /*#__PURE__*/function (_Component) {
       this.setState({
         confirmText: id
       });
+    } // pagination function
+
+  }, {
+    key: "handlePageChange",
+    value: function handlePageChange(pageNumber) {
+      this.props.requestNews(pageNumber);
     }
   }, {
     key: "hideDiv",
@@ -106295,8 +105949,21 @@ var CategoriesListContainer = /*#__PURE__*/function (_Component) {
         showConfirmBox: this.deleteItem,
         hideConfirmBox: this.hideDiv,
         deleteCategory: this.props.requestDeleteCategories,
-        categoryStatus: this.toggleStatus
-      }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "No Results Found !")))))));
+        categoryStatus: this.toggleStatus,
+        isChecked: this.state.isChecked,
+        activePage: this.props.activePage,
+        itemsCountPerPage: this.props.itemsCountPerPage
+      }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "No Results Found !")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-12 left-align"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Pagination, {
+        activePage: this.props.activePage,
+        itemsCountPerPage: this.props.itemsCountPerPage,
+        totalItemsCount: this.props.totalItemsCount,
+        pageRangeDisplayed: this.props.pageRangeDisplayed,
+        onChange: this.handlePageChange,
+        firstPageText: "First",
+        lastPageText: "Last"
+      })))));
     }
   }]);
 
@@ -106308,7 +105975,11 @@ var CategoriesListContainer = /*#__PURE__*/function (_Component) {
 function mapStateToProps(store) {
   return {
     categories: store.categoryState.categories,
-    fetching: store.categoryState.fetching
+    fetching: store.categoryState.fetching,
+    activePage: store.categoryState.activePage,
+    itemsCountPerPage: store.categoryState.itemsCountPerPage,
+    totalItemsCount: store.categoryState.totalItemsCount,
+    pageRangeDisplayed: store.categoryState.pageRangeDisplayed
   };
 }
 
@@ -106393,7 +106064,8 @@ var CategoriesTransListContainer = /*#__PURE__*/function (_Component) {
     };
     _this.editCategoriesTrans = _this.editCategoriesTrans.bind(_assertThisInitialized(_this));
     _this.deleteItem = _this.deleteItem.bind(_assertThisInitialized(_this));
-    _this.hideDiv = _this.hideDiv.bind(_assertThisInitialized(_this)); // this.toggleStatus = this.toggleStatus.bind(this)
+    _this.hideDiv = _this.hideDiv.bind(_assertThisInitialized(_this));
+    _this.handlePageChange = _this.handlePageChange.bind(_assertThisInitialized(_this)); // this.toggleStatus = this.toggleStatus.bind(this)
 
     return _this;
   }
@@ -106402,7 +106074,8 @@ var CategoriesTransListContainer = /*#__PURE__*/function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       // call action to run the relative saga
-      this.props.requestCategories();
+      var pageNumber = this.props.activePage;
+      this.props.requestCategories(pageNumber);
       this.props.requestCategoriesTranslation();
       this.props.requestLanguages();
       console.log(this.props);
@@ -106411,14 +106084,15 @@ var CategoriesTransListContainer = /*#__PURE__*/function (_Component) {
   }, {
     key: "submitCategoryTrans",
     value: function submitCategoryTrans(values) {
-      console.log('val', values);
-      this.props.requestAddCategoriesTranslation(values);
+      var pageNumber = this.props.activePage;
+      this.props.requestAddCategoriesTranslation(values, pageNumber);
     } // submit function to update data
 
   }, {
     key: "submitEditCategoryTrans",
     value: function submitEditCategoryTrans(values) {
-      this.props.requestUpdateCategoriesTranslation(values);
+      var pageNumber = this.props.activePage;
+      this.props.requestUpdateCategoriesTranslation(values, pageNumber);
       this.setState({
         isEditing: false
       });
@@ -106442,6 +106116,12 @@ var CategoriesTransListContainer = /*#__PURE__*/function (_Component) {
       this.setState({
         confirmText: id
       });
+    } // pagination function
+
+  }, {
+    key: "handlePageChange",
+    value: function handlePageChange(pageNumber) {
+      this.props.requestNews(pageNumber);
     }
   }, {
     key: "hideDiv",
@@ -106482,7 +106162,17 @@ var CategoriesTransListContainer = /*#__PURE__*/function (_Component) {
         deleteCategoryTrans: this.props.requestDeleteCategoriesTranslation,
         categories: this.props.categories,
         languages: this.props.languages
-      }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "No Results Found !")))))));
+      }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "No Results Found !")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-12 left-align"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Pagination, {
+        activePage: this.props.activePage,
+        itemsCountPerPage: this.props.itemsCountPerPage,
+        totalItemsCount: this.props.totalItemsCount,
+        pageRangeDisplayed: this.props.pageRangeDisplayed,
+        onChange: this.handlePageChange,
+        firstPageText: "First",
+        lastPageText: "Last"
+      })))));
     }
   }]);
 
@@ -106496,7 +106186,11 @@ function mapStateToProps(store) {
     categoriesTrans: store.categoryTransState.categoriesTrans,
     categories: store.categoryState.categories,
     languages: store.languageState.languages,
-    fetching: store.categoryState.fetching
+    fetching: store.categoryTransState.fetching,
+    activePage: store.categoryTransState.activePage,
+    itemsCountPerPage: store.categoryTransState.itemsCountPerPage,
+    totalItemsCount: store.categoryTransState.totalItemsCount,
+    pageRangeDisplayed: store.categoryTransState.pageRangeDisplayed
   };
 }
 
@@ -106579,6 +106273,7 @@ var LanguagesListContainer = /*#__PURE__*/function (_Component) {
     _this.editLanguage = _this.editLanguage.bind(_assertThisInitialized(_this));
     _this.deleteItem = _this.deleteItem.bind(_assertThisInitialized(_this));
     _this.hideDiv = _this.hideDiv.bind(_assertThisInitialized(_this));
+    _this.handlePageChange = _this.handlePageChange.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -106586,21 +106281,23 @@ var LanguagesListContainer = /*#__PURE__*/function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       // call action to run the relative saga
-      this.props.requestLanguages();
+      var pageNumber = this.props.activePage;
+      this.props.requestLanguages(pageNumber);
       console.log(this.props);
     } // submit function for new data
 
   }, {
     key: "submitLanguage",
     value: function submitLanguage(values) {
-      this.props.requestAddLanguages(values);
+      var pageNumber = this.props.activePage;
+      this.props.requestAddLanguages(values, pageNumber);
     } // submit function to update data
 
   }, {
     key: "submitEditLanguage",
     value: function submitEditLanguage(values) {
-      // values.language = values.language.toLowerCase();
-      this.props.requestUpdateLanguages(values);
+      var pageNumber = this.props.activePage;
+      this.props.requestUpdateLanguages(values, pageNumber);
       this.setState({
         isEditing: false
       });
@@ -106624,6 +106321,12 @@ var LanguagesListContainer = /*#__PURE__*/function (_Component) {
       this.setState({
         confirmText: id
       });
+    } // pagination function
+
+  }, {
+    key: "handlePageChange",
+    value: function handlePageChange(pageNumber) {
+      this.props.requestNews(pageNumber);
     }
   }, {
     key: "hideDiv",
@@ -106657,8 +106360,20 @@ var LanguagesListContainer = /*#__PURE__*/function (_Component) {
         confirmText: this.state.confirmText,
         showConfirmBox: this.deleteItem,
         hideConfirmBox: this.hideDiv,
-        deleteLanguage: this.props.requestDeleteLanguages
-      }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "No Results Found !")))))));
+        deleteLanguage: this.props.requestDeleteLanguages,
+        activePage: this.props.activePage,
+        itemsCountPerPage: this.props.itemsCountPerPage
+      }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "No Results Found !")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-12 left-align"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Pagination, {
+        activePage: this.props.activePage,
+        itemsCountPerPage: this.props.itemsCountPerPage,
+        totalItemsCount: this.props.totalItemsCount,
+        pageRangeDisplayed: this.props.pageRangeDisplayed,
+        onChange: this.handlePageChange,
+        firstPageText: "First",
+        lastPageText: "Last"
+      })))));
     }
   }]);
 
@@ -106670,7 +106385,11 @@ var LanguagesListContainer = /*#__PURE__*/function (_Component) {
 function mapStateToProps(store) {
   return {
     languages: store.languageState.languages,
-    fetching: store.languageState.fetching
+    fetching: store.languageState.fetching,
+    activePage: store.languageState.activePage,
+    itemsCountPerPage: store.languageState.itemsCountPerPage,
+    totalItemsCount: store.languageState.totalItemsCount,
+    pageRangeDisplayed: store.languageState.pageRangeDisplayed
   };
 }
 
@@ -106753,7 +106472,9 @@ var LoginFormContainer = /*#__PURE__*/function (_Component) {
         className: "login-logo"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "# "
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Admin"), "LTE")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: '/dist/img/Namuna News English Logo.png'
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body login-card-body"
@@ -106795,12 +106516,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../store */ "./resources/js/store.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _actions_news_action__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/news-action */ "./resources/js/actions/news-action.js");
-/* harmony import */ var _actions_categories_action__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/categories-action */ "./resources/js/actions/categories-action.js");
-/* harmony import */ var _actions_province_action__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../actions/province-action */ "./resources/js/actions/province-action.js");
-/* harmony import */ var _components_news_news_add__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/news/news-add */ "./resources/js/components/news/news-add.js");
-/* harmony import */ var _components_news_news__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../components/news/news */ "./resources/js/components/news/news.js");
-/* harmony import */ var _components_news_news_edit__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../components/news/news-edit */ "./resources/js/components/news/news-edit.js");
+/* harmony import */ var react_js_pagination__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-js-pagination */ "./node_modules/react-js-pagination/dist/Pagination.js");
+/* harmony import */ var react_js_pagination__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_js_pagination__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _actions_news_action__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../actions/news-action */ "./resources/js/actions/news-action.js");
+/* harmony import */ var _actions_categories_action__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../actions/categories-action */ "./resources/js/actions/categories-action.js");
+/* harmony import */ var _actions_province_action__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../actions/province-action */ "./resources/js/actions/province-action.js");
+/* harmony import */ var _components_news_news_add__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../components/news/news-add */ "./resources/js/components/news/news-add.js");
+/* harmony import */ var _components_news_news__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../components/news/news */ "./resources/js/components/news/news.js");
+/* harmony import */ var _components_news_news_edit__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../components/news/news-edit */ "./resources/js/components/news/news-edit.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -106829,6 +106552,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
  //COMPONENTS
 
 
@@ -106850,6 +106574,7 @@ var NewsContainer = /*#__PURE__*/function (_Component) {
       confirmText: null,
       isEditing: false
     };
+    _this.handlePageChange = _this.handlePageChange.bind(_assertThisInitialized(_this));
     _this.deleteItem = _this.deleteItem.bind(_assertThisInitialized(_this));
     _this.hideDiv = _this.hideDiv.bind(_assertThisInitialized(_this));
     _this.editNews = _this.editNews.bind(_assertThisInitialized(_this));
@@ -106859,7 +106584,8 @@ var NewsContainer = /*#__PURE__*/function (_Component) {
   _createClass(NewsContainer, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.requestNews();
+      var pageNumber = this.props.activePage;
+      this.props.requestNews(pageNumber);
       this.props.requestCategories();
       this.props.requestProvinces();
     } //submit News form
@@ -106868,7 +106594,8 @@ var NewsContainer = /*#__PURE__*/function (_Component) {
     key: "onSubmitForm",
     value: function onSubmitForm(values) {
       values.author_id = 1;
-      this.props.requestAddNews(values);
+      var pageNumber = this.props.activePage;
+      this.props.requestAddNews(values, pageNumber);
     } // edit functions
 
   }, {
@@ -106882,7 +106609,8 @@ var NewsContainer = /*#__PURE__*/function (_Component) {
   }, {
     key: "submitEditNews",
     value: function submitEditNews(values) {
-      this.props.requestUpdateNews(values);
+      var pageNumber = this.props.activePage;
+      this.props.requestUpdateNews(values, pageNumber);
       this.setState({
         isEditing: false
       });
@@ -106893,6 +106621,12 @@ var NewsContainer = /*#__PURE__*/function (_Component) {
       this.setState({
         confirmText: id
       });
+    } // pagination function
+
+  }, {
+    key: "handlePageChange",
+    value: function handlePageChange(pageNumber) {
+      this.props.requestNews(pageNumber);
     }
   }, {
     key: "hideDiv",
@@ -106907,7 +106641,7 @@ var NewsContainer = /*#__PURE__*/function (_Component) {
       console.log("comp-prop", this.props);
 
       if (this.props.match.path === "/edit-news") {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_news_news_edit__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_news_news_edit__WEBPACK_IMPORTED_MODULE_10__["default"], {
           onSubmit: this.submitEditNews.bind(this),
           editId: this.state.isEditing
         });
@@ -106923,7 +106657,7 @@ var NewsContainer = /*#__PURE__*/function (_Component) {
           className: "btn btn-primary"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fas fa-list"
-        }), " All News")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_news_news_add__WEBPACK_IMPORTED_MODULE_7__["default"], {
+        }), " All News")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_news_news_add__WEBPACK_IMPORTED_MODULE_8__["default"], {
           categories: this.props.categories,
           provinces: this.props.provinces,
           onSubmit: this.onSubmitForm.bind(this)
@@ -106944,14 +106678,26 @@ var NewsContainer = /*#__PURE__*/function (_Component) {
           className: "col-sm-12 col-md-12 col-lg-12"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
           className: "table table-bordered"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "S.N"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Categories"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Province"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Author"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "News Label"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Status"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Action"))), this.props.news ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_news_news__WEBPACK_IMPORTED_MODULE_8__["default"], {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "S.N"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Categories"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Province"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Author"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "News Label"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Status"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Action"))), this.props.news ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_news_news__WEBPACK_IMPORTED_MODULE_9__["default"], {
           news: this.props.news,
           onEditNews: this.editNews,
           confirmText: this.state.confirmText,
           showConfirmBox: this.deleteItem,
           hideConfirmBox: this.hideDiv,
-          deleteNews: this.props.requestDeleteNews
-        }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "No Results Found !")))))));
+          deleteNews: this.props.requestDeleteNews,
+          activePage: this.props.activePage,
+          itemsCountPerPage: this.props.itemsCountPerPage
+        }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "No Results Found !")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-sm-12 left-align"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_js_pagination__WEBPACK_IMPORTED_MODULE_4___default.a, {
+          activePage: this.props.activePage,
+          itemsCountPerPage: this.props.itemsCountPerPage,
+          totalItemsCount: this.props.totalItemsCount,
+          pageRangeDisplayed: this.props.pageRangeDisplayed,
+          onChange: this.handlePageChange,
+          firstPageText: "First",
+          lastPageText: "Last"
+        })))));
       }
     }
   }]);
@@ -106964,17 +106710,21 @@ function mapStateToProps(store) {
     news: store.newsState.news,
     fetching: store.newsState.fetching,
     categories: store.categoryState.categories,
-    provinces: store.provincesState.provinces
+    provinces: store.provincesState.provinces,
+    activePage: store.newsState.activePage,
+    itemsCountPerPage: store.newsState.itemsCountPerPage,
+    totalItemsCount: store.newsState.totalItemsCount,
+    pageRangeDisplayed: store.newsState.pageRangeDisplayed
   };
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["connect"])(mapStateToProps, {
-  requestAddNews: _actions_news_action__WEBPACK_IMPORTED_MODULE_4__["requestAddNews"],
-  requestNews: _actions_news_action__WEBPACK_IMPORTED_MODULE_4__["requestNews"],
-  requestDeleteNews: _actions_news_action__WEBPACK_IMPORTED_MODULE_4__["requestDeleteNews"],
-  requestUpdateNews: _actions_news_action__WEBPACK_IMPORTED_MODULE_4__["requestUpdateNews"],
-  requestCategories: _actions_categories_action__WEBPACK_IMPORTED_MODULE_5__["requestCategories"],
-  requestProvinces: _actions_province_action__WEBPACK_IMPORTED_MODULE_6__["requestProvinces"]
+  requestAddNews: _actions_news_action__WEBPACK_IMPORTED_MODULE_5__["requestAddNews"],
+  requestNews: _actions_news_action__WEBPACK_IMPORTED_MODULE_5__["requestNews"],
+  requestDeleteNews: _actions_news_action__WEBPACK_IMPORTED_MODULE_5__["requestDeleteNews"],
+  requestUpdateNews: _actions_news_action__WEBPACK_IMPORTED_MODULE_5__["requestUpdateNews"],
+  requestCategories: _actions_categories_action__WEBPACK_IMPORTED_MODULE_6__["requestCategories"],
+  requestProvinces: _actions_province_action__WEBPACK_IMPORTED_MODULE_7__["requestProvinces"]
 })(NewsContainer));
 
 /***/ }),
@@ -107051,13 +106801,15 @@ var NewsTransContainer = /*#__PURE__*/function (_Component) {
     _this.deleteItem = _this.deleteItem.bind(_assertThisInitialized(_this));
     _this.hideDiv = _this.hideDiv.bind(_assertThisInitialized(_this));
     _this.editNewsTranslation = _this.editNewsTranslation.bind(_assertThisInitialized(_this));
+    _this.handlePageChange = _this.handlePageChange.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(NewsTransContainer, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.requestNewsTranslation();
+      var pageNumber = this.props.activePage;
+      this.props.requestNewsTranslation(pageNumber);
       this.props.requestNews();
       this.props.requestLanguages();
     } //submit News form
@@ -107065,7 +106817,8 @@ var NewsTransContainer = /*#__PURE__*/function (_Component) {
   }, {
     key: "onSubmitForm",
     value: function onSubmitForm(values) {
-      this.props.requestAddNewsTranslation(values);
+      var pageNumber = this.props.activePage;
+      this.props.requestAddNewsTranslation(values, pageNumber);
     } // edit functions
 
   }, {
@@ -107079,7 +106832,8 @@ var NewsTransContainer = /*#__PURE__*/function (_Component) {
   }, {
     key: "submitEditNewsTrans",
     value: function submitEditNewsTrans(values) {
-      this.props.requestUpdateNewsTranslation(values);
+      var pageNumber = this.props.activePage;
+      this.props.requestUpdateNewsTranslation(values, pageNumber);
       this.setState({
         isEditing: false
       });
@@ -107090,6 +106844,12 @@ var NewsTransContainer = /*#__PURE__*/function (_Component) {
       this.setState({
         confirmText: id
       });
+    } // pagination function
+
+  }, {
+    key: "handlePageChange",
+    value: function handlePageChange(pageNumber) {
+      this.props.requestNews(pageNumber);
     }
   }, {
     key: "hideDiv",
@@ -107160,8 +106920,20 @@ var NewsTransContainer = /*#__PURE__*/function (_Component) {
           confirmText: this.state.confirmText,
           showConfirmBox: this.deleteItem,
           hideConfirmBox: this.hideDiv,
-          deleteNewsTrans: this.props.requestDeleteNewsTranslation
-        }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "No Results Found !")))))));
+          deleteNewsTrans: this.props.requestDeleteNewsTranslation,
+          activePage: this.props.activePage,
+          itemsCountPerPage: this.props.itemsCountPerPage
+        }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "No Results Found !")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-sm-12 left-align"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Pagination, {
+          activePage: this.props.activePage,
+          itemsCountPerPage: this.props.itemsCountPerPage,
+          totalItemsCount: this.props.totalItemsCount,
+          pageRangeDisplayed: this.props.pageRangeDisplayed,
+          onChange: this.handlePageChange,
+          firstPageText: "First",
+          lastPageText: "Last"
+        })))));
       }
     }
   }]);
@@ -107172,9 +106944,13 @@ var NewsTransContainer = /*#__PURE__*/function (_Component) {
 function mapStateToProps(store) {
   return {
     newsTrans: store.newsTransState.newsTrans,
-    fetching: store.newsState.fetching,
+    fetching: store.newsTransState.fetching,
     news: store.newsState.news,
-    languages: store.languageState.languages
+    languages: store.languageState.languages,
+    activePage: store.newsTransState.activePage,
+    itemsCountPerPage: store.newsTransState.itemsCountPerPage,
+    totalItemsCount: store.newsTransState.totalItemsCount,
+    pageRangeDisplayed: store.newsTransState.pageRangeDisplayed
   };
 }
 
@@ -107257,6 +107033,7 @@ var ProvinceListContainer = /*#__PURE__*/function (_Component) {
     _this.editProvince = _this.editProvince.bind(_assertThisInitialized(_this));
     _this.deleteItem = _this.deleteItem.bind(_assertThisInitialized(_this));
     _this.hideDiv = _this.hideDiv.bind(_assertThisInitialized(_this));
+    _this.handlePageChange = _this.handlePageChange.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -107264,21 +107041,24 @@ var ProvinceListContainer = /*#__PURE__*/function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       // call action to run the relative saga
-      this.props.requestProvinces();
+      var pageNumber = this.props.activePage;
+      this.props.requestProvinces(pageNumber);
       console.log(this.props);
     } // submit function for new data
 
   }, {
     key: "submitProvince",
     value: function submitProvince(values) {
-      this.props.requestAddProvinces(values);
+      var pageNumber = this.props.activePage;
+      this.props.requestAddProvinces(values, pageNumber);
     } // submit function to update data
 
   }, {
     key: "submitEditProvince",
     value: function submitEditProvince(values) {
-      // values.language = values.language.toLowerCase();
-      this.props.requestUpdateProvinces(values);
+      var pageNumber = this.props.activePage; // values.language = values.language.toLowerCase();
+
+      this.props.requestUpdateProvinces(values, pageNumber);
       this.setState({
         isEditing: false
       });
@@ -107302,6 +107082,12 @@ var ProvinceListContainer = /*#__PURE__*/function (_Component) {
       this.setState({
         confirmText: id
       });
+    } // pagination function
+
+  }, {
+    key: "handlePageChange",
+    value: function handlePageChange(pageNumber) {
+      this.props.requestNews(pageNumber);
     }
   }, {
     key: "hideDiv",
@@ -107335,8 +107121,18 @@ var ProvinceListContainer = /*#__PURE__*/function (_Component) {
         confirmText: this.state.confirmText,
         showConfirmBox: this.deleteItem,
         hideConfirmBox: this.hideDiv,
-        deleteProvince: this.props.requestDeleteProvinces
-      }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "No Results Found !")))))));
+        deleteProvince: this.props.requestDeleteProvinces,
+        activePage: this.props.activePage,
+        itemsCountPerPage: this.props.itemsCountPerPage
+      }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "No Results Found !")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Pagination, {
+        activePage: this.props.activePage,
+        itemsCountPerPage: this.props.itemsCountPerPage,
+        totalItemsCount: this.props.totalItemsCount,
+        pageRangeDisplayed: this.props.pageRangeDisplayed,
+        onChange: this.handlePageChange,
+        firstPageText: "First",
+        lastPageText: "Last"
+      }))));
     }
   }]);
 
@@ -107348,7 +107144,11 @@ var ProvinceListContainer = /*#__PURE__*/function (_Component) {
 function mapStateToProps(store) {
   return {
     provinces: store.provincesState.provinces,
-    fetching: store.languageState.fetching
+    fetching: store.languageState.fetching,
+    activePage: store.provincesState.activePage,
+    itemsCountPerPage: store.provincesState.itemsCountPerPage,
+    totalItemsCount: store.provincesState.totalItemsCount,
+    pageRangeDisplayed: store.provincesState.pageRangeDisplayed
   };
 }
 
@@ -107432,7 +107232,8 @@ var ProvincesTransListContainer = /*#__PURE__*/function (_Component) {
     };
     _this.editProvincesTrans = _this.editProvincesTrans.bind(_assertThisInitialized(_this));
     _this.deleteItem = _this.deleteItem.bind(_assertThisInitialized(_this));
-    _this.hideDiv = _this.hideDiv.bind(_assertThisInitialized(_this)); // this.toggleStatus = this.toggleStatus.bind(this)
+    _this.hideDiv = _this.hideDiv.bind(_assertThisInitialized(_this));
+    _this.handlePageChange = _this.handlePageChange.bind(_assertThisInitialized(_this)); // this.toggleStatus = this.toggleStatus.bind(this)
 
     return _this;
   }
@@ -107441,7 +107242,8 @@ var ProvincesTransListContainer = /*#__PURE__*/function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       // call action to run the relative saga
-      this.props.requestProvincesTranslation();
+      var pageNumber = this.props.activePage;
+      this.props.requestProvincesTranslation(pageNumber);
       this.props.requestProvinces();
       this.props.requestLanguages();
       console.log(this.props);
@@ -107450,14 +107252,15 @@ var ProvincesTransListContainer = /*#__PURE__*/function (_Component) {
   }, {
     key: "submitProvinceTrans",
     value: function submitProvinceTrans(values) {
-      console.log('val', values);
-      this.props.requestAddProvincesTranslation(values);
+      var pageNumber = this.props.activePage;
+      this.props.requestAddProvincesTranslation(values, pageNumber);
     } // submit function to update data
 
   }, {
     key: "submitEditProvinceTrans",
     value: function submitEditProvinceTrans(values) {
-      this.props.requestUpdateProvincesTranslation(values);
+      var pageNumber = this.props.activePage;
+      this.props.requestUpdateProvincesTranslation(values, pageNumber);
       this.setState({
         isEditing: false
       });
@@ -107481,6 +107284,12 @@ var ProvincesTransListContainer = /*#__PURE__*/function (_Component) {
       this.setState({
         confirmText: id
       });
+    } // pagination function
+
+  }, {
+    key: "handlePageChange",
+    value: function handlePageChange(pageNumber) {
+      this.props.requestNews(pageNumber);
     }
   }, {
     key: "hideDiv",
@@ -107520,8 +107329,20 @@ var ProvincesTransListContainer = /*#__PURE__*/function (_Component) {
         hideConfirmBox: this.hideDiv,
         deleteProvinceTrans: this.props.requestDeleteProvincesTranslation,
         provinces: this.props.provinces,
-        languages: this.props.languages
-      }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "No Results Found !")))))));
+        languages: this.props.languages,
+        activePage: this.props.activePage,
+        itemsCountPerPage: this.props.itemsCountPerPage
+      }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "No Results Found !")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-sm-12 left-align"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Pagination, {
+        activePage: this.props.activePage,
+        itemsCountPerPage: this.props.itemsCountPerPage,
+        totalItemsCount: this.props.totalItemsCount,
+        pageRangeDisplayed: this.props.pageRangeDisplayed,
+        onChange: this.handlePageChange,
+        firstPageText: "First",
+        lastPageText: "Last"
+      })))));
     }
   }]);
 
@@ -107535,7 +107356,11 @@ function mapStateToProps(store) {
     provincesTrans: store.provinceTransState.provincesTrans,
     provinces: store.provincesState.provinces,
     languages: store.languageState.languages,
-    fetching: store.categoryState.fetching
+    fetching: store.provinceTransState.fetching,
+    activePage: store.provinceTransState.activePage,
+    itemsCountPerPage: store.provinceTransState.itemsCountPerPage,
+    totalItemsCount: store.provinceTransState.totalItemsCount,
+    pageRangeDisplayed: store.provinceTransState.pageRangeDisplayed
   };
 }
 
@@ -107618,19 +107443,22 @@ var ResourcesContainer = /*#__PURE__*/function (_Component) {
     _this.deleteItem = _this.deleteItem.bind(_assertThisInitialized(_this));
     _this.hideDiv = _this.hideDiv.bind(_assertThisInitialized(_this));
     _this.editResource = _this.editResource.bind(_assertThisInitialized(_this));
+    _this.handlePageChange = _this.handlePageChange.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(ResourcesContainer, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.requestResources();
+      var pageNumber = this.props.activePage;
+      this.props.requestResources(pageNumber);
     } //submit News form
 
   }, {
     key: "onSubmitForm",
     value: function onSubmitForm(values) {
-      this.props.requestAddResources(values);
+      var pageNumber = this.props.activePage;
+      this.props.requestAddResources(values, pageNumber);
     } // edit functions
 
   }, {
@@ -107644,7 +107472,8 @@ var ResourcesContainer = /*#__PURE__*/function (_Component) {
   }, {
     key: "submitEditResource",
     value: function submitEditResource(values) {
-      this.props.requestUpdateResources(values);
+      var pageNumber = this.props.activePage;
+      this.props.requestUpdateResources(values, pageNumber);
       this.setState({
         isEditing: false
       });
@@ -107655,6 +107484,12 @@ var ResourcesContainer = /*#__PURE__*/function (_Component) {
       this.setState({
         confirmText: id
       });
+    } // pagination function
+
+  }, {
+    key: "handlePageChange",
+    value: function handlePageChange(pageNumber) {
+      this.props.requestNews(pageNumber);
     }
   }, {
     key: "hideDiv",
@@ -107721,8 +107556,20 @@ var ResourcesContainer = /*#__PURE__*/function (_Component) {
           confirmText: this.state.confirmText,
           showConfirmBox: this.deleteItem,
           hideConfirmBox: this.hideDiv,
-          deleteResource: this.props.requestDeleteResources
-        }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "No Results Found !")))))));
+          deleteResource: this.props.requestDeleteResources,
+          activePage: this.props.activePage,
+          itemsCountPerPage: this.props.itemsCountPerPage
+        }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "No Results Found !")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-sm-12 left-align"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Pagination, {
+          activePage: this.props.activePage,
+          itemsCountPerPage: this.props.itemsCountPerPage,
+          totalItemsCount: this.props.totalItemsCount,
+          pageRangeDisplayed: this.props.pageRangeDisplayed,
+          onChange: this.handlePageChange,
+          firstPageText: "First",
+          lastPageText: "Last"
+        })))));
       }
     }
   }]);
@@ -107733,7 +107580,11 @@ var ResourcesContainer = /*#__PURE__*/function (_Component) {
 function mapStateToProps(store) {
   return {
     resources: store.resourceState.resources,
-    fetching: store.newsState.fetching
+    fetching: store.resourceState.fetching,
+    activePage: store.resourceState.activePage,
+    itemsCountPerPage: store.resourceState.itemsCountPerPage,
+    totalItemsCount: store.resourceState.totalItemsCount,
+    pageRangeDisplayed: store.resourceState.pageRangeDisplayed
   };
 }
 
@@ -107818,13 +107669,15 @@ var ResourcesTransContainer = /*#__PURE__*/function (_Component) {
     _this.deleteItem = _this.deleteItem.bind(_assertThisInitialized(_this));
     _this.hideDiv = _this.hideDiv.bind(_assertThisInitialized(_this));
     _this.editResourceTrans = _this.editResourceTrans.bind(_assertThisInitialized(_this));
+    _this.handlePageChange = _this.handlePageChange.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(ResourcesTransContainer, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.requestResourcesTranslation();
+      var pageNumber = this.props.activePage;
+      this.props.requestResourcesTranslation(pageNumber);
       this.props.requestResources();
       this.props.requestLanguages();
     } //submit Resources translation form
@@ -107832,7 +107685,8 @@ var ResourcesTransContainer = /*#__PURE__*/function (_Component) {
   }, {
     key: "onSubmitForm",
     value: function onSubmitForm(values) {
-      this.props.requestAddResourcesTranslation(values);
+      var pageNumber = this.props.activePage;
+      this.props.requestAddResourcesTranslation(values, pageNumber);
     } // edit functions
 
   }, {
@@ -107846,7 +107700,10 @@ var ResourcesTransContainer = /*#__PURE__*/function (_Component) {
   }, {
     key: "submitEditResourceTrans",
     value: function submitEditResourceTrans(values) {
-      this.props.requestUpdateResourcesTranslation(values);
+      var editId = this.state.isEditing;
+      var pageNumber = this.props.activePage;
+      console.log(editId);
+      this.props.requestUpdateResourcesTranslation(values, editId, pageNumber);
       this.setState({
         isEditing: false
       });
@@ -107857,6 +107714,12 @@ var ResourcesTransContainer = /*#__PURE__*/function (_Component) {
       this.setState({
         confirmText: id
       });
+    } // pagination function
+
+  }, {
+    key: "handlePageChange",
+    value: function handlePageChange(pageNumber) {
+      this.props.requestNews(pageNumber);
     }
   }, {
     key: "hideDiv",
@@ -107927,8 +107790,20 @@ var ResourcesTransContainer = /*#__PURE__*/function (_Component) {
           confirmText: this.state.confirmText,
           showConfirmBox: this.deleteItem,
           hideConfirmBox: this.hideDiv,
-          deleteResourceTrans: this.props.requestDeleteResourcesTranslation
-        }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "No Results Found !")))))));
+          deleteResourceTrans: this.props.requestDeleteResourcesTranslation,
+          activePage: this.props.activePage,
+          itemsCountPerPage: this.props.itemsCountPerPage
+        }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, "No Results Found !")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "col-sm-12 left-align"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Pagination, {
+          activePage: this.props.activePage,
+          itemsCountPerPage: this.props.itemsCountPerPage,
+          totalItemsCount: this.props.totalItemsCount,
+          pageRangeDisplayed: this.props.pageRangeDisplayed,
+          onChange: this.handlePageChange,
+          firstPageText: "First",
+          lastPageText: "Last"
+        })))));
       }
     }
   }]);
@@ -107941,7 +107816,11 @@ function mapStateToProps(store) {
     resourcesTrans: store.resourcesTransState.resourcesTrans,
     resources: store.resourceState.resources,
     languages: store.languageState.languages,
-    fetching: store.resourcesTransState.fetching
+    fetching: store.resourcesTransState.fetching,
+    activePage: store.resourcesTransState.activePage,
+    itemsCountPerPage: store.resourcesTransState.itemsCountPerPage,
+    totalItemsCount: store.resourcesTransState.totalItemsCount,
+    pageRangeDisplayed: store.resourcesTransState.pageRangeDisplayed
   };
 }
 
@@ -108016,26 +107895,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../store */ "./resources/js/store.js");
-/* harmony import */ var react_notify_toast__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-notify-toast */ "./node_modules/react-notify-toast/bin/notify.js");
-/* harmony import */ var react_notify_toast__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_notify_toast__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var loadjs__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! loadjs */ "./node_modules/loadjs/dist/loadjs.umd.js");
-/* harmony import */ var loadjs__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(loadjs__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _components_layout_header__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/layout/header */ "./resources/js/components/layout/header.js");
-/* harmony import */ var _components_layout_sidebar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/layout/sidebar */ "./resources/js/components/layout/sidebar.js");
-/* harmony import */ var _components_layout_breadcrumb__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/layout/breadcrumb */ "./resources/js/components/layout/breadcrumb.js");
-/* harmony import */ var _components_layout_footer__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/layout/footer */ "./resources/js/components/layout/footer.js");
-/* harmony import */ var _components_dashboard__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/dashboard */ "./resources/js/components/dashboard.js");
-/* harmony import */ var _containers_categories_categories_container__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../containers/categories/categories-container */ "./resources/js/containers/categories/categories-container.js");
-/* harmony import */ var _containers_languages_languages_container__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../containers/languages/languages-container */ "./resources/js/containers/languages/languages-container.js");
-/* harmony import */ var _containers_categoriesTranslation_categoriesTrans_container__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../containers/categoriesTranslation/categoriesTrans-container */ "./resources/js/containers/categoriesTranslation/categoriesTrans-container.js");
-/* harmony import */ var _containers_provinceContainer_provinces_container__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../containers/provinceContainer/provinces-container */ "./resources/js/containers/provinceContainer/provinces-container.js");
-/* harmony import */ var _containers_provinceTranslation_provinceTrans_container__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../containers/provinceTranslation/provinceTrans-container */ "./resources/js/containers/provinceTranslation/provinceTrans-container.js");
-/* harmony import */ var _containers_newsContainer_news_container__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../containers/newsContainer/news-container */ "./resources/js/containers/newsContainer/news-container.js");
-/* harmony import */ var _containers_newsTranslation_newsTrans_container__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../containers/newsTranslation/newsTrans-container */ "./resources/js/containers/newsTranslation/newsTrans-container.js");
-/* harmony import */ var _containers_resources_resources_container__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../containers/resources/resources-container */ "./resources/js/containers/resources/resources-container.js");
-/* harmony import */ var _containers_resourcesTranslation_resourcesTrans_container__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ../containers/resourcesTranslation/resourcesTrans-container */ "./resources/js/containers/resourcesTranslation/resourcesTrans-container.js");
+/* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../store */ "./resources/js/store.js");
+/* harmony import */ var react_notify_toast__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-notify-toast */ "./node_modules/react-notify-toast/bin/notify.js");
+/* harmony import */ var react_notify_toast__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_notify_toast__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var loadjs__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! loadjs */ "./node_modules/loadjs/dist/loadjs.umd.js");
+/* harmony import */ var loadjs__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(loadjs__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _components_layout_header__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/layout/header */ "./resources/js/components/layout/header.js");
+/* harmony import */ var _components_layout_sidebar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/layout/sidebar */ "./resources/js/components/layout/sidebar.js");
+/* harmony import */ var _components_layout_breadcrumb__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/layout/breadcrumb */ "./resources/js/components/layout/breadcrumb.js");
+/* harmony import */ var _components_layout_footer__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/layout/footer */ "./resources/js/components/layout/footer.js");
+/* harmony import */ var _components_dashboard__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/dashboard */ "./resources/js/components/dashboard.js");
+/* harmony import */ var _containers_categories_categories_container__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../containers/categories/categories-container */ "./resources/js/containers/categories/categories-container.js");
+/* harmony import */ var _containers_languages_languages_container__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../containers/languages/languages-container */ "./resources/js/containers/languages/languages-container.js");
+/* harmony import */ var _containers_categoriesTranslation_categoriesTrans_container__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../containers/categoriesTranslation/categoriesTrans-container */ "./resources/js/containers/categoriesTranslation/categoriesTrans-container.js");
+/* harmony import */ var _containers_provinceContainer_provinces_container__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../containers/provinceContainer/provinces-container */ "./resources/js/containers/provinceContainer/provinces-container.js");
+/* harmony import */ var _containers_provinceTranslation_provinceTrans_container__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../containers/provinceTranslation/provinceTrans-container */ "./resources/js/containers/provinceTranslation/provinceTrans-container.js");
+/* harmony import */ var _containers_newsContainer_news_container__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../containers/newsContainer/news-container */ "./resources/js/containers/newsContainer/news-container.js");
+/* harmony import */ var _containers_newsTranslation_newsTrans_container__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../containers/newsTranslation/newsTrans-container */ "./resources/js/containers/newsTranslation/newsTrans-container.js");
+/* harmony import */ var _containers_resources_resources_container__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ../containers/resources/resources-container */ "./resources/js/containers/resources/resources-container.js");
+/* harmony import */ var _containers_resourcesTranslation_resourcesTrans_container__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ../containers/resourcesTranslation/resourcesTrans-container */ "./resources/js/containers/resourcesTranslation/resourcesTrans-container.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -108062,9 +107940,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-
- // import { requestLoggedUser } from '../actions/users-action'
-//INCLUDES
+ //INCLUDES
 
 
 
@@ -108096,10 +107972,10 @@ var DashboardLayout = /*#__PURE__*/function (_Component) {
   _createClass(DashboardLayout, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      loadjs__WEBPACK_IMPORTED_MODULE_5___default()('/plugins/jquery/jquery.min.js', function () {
-        loadjs__WEBPACK_IMPORTED_MODULE_5___default()('/plugins/bootstrap/js/bootstrap.bundle.min.js', function () {
-          loadjs__WEBPACK_IMPORTED_MODULE_5___default()('/dist/js/adminlte.min.js', function () {
-            loadjs__WEBPACK_IMPORTED_MODULE_5___default()('/dist/js/demo.js');
+      loadjs__WEBPACK_IMPORTED_MODULE_4___default()('/plugins/jquery/jquery.min.js', function () {
+        loadjs__WEBPACK_IMPORTED_MODULE_4___default()('/plugins/bootstrap/js/bootstrap.bundle.min.js', function () {
+          loadjs__WEBPACK_IMPORTED_MODULE_4___default()('/dist/js/adminlte.min.js', function () {
+            loadjs__WEBPACK_IMPORTED_MODULE_4___default()('/dist/js/demo.js');
           });
         });
       });
@@ -108110,7 +107986,7 @@ var DashboardLayout = /*#__PURE__*/function (_Component) {
       var match = this.props.match;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "wrapper"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_notify_toast__WEBPACK_IMPORTED_MODULE_4___default.a, {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_notify_toast__WEBPACK_IMPORTED_MODULE_3___default.a, {
         options: {
           top: '50px',
           right: '0px',
@@ -108118,66 +107994,68 @@ var DashboardLayout = /*#__PURE__*/function (_Component) {
           margin: 0,
           left: 'none'
         }
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_layout_header__WEBPACK_IMPORTED_MODULE_6__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_layout_sidebar__WEBPACK_IMPORTED_MODULE_7__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_layout_header__WEBPACK_IMPORTED_MODULE_5__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_layout_sidebar__WEBPACK_IMPORTED_MODULE_6__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "content-wrapper"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_layout_breadcrumb__WEBPACK_IMPORTED_MODULE_8__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_layout_breadcrumb__WEBPACK_IMPORTED_MODULE_7__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
         className: "content"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         exact: true,
         path: "".concat(match.path),
-        component: _components_dashboard__WEBPACK_IMPORTED_MODULE_10__["default"]
+        component: _components_dashboard__WEBPACK_IMPORTED_MODULE_9__["default"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/categories",
-        component: _containers_categories_categories_container__WEBPACK_IMPORTED_MODULE_11__["default"]
+        component: _containers_categories_categories_container__WEBPACK_IMPORTED_MODULE_10__["default"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/languages",
-        component: _containers_languages_languages_container__WEBPACK_IMPORTED_MODULE_12__["default"]
+        component: _containers_languages_languages_container__WEBPACK_IMPORTED_MODULE_11__["default"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/categrories-translation",
-        component: _containers_categoriesTranslation_categoriesTrans_container__WEBPACK_IMPORTED_MODULE_13__["default"]
+        component: _containers_categoriesTranslation_categoriesTrans_container__WEBPACK_IMPORTED_MODULE_12__["default"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/news",
-        component: _containers_newsContainer_news_container__WEBPACK_IMPORTED_MODULE_16__["default"]
+        component: _containers_newsContainer_news_container__WEBPACK_IMPORTED_MODULE_15__["default"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/add-news",
-        component: _containers_newsContainer_news_container__WEBPACK_IMPORTED_MODULE_16__["default"]
+        component: _containers_newsContainer_news_container__WEBPACK_IMPORTED_MODULE_15__["default"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/edit-news",
-        component: _containers_newsContainer_news_container__WEBPACK_IMPORTED_MODULE_16__["default"]
+        component: _containers_newsContainer_news_container__WEBPACK_IMPORTED_MODULE_15__["default"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/news-translation",
-        component: _containers_newsTranslation_newsTrans_container__WEBPACK_IMPORTED_MODULE_17__["default"]
+        component: _containers_newsTranslation_newsTrans_container__WEBPACK_IMPORTED_MODULE_16__["default"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/add-news-translation",
-        component: _containers_newsTranslation_newsTrans_container__WEBPACK_IMPORTED_MODULE_17__["default"]
+        component: _containers_newsTranslation_newsTrans_container__WEBPACK_IMPORTED_MODULE_16__["default"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/edit-news-translation",
-        component: _containers_newsTranslation_newsTrans_container__WEBPACK_IMPORTED_MODULE_17__["default"]
+        component: _containers_newsTranslation_newsTrans_container__WEBPACK_IMPORTED_MODULE_16__["default"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/provinces",
-        component: _containers_provinceContainer_provinces_container__WEBPACK_IMPORTED_MODULE_14__["default"]
+        component: _containers_provinceContainer_provinces_container__WEBPACK_IMPORTED_MODULE_13__["default"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/provinces-translation",
-        component: _containers_provinceTranslation_provinceTrans_container__WEBPACK_IMPORTED_MODULE_15__["default"]
+        component: _containers_provinceTranslation_provinceTrans_container__WEBPACK_IMPORTED_MODULE_14__["default"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/resources",
-        component: _containers_resources_resources_container__WEBPACK_IMPORTED_MODULE_18__["default"]
+        component: _containers_resources_resources_container__WEBPACK_IMPORTED_MODULE_17__["default"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/add-resources",
-        component: _containers_resources_resources_container__WEBPACK_IMPORTED_MODULE_18__["default"]
+        component: _containers_resources_resources_container__WEBPACK_IMPORTED_MODULE_17__["default"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/edit-resources",
-        component: _containers_resources_resources_container__WEBPACK_IMPORTED_MODULE_18__["default"]
+        component: _containers_resources_resources_container__WEBPACK_IMPORTED_MODULE_17__["default"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/translated-resources",
-        component: _containers_resourcesTranslation_resourcesTrans_container__WEBPACK_IMPORTED_MODULE_19__["default"]
+        component: _containers_resourcesTranslation_resourcesTrans_container__WEBPACK_IMPORTED_MODULE_18__["default"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/add-resources-translation",
-        component: _containers_resourcesTranslation_resourcesTrans_container__WEBPACK_IMPORTED_MODULE_19__["default"]
+        component: _containers_resourcesTranslation_resourcesTrans_container__WEBPACK_IMPORTED_MODULE_18__["default"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/edit-translated-resources",
-        component: _containers_resourcesTranslation_resourcesTrans_container__WEBPACK_IMPORTED_MODULE_19__["default"]
-      })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_layout_footer__WEBPACK_IMPORTED_MODULE_9__["default"], null));
+        component: _containers_resourcesTranslation_resourcesTrans_container__WEBPACK_IMPORTED_MODULE_18__["default"]
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
+        to: "".concat(match.url)
+      })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_layout_footer__WEBPACK_IMPORTED_MODULE_8__["default"], null));
     }
   }]);
 
@@ -108247,6 +108125,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./util */ "./resources/js/util.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -108278,6 +108157,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var PrivateRoute = /*#__PURE__*/function (_Component) {
   _inherits(PrivateRoute, _Component);
 
@@ -108298,7 +108178,7 @@ var PrivateRoute = /*#__PURE__*/function (_Component) {
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], _extends({}, rest, {
         render: function render(props) {
-          return localStorage['access_token'] ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, props) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
+          return Object(_util__WEBPACK_IMPORTED_MODULE_2__["isLogin"])() ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Component, props) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
             to: "/auth/login"
           });
         }
@@ -108336,7 +108216,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var initialState = {
   categories: [],
   fetching: false,
-  sending: false
+  sending: false,
+  activePage: 1,
+  itemsCountPerPage: 10,
+  totalItemsCount: 1,
+  pageRangeDisplayed: 5
 };
 
 var categoriesReducer = function categoriesReducer() {
@@ -108350,10 +108234,12 @@ var categoriesReducer = function categoriesReducer() {
       });
 
     case _actions_action_types__WEBPACK_IMPORTED_MODULE_0__["GET_CATEGORIES_SUCCESS"]:
-      console.log('reducer', state);
       return Object.assign({}, state, {
-        categories: action.categories.data,
+        categories: action.categories.data.data,
         fetching: false,
+        itemsCountPerPage: action.categories.data.meta.per_page,
+        totalItemsCount: action.categories.data.meta.total,
+        activePage: action.categories.data.meta.current_page,
         sending: false
       });
 
@@ -108437,6 +108323,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var initialState = {
   categoriesTrans: [],
   fetching: false,
+  activePage: 1,
+  itemsCountPerPage: 10,
+  totalItemsCount: 1,
+  pageRangeDisplayed: 5,
   sending: false
 };
 
@@ -108453,8 +108343,11 @@ var categoriesTransReducer = function categoriesTransReducer() {
     case _actions_action_types__WEBPACK_IMPORTED_MODULE_0__["GET_CATEGORIES_TRANSLATION_SUCCESS"]:
       console.log('reducer', action);
       return Object.assign({}, state, {
-        categoriesTrans: action.categoriesTrans,
+        categoriesTrans: action.categoriesTrans.data.data,
         fetching: false,
+        itemsCountPerPage: action.categoriesTrans.data.meta.per_page,
+        totalItemsCount: action.categoriesTrans.data.meta.total,
+        activePage: action.categoriesTrans.data.meta.current_page,
         sending: false
       });
 
@@ -108579,6 +108472,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var initialState = {
   languages: [],
   fetching: false,
+  activePage: 1,
+  itemsCountPerPage: 10,
+  totalItemsCount: 1,
+  pageRangeDisplayed: 5,
   sending: false
 };
 
@@ -108595,8 +108492,11 @@ var languagesReducer = function languagesReducer() {
 
     case _actions_action_types__WEBPACK_IMPORTED_MODULE_0__["GET_LANGUAGES_SUCCESS"]:
       return Object.assign({}, state, {
-        languages: action.languages,
+        languages: action.languages.data.data,
         fetching: false,
+        itemsCountPerPage: action.languages.data.meta.per_page,
+        totalItemsCount: action.languages.data.meta.total,
+        activePage: action.languages.data.meta.current_page,
         sending: false
       });
 
@@ -108711,7 +108611,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var initialState = {
   news: [],
   fetching: false,
-  sending: false
+  sending: false,
+  activePage: 1,
+  itemsCountPerPage: 10,
+  totalItemsCount: 1,
+  pageRangeDisplayed: 5
 };
 
 var newsReducer = function newsReducer() {
@@ -108726,9 +108630,13 @@ var newsReducer = function newsReducer() {
       });
 
     case _actions_action_types__WEBPACK_IMPORTED_MODULE_0__["GET_NEWS_SUCCESS"]:
+      console.log('sdfsfasfa', action.news.data.meta.per_page);
       return Object.assign({}, state, {
-        news: action.news.data,
+        news: action.news.data.data,
         fetching: false,
+        itemsCountPerPage: action.news.data.meta.per_page,
+        totalItemsCount: action.news.data.meta.total,
+        activePage: action.news.data.meta.current_page,
         sending: false
       });
 
@@ -108795,6 +108703,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var initialState = {
   newsTrans: [],
   fetching: false,
+  activePage: 1,
+  itemsCountPerPage: 10,
+  totalItemsCount: 1,
+  pageRangeDisplayed: 5,
   sending: false
 };
 
@@ -108811,8 +108723,11 @@ var newsTransReducer = function newsTransReducer() {
 
     case _actions_action_types__WEBPACK_IMPORTED_MODULE_0__["GET_NEWS_TRANSLATION_SUCCESS"]:
       return Object.assign({}, state, {
-        newsTrans: action.newsTrans.data,
+        newsTrans: action.newsTrans.data.data,
         fetching: false,
+        itemsCountPerPage: action.newsTrans.data.meta.per_page,
+        totalItemsCount: action.newsTrans.data.meta.total,
+        activePage: action.newsTrans.data.meta.current_page,
         sending: false
       });
 
@@ -108879,6 +108794,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var initialState = {
   provincesTrans: [],
   fetching: false,
+  activePage: 1,
+  itemsCountPerPage: 10,
+  totalItemsCount: 1,
+  pageRangeDisplayed: 5,
   sending: false
 };
 
@@ -108895,8 +108814,11 @@ var provincesTransReducer = function provincesTransReducer() {
 
     case _actions_action_types__WEBPACK_IMPORTED_MODULE_0__["GET_PROVINCE_TRANSLATION_SUCCESS"]:
       return Object.assign({}, state, {
-        provincesTrans: action.provincesTrans,
+        provincesTrans: action.provincesTrans.data,
         fetching: false,
+        itemsCountPerPage: action.provincesTrans.data.meta.per_page,
+        totalItemsCount: action.provincesTrans.data.meta.total,
+        activePage: action.provincesTrans.data.meta.current_page,
         sending: false
       });
 
@@ -108963,6 +108885,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var initialState = {
   provinces: [],
   fetching: false,
+  activePage: 1,
+  itemsCountPerPage: 10,
+  totalItemsCount: 1,
+  pageRangeDisplayed: 5,
   sending: false
 };
 
@@ -108979,8 +108905,11 @@ var provincesReducer = function provincesReducer() {
 
     case _actions_action_types__WEBPACK_IMPORTED_MODULE_0__["GET_PROVINCES_SUCCESS"]:
       return Object.assign({}, state, {
-        provinces: action.provinces.data,
+        provinces: action.provinces.data.data,
         fetching: false,
+        itemsCountPerPage: action.provinces.data.meta.per_page,
+        totalItemsCount: action.provinces.data.meta.total,
+        activePage: action.provinces.data.meta.current_page,
         sending: false
       });
 
@@ -109047,6 +108976,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var initialState = {
   resources: [],
   fetching: false,
+  activePage: 1,
+  itemsCountPerPage: 10,
+  totalItemsCount: 1,
+  pageRangeDisplayed: 5,
   sending: false
 };
 
@@ -109063,8 +108996,11 @@ var resourcesReducer = function resourcesReducer() {
 
     case _actions_action_types__WEBPACK_IMPORTED_MODULE_0__["GET_RESOURCES_SUCCESS"]:
       return Object.assign({}, state, {
-        resources: action.resources.data,
+        resources: action.resources.data.data,
         fetching: false,
+        itemsCountPerPage: action.resources.data.meta.per_page,
+        totalItemsCount: action.resources.data.meta.total,
+        activePage: action.resources.data.meta.current_page,
         sending: false
       });
 
@@ -109131,6 +109067,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var initialState = {
   resourcesTrans: [],
   fetching: false,
+  activePage: 1,
+  itemsCountPerPage: 10,
+  totalItemsCount: 1,
+  pageRangeDisplayed: 5,
   sending: false
 };
 
@@ -109149,6 +109089,9 @@ var resourcesTransReducer = function resourcesTransReducer() {
       return Object.assign({}, state, {
         resourcesTrans: action.resourcesTrans.data,
         fetching: false,
+        itemsCountPerPage: action.resourcesTrans.data.meta.per_page,
+        totalItemsCount: action.resourcesTrans.data.meta.total,
+        activePage: action.resourcesTrans.data.meta.current_page,
         sending: false
       });
 
@@ -109263,7 +109206,7 @@ function CategorySaga() {
         case 2:
           response = _context2.sent;
           console.log('cat', response);
-          categories = response.data;
+          categories = response;
 
           if (!response.errors) {
             _context2.next = 12;
@@ -109315,7 +109258,7 @@ function submitCategoriesSaga() {
 }
 
 function callCategoriesSubmit(action) {
-  var error, result, resp;
+  var error, result, resp, pageNumber;
   return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callCategoriesSubmit$(_context4) {
     while (1) {
       switch (_context4.prev = _context4.next) {
@@ -109331,7 +109274,7 @@ function callCategoriesSubmit(action) {
         case 5:
           result = _context4.sent;
           resp = result.data;
-          console.log('cccs', resp);
+          pageNumber = action.pageNumber;
 
           if (!result.errors) {
             _context4.next = 16;
@@ -109358,7 +109301,8 @@ function callCategoriesSubmit(action) {
         case 16:
           _context4.next = 18;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
-            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_CATEGORIES"]
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_CATEGORIES"],
+            pageNumber: pageNumber
           });
 
         case 18:
@@ -109398,7 +109342,7 @@ function editCategoriesSaga() {
 }
 
 function callEditCategory(action) {
-  var error, result, resp;
+  var error, result, resp, pageNumber;
   return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callEditCategory$(_context6) {
     while (1) {
       switch (_context6.prev = _context6.next) {
@@ -109414,42 +109358,44 @@ function callEditCategory(action) {
         case 5:
           result = _context6.sent;
           resp = result.data;
+          pageNumber = action.pageNumber;
 
           if (!result.errors) {
-            _context6.next = 14;
+            _context6.next = 15;
             break;
           }
 
-          _context6.next = 10;
+          _context6.next = 11;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_CATEGORIES_FAILED"],
             errors: result.error
           });
 
-        case 10:
+        case 11:
           error = result.error;
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Update failed", "error", 5000);
-          _context6.next = 17;
+          _context6.next = 18;
           break;
 
-        case 14:
-          _context6.next = 16;
+        case 15:
+          _context6.next = 17;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
-            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_CATEGORIES"]
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_CATEGORIES"],
+            pageNumber: pageNumber
           });
 
-        case 16:
+        case 17:
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Updated successfully!", "success", 5000);
 
-        case 17:
-          _context6.next = 19;
+        case 18:
+          _context6.next = 20;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('EditCategories', error));
 
-        case 19:
-          _context6.next = 21;
+        case 20:
+          _context6.next = 22;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('EditCategories'));
 
-        case 21:
+        case 22:
         case "end":
           return _context6.stop();
       }
@@ -109475,7 +109421,7 @@ function toggleCategoriesStatusSaga() {
 }
 
 function callCategoryToggleStatus(action) {
-  var result, resp;
+  var result, resp, pageNumber;
   return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callCategoryToggleStatus$(_context8) {
     while (1) {
       switch (_context8.prev = _context8.next) {
@@ -109486,34 +109432,36 @@ function callCategoryToggleStatus(action) {
         case 2:
           result = _context8.sent;
           resp = result.data;
+          pageNumber = action.pageNumber;
 
           if (!result.errors) {
-            _context8.next = 11;
+            _context8.next = 12;
             break;
           }
 
-          _context8.next = 7;
+          _context8.next = 8;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_CATEGORIES_FAILED"],
             errors: result.error
           });
 
-        case 7:
+        case 8:
           error = result.error;
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot update status", "error", 5000);
-          _context8.next = 14;
+          _context8.next = 15;
           break;
 
-        case 11:
-          _context8.next = 13;
+        case 12:
+          _context8.next = 14;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
-            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_CATEGORIES"]
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_CATEGORIES"],
+            pageNumber: pageNumber
           });
 
-        case 13:
+        case 14:
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Status updated successfully!", "success", 5000);
 
-        case 14:
+        case 15:
         case "end":
           return _context8.stop();
       }
@@ -109652,7 +109600,7 @@ function CategoryTransSaga() {
         case 2:
           response = _context2.sent;
           console.log('cat', response);
-          categoriesTrans = response.data;
+          categoriesTrans = response;
 
           if (!response.errors) {
             _context2.next = 12;
@@ -109704,7 +109652,7 @@ function submitCategoriesTransSaga() {
 }
 
 function callCategoriesTransSubmit(action) {
-  var error, result, resp;
+  var error, result, resp, pageNumber;
   return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callCategoriesTransSubmit$(_context4) {
     while (1) {
       switch (_context4.prev = _context4.next) {
@@ -109721,19 +109669,20 @@ function callCategoriesTransSubmit(action) {
           result = _context4.sent;
           resp = result.data;
           console.log('cccs', resp);
+          pageNumber = action.pageNumber;
 
           if (!result.errors) {
-            _context4.next = 16;
+            _context4.next = 17;
             break;
           }
 
-          _context4.next = 11;
+          _context4.next = 12;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_CATEGORIES_TRANSLATION_FAILED"],
             errors: result.error
           });
 
-        case 11:
+        case 12:
           error = result.error;
 
           if (resp.errorcode == 23000) {
@@ -109741,27 +109690,28 @@ function callCategoriesTransSubmit(action) {
           }
 
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot create new category Translation!", "error", 5000);
-          _context4.next = 19;
+          _context4.next = 20;
           break;
 
-        case 16:
-          _context4.next = 18;
+        case 17:
+          _context4.next = 19;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
-            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_CATEGORIES_TRANSLATION"]
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_CATEGORIES_TRANSLATION"],
+            pageNumber: pageNumber
           });
 
-        case 18:
+        case 19:
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Categories Translation created successfully!", "success", 5000);
 
-        case 19:
-          _context4.next = 21;
+        case 20:
+          _context4.next = 22;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('AddCategoriesTrans', error));
 
-        case 21:
-          _context4.next = 23;
+        case 22:
+          _context4.next = 24;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('AddCategoriesTrans'));
 
-        case 23:
+        case 24:
         case "end":
           return _context4.stop();
       }
@@ -109787,7 +109737,7 @@ function editCategoriesTransSaga() {
 }
 
 function callEditCategoryTrans(action) {
-  var error, result, resp;
+  var error, result, resp, pageNumber;
   return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callEditCategoryTrans$(_context6) {
     while (1) {
       switch (_context6.prev = _context6.next) {
@@ -109803,42 +109753,44 @@ function callEditCategoryTrans(action) {
         case 5:
           result = _context6.sent;
           resp = result.data;
+          pageNumber = action.pageNumber;
 
           if (!result.errors) {
-            _context6.next = 14;
+            _context6.next = 15;
             break;
           }
 
-          _context6.next = 10;
+          _context6.next = 11;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_CATEGORIES_TRANSLATION_FAILED"],
             errors: result.error
           });
 
-        case 10:
+        case 11:
           error = result.error;
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Update failed", "error", 5000);
-          _context6.next = 17;
+          _context6.next = 18;
           break;
 
-        case 14:
-          _context6.next = 16;
+        case 15:
+          _context6.next = 17;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
-            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_CATEGORIES_TRANSLATION"]
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_CATEGORIES_TRANSLATION"],
+            pageNumber: pageNumber
           });
 
-        case 16:
+        case 17:
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Updated successfully!", "success", 5000);
 
-        case 17:
-          _context6.next = 19;
+        case 18:
+          _context6.next = 20;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('EditCategoriesTrans', error));
 
-        case 19:
-          _context6.next = 21;
+        case 20:
+          _context6.next = 22;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('EditCategoriesTrans'));
 
-        case 21:
+        case 22:
         case "end":
           return _context6.stop();
       }
@@ -109971,40 +109923,39 @@ function LanguageSaga(action) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
-          console.log('aaa', action);
-          _context2.next = 3;
+          _context2.next = 2;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_languages_api__WEBPACK_IMPORTED_MODULE_4__["getLanguages"]);
 
-        case 3:
+        case 2:
           response = _context2.sent;
           console.log('cat', response);
-          languages = response.data.data;
+          languages = response;
 
           if (!response.errors) {
-            _context2.next = 13;
+            _context2.next = 12;
             break;
           }
 
-          _context2.next = 9;
+          _context2.next = 8;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_LANGUAGES_FAILED"],
             errors: response.error
           });
 
-        case 9:
+        case 8:
           error = response.errors;
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot get all languages", "error", 5000);
-          _context2.next = 15;
+          _context2.next = 14;
           break;
 
-        case 13:
-          _context2.next = 15;
+        case 12:
+          _context2.next = 14;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["GET_LANGUAGES_SUCCESS"],
             languages: languages
           });
 
-        case 15:
+        case 14:
         case "end":
           return _context2.stop();
       }
@@ -110030,7 +109981,7 @@ function submitLanguagesSaga() {
 }
 
 function callLanguagesSubmit(action) {
-  var error, result, resp;
+  var error, result, resp, pageNumber;
   return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callLanguagesSubmit$(_context4) {
     while (1) {
       switch (_context4.prev = _context4.next) {
@@ -110046,19 +109997,20 @@ function callLanguagesSubmit(action) {
         case 5:
           result = _context4.sent;
           resp = result.data;
+          pageNumber = action.pageNumber;
 
           if (!(result.errors && !resp.success || result.errors || !resp.success)) {
-            _context4.next = 15;
+            _context4.next = 16;
             break;
           }
 
-          _context4.next = 10;
+          _context4.next = 11;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_LANGUAGES_FAILED"],
             errors: result.error || resp.errormsg
           });
 
-        case 10:
+        case 11:
           error = result.error || resp.errormsg;
 
           if (resp.errorcode == 23000) {
@@ -110066,27 +110018,28 @@ function callLanguagesSubmit(action) {
           }
 
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot create new Language!", "error", 5000);
-          _context4.next = 18;
+          _context4.next = 19;
           break;
 
-        case 15:
-          _context4.next = 17;
+        case 16:
+          _context4.next = 18;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
-            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_LANGUAGES"]
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_LANGUAGES"],
+            pageNumber: pageNumber
           });
 
-        case 17:
+        case 18:
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Languages created successfully!", "success", 5000);
 
-        case 18:
-          _context4.next = 20;
+        case 19:
+          _context4.next = 21;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('AddLanguages', error));
 
-        case 20:
-          _context4.next = 22;
+        case 21:
+          _context4.next = 23;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('AddLanguages'));
 
-        case 22:
+        case 23:
         case "end":
           return _context4.stop();
       }
@@ -110112,7 +110065,7 @@ function editLanguagesSaga() {
 }
 
 function callEditLanguage(action) {
-  var error, result, resp;
+  var error, result, resp, pageNumber;
   return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callEditLanguage$(_context6) {
     while (1) {
       switch (_context6.prev = _context6.next) {
@@ -110128,42 +110081,44 @@ function callEditLanguage(action) {
         case 5:
           result = _context6.sent;
           resp = result.data;
+          pageNumber = action.pageNumber;
 
           if (!result.errors) {
-            _context6.next = 14;
+            _context6.next = 15;
             break;
           }
 
-          _context6.next = 10;
+          _context6.next = 11;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_LANGUAGES_FAILED"],
             errors: result.error
           });
 
-        case 10:
+        case 11:
           error = result.error;
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Update failed", "error", 5000);
-          _context6.next = 17;
+          _context6.next = 18;
           break;
 
-        case 14:
-          _context6.next = 16;
+        case 15:
+          _context6.next = 17;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
-            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_LANGUAGES"]
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_LANGUAGES"],
+            pageNumber: pageNumber
           });
 
-        case 16:
+        case 17:
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Updated successfully!", "success", 5000);
 
-        case 17:
-          _context6.next = 19;
+        case 18:
+          _context6.next = 20;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('EditLanguages', error));
 
-        case 19:
-          _context6.next = 21;
+        case 20:
+          _context6.next = 22;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('EditLanguages'));
 
-        case 21:
+        case 22:
         case "end":
           return _context6.stop();
       }
@@ -110280,7 +110235,7 @@ function loginWatcher() {
 }
 
 function loginFlow(action) {
-  var result, resp;
+  var result, resp, hours, now;
   return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function loginFlow$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
@@ -110298,60 +110253,64 @@ function loginFlow(action) {
           result = _context2.sent;
           console.log('saga', result);
           resp = result.data;
+          hours = 1;
+          now = new Date().getTime(); // var setupTime = localStorage.getItem('setupTime'); 
 
           if (!(result.status == 200)) {
-            _context2.next = 18;
+            _context2.next = 20;
             break;
           }
 
-          window.localStorage.setItem("access_token", resp.access_token);
-          window.localStorage.setItem("refresh_token", resp.refresh_token);
-          _context2.next = 14;
+          window.localStorage.setItem("access_token", resp.access_token); // window.localStorage.setItem("refresh_token", resp.refresh_token);
+
+          localStorage.setItem('setupTime', now);
+          _context2.next = 16;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_4__["LOGIN_SUCCESS"],
             resp: resp
           });
 
-        case 14:
-          _context2.next = 16;
+        case 16:
+          _context2.next = 18;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(connected_react_router__WEBPACK_IMPORTED_MODULE_3__["push"])('/'));
 
-        case 16:
-          _context2.next = 19;
+        case 18:
+          _context2.next = 21;
           break;
 
-        case 18:
+        case 20:
           if (result.errors) {
             notify.show("Incorrect Email or Password!", "error", 5000);
+            localStorage.clear();
           }
 
-        case 19:
-          _context2.next = 25;
+        case 21:
+          _context2.next = 27;
           break;
 
-        case 21:
-          _context2.prev = 21;
+        case 23:
+          _context2.prev = 23;
           _context2.t0 = _context2["catch"](3);
-          _context2.next = 25;
+          _context2.next = 27;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_4__["LOGIN_ERROR"],
             error: _context2.t0
           });
 
-        case 25:
-          _context2.next = 27;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('LoginForm'));
-
         case 27:
           _context2.next = 29;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('LoginForm'));
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('LoginForm'));
 
         case 29:
+          _context2.next = 31;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('LoginForm'));
+
+        case 31:
         case "end":
           return _context2.stop();
       }
     }
-  }, _marked2, null, [[3, 21]]);
+  }, _marked2, null, [[3, 23]]);
 }
 
 /***/ }),
@@ -110489,40 +110448,39 @@ function NewsSaga(action) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
-          console.log('aaa', action);
-          _context2.next = 3;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_news_api__WEBPACK_IMPORTED_MODULE_4__["getNews"]);
+          _context2.next = 2;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_news_api__WEBPACK_IMPORTED_MODULE_4__["getNews"], action.pageNumber);
 
-        case 3:
+        case 2:
           response = _context2.sent;
           console.log('cat', response);
-          news = response.data;
+          news = response;
 
           if (!response.errors) {
-            _context2.next = 13;
+            _context2.next = 12;
             break;
           }
 
-          _context2.next = 9;
+          _context2.next = 8;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_NEWS_FAILED"],
             errors: response.error
           });
 
-        case 9:
+        case 8:
           error = response.errors;
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot get all news", "error", 5000);
-          _context2.next = 15;
+          _context2.next = 14;
           break;
 
-        case 13:
-          _context2.next = 15;
+        case 12:
+          _context2.next = 14;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["GET_NEWS_SUCCESS"],
             news: news
           });
 
-        case 15:
+        case 14:
         case "end":
           return _context2.stop();
       }
@@ -110548,7 +110506,7 @@ function submitNewsSaga() {
 }
 
 function callNewsSubmit(action) {
-  var error, result, resp;
+  var error, result, resp, pageNumber;
   return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callNewsSubmit$(_context4) {
     while (1) {
       switch (_context4.prev = _context4.next) {
@@ -110565,19 +110523,20 @@ function callNewsSubmit(action) {
         case 6:
           result = _context4.sent;
           resp = result.data;
+          pageNumber = action.pageNumber;
 
           if (!(result.errors && !resp.success || result.errors || !resp.success)) {
-            _context4.next = 16;
+            _context4.next = 17;
             break;
           }
 
-          _context4.next = 11;
+          _context4.next = 12;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_NEWS_FAILED"],
             errors: result.error || resp.errormsg
           });
 
-        case 11:
+        case 12:
           error = result.error || resp.errormsg;
 
           if (resp.errorcode == 23000) {
@@ -110585,29 +110544,30 @@ function callNewsSubmit(action) {
           }
 
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot create new News!", "error", 5000);
-          _context4.next = 21;
+          _context4.next = 22;
           break;
 
-        case 16:
-          _context4.next = 18;
+        case 17:
+          _context4.next = 19;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
-            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_NEWS"]
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_NEWS"],
+            pageNumber: pageNumber
           });
 
-        case 18:
+        case 19:
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("News created successfully!", "success", 5000);
-          _context4.next = 21;
+          _context4.next = 22;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(connected_react_router__WEBPACK_IMPORTED_MODULE_7__["push"])('/news'));
 
-        case 21:
-          _context4.next = 23;
+        case 22:
+          _context4.next = 24;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('AddNews', error));
 
-        case 23:
-          _context4.next = 25;
+        case 24:
+          _context4.next = 26;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('AddNews'));
 
-        case 25:
+        case 26:
         case "end":
           return _context4.stop();
       }
@@ -110633,7 +110593,7 @@ function editNewsSaga() {
 }
 
 function callEditNews(action) {
-  var error, result, resp;
+  var error, result, resp, pageNumber;
   return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callEditNews$(_context6) {
     while (1) {
       switch (_context6.prev = _context6.next) {
@@ -110649,44 +110609,46 @@ function callEditNews(action) {
         case 5:
           result = _context6.sent;
           resp = result.data;
+          pageNumber = action.pageNumber;
 
           if (!result.errors) {
-            _context6.next = 14;
+            _context6.next = 15;
             break;
           }
 
-          _context6.next = 10;
+          _context6.next = 11;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_NEWS_FAILED"],
             errors: result.error
           });
 
-        case 10:
+        case 11:
           error = result.error;
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Update failed", "error", 5000);
-          _context6.next = 19;
+          _context6.next = 20;
           break;
 
-        case 14:
-          _context6.next = 16;
+        case 15:
+          _context6.next = 17;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
-            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_NEWS"]
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_NEWS"],
+            pageNumber: pageNumber
           });
 
-        case 16:
+        case 17:
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Updated successfully!", "success", 5000);
-          _context6.next = 19;
+          _context6.next = 20;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(connected_react_router__WEBPACK_IMPORTED_MODULE_7__["push"])('/news'));
 
-        case 19:
-          _context6.next = 21;
+        case 20:
+          _context6.next = 22;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('EditNews', error));
 
-        case 21:
-          _context6.next = 23;
+        case 22:
+          _context6.next = 24;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('EditNews'));
 
-        case 23:
+        case 24:
         case "end":
           return _context6.stop();
       }
@@ -110828,7 +110790,7 @@ function NewsTransSaga(action) {
         case 3:
           response = _context2.sent;
           console.log('cat', response);
-          newsTrans = response.data;
+          newsTrans = response;
 
           if (!response.errors) {
             _context2.next = 13;
@@ -110880,7 +110842,7 @@ function submitNewsTransSaga() {
 }
 
 function callNewsTransSubmit(action) {
-  var error, result, resp;
+  var error, result, resp, pageNumber;
   return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callNewsTransSubmit$(_context4) {
     while (1) {
       switch (_context4.prev = _context4.next) {
@@ -110896,19 +110858,20 @@ function callNewsTransSubmit(action) {
         case 5:
           result = _context4.sent;
           resp = result.data;
+          pageNumber = action.pageNumber;
 
           if (!(result.errors && !resp.success || result.errors || !resp.success)) {
-            _context4.next = 15;
+            _context4.next = 16;
             break;
           }
 
-          _context4.next = 10;
+          _context4.next = 11;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_NEWS_TRANSLATION_FAILED"],
             errors: result.error || resp.errormsg
           });
 
-        case 10:
+        case 11:
           error = result.error || resp.errormsg;
 
           if (resp.errorcode == 23000) {
@@ -110916,29 +110879,30 @@ function callNewsTransSubmit(action) {
           }
 
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot create new News Translation!", "error", 5000);
-          _context4.next = 20;
+          _context4.next = 21;
           break;
 
-        case 15:
-          _context4.next = 17;
+        case 16:
+          _context4.next = 18;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
-            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_NEWS_TRANSLATION"]
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_NEWS_TRANSLATION"],
+            pageNumber: pageNumber
           });
 
-        case 17:
+        case 18:
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("News Translation created successfully!", "success", 5000);
-          _context4.next = 20;
+          _context4.next = 21;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(connected_react_router__WEBPACK_IMPORTED_MODULE_7__["push"])('/news-translation'));
 
-        case 20:
-          _context4.next = 22;
+        case 21:
+          _context4.next = 23;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('AddNewsTrans', error));
 
-        case 22:
-          _context4.next = 24;
+        case 23:
+          _context4.next = 25;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('AddNewsTrans'));
 
-        case 24:
+        case 25:
         case "end":
           return _context4.stop();
       }
@@ -110964,7 +110928,7 @@ function editNewsTransSaga() {
 }
 
 function callEditNewsTrans(action) {
-  var error, result, resp;
+  var error, result, resp, pageNumber;
   return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callEditNewsTrans$(_context6) {
     while (1) {
       switch (_context6.prev = _context6.next) {
@@ -110980,44 +110944,46 @@ function callEditNewsTrans(action) {
         case 5:
           result = _context6.sent;
           resp = result.data;
+          pageNumber = action.pageNumber;
 
           if (!result.errors) {
-            _context6.next = 14;
+            _context6.next = 15;
             break;
           }
 
-          _context6.next = 10;
+          _context6.next = 11;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_NEWS_TRANSLATION_FAILED"],
             errors: result.error
           });
 
-        case 10:
+        case 11:
           error = result.error;
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Update failed", "error", 5000);
-          _context6.next = 19;
+          _context6.next = 20;
           break;
 
-        case 14:
-          _context6.next = 16;
+        case 15:
+          _context6.next = 17;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
-            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_NEWS_TRANSLATION"]
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_NEWS_TRANSLATION"],
+            pageNumber: pageNumber
           });
 
-        case 16:
+        case 17:
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Updated successfully!", "success", 5000);
-          _context6.next = 19;
+          _context6.next = 20;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(connected_react_router__WEBPACK_IMPORTED_MODULE_7__["push"])('/news-translation'));
 
-        case 19:
-          _context6.next = 21;
+        case 20:
+          _context6.next = 22;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('EditNewsTrans', error));
 
-        case 21:
-          _context6.next = 23;
+        case 22:
+          _context6.next = 24;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('EditNewsTrans'));
 
-        case 23:
+        case 24:
         case "end":
           return _context6.stop();
       }
@@ -111157,7 +111123,7 @@ function ProvincesTransSaga(action) {
         case 3:
           response = _context2.sent;
           console.log('catPror', response);
-          provincesTrans = response.data;
+          provincesTrans = response;
 
           if (!response.errors) {
             _context2.next = 13;
@@ -111209,7 +111175,7 @@ function submitProvincesTransSaga() {
 }
 
 function callProvincesTransSubmit(action) {
-  var error, result, resp;
+  var error, result, resp, pageNumber;
   return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callProvincesTransSubmit$(_context4) {
     while (1) {
       switch (_context4.prev = _context4.next) {
@@ -111225,19 +111191,20 @@ function callProvincesTransSubmit(action) {
         case 5:
           result = _context4.sent;
           resp = result.data;
+          pageNumber = action.pageNumber;
 
           if (!(result.errors && !resp.success || result.errors || !resp.success)) {
-            _context4.next = 15;
+            _context4.next = 16;
             break;
           }
 
-          _context4.next = 10;
+          _context4.next = 11;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_PROVINCE_TRANSLATION_FAILED"],
             errors: result.error || resp.errormsg
           });
 
-        case 10:
+        case 11:
           error = result.error || resp.errormsg;
 
           if (resp.errorcode == 23000) {
@@ -111245,27 +111212,28 @@ function callProvincesTransSubmit(action) {
           }
 
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot create new Province Translation!", "error", 5000);
-          _context4.next = 18;
+          _context4.next = 19;
           break;
 
-        case 15:
-          _context4.next = 17;
+        case 16:
+          _context4.next = 18;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
-            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_PROVINCE_TRANSLATION"]
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_PROVINCE_TRANSLATION"],
+            pageNumber: pageNumber
           });
 
-        case 17:
+        case 18:
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Provinces Translation created successfully!", "success", 5000);
 
-        case 18:
-          _context4.next = 20;
+        case 19:
+          _context4.next = 21;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('AddProvincesTrans', error));
 
-        case 20:
-          _context4.next = 22;
+        case 21:
+          _context4.next = 23;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('AddProvincesTrans'));
 
-        case 22:
+        case 23:
         case "end":
           return _context4.stop();
       }
@@ -111291,7 +111259,7 @@ function editProvincesTransSaga() {
 }
 
 function callEditProvinceTrans(action) {
-  var error, result, resp;
+  var error, result, resp, pageNumber;
   return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callEditProvinceTrans$(_context6) {
     while (1) {
       switch (_context6.prev = _context6.next) {
@@ -111307,42 +111275,44 @@ function callEditProvinceTrans(action) {
         case 5:
           result = _context6.sent;
           resp = result.data;
+          pageNumber = action.pageNumber;
 
           if (!result.errors) {
-            _context6.next = 14;
+            _context6.next = 15;
             break;
           }
 
-          _context6.next = 10;
+          _context6.next = 11;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_PROVINCE_TRANSLATION_FAILED"],
             errors: result.error
           });
 
-        case 10:
+        case 11:
           error = result.error;
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Update failed", "error", 5000);
-          _context6.next = 17;
+          _context6.next = 18;
           break;
 
-        case 14:
-          _context6.next = 16;
+        case 15:
+          _context6.next = 17;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
-            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_PROVINCE_TRANSLATION"]
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_PROVINCE_TRANSLATION"],
+            pageNumber: pageNumber
           });
 
-        case 16:
+        case 17:
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Updated successfully!", "success", 5000);
 
-        case 17:
-          _context6.next = 19;
+        case 18:
+          _context6.next = 20;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('EditProvincesTrans', error));
 
-        case 19:
-          _context6.next = 21;
+        case 20:
+          _context6.next = 22;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('EditProvincesTrans'));
 
-        case 21:
+        case 22:
         case "end":
           return _context6.stop();
       }
@@ -111476,40 +111446,39 @@ function ProvincesSaga(action) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
-          console.log('aaa', action);
-          _context2.next = 3;
+          _context2.next = 2;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_provinces_api__WEBPACK_IMPORTED_MODULE_4__["getProvinces"]);
 
-        case 3:
+        case 2:
           response = _context2.sent;
           console.log('cat', response);
-          provinces = response.data;
+          provinces = response;
 
           if (!response.errors) {
-            _context2.next = 13;
+            _context2.next = 12;
             break;
           }
 
-          _context2.next = 9;
+          _context2.next = 8;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_PROVINCES_FAILED"],
             errors: response.error
           });
 
-        case 9:
+        case 8:
           error = response.errors;
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot get all provinces", "error", 5000);
-          _context2.next = 15;
+          _context2.next = 14;
           break;
 
-        case 13:
-          _context2.next = 15;
+        case 12:
+          _context2.next = 14;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["GET_PROVINCES_SUCCESS"],
             provinces: provinces
           });
 
-        case 15:
+        case 14:
         case "end":
           return _context2.stop();
       }
@@ -111535,7 +111504,7 @@ function submitProvincesSaga() {
 }
 
 function callProvincesSubmit(action) {
-  var error, result, resp;
+  var error, result, resp, pageNumber;
   return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callProvincesSubmit$(_context4) {
     while (1) {
       switch (_context4.prev = _context4.next) {
@@ -111551,19 +111520,20 @@ function callProvincesSubmit(action) {
         case 5:
           result = _context4.sent;
           resp = result.data;
+          pageNumber = action.pageNumber;
 
           if (!(result.errors && !resp.success || result.errors || !resp.success)) {
-            _context4.next = 15;
+            _context4.next = 16;
             break;
           }
 
-          _context4.next = 10;
+          _context4.next = 11;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_PROVINCES_FAILED"],
             errors: result.error || resp.errormsg
           });
 
-        case 10:
+        case 11:
           error = result.error || resp.errormsg;
 
           if (resp.errorcode == 23000) {
@@ -111571,27 +111541,28 @@ function callProvincesSubmit(action) {
           }
 
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot create new Province!", "error", 5000);
-          _context4.next = 18;
+          _context4.next = 19;
           break;
 
-        case 15:
-          _context4.next = 17;
+        case 16:
+          _context4.next = 18;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
-            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_PROVINCES"]
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_PROVINCES"],
+            pageNumber: pageNumber
           });
 
-        case 17:
+        case 18:
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Provinces created successfully!", "success", 5000);
 
-        case 18:
-          _context4.next = 20;
+        case 19:
+          _context4.next = 21;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('AddProvinces', error));
 
-        case 20:
-          _context4.next = 22;
+        case 21:
+          _context4.next = 23;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('AddProvinces'));
 
-        case 22:
+        case 23:
         case "end":
           return _context4.stop();
       }
@@ -111617,7 +111588,7 @@ function editProvincesSaga() {
 }
 
 function callEditProvince(action) {
-  var error, result, resp;
+  var error, result, resp, pageNumber;
   return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callEditProvince$(_context6) {
     while (1) {
       switch (_context6.prev = _context6.next) {
@@ -111633,42 +111604,44 @@ function callEditProvince(action) {
         case 5:
           result = _context6.sent;
           resp = result.data;
+          pageNumber = action.pageNumber;
 
           if (!result.errors) {
-            _context6.next = 14;
+            _context6.next = 15;
             break;
           }
 
-          _context6.next = 10;
+          _context6.next = 11;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_PROVINCES_FAILED"],
             errors: result.error
           });
 
-        case 10:
+        case 11:
           error = result.error;
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Update failed", "error", 5000);
-          _context6.next = 17;
+          _context6.next = 18;
           break;
 
-        case 14:
-          _context6.next = 16;
+        case 15:
+          _context6.next = 17;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
-            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_PROVINCES"]
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_PROVINCES"],
+            pageNumber: pageNumber
           });
 
-        case 16:
+        case 17:
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Updated successfully!", "success", 5000);
 
-        case 17:
-          _context6.next = 19;
+        case 18:
+          _context6.next = 20;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('EditProvinces', error));
 
-        case 19:
-          _context6.next = 21;
+        case 20:
+          _context6.next = 22;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('EditProvinces'));
 
-        case 21:
+        case 22:
         case "end":
           return _context6.stop();
       }
@@ -111801,40 +111774,39 @@ function ResourcesTransSaga(action) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
-          console.log('aaa', action);
-          _context2.next = 3;
+          _context2.next = 2;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_resourcesTrans_api__WEBPACK_IMPORTED_MODULE_4__["getResourcesTrans"]);
 
-        case 3:
+        case 2:
           response = _context2.sent;
           console.log('cat', response);
-          resourcesTrans = response.data;
+          resourcesTrans = response;
 
           if (!response.errors) {
-            _context2.next = 13;
+            _context2.next = 12;
             break;
           }
 
-          _context2.next = 9;
+          _context2.next = 8;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_RESOURCE_TRANSLATION_FAILED"],
             errors: response.error
           });
 
-        case 9:
+        case 8:
           error = response.errors;
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot get all resources Translation", "error", 5000);
-          _context2.next = 15;
+          _context2.next = 14;
           break;
 
-        case 13:
-          _context2.next = 15;
+        case 12:
+          _context2.next = 14;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["GET_RESOURCE_TRANSLATION_SUCCESS"],
             resourcesTrans: resourcesTrans
           });
 
-        case 15:
+        case 14:
         case "end":
           return _context2.stop();
       }
@@ -111860,7 +111832,7 @@ function submitResourcesTransSaga() {
 }
 
 function callResourcesTransSubmit(action) {
-  var error, result, resp;
+  var error, result, resp, pageNumber;
   return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callResourcesTransSubmit$(_context4) {
     while (1) {
       switch (_context4.prev = _context4.next) {
@@ -111876,19 +111848,20 @@ function callResourcesTransSubmit(action) {
         case 5:
           result = _context4.sent;
           resp = result.data;
+          pageNumber = action.pageNumber;
 
           if (!(result.errors && !resp.success || result.errors || !resp.success)) {
-            _context4.next = 15;
+            _context4.next = 16;
             break;
           }
 
-          _context4.next = 10;
+          _context4.next = 11;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_RESOURCE_TRANSLATION_FAILED"],
             errors: result.error || resp.errormsg
           });
 
-        case 10:
+        case 11:
           error = result.error || resp.errormsg;
 
           if (resp.errorcode == 23000) {
@@ -111896,27 +111869,27 @@ function callResourcesTransSubmit(action) {
           }
 
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot create new Resource Translation!", "error", 5000);
-          _context4.next = 18;
+          _context4.next = 19;
           break;
 
-        case 15:
-          _context4.next = 17;
+        case 16:
+          _context4.next = 18;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_RESOURCE_TRANSLATION"]
-          });
-
-        case 17:
-          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Resources Translation created successfully!", "success", 5000);
+          }, pageNumber);
 
         case 18:
-          _context4.next = 20;
+          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Resources Translation created successfully!", "success", 5000);
+
+        case 19:
+          _context4.next = 21;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('AddResourcesTrans', error));
 
-        case 20:
-          _context4.next = 22;
+        case 21:
+          _context4.next = 23;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('AddResourcesTrans'));
 
-        case 22:
+        case 23:
         case "end":
           return _context4.stop();
       }
@@ -111942,7 +111915,7 @@ function editResourcesTransSaga() {
 }
 
 function callEditResourceTrans(action) {
-  var error, result, resp;
+  var error, result, resp, pageNumber;
   return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callEditResourceTrans$(_context6) {
     while (1) {
       switch (_context6.prev = _context6.next) {
@@ -111952,48 +111925,51 @@ function callEditResourceTrans(action) {
 
         case 2:
           error = {};
-          _context6.next = 5;
+          console.log(action);
+          _context6.next = 6;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_resourcesTrans_api__WEBPACK_IMPORTED_MODULE_4__["updateResourcesTrans"], action.values.id, action.values);
 
-        case 5:
+        case 6:
           result = _context6.sent;
           resp = result.data;
+          pageNumber = action.pageNumber;
 
           if (!result.errors) {
-            _context6.next = 14;
+            _context6.next = 16;
             break;
           }
 
-          _context6.next = 10;
+          _context6.next = 12;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_RESOURCE_TRANSLATION_FAILED"],
             errors: result.error
           });
 
-        case 10:
+        case 12:
           error = result.error;
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Update failed", "error", 5000);
-          _context6.next = 17;
+          _context6.next = 19;
           break;
 
-        case 14:
-          _context6.next = 16;
+        case 16:
+          _context6.next = 18;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
-            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_RESOURCE_TRANSLATION"]
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_RESOURCE_TRANSLATION"],
+            pageNumber: pageNumber
           });
 
-        case 16:
+        case 18:
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Updated successfully!", "success", 5000);
-
-        case 17:
-          _context6.next = 19;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('EditResourcesTrans', error));
 
         case 19:
           _context6.next = 21;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('EditResourcesTrans'));
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('EditResourcesTrans', error));
 
         case 21:
+          _context6.next = 23;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('EditResourcesTrans'));
+
+        case 23:
         case "end":
           return _context6.stop();
       }
@@ -112126,40 +112102,39 @@ function ResourcesSaga(action) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
-          console.log('aaa', action);
-          _context2.next = 3;
+          _context2.next = 2;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_resources_api__WEBPACK_IMPORTED_MODULE_4__["getResources"]);
 
-        case 3:
+        case 2:
           response = _context2.sent;
           console.log('cat', response);
-          resources = response.data;
+          resources = response;
 
           if (!response.errors) {
-            _context2.next = 13;
+            _context2.next = 12;
             break;
           }
 
-          _context2.next = 9;
+          _context2.next = 8;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_RESOURCES_FAILED"],
             errors: response.error
           });
 
-        case 9:
+        case 8:
           error = response.errors;
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot get all resources", "error", 5000);
-          _context2.next = 15;
+          _context2.next = 14;
           break;
 
-        case 13:
-          _context2.next = 15;
+        case 12:
+          _context2.next = 14;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["GET_RESOURCES_SUCCESS"],
             resources: resources
           });
 
-        case 15:
+        case 14:
         case "end":
           return _context2.stop();
       }
@@ -112185,7 +112160,7 @@ function submitResourcesSaga() {
 }
 
 function callResourcesSubmit(action) {
-  var error, result, resp;
+  var error, result, resp, pageNumber;
   return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callResourcesSubmit$(_context4) {
     while (1) {
       switch (_context4.prev = _context4.next) {
@@ -112201,19 +112176,20 @@ function callResourcesSubmit(action) {
         case 5:
           result = _context4.sent;
           resp = result.data;
+          pageNumber = action.pageNumber;
 
           if (!(result.errors && !resp.success || result.errors || !resp.success)) {
-            _context4.next = 15;
+            _context4.next = 16;
             break;
           }
 
-          _context4.next = 10;
+          _context4.next = 11;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_RESOURCES_FAILED"],
             errors: result.error || resp.errormsg
           });
 
-        case 10:
+        case 11:
           error = result.error || resp.errormsg;
 
           if (resp.errorcode == 23000) {
@@ -112221,27 +112197,28 @@ function callResourcesSubmit(action) {
           }
 
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot create new Resource!", "error", 5000);
-          _context4.next = 18;
+          _context4.next = 19;
           break;
 
-        case 15:
-          _context4.next = 17;
+        case 16:
+          _context4.next = 18;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
-            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_RESOURCES"]
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_RESOURCES"],
+            pageNumber: pageNumber
           });
 
-        case 17:
+        case 18:
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Resources created successfully!", "success", 5000);
 
-        case 18:
-          _context4.next = 20;
+        case 19:
+          _context4.next = 21;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('AddResources', error));
 
-        case 20:
-          _context4.next = 22;
+        case 21:
+          _context4.next = 23;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('AddResources'));
 
-        case 22:
+        case 23:
         case "end":
           return _context4.stop();
       }
@@ -112267,7 +112244,7 @@ function editResourcesSaga() {
 }
 
 function callEditResource(action) {
-  var error, result, resp;
+  var error, result, resp, pageNumber;
   return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callEditResource$(_context6) {
     while (1) {
       switch (_context6.prev = _context6.next) {
@@ -112283,42 +112260,44 @@ function callEditResource(action) {
         case 5:
           result = _context6.sent;
           resp = result.data;
+          pageNumber = action.pageNumber;
 
           if (!result.errors) {
-            _context6.next = 14;
+            _context6.next = 15;
             break;
           }
 
-          _context6.next = 10;
+          _context6.next = 11;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_RESOURCES_FAILED"],
             errors: result.error
           });
 
-        case 10:
+        case 11:
           error = result.error;
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Update failed", "error", 5000);
-          _context6.next = 17;
+          _context6.next = 18;
           break;
 
-        case 14:
-          _context6.next = 16;
+        case 15:
+          _context6.next = 17;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
-            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_RESOURCES"]
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_RESOURCES"],
+            pageNumber: pageNumber
           });
 
-        case 16:
+        case 17:
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Updated successfully!", "success", 5000);
 
-        case 17:
-          _context6.next = 19;
+        case 18:
+          _context6.next = 20;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('EditResources', error));
 
-        case 19:
-          _context6.next = 21;
+        case 20:
+          _context6.next = 22;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('EditResources'));
 
-        case 21:
+        case 22:
         case "end":
           return _context6.stop();
       }
@@ -112415,6 +112394,50 @@ var composeSetup = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || redux__WEBPACK
 var store = Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(Object(_reducers_index__WEBPACK_IMPORTED_MODULE_1__["default"])(_myhistory__WEBPACK_IMPORTED_MODULE_4__["default"]), composeSetup(Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(Object(connected_react_router__WEBPACK_IMPORTED_MODULE_5__["routerMiddleware"])(_myhistory__WEBPACK_IMPORTED_MODULE_4__["default"]), sagaMiddleware)));
 sagaMiddleware.run(_sagas_main__WEBPACK_IMPORTED_MODULE_3__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = (store);
+
+/***/ }),
+
+/***/ "./resources/js/util.js":
+/*!******************************!*\
+  !*** ./resources/js/util.js ***!
+  \******************************/
+/*! exports provided: BASE_PATH, login, logout, isLogin */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BASE_PATH", function() { return BASE_PATH; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "login", function() { return login; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logout", function() { return logout; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isLogin", function() { return isLogin; });
+var BASE_PATH = "http://127.0.0.1:8000";
+var TOKEN_KEY = 'jwt';
+var login = function login() {
+  localStorage.setItem(TOKEN_KEY, 'TestLogin');
+};
+var logout = function logout() {
+  localStorage.removeItem(TOKEN_KEY);
+};
+var isLogin = function isLogin() {
+  var hours = 1;
+  var now = new Date().getTime();
+  console.log('now', now);
+  var setupTime = localStorage.getItem('setupTime');
+
+  if (now - localStorage['setupTime'] <= hours * 60 * 60 * 1000 && localStorage['access_token']) {
+    return true;
+  } else {
+    if (now - setupTime > hours * 60 * 60 * 1000) {
+      localStorage.clear(); // localStorage.setItem('setupTime', now);
+    }
+
+    return false;
+  } // if (localStorage.getItem('access-token')) {
+  //     return true;
+  // }
+  // return false;
+
+};
 
 /***/ }),
 

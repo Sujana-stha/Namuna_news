@@ -2,10 +2,10 @@
 import axios, {getHeaders} from './axiosInstance'
 
 //GET ALL PROVINCES API
-export function getProvinces() {
+export function getProvinces(pageNumber) {
     const access_token = window.localStorage.getItem('access_token')
     const headers = getHeaders(access_token)
-    return axios.get('/api/province',{headers})
+    return axios.get(`/api/province?page=${pageNumber}`,{headers})
     .catch(error=> {
         console.log(error)
         return {

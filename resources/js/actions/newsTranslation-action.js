@@ -1,9 +1,10 @@
 import * as types from './action-types';
 
 //GET LIST OF NEWS_TRANSLATION
-export function requestNewsTranslation() {
+export function requestNewsTranslation(pageNumber) {
     return {
-        type: types.REQUEST_NEWS_TRANSLATION
+        type: types.REQUEST_NEWS_TRANSLATION,
+        pageNumber
     }
 }
 
@@ -21,10 +22,10 @@ export function requestNewsTranslationFailed() {
 }
 
 // ADD NEW NEWS_TRANSLATION
-export function requestAddNewsTranslation(values) {
+export function requestAddNewsTranslation(values, pageNumber) {
     return {
         type: types.REQUEST_ADD_NEWS_TRANSLATION,
-        values
+        values, pageNumber
     }
 }
 
@@ -37,10 +38,10 @@ export function addNewsTranslationSuccess(values, message) {
 }
 
 //EDIT NEWS_TRANSLATION
-export function requestUpdateNewsTranslation( values) {
+export function requestUpdateNewsTranslation( values, pageNumber) {
     return {
         type: types.REQUEST_EDIT_NEWS_TRANSLATION,
-        values
+        values, pageNumber
     }
 }
 

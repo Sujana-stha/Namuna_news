@@ -7,7 +7,7 @@ const ResourcesTransList = (props) => {
             {props.resourcesTrans.map((resourceTrans, index) => {
                 return (
                     <tr key={resourceTrans.id} className={`row-${resourceTrans.id}`}>
-                        <td>{index+1}</td>
+                        <td>{((props.activePage-1)*props.itemsCountPerPage)+(index+1)}</td>
                         <td>{resourceTrans.title == null ? '-': resourceTrans.title}</td>
                         <td>{resourceTrans.description}</td>
                         <td>{resourceTrans.language.language}</td>

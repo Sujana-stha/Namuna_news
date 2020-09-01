@@ -21,15 +21,18 @@ class ResourcesTransContainer extends Component {
         this.deleteItem =  this.deleteItem.bind(this)
         this.hideDiv =  this.hideDiv.bind(this)
         this.editResourceTrans = this.editResourceTrans.bind(this)
+        this.handlePageChange = this.handlePageChange.bind(this)
     }
     componentDidMount() {
-        this.props.requestResourcesTranslation();
+        const pageNumber = this.props.activePage;
+        this.props.requestResourcesTranslation(pageNumber);
         this.props.requestResources();
         this.props.requestLanguages();
     }
     //submit Resources translation form
     onSubmitForm(values) {
-        this.props.requestAddResourcesTranslation(values);
+        const pageNumber = this.props.activePage;
+        this.props.requestAddResourcesTranslation(values, pageNumber);
     }
 
     // edit functions
@@ -40,8 +43,10 @@ class ResourcesTransContainer extends Component {
         })
     }
     submitEditResourceTrans(values) {
-        
-        this.props.requestUpdateResourcesTranslation(values);
+        const editId= this.state.isEditing
+        const pageNumber = this.props.activePage;
+        console.log(editId)
+        this.props.requestUpdateResourcesTranslation(values, editId, pageNumber);
         this.setState({
             isEditing: false
         })
@@ -51,7 +56,12 @@ class ResourcesTransContainer extends Component {
             confirmText: id
         })
     }
-    
+    // pagination function
+    handlePageChange(pageNumber) {
+        
+        this.props.requestNews(pageNumber)
+    }
+
     hideDiv() {
         this.setState({confirmText: null})
     }
@@ -120,6 +130,8 @@ class ResourcesTransContainer extends Component {
                                 showConfirmBox={this.deleteItem} 
                                 hideConfirmBox={this.hideDiv}
                                 deleteResourceTrans = {this.props.requestDeleteResourcesTranslation}
+                                activePage={this.props.activePage}
+                                itemsCountPerPage={this.props.itemsCountPerPage}
                                 />
                             ):(
                                 <tbody>
@@ -129,6 +141,18 @@ class ResourcesTransContainer extends Component {
                                 </tbody>
                             )}
                         </table>
+                        <div className="col-sm-12 left-align">
+                            <Pagination
+                                activePage={this.props.activePage}
+                                itemsCountPerPage={this.props.itemsCountPerPage}
+                                totalItemsCount={this.props.totalItemsCount}
+                                pageRangeDisplayed={this.props.pageRangeDisplayed}
+                                onChange={this.handlePageChange}
+                                firstPageText='First'
+                                lastPageText='Last'
+                                
+                            />
+                        </div>
                     </div>
                     </div>
                 </div>
@@ -141,7 +165,11 @@ function mapStateToProps(store) {
         resourcesTrans: store.resourcesTransState.resourcesTrans,
         resources: store.resourceState.resources,
         languages: store.languageState.languages,
-        fetching: store.resourcesTransState.fetching
+        fetching: store.resourcesTransState.fetching,
+        activePage: store.resourcesTransState.activePage,
+        itemsCountPerPage: store.resourcesTransState.itemsCountPerPage,
+        totalItemsCount: store.resourcesTransState.totalItemsCount,
+        pageRangeDisplayed: store.resourcesTransState.pageRangeDisplayed,
     }
 }
 export default connect(mapStateToProps, { requestResources, requestLanguages,requestResourcesTranslation, requestAddResourcesTranslation, requestUpdateResourcesTranslation, requestDeleteResourcesTranslation})(ResourcesTransContainer);

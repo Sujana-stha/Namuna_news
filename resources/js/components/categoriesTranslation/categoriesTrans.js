@@ -6,7 +6,7 @@ const CategoriesTransList = (props) => {
             {props.categoriesTrans.map((categoryTrans, index) => {
                 return (
                     <tr key={categoryTrans.id} className={`row-${categoryTrans.id}`}>
-                        <td>{index}</td>
+                        <td>{((props.activePage-1)*props.itemsCountPerPage)+(index+1)}</td>
                         <td>{categoryTrans.title == null ? '-': categoryTrans.title}</td>
                         <td>{props.categories.map(category => {
                             if(categoryTrans.category_id == category.id) {

@@ -11,10 +11,9 @@ export function* NewsWatcher() {
     yield takeLatest(types.REQUEST_NEWS, NewsSaga)
 }
 function* NewsSaga(action) {
-    console.log('aaa', action);
-    const response = yield call(api.getNews);
+    const response = yield call(api.getNews, action.pageNumber);
     console.log('cat', response)
-    const news = response.data
+    const news = response
     if (response.errors) {
         yield put({ type: types.REQUEST_NEWS_FAILED, errors: response.error});
         error = response.errors;
@@ -34,6 +33,7 @@ function* callNewsSubmit(action) {
     console.log('action-news', action)
     const result =  yield call(api.addNews, action.values);
     const resp = result.data
+    const pageNumber= action.pageNumber
 
     if ((result.errors && !resp.success)|| (result.errors || !resp.success)) {
         yield put({ type: types.REQUEST_NEWS_FAILED, errors: result.error || resp.errormsg});
@@ -44,7 +44,7 @@ function* callNewsSubmit(action) {
         notify.show("Cannot create new News!", "error", 5000)
     } else {
         // yield put({type: types.ADD_CATEGORIES_SUCCESS, resp, message: result.statusText});
-        yield put({type: types.REQUEST_NEWS})
+        yield put({type: types.REQUEST_NEWS, pageNumber})
         notify.show("News created successfully!", "success", 5000);
         yield put(push('/news'));
     }
@@ -62,6 +62,7 @@ function* callEditNews (action) {
     let error = {};
     const result =  yield call(api.updateNews, action.values.id, action.values);
     const resp = result.data;
+    const pageNumber = action.pageNumber
     
     if (result.errors) {
         yield put({ type: types.REQUEST_NEWS_FAILED, errors: result.error});
@@ -69,7 +70,7 @@ function* callEditNews (action) {
         notify.show("Update failed", "error", 5000)
     } else {
         // yield put({type: types.UPDATE_CATEGORIES_SUCCESS, resp, message: result.statusText});
-        yield put({type: types.REQUEST_NEWS})
+        yield put({type: types.REQUEST_NEWS, pageNumber})
         notify.show("Updated successfully!", "success", 5000)
         yield put(push('/news'));
     }

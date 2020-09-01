@@ -6,7 +6,7 @@ const ProvinceTransList = (props) => {
             {props.provincesTrans.map((provinceTrans, index) => {
                 return (
                     <tr key={provinceTrans.id} className={`row-${provinceTrans.id}`}>
-                        <td>{index}</td>
+                        <td>{((props.activePage-1)*props.itemsCountPerPage)+(index+1)}</td>
                         <td>{provinceTrans.title == null ? '-': provinceTrans.title}</td>
                         <td>{props.provinces.map(province => {
                             if(provinceTrans.province_id == province.id) {

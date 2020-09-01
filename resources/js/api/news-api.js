@@ -2,10 +2,10 @@
 import axios, {getHeaders} from './axiosInstance'
 
 //GET ALL NEWS API
-export function getNews() {
+export function getNews(pageNumber) {
     const access_token = window.localStorage.getItem('access_token')
     const headers = getHeaders(access_token)
-    return axios.get('/api/news',{headers})
+    return axios.get(`/api/news?page=${pageNumber}`,{headers})
     .catch(error=> {
         console.log(error)
         return {
@@ -28,6 +28,7 @@ function formValues(values) {
         formData.append('featured_image', images)
         
     // })
+    return formData;
 // }
 }
 

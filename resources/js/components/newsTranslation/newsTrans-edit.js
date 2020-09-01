@@ -15,7 +15,8 @@ class EditNewsTrans extends Component {
                 title: data.title,
                 news_id: data.news == null ? null : { label: data.news.slug, value: data.news.id },
                 language_id: data.language == null ? null : { label: data.language.language, value: data.language.id },
-                content: data.content
+                content: data.content,
+                id: data.id
             }
             this.props.initialize(newsTrans);
         })
