@@ -44,7 +44,6 @@ class NewsController extends Controller
             "category_id"=>"required|min:1",
             "province_id"=>"required|min:1",
             "status"=>"required",
-            "news_label"=>"required",
             "featured_image"=>"required|mimes:jpg,jpeg,png"
         ]);
 
