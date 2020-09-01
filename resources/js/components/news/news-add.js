@@ -97,15 +97,22 @@ let InsertNews = props => {
                             {/* <Field name="featured_image"
                                 component={ImagePreviewField}
                             /> */}
+                            <div>
+                                <label>Featured Image</label>
+                            
                             <Field component={ImagePreviewField} name="featured_image" type="file" />
+                            </div>
                             <Field
-                                label="Enter News Label"
-                                id="news-label"
+                                label="Select News Label"
                                 name="news_label"
-                                type="text"
-                                placeholder="Enter News Label"
-                                component={renderInputField}
-                            />
+                                component={renderSelectField}
+                            >
+                                <option value="">Choose your option</option>
+                                <option value="featured">Featured</option>
+                                <option value="breaking">Breaking</option>
+                                
+                            </Field>
+                            
                         </div>
                         <div className="card-footer">
                             <button type="submit" className="btn btn-primary">Submit</button>
@@ -121,8 +128,8 @@ function validate(values) {
     console.log('value', values);
     if (!values.slug) {
         errors.slug = "This Field is empty"
-    } else if (values.slug.length > 100) {
-        errors.slug = "Must be 100 character or Less!"
+    } else if (values.slug.length > 300) {
+        errors.slug = "Must be 300 character or Less!"
     }
     return errors;
 }

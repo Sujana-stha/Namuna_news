@@ -22,12 +22,14 @@ class ProvincesTransListContainer extends Component {
         this.editProvincesTrans = this.editProvincesTrans.bind(this)
         this.deleteItem = this.deleteItem.bind(this)
         this.hideDiv = this.hideDiv.bind(this)
+        this.handlePageChange = this.handlePageChange.bind(this)
         // this.toggleStatus = this.toggleStatus.bind(this)
     }
 
     componentDidMount() {
         // call action to run the relative saga
-        this.props.requestProvincesTranslation();
+        const pageNumber = this.props.activePage;
+        this.props.requestProvincesTranslation(pageNumber);
         this.props.requestProvinces();
         this.props.requestLanguages();
         console.log(this.props)
@@ -36,14 +38,15 @@ class ProvincesTransListContainer extends Component {
 
     // submit function for new data
     submitProvinceTrans(values) {
-        console.log('val', values)
-        this.props.requestAddProvincesTranslation(values);
+        const pageNumber = this.props.activePage;
+        
+        this.props.requestAddProvincesTranslation(values, pageNumber);
     }
 
     // submit function to update data
     submitEditProvinceTrans(values) {
-        
-        this.props.requestUpdateProvincesTranslation(values);
+        const pageNumber = this.props.activePage;
+        this.props.requestUpdateProvincesTranslation(values, pageNumber);
         this.setState({
             isEditing: false
         })
@@ -66,7 +69,11 @@ class ProvincesTransListContainer extends Component {
             confirmText: id
         })
     }
-
+    // pagination function
+    handlePageChange(pageNumber) {
+        
+        this.props.requestNews(pageNumber)
+    }
     hideDiv() {
         this.setState({ confirmText: null })
     }
@@ -113,6 +120,8 @@ class ProvincesTransListContainer extends Component {
                                     deleteProvinceTrans={this.props.requestDeleteProvincesTranslation}
                                     provinces={this.props.provinces}
                                     languages={this.props.languages}
+                                    activePage={this.props.activePage}
+                                    itemsCountPerPage={this.props.itemsCountPerPage}
                                 />
 
                             ) : (
@@ -123,7 +132,18 @@ class ProvincesTransListContainer extends Component {
                                     </tbody>
                                 )}
                         </table>
-                        
+                        <div className="col-sm-12 left-align">
+                            <Pagination
+                                activePage={this.props.activePage}
+                                itemsCountPerPage={this.props.itemsCountPerPage}
+                                totalItemsCount={this.props.totalItemsCount}
+                                pageRangeDisplayed={this.props.pageRangeDisplayed}
+                                onChange={this.handlePageChange}
+                                firstPageText='First'
+                                lastPageText='Last'
+                                
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -137,7 +157,11 @@ function mapStateToProps(store) {
         provincesTrans: store.provinceTransState.provincesTrans,
         provinces: store.provincesState.provinces,
         languages: store.languageState.languages,
-        fetching: store.categoryState.fetching
+        fetching: store.provinceTransState.fetching,
+        activePage: store.provinceTransState.activePage,
+        itemsCountPerPage: store.provinceTransState.itemsCountPerPage,
+        totalItemsCount: store.provinceTransState.totalItemsCount,
+        pageRangeDisplayed: store.provinceTransState.pageRangeDisplayed,
     }
 }
 

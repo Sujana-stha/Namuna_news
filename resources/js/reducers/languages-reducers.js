@@ -4,6 +4,10 @@ import _ from 'lodash';
 const initialState = {
     languages: [],
     fetching: false,
+    activePage: 1,
+    itemsCountPerPage: 10,
+    totalItemsCount: 1,
+    pageRangeDisplayed: 5,
     sending: false
 }
 
@@ -17,8 +21,11 @@ const languagesReducer =  function(state = initialState, action) {
            
         case types.GET_LANGUAGES_SUCCESS:
             return Object.assign({}, state, {
-                languages: action.languages,
+                languages: action.languages.data.data,
                 fetching: false,
+                itemsCountPerPage: action.languages.data.meta.per_page,
+                totalItemsCount: action.languages.data.meta.total,
+                activePage: action.languages.data.meta.current_page,
                 sending: false
             })
         

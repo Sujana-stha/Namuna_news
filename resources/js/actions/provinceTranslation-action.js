@@ -1,9 +1,10 @@
 import * as types from './action-types';
 
 //GET LIST OF PROVINCES_TRANSLATION
-export function requestProvincesTranslation() {
+export function requestProvincesTranslation(pageNumber) {
     return {
-        type: types.REQUEST_PROVINCE_TRANSLATION
+        type: types.REQUEST_PROVINCE_TRANSLATION,
+        pageNumber
     }
 }
 
@@ -21,10 +22,10 @@ export function requestProvincesTranslationFailed() {
 }
 
 // ADD NEW PROVINCES_TRANSLATION
-export function requestAddProvincesTranslation(values) {
+export function requestAddProvincesTranslation(values, pageNumber) {
     return {
         type: types.REQUEST_ADD_PROVINCE_TRANSLATION,
-        values
+        values, pageNumber
     }
 }
 
@@ -37,10 +38,10 @@ export function addProvincesTranslationSuccess(values, message) {
 }
 
 //EDIT PROVINCES_TRANSLATION
-export function requestUpdateProvincesTranslation( values) {
+export function requestUpdateProvincesTranslation( values, pageNumber) {
     return {
         type: types.REQUEST_EDIT_PROVINCE_TRANSLATION,
-        values
+        values, pageNumber
     }
 }
 

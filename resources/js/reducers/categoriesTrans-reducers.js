@@ -4,6 +4,10 @@ import _ from 'lodash';
 const initialState = {
     categoriesTrans: [],
     fetching: false,
+    activePage: 1,
+    itemsCountPerPage: 10,
+    totalItemsCount: 1,
+    pageRangeDisplayed: 5,
     sending: false
 }
 
@@ -18,8 +22,11 @@ const categoriesTransReducer =  function(state = initialState, action) {
         case types.GET_CATEGORIES_TRANSLATION_SUCCESS:
             console.log('reducer',action);
             return Object.assign({}, state, {
-                categoriesTrans: action.categoriesTrans,
+                categoriesTrans: action.categoriesTrans.data.data,
                 fetching: false,
+                itemsCountPerPage: action.categoriesTrans.data.meta.per_page,
+                totalItemsCount: action.categoriesTrans.data.meta.total,
+                activePage: action.categoriesTrans.data.meta.current_page,
                 sending: false
             })
         

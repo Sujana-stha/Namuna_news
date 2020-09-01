@@ -11,10 +11,10 @@ export function* ResourcesTransWatcher() {
     yield takeLatest(types.REQUEST_RESOURCE_TRANSLATION, ResourcesTransSaga)
 }
 function* ResourcesTransSaga(action) {
-    console.log('aaa', action);
+    
     const response = yield call(api.getResourcesTrans);
     console.log('cat', response)
-    const resourcesTrans = response.data
+    const resourcesTrans = response
     if (response.errors) {
         yield put({ type: types.REQUEST_RESOURCE_TRANSLATION_FAILED, errors: response.error});
         error = response.errors;
@@ -33,6 +33,7 @@ function* callResourcesTransSubmit(action) {
     let error = {};
     const result =  yield call(api.addResourcesTrans, action.values);
     const resp = result.data
+    const pageNumber= action.pageNumber
 
     if ((result.errors && !resp.success)|| (result.errors || !resp.success)) {
         yield put({ type: types.REQUEST_RESOURCE_TRANSLATION_FAILED, errors: result.error || resp.errormsg});
@@ -43,7 +44,7 @@ function* callResourcesTransSubmit(action) {
         notify.show("Cannot create new Resource Translation!", "error", 5000)
     } else {
         // yield put({type: types.ADD_RESOURCES_TRANSLATION_SUCCESS, resp, message: result.statusText});
-        yield put({type: types.REQUEST_RESOURCE_TRANSLATION})
+        yield put({type: types.REQUEST_RESOURCE_TRANSLATION}, pageNumber)
         notify.show("Resources Translation created successfully!", "success", 5000)
     }
     yield put(stopSubmit('AddResourcesTrans', error));
@@ -58,8 +59,10 @@ export function* editResourcesTransSaga() {
 function* callEditResourceTrans (action) {
     yield put(startSubmit('EditResourcesTrans'));
     let error = {};
+    console.log(action);
     const result =  yield call(api.updateResourcesTrans, action.values.id, action.values);
     const resp = result.data;
+    const pageNumber= action.pageNumber
     
     if (result.errors) {
         yield put({ type: types.REQUEST_RESOURCE_TRANSLATION_FAILED, errors: result.error});
@@ -67,7 +70,7 @@ function* callEditResourceTrans (action) {
         notify.show("Update failed", "error", 5000)
     } else {
         // yield put({type: types.UPDATE_RESOURCES_TRANSLATION_SUCCESS, resp, message: result.statusText});
-        yield put({type: types.REQUEST_RESOURCE_TRANSLATION})
+        yield put({type: types.REQUEST_RESOURCE_TRANSLATION, pageNumber})
         notify.show("Updated successfully!", "success", 5000)
     }
     yield put(stopSubmit('EditResourcesTrans', error));

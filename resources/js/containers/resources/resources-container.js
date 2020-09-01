@@ -19,13 +19,16 @@ class ResourcesContainer extends Component {
         this.deleteItem =  this.deleteItem.bind(this)
         this.hideDiv =  this.hideDiv.bind(this)
         this.editResource = this.editResource.bind(this)
+        this.handlePageChange = this.handlePageChange.bind(this)
     }
     componentDidMount() {
-        this.props.requestResources();
+        const pageNumber = this.props.activePage;
+        this.props.requestResources(pageNumber);
     }
     //submit News form
     onSubmitForm(values) {
-        this.props.requestAddResources(values);
+        const pageNumber = this.props.activePage;
+        this.props.requestAddResources(values, pageNumber);
     }
 
     // edit functions
@@ -36,8 +39,8 @@ class ResourcesContainer extends Component {
         })
     }
     submitEditResource(values) {
-        
-        this.props.requestUpdateResources(values);
+        const pageNumber = this.props.activePage;
+        this.props.requestUpdateResources(values, pageNumber);
         this.setState({
             isEditing: false
         })
@@ -47,7 +50,11 @@ class ResourcesContainer extends Component {
             confirmText: id
         })
     }
-    
+    // pagination function
+    handlePageChange(pageNumber) {
+        
+        this.props.requestNews(pageNumber)
+    }
     hideDiv() {
         this.setState({confirmText: null})
     }
@@ -109,6 +116,8 @@ class ResourcesContainer extends Component {
                                 showConfirmBox={this.deleteItem} 
                                 hideConfirmBox={this.hideDiv}
                                 deleteResource = {this.props.requestDeleteResources}
+                                activePage={this.props.activePage}
+                                itemsCountPerPage={this.props.itemsCountPerPage}
                                 />
                             ):(
                                 <tbody>
@@ -118,6 +127,18 @@ class ResourcesContainer extends Component {
                                 </tbody>
                             )}
                         </table>
+                        <div className="col-sm-12 left-align">
+                            <Pagination
+                                activePage={this.props.activePage}
+                                itemsCountPerPage={this.props.itemsCountPerPage}
+                                totalItemsCount={this.props.totalItemsCount}
+                                pageRangeDisplayed={this.props.pageRangeDisplayed}
+                                onChange={this.handlePageChange}
+                                firstPageText='First'
+                                lastPageText='Last'
+                                
+                            />
+                        </div>
                     </div>
                     </div>
                 </div>
@@ -128,7 +149,11 @@ class ResourcesContainer extends Component {
 function mapStateToProps(store) {
     return {
         resources: store.resourceState.resources,
-        fetching: store.newsState.fetching
+        fetching: store.resourceState.fetching,
+        activePage: store.resourceState.activePage,
+        itemsCountPerPage: store.resourceState.itemsCountPerPage,
+        totalItemsCount: store.resourceState.totalItemsCount,
+        pageRangeDisplayed: store.resourceState.pageRangeDisplayed,
     }
 }
 export default connect(mapStateToProps, {requestAddResources, requestResources, requestDeleteResources, requestUpdateResources})(ResourcesContainer);

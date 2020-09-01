@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
 import store from '../store';
 import Notifications from 'react-notify-toast';
 import loadjs from 'loadjs';
-// import { requestLoggedUser } from '../actions/users-action'
 
 //INCLUDES
 import Header from '../components/layout/header';
@@ -29,7 +27,6 @@ import ResourcesTransContainer from '../containers/resourcesTranslation/resource
 class DashboardLayout extends Component {
     componentDidMount() {
         loadjs('/plugins/jquery/jquery.min.js', function () {
-           
                 loadjs('/plugins/bootstrap/js/bootstrap.bundle.min.js', function() {
                     loadjs('/dist/js/adminlte.min.js', function() {
                         
@@ -80,6 +77,7 @@ class DashboardLayout extends Component {
                             <Route path = "/translated-resources" component={ResourcesTransContainer}/>
                             <Route path = "/add-resources-translation" component={ResourcesTransContainer}/>
                             <Route path = "/edit-translated-resources" component={ResourcesTransContainer}/>
+                            <Redirect to={`${match.url}`} />
                         </Switch>
                     </section>
                 </div>

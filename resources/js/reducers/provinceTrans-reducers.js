@@ -4,6 +4,10 @@ import _ from 'lodash';
 const initialState = {
     provincesTrans: [],
     fetching: false,
+    activePage: 1,
+    itemsCountPerPage: 10,
+    totalItemsCount: 1,
+    pageRangeDisplayed: 5,
     sending: false
 }
 
@@ -17,8 +21,11 @@ const provincesTransReducer =  function(state = initialState, action) {
            
         case types.GET_PROVINCE_TRANSLATION_SUCCESS:
             return Object.assign({}, state, {
-                provincesTrans: action.provincesTrans,
+                provincesTrans: action.provincesTrans.data,
                 fetching: false,
+                itemsCountPerPage: action.provincesTrans.data.meta.per_page,
+                totalItemsCount: action.provincesTrans.data.meta.total,
+                activePage: action.provincesTrans.data.meta.current_page,
                 sending: false
             })
         

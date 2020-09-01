@@ -2,10 +2,10 @@
 import axios, {getHeaders} from './axiosInstance'
 
 //GET ALL LANGUAGES API
-export function getLanguages() {
+export function getLanguages(pageNumber) {
     const access_token = window.localStorage.getItem('access_token')
     const headers = getHeaders(access_token)
-    return axios.get('/api/languages',{headers})
+    return axios.get(`/api/languages?page=${pageNumber}`,{headers})
     .catch(error=> {
         console.log(error)
         return {

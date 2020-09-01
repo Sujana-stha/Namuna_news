@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import store from '../../store';
 import { connect } from 'react-redux';
+import Pagination from 'react-js-pagination'
 import {requestAddNews, requestNews, requestDeleteNews, requestUpdateNews} from '../../actions/news-action';
 import {requestCategories} from '../../actions/categories-action'
 import {requestProvinces} from '../../actions/province-action';
@@ -16,21 +17,27 @@ class NewsContainer extends Component {
         super(props);
         this.state = {
             confirmText: null,
-            isEditing: false
+            isEditing: false,
+            
         }
+        this.handlePageChange = this.handlePageChange.bind(this);
         this.deleteItem =  this.deleteItem.bind(this)
         this.hideDiv =  this.hideDiv.bind(this)
         this.editNews = this.editNews.bind(this)
     }
     componentDidMount() {
-        this.props.requestNews();
+        const pageNumber = this.props.activePage;
+        
+        this.props.requestNews(pageNumber);
         this.props.requestCategories();
         this.props.requestProvinces();
     }
     //submit News form
     onSubmitForm(values) {
         values.author_id = 1;
-        this.props.requestAddNews(values);
+        const pageNumber = this.props.activePage;
+        
+        this.props.requestAddNews(values, pageNumber);
     }
 
     // edit functions
@@ -41,8 +48,9 @@ class NewsContainer extends Component {
         })
     }
     submitEditNews(values) {
+        const pageNumber = this.props.activePage;
         
-        this.props.requestUpdateNews(values);
+        this.props.requestUpdateNews(values, pageNumber);
         this.setState({
             isEditing: false
         })
@@ -52,7 +60,12 @@ class NewsContainer extends Component {
             confirmText: id
         })
     }
-    
+    // pagination function
+    handlePageChange(pageNumber) {
+        
+        this.props.requestNews(pageNumber)
+    }
+
     hideDiv() {
         this.setState({confirmText: null})
     }
@@ -111,6 +124,8 @@ class NewsContainer extends Component {
                                 showConfirmBox={this.deleteItem} 
                                 hideConfirmBox={this.hideDiv}
                                 deleteNews = {this.props.requestDeleteNews}
+                                activePage={this.props.activePage}
+                                itemsCountPerPage={this.props.itemsCountPerPage}
                                 />
                             ):(
                                 <tbody>
@@ -120,6 +135,18 @@ class NewsContainer extends Component {
                                 </tbody>
                             )}
                         </table>
+                        <div className="col-sm-12 left-align">
+                            <Pagination
+                                activePage={this.props.activePage}
+                                itemsCountPerPage={this.props.itemsCountPerPage}
+                                totalItemsCount={this.props.totalItemsCount}
+                                pageRangeDisplayed={this.props.pageRangeDisplayed}
+                                onChange={this.handlePageChange}
+                                firstPageText='First'
+                                lastPageText='Last'
+                                
+                            />
+                        </div>
                     </div>
                     </div>
                 </div>
@@ -132,7 +159,11 @@ function mapStateToProps(store) {
         news: store.newsState.news,
         fetching: store.newsState.fetching,
         categories: store.categoryState.categories,
-        provinces: store.provincesState.provinces
+        provinces: store.provincesState.provinces,
+        activePage: store.newsState.activePage,
+        itemsCountPerPage: store.newsState.itemsCountPerPage,
+        totalItemsCount: store.newsState.totalItemsCount,
+        pageRangeDisplayed: store.newsState.pageRangeDisplayed,
     }
 }
 export default connect(mapStateToProps, {requestAddNews, requestNews, requestDeleteNews, requestUpdateNews, requestCategories, requestProvinces})(NewsContainer);

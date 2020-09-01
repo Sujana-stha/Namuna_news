@@ -11,10 +11,10 @@ export function* LanguageWatcher() {
     yield takeLatest(types.REQUEST_LANGUAGES, LanguageSaga)
 }
 function* LanguageSaga(action) {
-    console.log('aaa', action);
+    
     const response = yield call(api.getLanguages);
     console.log('cat', response)
-    const languages = response.data.data
+    const languages = response
     if (response.errors) {
         yield put({ type: types.REQUEST_LANGUAGES_FAILED, errors: response.error});
         error = response.errors;
@@ -33,7 +33,7 @@ function* callLanguagesSubmit(action) {
     let error = {};
     const result =  yield call(api.addLanguages, action.values);
     const resp = result.data
-
+    const pageNumber= action.pageNumber
     if ((result.errors && !resp.success)|| (result.errors || !resp.success)) {
         yield put({ type: types.REQUEST_LANGUAGES_FAILED, errors: result.error || resp.errormsg});
         error = result.error || resp.errormsg;
@@ -43,7 +43,7 @@ function* callLanguagesSubmit(action) {
         notify.show("Cannot create new Language!", "error", 5000)
     } else {
         // yield put({type: types.ADD_CATEGORIES_SUCCESS, resp, message: result.statusText});
-        yield put({type: types.REQUEST_LANGUAGES})
+        yield put({type: types.REQUEST_LANGUAGES, pageNumber})
         notify.show("Languages created successfully!", "success", 5000)
     }
     yield put(stopSubmit('AddLanguages', error));
@@ -60,14 +60,14 @@ function* callEditLanguage (action) {
     let error = {};
     const result =  yield call(api.updateLanguages, action.values.id, action.values);
     const resp = result.data;
-    
+    const pageNumber= action.pageNumber
     if (result.errors) {
         yield put({ type: types.REQUEST_LANGUAGES_FAILED, errors: result.error});
         error = result.error;
         notify.show("Update failed", "error", 5000)
     } else {
         // yield put({type: types.UPDATE_CATEGORIES_SUCCESS, resp, message: result.statusText});
-        yield put({type: types.REQUEST_LANGUAGES})
+        yield put({type: types.REQUEST_LANGUAGES, pageNumber})
         notify.show("Updated successfully!", "success", 5000)
     }
     yield put(stopSubmit('EditLanguages', error));

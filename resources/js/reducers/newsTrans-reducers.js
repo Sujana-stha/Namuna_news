@@ -4,6 +4,10 @@ import _ from 'lodash';
 const initialState = {
     newsTrans: [],
     fetching: false,
+    activePage: 1,
+    itemsCountPerPage: 10,
+    totalItemsCount: 1,
+    pageRangeDisplayed: 5,
     sending: false
 }
 
@@ -17,8 +21,11 @@ const newsTransReducer =  function(state = initialState, action) {
            
         case types.GET_NEWS_TRANSLATION_SUCCESS:
             return Object.assign({}, state, {
-                newsTrans: action.newsTrans.data,
+                newsTrans: action.newsTrans.data.data,
                 fetching: false,
+                itemsCountPerPage: action.newsTrans.data.meta.per_page,
+                totalItemsCount: action.newsTrans.data.meta.total,
+                activePage: action.newsTrans.data.meta.current_page,
                 sending: false
             })
         

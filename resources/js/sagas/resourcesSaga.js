@@ -11,10 +11,10 @@ export function* ResourcesWatcher() {
     yield takeLatest(types.REQUEST_RESOURCES, ResourcesSaga)
 }
 function* ResourcesSaga(action) {
-    console.log('aaa', action);
+    
     const response = yield call(api.getResources);
     console.log('cat', response)
-    const resources = response.data
+    const resources = response
     if (response.errors) {
         yield put({ type: types.REQUEST_RESOURCES_FAILED, errors: response.error});
         error = response.errors;
@@ -33,6 +33,7 @@ function* callResourcesSubmit(action) {
     let error = {};
     const result =  yield call(api.addResources, action.values);
     const resp = result.data
+    const pageNumber= action.pageNumber
 
     if ((result.errors && !resp.success)|| (result.errors || !resp.success)) {
         yield put({ type: types.REQUEST_RESOURCES_FAILED, errors: result.error || resp.errormsg});
@@ -43,7 +44,7 @@ function* callResourcesSubmit(action) {
         notify.show("Cannot create new Resource!", "error", 5000)
     } else {
         // yield put({type: types.ADD_RESOURCES_SUCCESS, resp, message: result.statusText});
-        yield put({type: types.REQUEST_RESOURCES})
+        yield put({type: types.REQUEST_RESOURCES, pageNumber})
         notify.show("Resources created successfully!", "success", 5000)
     }
     yield put(stopSubmit('AddResources', error));
@@ -60,6 +61,7 @@ function* callEditResource (action) {
     let error = {};
     const result =  yield call(api.updateResources, action.values.id, action.values);
     const resp = result.data;
+    const pageNumber= action.pageNumber
     
     if (result.errors) {
         yield put({ type: types.REQUEST_RESOURCES_FAILED, errors: result.error});
@@ -67,7 +69,7 @@ function* callEditResource (action) {
         notify.show("Update failed", "error", 5000)
     } else {
         // yield put({type: types.UPDATE_RESOURCES_SUCCESS, resp, message: result.statusText});
-        yield put({type: types.REQUEST_RESOURCES})
+        yield put({type: types.REQUEST_RESOURCES, pageNumber})
         notify.show("Updated successfully!", "success", 5000)
     }
     yield put(stopSubmit('EditResources', error));

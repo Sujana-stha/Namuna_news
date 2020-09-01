@@ -1,9 +1,10 @@
 import * as types from './action-types';
 
 //GET LIST OF PROVINCES
-export function requestProvinces() {
+export function requestProvinces(pageNumber) {
     return {
-        type: types.REQUEST_PROVINCES
+        type: types.REQUEST_PROVINCES,
+        pageNumber
     }
 }
 
@@ -21,10 +22,10 @@ export function requestProvincesFailed() {
 }
 
 // ADD NEW PROVINCES
-export function requestAddProvinces(values) {
+export function requestAddProvinces(values,pageNumber) {
     return {
         type: types.REQUEST_ADD_PROVINCES,
-        values
+        values, pageNumber
     }
 }
 
@@ -37,10 +38,10 @@ export function addProvincesSuccess(values, message) {
 }
 
 //EDIT PROVINCES
-export function requestUpdateProvinces( values) {
+export function requestUpdateProvinces( values, pageNumber) {
     return {
         type: types.REQUEST_EDIT_PROVINCES,
-        values
+        values, pageNumber
     }
 }
 

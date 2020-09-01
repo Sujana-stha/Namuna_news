@@ -6,7 +6,7 @@ const ProvincesList = (props) => {
             {props.provinces.map((province, index) => {
                 return (
                     <tr key={province.id} className={`row-${province.id}`}>
-                        <td>{index}</td>
+                        <td>{((props.activePage-1)*props.itemsCountPerPage)+(index+1)}</td>
                         <td>{province.slug == null ? '-': province.slug}</td>
                         <td>{province.display_status}</td>
                         <td className="action">

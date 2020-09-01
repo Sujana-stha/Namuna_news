@@ -1,9 +1,10 @@
 import * as types from './action-types';
 
 //GET LIST OF RESOURCES_TRANSLATION
-export function requestResourcesTranslation() {
+export function requestResourcesTranslation(pageNumber) {
     return {
-        type: types.REQUEST_RESOURCE_TRANSLATION
+        type: types.REQUEST_RESOURCE_TRANSLATION,
+        pageNumber
     }
 }
 
@@ -21,10 +22,10 @@ export function requestResourcesTranslationFailed() {
 }
 
 // ADD NEW RESOURCES_TRANSLATION
-export function requestAddResourcesTranslation(values) {
+export function requestAddResourcesTranslation(values, pageNumber) {
     return {
         type: types.REQUEST_ADD_RESOURCE_TRANSLATION,
-        values
+        values, pageNumber
     }
 }
 
@@ -37,10 +38,10 @@ export function addResourcesTranslationSuccess(values, message) {
 }
 
 //EDIT RESOURCES_TRANSLATION
-export function requestUpdateResourcesTranslation( values) {
+export function requestUpdateResourcesTranslation( values, pageNumber) {
     return {
         type: types.REQUEST_EDIT_RESOURCE_TRANSLATION,
-        values
+        values, pageNumber
     }
 }
 

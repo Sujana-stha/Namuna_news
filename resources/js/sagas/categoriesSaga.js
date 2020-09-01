@@ -13,7 +13,7 @@ export function* CategoryWatcher() {
 function* CategorySaga() {
     const response = yield call(api.getCategories);
     console.log('cat', response)
-    const categories = response.data
+    const categories = response
     if (response.errors) {
         yield put({ type: types.REQUEST_CATEGORIES_FAILED, errors: response.error});
         error = response.errors;
@@ -32,7 +32,8 @@ function* callCategoriesSubmit(action) {
     let error = {};
     const result =  yield call(api.addCategories, action.values);
     const resp = result.data
-    console.log('cccs', resp)
+    const pageNumber= action.pageNumber
+    
     if (result.errors) {
         yield put({ type: types.REQUEST_CATEGORIES_FAILED, errors: result.error});
         error = result.error;
@@ -42,7 +43,7 @@ function* callCategoriesSubmit(action) {
         notify.show("Cannot create new category!", "error", 5000)
     } else {
         // yield put({type: types.ADD_CATEGORIES_SUCCESS, resp, message: result.statusText});
-        yield put({type: types.REQUEST_CATEGORIES})
+        yield put({type: types.REQUEST_CATEGORIES, pageNumber})
         notify.show("Categories created successfully!", "success", 5000)
     }
     yield put(stopSubmit('AddCategories', error));
@@ -59,14 +60,14 @@ function* callEditCategory (action) {
     let error = {};
     const result =  yield call(api.updateCategories, action.values.id, action.values);
     const resp = result.data;
-    
+    const pageNumber= action.pageNumber
     if (result.errors) {
         yield put({ type: types.REQUEST_CATEGORIES_FAILED, errors: result.error});
         error = result.error;
         notify.show("Update failed", "error", 5000)
     } else {
         // yield put({type: types.UPDATE_CATEGORIES_SUCCESS, resp, message: result.statusText});
-        yield put({type: types.REQUEST_CATEGORIES})
+        yield put({type: types.REQUEST_CATEGORIES, pageNumber})
         notify.show("Updated successfully!", "success", 5000)
     }
     yield put(stopSubmit('EditCategories', error));
@@ -83,7 +84,7 @@ export function* toggleCategoriesStatusSaga() {
 function* callCategoryToggleStatus(action) {
     const result =  yield call(api.updateCategoriesStatus, action.categoryId, action.values);
     const resp = result.data;
-    
+    const pageNumber= action.pageNumber
     if (result.errors) {
         yield put({ type: types.REQUEST_CATEGORIES_FAILED, errors: result.error});
         error = result.error;
@@ -91,7 +92,7 @@ function* callCategoryToggleStatus(action) {
 
     } else {
         // yield put({type: types.CATEGORIES_STATUS_SUCCESS, resp, message: result.statusText});
-        yield put({type: types.REQUEST_CATEGORIES})
+        yield put({type: types.REQUEST_CATEGORIES, pageNumber})
         notify.show(`Status updated successfully!`, "success", 5000)
     }
 }

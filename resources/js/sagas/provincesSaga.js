@@ -11,10 +11,10 @@ export function* ProvincesWatcher() {
     yield takeLatest(types.REQUEST_PROVINCES, ProvincesSaga)
 }
 function* ProvincesSaga(action) {
-    console.log('aaa', action);
+    
     const response = yield call(api.getProvinces);
     console.log('cat', response)
-    const provinces = response.data
+    const provinces = response
     if (response.errors) {
         yield put({ type: types.REQUEST_PROVINCES_FAILED, errors: response.error});
         error = response.errors;
@@ -33,6 +33,7 @@ function* callProvincesSubmit(action) {
     let error = {};
     const result =  yield call(api.addProvinces, action.values);
     const resp = result.data
+    const pageNumber= action.pageNumber
 
     if ((result.errors && !resp.success)|| (result.errors || !resp.success)) {
         yield put({ type: types.REQUEST_PROVINCES_FAILED, errors: result.error || resp.errormsg});
@@ -43,7 +44,7 @@ function* callProvincesSubmit(action) {
         notify.show("Cannot create new Province!", "error", 5000)
     } else {
         // yield put({type: types.ADD_PROVINCES_SUCCESS, resp, message: result.statusText});
-        yield put({type: types.REQUEST_PROVINCES})
+        yield put({type: types.REQUEST_PROVINCES, pageNumber})
         notify.show("Provinces created successfully!", "success", 5000)
     }
     yield put(stopSubmit('AddProvinces', error));
@@ -60,6 +61,7 @@ function* callEditProvince (action) {
     let error = {};
     const result =  yield call(api.updateProvinces, action.values.id, action.values);
     const resp = result.data;
+    const pageNumber= action.pageNumber
     
     if (result.errors) {
         yield put({ type: types.REQUEST_PROVINCES_FAILED, errors: result.error});
@@ -67,7 +69,7 @@ function* callEditProvince (action) {
         notify.show("Update failed", "error", 5000)
     } else {
         // yield put({type: types.UPDATE_PROVINCES_SUCCESS, resp, message: result.statusText});
-        yield put({type: types.REQUEST_PROVINCES})
+        yield put({type: types.REQUEST_PROVINCES, pageNumber})
         notify.show("Updated successfully!", "success", 5000)
     }
     yield put(stopSubmit('EditProvinces', error));

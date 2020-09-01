@@ -2,10 +2,10 @@
 import axios, {getHeaders} from './axiosInstance'
 
 //GET ALL RESOURCES TRANSLATION  API
-export function getResourcesTrans() {
+export function getResourcesTrans(pageNumber) {
     const access_token = window.localStorage.getItem('access_token')
     const headers = getHeaders(access_token)
-    return axios.get('/api/resource-translation',{headers})
+    return axios.get(`/api/resource-translation?page=${pageNumber}`,{headers})
     .catch(error=> {
         console.log(error)
         return {

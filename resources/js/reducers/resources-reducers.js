@@ -4,6 +4,10 @@ import _ from 'lodash';
 const initialState = {
     resources: [],
     fetching: false,
+    activePage: 1,
+    itemsCountPerPage: 10,
+    totalItemsCount: 1,
+    pageRangeDisplayed: 5,
     sending: false
 }
 
@@ -17,8 +21,11 @@ const resourcesReducer =  function(state = initialState, action) {
            
         case types.GET_RESOURCES_SUCCESS:
             return Object.assign({}, state, {
-                resources: action.resources.data,
+                resources: action.resources.data.data,
                 fetching: false,
+                itemsCountPerPage: action.resources.data.meta.per_page,
+                totalItemsCount: action.resources.data.meta.total,
+                activePage: action.resources.data.meta.current_page,
                 sending: false
             })
         

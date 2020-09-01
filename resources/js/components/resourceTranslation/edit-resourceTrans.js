@@ -10,7 +10,14 @@ class EditResource extends Component {
         resourceTransApi.getSingleResourcesTrans(id).then((response) => {
             const data = response.data.data;
             console.log('data', data)
-            this.props.initialize(data);
+            const resources = {
+                description: data.description,
+                title: data.title,
+                language_id: data.language == null ? null : { label: data.language.language, value: data.language.id },
+                resource_id: data.resource.id,
+                id: data.id
+            }
+            this.props.initialize(resources);
         })
     }
 
@@ -42,7 +49,6 @@ class EditResource extends Component {
     render() {
         const { handleSubmit } = this.props;
         return (
-            <div className="row">
             <div className="col-md-12 col-xs-12 col-lg-12">
                 <div className="card card-primary">
                     <div className="card-header">
@@ -57,7 +63,7 @@ class EditResource extends Component {
                                 component={this.renderSelectField}
                             >
                                 <option value="">Choose your option</option>
-                                {props.resources.map(resource => {
+                                {this.props.resources.map(resource => {
                                     return (
                                     <option key={resource.id} value={resource.id}>{resource.type}</option>
                                     )
@@ -65,7 +71,7 @@ class EditResource extends Component {
                             </Field>
                             <Field name="language_id"
                                 label="Choose Languages"
-                                itemList={props.languages}
+                                itemList={this.props.languages}
                                 component={AutocompleteField}
                             />
                             
@@ -95,7 +101,6 @@ class EditResource extends Component {
                     </form>
                 </div>
             </div>
-        </div>
         );
     }
 }

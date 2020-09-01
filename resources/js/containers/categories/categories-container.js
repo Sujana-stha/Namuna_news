@@ -16,8 +16,9 @@ class CategoriesListContainer extends Component {
         this.state = {
             isEditing: false,
             confirmText: null,
-            
+            isChecked: false
         }
+        this.handlePageChange = this.handlePageChange.bind(this);
         this.editCategories = this.editCategories.bind(this)
         this.deleteItem = this.deleteItem.bind(this)
         this.hideDiv = this.hideDiv.bind(this)
@@ -26,23 +27,21 @@ class CategoriesListContainer extends Component {
 
     componentDidMount() {
         // call action to run the relative saga
-        this.props.requestCategories();
-        console.log(this.props)
-        $("input[data-bootstrap-switch]").each(function(){
-            $(this).bootstrapSwitch();
-        });
+        const pageNumber = this.props.activePage;
+        this.props.requestCategories(pageNumber);
+        
     }
 
     // submit function for new data
     submitCategory(values) {
-        console.log('val', values)
-        this.props.requestAddCategories(values);
+        const pageNumber = this.props.activePage;
+        this.props.requestAddCategories(values, pageNumber);
     }
 
     // submit function to update data
     submitEditCategory(values) {
-        
-        this.props.requestUpdateCategories(values);
+        const pageNumber = this.props.activePage;
+        this.props.requestUpdateCategories(values, pageNumber);
         this.setState({
             isEditing: false
         })
@@ -57,11 +56,13 @@ class CategoriesListContainer extends Component {
 
     // toggle status function
     toggleStatus(categoryId, status) {
-        
+        const pageNumber = this.props.activePage;
         const newCategoriesStatus = {
-            status: !status
+            display_status: status == 1 ? "0" : "1"
         }
-        this.props.requestCategoriesStatus(categoryId, newCategoriesStatus)
+        console.log(newCategoriesStatus)
+        this.props.requestCategoriesStatus(categoryId, newCategoriesStatus, pageNumber);
+        
     }
 
     deleteCategoryAction(categoryId) {
@@ -72,6 +73,11 @@ class CategoriesListContainer extends Component {
         this.setState({
             confirmText: id
         })
+    }
+    // pagination function
+    handlePageChange(pageNumber) {
+        
+        this.props.requestNews(pageNumber)
     }
 
     hideDiv() {
@@ -119,6 +125,9 @@ class CategoriesListContainer extends Component {
                                     hideConfirmBox={this.hideDiv}
                                     deleteCategory={this.props.requestDeleteCategories}
                                     categoryStatus={this.toggleStatus}
+                                    isChecked = {this.state.isChecked}
+                                    activePage={this.props.activePage}
+                                    itemsCountPerPage={this.props.itemsCountPerPage}
                                 />
 
                             ) : (
@@ -129,7 +138,18 @@ class CategoriesListContainer extends Component {
                                     </tbody>
                                 )}
                         </table>
-                        
+                        <div className="col-sm-12 left-align">
+                            <Pagination
+                                activePage={this.props.activePage}
+                                itemsCountPerPage={this.props.itemsCountPerPage}
+                                totalItemsCount={this.props.totalItemsCount}
+                                pageRangeDisplayed={this.props.pageRangeDisplayed}
+                                onChange={this.handlePageChange}
+                                firstPageText='First'
+                                lastPageText='Last'
+                                
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -141,7 +161,11 @@ function mapStateToProps(store) {
     
     return {
         categories: store.categoryState.categories,
-        fetching: store.categoryState.fetching
+        fetching: store.categoryState.fetching,
+        activePage: store.categoryState.activePage,
+        itemsCountPerPage: store.categoryState.itemsCountPerPage,
+        totalItemsCount: store.categoryState.totalItemsCount,
+        pageRangeDisplayed: store.categoryState.pageRangeDisplayed,
     }
 }
 

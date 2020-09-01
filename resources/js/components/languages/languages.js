@@ -6,7 +6,7 @@ const LanguagesList = (props) => {
             {props.languages.map((language, index) => {
                 return (
                     <tr key={language.id} className={`row-${language.id}`}>
-                        <td>{index}</td>
+                        <td>{((props.activePage-1)*props.itemsCountPerPage)+(index+1)}</td>
                         <td>{language.code == null ? '-': language.code}</td>
                         <td>{language.language}</td>
                         <td className="action">

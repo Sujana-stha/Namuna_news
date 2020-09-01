@@ -41,7 +41,7 @@ class EditResource extends Component {
     render() {
         const { handleSubmit } = this.props;
         return (
-            <div className="row">
+            
             <div className="col-md-12 col-xs-12 col-lg-12">
                 <div className="card card-primary">
                     <div className="card-header">
@@ -104,7 +104,7 @@ class EditResource extends Component {
                     </form>
                 </div>
             </div>
-        </div>
+        
         );
     }
 }

@@ -20,26 +20,28 @@ class ProvinceListContainer extends Component {
         this.editProvince = this.editProvince.bind(this)
         this.deleteItem = this.deleteItem.bind(this)
         this.hideDiv = this.hideDiv.bind(this)
+        this.handlePageChange = this.handlePageChange.bind(this)
     }
 
     componentDidMount() {
         // call action to run the relative saga
-        this.props.requestProvinces();
+        const pageNumber = this.props.activePage;
+        this.props.requestProvinces(pageNumber);
         console.log(this.props)
 
     }
 
     // submit function for new data
     submitProvince(values) {
-        
-        this.props.requestAddProvinces(values);
+        const pageNumber = this.props.activePage;
+        this.props.requestAddProvinces(values, pageNumber);
     }
 
     // submit function to update data
     submitEditProvince(values) {
-        
+        const pageNumber = this.props.activePage;
         // values.language = values.language.toLowerCase();
-        this.props.requestUpdateProvinces(values);
+        this.props.requestUpdateProvinces(values, pageNumber);
         this.setState({
             isEditing: false
         })
@@ -60,6 +62,11 @@ class ProvinceListContainer extends Component {
         this.setState({
             confirmText: id
         })
+    }
+    // pagination function
+    handlePageChange(pageNumber) {
+        
+        this.props.requestNews(pageNumber)
     }
 
     hideDiv() {
@@ -106,6 +113,8 @@ class ProvinceListContainer extends Component {
                                     showConfirmBox={this.deleteItem}
                                     hideConfirmBox={this.hideDiv}
                                     deleteProvince={this.props.requestDeleteProvinces}
+                                    activePage={this.props.activePage}
+                                    itemsCountPerPage={this.props.itemsCountPerPage}
                                 />
                             ) : (
                                     <tbody>
@@ -115,6 +124,16 @@ class ProvinceListContainer extends Component {
                                     </tbody>
                                 )}
                         </table>
+                        <Pagination
+                                activePage={this.props.activePage}
+                                itemsCountPerPage={this.props.itemsCountPerPage}
+                                totalItemsCount={this.props.totalItemsCount}
+                                pageRangeDisplayed={this.props.pageRangeDisplayed}
+                                onChange={this.handlePageChange}
+                                firstPageText='First'
+                                lastPageText='Last'
+                                
+                            />
                     </div>
                 </div>
             </div>
@@ -125,7 +144,11 @@ class ProvinceListContainer extends Component {
 function mapStateToProps(store) {
     return {
         provinces: store.provincesState.provinces,
-        fetching: store.languageState.fetching
+        fetching: store.languageState.fetching,
+        activePage: store.provincesState.activePage,
+        itemsCountPerPage: store.provincesState.itemsCountPerPage,
+        totalItemsCount: store.provincesState.totalItemsCount,
+        pageRangeDisplayed: store.provincesState.pageRangeDisplayed,
     }
 }
 

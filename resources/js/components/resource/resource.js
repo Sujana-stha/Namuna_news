@@ -7,7 +7,7 @@ const ResourcesList = (props) => {
             {props.resources.map((resource, index) => {
                 return (
                     <tr key={resource.id} className={`row-${resource.id}`}>
-                        <td>{index+1}</td>
+                        <td>{((props.activePage-1)*props.itemsCountPerPage)+(index+1)}</td>
                         <td>{resource.type == null ? '-': resource.type}</td>
                         <td>{resource.url}</td>
                         <td>{resource.videos.map((video, index) => {

@@ -13,7 +13,7 @@ export function* CategoryTransWatcher() {
 function* CategoryTransSaga() {
     const response = yield call(api.getCategoriesTrans);
     console.log('cat', response)
-    const categoriesTrans = response.data
+    const categoriesTrans = response
     if (response.errors) {
         yield put({ type: types.REQUEST_CATEGORIES_TRANSLATION_FAILED, errors: response.error});
         error = response.errors;
@@ -33,6 +33,7 @@ function* callCategoriesTransSubmit(action) {
     const result =  yield call(api.addCategoriesTrans, action.values);
     const resp = result.data
     console.log('cccs', resp)
+    const pageNumber= action.pageNumber
     if (result.errors) {
         yield put({ type: types.REQUEST_CATEGORIES_TRANSLATION_FAILED, errors: result.error});
         error = result.error;
@@ -42,7 +43,7 @@ function* callCategoriesTransSubmit(action) {
         notify.show("Cannot create new category Translation!", "error", 5000)
     } else {
         // yield put({type: types.ADD_CATEGORIES_TRANSLATION_SUCCESS, resp, message: result.statusText});
-        yield put({type: types.REQUEST_CATEGORIES_TRANSLATION})
+        yield put({type: types.REQUEST_CATEGORIES_TRANSLATION, pageNumber})
         notify.show("Categories Translation created successfully!", "success", 5000)
     }
     yield put(stopSubmit('AddCategoriesTrans', error));
@@ -59,14 +60,14 @@ function* callEditCategoryTrans (action) {
     let error = {};
     const result =  yield call(api.updateCategoriesTrans, action.values.id, action.values);
     const resp = result.data;
-    
+    const pageNumber= action.pageNumber
     if (result.errors) {
         yield put({ type: types.REQUEST_CATEGORIES_TRANSLATION_FAILED, errors: result.error});
         error = result.error;
         notify.show("Update failed", "error", 5000)
     } else {
         // yield put({type: types.UPDATE_CATEGORIES_TRANSLATION_SUCCESS, resp, message: result.statusText});
-        yield put({type: types.REQUEST_CATEGORIES_TRANSLATION})
+        yield put({type: types.REQUEST_CATEGORIES_TRANSLATION, pageNumber})
         notify.show("Updated successfully!", "success", 5000)
     }
     yield put(stopSubmit('EditCategoriesTrans', error));

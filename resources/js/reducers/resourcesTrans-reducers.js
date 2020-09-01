@@ -4,6 +4,10 @@ import _ from 'lodash';
 const initialState = {
     resourcesTrans: [],
     fetching: false,
+    activePage: 1,
+    itemsCountPerPage: 10,
+    totalItemsCount: 1,
+    pageRangeDisplayed: 5,
     sending: false
 }
 
@@ -19,6 +23,9 @@ const resourcesTransReducer =  function(state = initialState, action) {
             return Object.assign({}, state, {
                 resourcesTrans: action.resourcesTrans.data,
                 fetching: false,
+                itemsCountPerPage: action.resourcesTrans.data.meta.per_page,
+                totalItemsCount: action.resourcesTrans.data.meta.total,
+                activePage: action.resourcesTrans.data.meta.current_page,
                 sending: false
             })
         

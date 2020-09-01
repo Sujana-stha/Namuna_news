@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import AutocompleteField from '../autocomplete-field';
-import TextEditorField from '../textEditor-field';
 import ImagePreviewField from '../imagePreview';
 import { connect } from 'react-redux';
 import * as newsApi from '../../api/news-api'
@@ -20,7 +19,8 @@ class EditNews extends Component {
                 status: data.status,
                 keywords: data.keywords,
                 author: data.author,
-                news_label: data.news_label
+                news_label: data.news_label,
+                id: data.id
             }
             this.props.initialize(news);
         })
@@ -101,9 +101,10 @@ class EditNews extends Component {
                                 itemList={this.props.provinces}
                                 component={AutocompleteField}
                             />
-                            {/* <Field name="files"
-                                component={ImagePreviewField}
-                            /> */}
+                            <div>
+                                <label>Featured Image</label>
+                                <Field component={ImagePreviewField} name="featured_image" type="file" />
+                            </div>
                             <Field
                                 label="Enter News Label"
                                 id="news-label"

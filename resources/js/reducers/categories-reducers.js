@@ -4,7 +4,11 @@ import _ from 'lodash';
 const initialState = {
     categories: [],
     fetching: false,
-    sending: false
+    sending: false,
+    activePage: 1,
+    itemsCountPerPage: 10,
+    totalItemsCount: 1,
+    pageRangeDisplayed: 5,
 }
 
 const categoriesReducer =  function(state = initialState, action) {
@@ -16,10 +20,12 @@ const categoriesReducer =  function(state = initialState, action) {
             return {...state, fetching: true};
            
         case types.GET_CATEGORIES_SUCCESS:
-            console.log('reducer',state);
             return Object.assign({}, state, {
-                categories: action.categories.data,
+                categories: action.categories.data.data,
                 fetching: false,
+                itemsCountPerPage: action.categories.data.meta.per_page,
+                totalItemsCount: action.categories.data.meta.total,
+                activePage: action.categories.data.meta.current_page,
                 sending: false
             })
         

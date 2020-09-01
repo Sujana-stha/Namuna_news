@@ -21,15 +21,18 @@ class NewsTransContainer extends Component {
         this.deleteItem =  this.deleteItem.bind(this)
         this.hideDiv =  this.hideDiv.bind(this)
         this.editNewsTranslation = this.editNewsTranslation.bind(this)
+        this.handlePageChange = this.handlePageChange.bind(this)
     }
     componentDidMount() {
-        this.props.requestNewsTranslation();
+        const pageNumber = this.props.activePage;
+        this.props.requestNewsTranslation(pageNumber);
         this.props.requestNews();
         this.props.requestLanguages();
     }
     //submit News form
     onSubmitForm(values) {
-        this.props.requestAddNewsTranslation(values);
+        const pageNumber = this.props.activePage;
+        this.props.requestAddNewsTranslation(values, pageNumber);
     }
 
     // edit functions
@@ -40,7 +43,8 @@ class NewsTransContainer extends Component {
         })
     }
     submitEditNewsTrans(values) {
-        this.props.requestUpdateNewsTranslation(values)
+        const pageNumber = this.props.activePage;
+        this.props.requestUpdateNewsTranslation(values, pageNumber)
         this.setState({
             isEditing: false
         })
@@ -50,7 +54,11 @@ class NewsTransContainer extends Component {
             confirmText: id
         })
     }
-    
+    // pagination function
+    handlePageChange(pageNumber) {
+        
+        this.props.requestNews(pageNumber)
+    }
     hideDiv() {
         this.setState({confirmText: null})
     }
@@ -119,6 +127,8 @@ class NewsTransContainer extends Component {
                                 showConfirmBox={this.deleteItem} 
                                 hideConfirmBox={this.hideDiv}
                                 deleteNewsTrans = {this.props.requestDeleteNewsTranslation}
+                                activePage={this.props.activePage}
+                                itemsCountPerPage={this.props.itemsCountPerPage}
                                 />
                             ):(
                                 <tbody>
@@ -128,6 +138,18 @@ class NewsTransContainer extends Component {
                                 </tbody>
                             )}
                         </table>
+                        <div className="col-sm-12 left-align">
+                            <Pagination
+                                activePage={this.props.activePage}
+                                itemsCountPerPage={this.props.itemsCountPerPage}
+                                totalItemsCount={this.props.totalItemsCount}
+                                pageRangeDisplayed={this.props.pageRangeDisplayed}
+                                onChange={this.handlePageChange}
+                                firstPageText='First'
+                                lastPageText='Last'
+                                
+                            />
+                        </div>
                     </div>
                     </div>
                 </div>
@@ -138,9 +160,13 @@ class NewsTransContainer extends Component {
 function mapStateToProps(store) {
     return {
         newsTrans:store.newsTransState.newsTrans,
-        fetching: store.newsState.fetching,
+        fetching: store.newsTransState.fetching,
         news: store.newsState.news,
-        languages: store.languageState.languages
+        languages: store.languageState.languages,
+        activePage: store.newsTransState.activePage,
+        itemsCountPerPage: store.newsTransState.itemsCountPerPage,
+        totalItemsCount: store.newsTransState.totalItemsCount,
+        pageRangeDisplayed: store.newsTransState.pageRangeDisplayed,
     }
 }
 export default connect(mapStateToProps, {requestNews, requestAddNewsTranslation, requestNewsTranslation, requestDeleteNewsTranslation, requestUpdateNewsTranslation,requestLanguages })(NewsTransContainer);

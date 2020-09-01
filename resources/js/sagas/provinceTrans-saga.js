@@ -14,7 +14,7 @@ function* ProvincesTransSaga(action) {
     console.log('sagaProvince', action);
     const response = yield call(api.getProvincesTrans);
     console.log('catPror', response)
-    const provincesTrans = response.data
+    const provincesTrans = response
     if (response.errors) {
         yield put({ type: types.REQUEST_PROVINCE_TRANSLATION_FAILED, errors: response.error});
         error = response.errors;
@@ -33,6 +33,7 @@ function* callProvincesTransSubmit(action) {
     let error = {};
     const result =  yield call(api.addProvincesTrans, action.values);
     const resp = result.data
+    const pageNumber= action.pageNumber
 
     if ((result.errors && !resp.success)|| (result.errors || !resp.success)) {
         yield put({ type: types.REQUEST_PROVINCE_TRANSLATION_FAILED, errors: result.error || resp.errormsg});
@@ -43,7 +44,7 @@ function* callProvincesTransSubmit(action) {
         notify.show("Cannot create new Province Translation!", "error", 5000)
     } else {
         // yield put({type: types.ADD_PROVINCES_TRANSLATION_SUCCESS, resp, message: result.statusText});
-        yield put({type: types.REQUEST_PROVINCE_TRANSLATION})
+        yield put({type: types.REQUEST_PROVINCE_TRANSLATION, pageNumber})
         notify.show("Provinces Translation created successfully!", "success", 5000)
     }
     yield put(stopSubmit('AddProvincesTrans', error));
@@ -60,6 +61,7 @@ function* callEditProvinceTrans (action) {
     let error = {};
     const result =  yield call(api.updateProvincesTrans, action.values.id, action.values);
     const resp = result.data;
+    const pageNumber= action.pageNumber
     
     if (result.errors) {
         yield put({ type: types.REQUEST_PROVINCE_TRANSLATION_FAILED, errors: result.error});
@@ -67,7 +69,7 @@ function* callEditProvinceTrans (action) {
         notify.show("Update failed", "error", 5000)
     } else {
         // yield put({type: types.UPDATE_PROVINCES_TRANSLATION_SUCCESS, resp, message: result.statusText});
-        yield put({type: types.REQUEST_PROVINCE_TRANSLATION})
+        yield put({type: types.REQUEST_PROVINCE_TRANSLATION, pageNumber})
         notify.show("Updated successfully!", "success", 5000)
     }
     yield put(stopSubmit('EditProvincesTrans', error));

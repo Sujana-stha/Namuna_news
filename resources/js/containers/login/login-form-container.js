@@ -15,7 +15,7 @@ class LoginFormContainer extends Component {
             <div className="login-page">
                 <div className="login-box">
                     <div className="login-logo">
-                        <a href="# "><b>Admin</b>LTE</a>
+                        <a href="# "><img src={'/dist/img/Namuna News English Logo.png'}/></a>
                     </div>
                     {/* <!-- /.login-logo --> */}
                     <div className="card">

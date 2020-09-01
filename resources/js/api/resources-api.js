@@ -2,10 +2,10 @@
 import axios, {getHeaders} from './axiosInstance'
 
 //GET ALL RESOURCES API
-export function getResources() {
+export function getResources(pageNumber) {
     const access_token = window.localStorage.getItem('access_token')
     const headers = getHeaders(access_token)
-    return axios.get('/api/resources',{headers})
+    return axios.get(`/api/resources?page=${pageNumber}`,{headers})
     .catch(error=> {
         console.log(error)
         return {
@@ -44,7 +44,7 @@ export function deleteResources(resourceId) {
 export function updateResources(resourceId, values) {
     const access_token = window.localStorage.getItem('access_token')
     const headers = getHeaders(access_token)
-    return axios.put('/api/resources/'+ resourceId, values,{headers})
+    return axios.put('/api/resources/'+resourceId, values,{headers})
     .catch(error=> {
         console.log(error)
         return {

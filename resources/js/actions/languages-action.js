@@ -1,10 +1,10 @@
 import * as types from './action-types';
 
 //GET LIST OF CATEGORIES
-export function requestLanguages() {
+export function requestLanguages(pageNumber) {
     return {
-        type: types.REQUEST_LANGUAGES
-        
+        type: types.REQUEST_LANGUAGES,
+        pageNumber
     }
 }
 
@@ -22,10 +22,10 @@ export function requestLanguagesFailed() {
 }
 
 // ADD NEW CATEGORIES
-export function requestAddLanguages(values) {
+export function requestAddLanguages(values, pageNumber) {
     return {
         type: types.REQUEST_ADD_LANGUAGES,
-        values
+        values, pageNumber
     }
 }
 
@@ -38,10 +38,10 @@ export function addLanguagesSuccess(values, message) {
 }
 
 //EDIT CATEGORIES
-export function requestUpdateLanguages( values) {
+export function requestUpdateLanguages( values, pageNumber) {
     return {
         type: types.REQUEST_EDIT_LANGUAGES,
-        values
+        values, pageNumber
     }
 }
 

@@ -1,9 +1,10 @@
 import * as types from './action-types';
 
 //GET LIST OF CATEGORIES
-export function requestCategories() {
+export function requestCategories(pageNumber) {
     return {
-        type: types.REQUEST_CATEGORIES
+        type: types.REQUEST_CATEGORIES,
+        pageNumber
         
     }
 }
@@ -22,10 +23,10 @@ export function requestCategoriesFailed() {
 }
 
 // ADD NEW CATEGORIES
-export function requestAddCategories(values) {
+export function requestAddCategories(values, pageNumber) {
     return {
         type: types.REQUEST_ADD_CATEGORIES,
-        values
+        values, pageNumber
     }
 }
 
@@ -38,10 +39,10 @@ export function addCategoriesSuccess(values, message) {
 }
 
 //EDIT CATEGORIES
-export function requestUpdateCategories( values) {
+export function requestUpdateCategories( values, pageNumber) {
     return {
         type: types.REQUEST_EDIT_CATEGORIES,
-        values
+        values, pageNumber
     }
 }
 

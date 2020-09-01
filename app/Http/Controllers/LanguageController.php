@@ -20,7 +20,7 @@ class LanguageController extends Controller
      */
     public function index()
     {
-        $languages = Language::all();
+        $languages = Language::paginate(10);
 
         return LanguageResource::collection($languages);
     }
@@ -84,11 +84,6 @@ class LanguageController extends Controller
      */
     public function update(Request $request, Language $language)
     {
-        $validateData = $request->validate([
-            'code'=>'unique:languages|max:3',
-            'language'=>'max:20'
-        ]);
-
         $language->update($request->all());
 
         return response(['success'=>'Language updated successfully'], 200);

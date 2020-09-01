@@ -20,26 +20,27 @@ class LanguagesListContainer extends Component {
         this.editLanguage = this.editLanguage.bind(this)
         this.deleteItem = this.deleteItem.bind(this)
         this.hideDiv = this.hideDiv.bind(this)
+        this.handlePageChange = this.handlePageChange.bind(this)
     }
 
     componentDidMount() {
         // call action to run the relative saga
-        this.props.requestLanguages();
+        const pageNumber = this.props.activePage;
+        this.props.requestLanguages(pageNumber);
         console.log(this.props)
 
     }
 
     // submit function for new data
     submitLanguage(values) {
-        
-        this.props.requestAddLanguages(values);
+        const pageNumber = this.props.activePage;
+        this.props.requestAddLanguages(values, pageNumber);
     }
 
     // submit function to update data
     submitEditLanguage(values) {
-        
-        // values.language = values.language.toLowerCase();
-        this.props.requestUpdateLanguages(values);
+        const pageNumber = this.props.activePage;
+        this.props.requestUpdateLanguages(values, pageNumber);
         this.setState({
             isEditing: false
         })
@@ -61,7 +62,11 @@ class LanguagesListContainer extends Component {
             confirmText: id
         })
     }
-
+    // pagination function
+    handlePageChange(pageNumber) {
+        
+        this.props.requestNews(pageNumber)
+    }
     hideDiv() {
         this.setState({ confirmText: null })
     }
@@ -106,7 +111,8 @@ class LanguagesListContainer extends Component {
                                     showConfirmBox={this.deleteItem}
                                     hideConfirmBox={this.hideDiv}
                                     deleteLanguage={this.props.requestDeleteLanguages}
-                                    
+                                    activePage={this.props.activePage}
+                                    itemsCountPerPage={this.props.itemsCountPerPage}
                                 />
 
                             ) : (
@@ -117,7 +123,18 @@ class LanguagesListContainer extends Component {
                                     </tbody>
                                 )}
                         </table>
-                        
+                        <div className="col-sm-12 left-align">
+                            <Pagination
+                                activePage={this.props.activePage}
+                                itemsCountPerPage={this.props.itemsCountPerPage}
+                                totalItemsCount={this.props.totalItemsCount}
+                                pageRangeDisplayed={this.props.pageRangeDisplayed}
+                                onChange={this.handlePageChange}
+                                firstPageText='First'
+                                lastPageText='Last'
+                                
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -128,7 +145,11 @@ class LanguagesListContainer extends Component {
 function mapStateToProps(store) {
     return {
         languages: store.languageState.languages,
-        fetching: store.languageState.fetching
+        fetching: store.languageState.fetching,
+        activePage: store.languageState.activePage,
+        itemsCountPerPage: store.languageState.itemsCountPerPage,
+        totalItemsCount: store.languageState.totalItemsCount,
+        pageRangeDisplayed: store.languageState.pageRangeDisplayed,
     }
 }
 
