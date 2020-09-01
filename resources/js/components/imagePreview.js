@@ -146,9 +146,9 @@ class ImagePreviewField extends Component {
         this.props.input.onChange(null)
       }
     }
-  
+
     render() {
-  
+
       return (
         <div className="nm-uploader">
         <div className="custom-file">
