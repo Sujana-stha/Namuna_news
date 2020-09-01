@@ -112459,8 +112459,8 @@ var isLogin = function isLogin() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! E:\Freelancing\Namuna-news\namuna_news\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! E:\Freelancing\Namuna-news\namuna_news\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! F:\xampp\htdocs\namunarestapi\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! F:\xampp\htdocs\namunarestapi\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
