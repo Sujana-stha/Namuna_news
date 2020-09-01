@@ -15,8 +15,9 @@ export function getNews(pageNumber) {
 }
 
 function formValues(values) {
-    let images = values.featured_image
+    let images = values.featured_image;
     var formData = new FormData();
+
     formData.append('slug', values.slug);
     formData.append('author_id', values.author_id);
     formData.append('category_id', values.category_id);
@@ -36,6 +37,7 @@ function formValues(values) {
 export function addNews(values) {
     const access_token = window.localStorage.getItem('access_token')
     const headers = getHeaders(access_token)
+    console.log(headers);
     const data = formValues(values)
     return axios.post('/api/news', data,{headers})
     .catch(error=> {
