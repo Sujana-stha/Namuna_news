@@ -3,7 +3,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import AutocompleteField from '../autocomplete-field';
-import TextEditorField from '../textEditor-field';
+import TextEditorField from '../texteditor-field';
 
 
 const renderInputField = ({ input, id, label, type, placeholder, meta: { touched, error } }) => {
