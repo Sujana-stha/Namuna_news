@@ -91,7 +91,7 @@ let InsertNews = props => {
                             /> */}
                             <div className="col-md-6">
                                 <label>Featured Image</label>
-                            
+
                             <Field component={ImagePreviewField} name="featured_image" type="file" />
                             </div>
                             <Field
@@ -99,10 +99,11 @@ let InsertNews = props => {
                                 name="news_label"
                                 component={renderSelectField}
                             >
-                                <option value="null">Normal</option>
+                                <option value="">Select News Label</option>
+                                <option value="normal">Normal</option>
                                 <option value="featured">Featured</option>
                                 <option value="breaking">Breaking</option>
-                                
+
                             </Field>
                             </div>
                         </div>
