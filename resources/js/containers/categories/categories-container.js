@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Pagination from 'react-js-pagination'
 import store from '../../store';
 import { requestCategories, requestDeleteCategories, requestAddCategories, requestUpdateCategories, requestCategoriesStatus } from '../../actions/categories-action';
-import $ from 'jquery';
+
 
 //COMPONENT
 import CategoryForm from '../../components/categories/categories-form';

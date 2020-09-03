@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import store from '../../store';
 import { connect } from 'react-redux';
+import Pagination from 'react-js-pagination'
 import {requestResourcesTranslation, requestAddResourcesTranslation, requestUpdateResourcesTranslation, requestDeleteResourcesTranslation} from '../../actions/resourceTranslation-action';
 import { requestResources} from '../../actions/resource-action';
 import {requestLanguages} from '../../actions/languages-action';
