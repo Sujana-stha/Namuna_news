@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import store from '../../store';
 import { connect } from 'react-redux';
+import Pagination from 'react-js-pagination'
 import {requestAddNewsTranslation, requestNewsTranslation, requestDeleteNewsTranslation, requestUpdateNewsTranslation} from '../../actions/newsTranslation-action';
 import {requestLanguages} from '../../actions/languages-action';
 import {requestNews} from '../../actions/news-action';

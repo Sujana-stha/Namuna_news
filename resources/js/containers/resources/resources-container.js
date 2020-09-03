@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import store from '../../store';
+import Pagination from 'react-js-pagination'
 import { connect } from 'react-redux';
 import {requestAddResources, requestResources, requestDeleteResources, requestUpdateResources} from '../../actions/resource-action';
 
