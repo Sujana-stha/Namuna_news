@@ -100294,7 +100294,6 @@ var axiosInstance = axios__WEBPACK_IMPORTED_MODULE_0___default.a.create({
 var getHeaders = function getHeaders() {
   var access_token = window.localStorage.getItem('access_token');
   return {
-    Accept: "application/json",
     Authorization: "Bearer ".concat(access_token)
   };
 };
@@ -100639,17 +100638,11 @@ function formValues(values) {
   formData.append('keywords', values.keywords);
   formData.append('news_label', values.news_label);
   formData.append('province_id', values.province_id);
-<<<<<<< HEAD
-  formData.append('status', values.status);
-  formData.append('featured_image', images);
-  return formData;
-=======
   formData.append('status', values.status); // if(images) { images.map(image=>{
 
   formData.append('featured_image', images); // })
 
   return formData; // }
->>>>>>> master
 } // ADD NEW NEWS API
 
 
@@ -102364,11 +102357,6 @@ var ImagePreviewField = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.onFileChange.bind(this),
         type: "file",
-<<<<<<< HEAD
-        name: "featured_image",
-        onChange: this.onFileChange.bind(this)
-      });
-=======
         className: "custom-file-input",
         id: "customFile"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
@@ -102385,7 +102373,6 @@ var ImagePreviewField = /*#__PURE__*/function (_Component) {
           className: "thumb-img"
         }));
       })) : null);
->>>>>>> master
     }
   }]);
 

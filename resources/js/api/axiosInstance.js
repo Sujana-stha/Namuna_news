@@ -9,7 +9,6 @@ const axiosInstance = axios.create ({
 export const getHeaders = ()=> {
     const access_token = window.localStorage.getItem('access_token')
     return {
-        Accept: "application/json",
         Authorization: `Bearer ${access_token}`
     }
 }

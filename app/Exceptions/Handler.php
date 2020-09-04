@@ -53,12 +53,6 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
-        if(!$request->wantsJson()) {
-            return response()->json([
-                'error' => 'Accept Header not found with value application/json'
-            ]);
-        }
-
         if($exception instanceOf ModelNotFoundException && $request->wantsJson()) {
             return response()->json([
                 'error' => 'Resource not found'
