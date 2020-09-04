@@ -1,7 +1,7 @@
 import axios from 'axios';
 // import {getHeaders} from './axiosInstance'
 
-const URL = `http://54.254.62.41/`
+const URL = `http://54.254.62.41`
 
 //LOGIN API
 export function login(values) {
