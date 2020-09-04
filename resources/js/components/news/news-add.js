@@ -3,14 +3,12 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import AutocompleteField from '../autocomplete-field';
-import TextEditorField from '../textEditor-field';
 import ImagePreviewField from '../imagePreview';
-import { connect } from 'react-redux';
 
 
 const renderInputField = ({ input, id, label, type, placeholder, meta: { touched, error } }) => {
     return (
-        <div className="form-group">
+        <div className="form-group col-md-6">
             <label htmlFor={id}>{label}</label>
             <input id={id} type={type} className="form-control" placeholder={placeholder} {...input} />
             <div className="error">
@@ -20,19 +18,10 @@ const renderInputField = ({ input, id, label, type, placeholder, meta: { touched
     )
 }
 
-const onFileChange = async (e) => {
-    const { input } = this.props
-    const targetFile = e.target.files[0]
-    if (targetFile) {
 
-      input.onChange(val)
-    } else {
-      input.onChange(null)
-    }
-  }
 const renderSelectField = ({ input, label, meta: { touched, error }, defaultValue, children }) => {
     return (
-        <div className="form-group">
+        <div className="form-group col-md-6">
             <label>{label}</label>
             <select value={defaultValue} {...input} className="form-control">
                 {children}
@@ -55,6 +44,7 @@ let InsertNews = props => {
 
                     <form onSubmit={handleSubmit}>
                         <div className="card-body">
+                            <div className="form-row">
                             <Field
                                 label="Enter Title"
                                 id="title"
@@ -97,9 +87,9 @@ let InsertNews = props => {
                             {/* <Field name="featured_image"
                                 component={ImagePreviewField}
                             /> */}
-                            <div>
+                            <div className="col-md-6">
                                 <label>Featured Image</label>
-                            
+
                             <Field component={ImagePreviewField} name="featured_image" type="file" />
                             </div>
                             <Field
@@ -107,12 +97,13 @@ let InsertNews = props => {
                                 name="news_label"
                                 component={renderSelectField}
                             >
-                                <option value="">Choose your option</option>
+                                <option value="">Select News Label</option>
+                                <option value="normal">Normal</option>
                                 <option value="featured">Featured</option>
                                 <option value="breaking">Breaking</option>
-                                
+
                             </Field>
-                            
+                            </div>
                         </div>
                         <div className="card-footer">
                             <button type="submit" className="btn btn-primary">Submit</button>

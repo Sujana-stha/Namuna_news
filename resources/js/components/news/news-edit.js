@@ -27,7 +27,7 @@ class EditNews extends Component {
     }
     renderInputField({input,id, label, value, type, placeholder, meta: {touched, error}}) {
         return (
-            <div className="form-group">
+            <div className="form-group col-md-6">
             <label htmlFor={id}>{label}</label>
             <input value={value} id={id} type={type} className="form-control" placeholder={placeholder} {...input} />
             <div className="error">
@@ -38,7 +38,7 @@ class EditNews extends Component {
     }
     renderSelectField({ input, label, meta: { touched, error }, defaultValue, children }) {
         return (
-            <div className="form-group">
+            <div className="form-group col-md-6">
                 <label>{label}</label>
                 <select value={defaultValue} {...input} className="form-control">
                     {children}
@@ -55,11 +55,12 @@ class EditNews extends Component {
             <div className="col-md-12 col-xs-12 col-lg-12 col-sm-12">
                 <div className="card card-primary">
                     <div className="card-header">
-                        <h3 className="card-title">Add News</h3>
+                        <h3 className="card-title">Edit News</h3>
                     </div>
 
                     <form onSubmit={handleSubmit} >
                         <div className="card-body">
+                            <div className="form-row">
                             <Field
                                 label="Enter Title"
                                 id="title"
@@ -101,7 +102,7 @@ class EditNews extends Component {
                                 itemList={this.props.provinces}
                                 component={AutocompleteField}
                             />
-                            <div>
+                            <div className="col-md-6">
                                 <label>Featured Image</label>
                                 <Field component={ImagePreviewField} name="featured_image" type="file" />
                             </div>
@@ -113,6 +114,7 @@ class EditNews extends Component {
                                 placeholder="Enter News Label"
                                 component={this.renderInputField}
                             />
+                            </div>
                         </div>
                         <div className="card-footer">
                             <button type="submit" className="btn btn-primary">Update</button>

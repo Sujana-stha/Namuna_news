@@ -54,7 +54,7 @@ class AutocompleteField extends Component {
     render() {
         const { itemList, input } = this.props
             return (
-                <div className="nm-select-field">
+                <div className="nm-select-field col-md-6">
                     <label className="">{this.props.label}</label>
                     <div className="">
                         <Select

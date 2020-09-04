@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Pagination from 'react-js-pagination'
 import store from '../../store';
 import { requestProvinces, requestDeleteProvinces, requestAddProvinces, requestUpdateProvinces } from '../../actions/province-action';
 
