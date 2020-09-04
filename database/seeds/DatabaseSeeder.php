@@ -15,8 +15,6 @@ class DatabaseSeeder extends Seeder
         $this->call(LanguageSeeder::class);
         $this->call(CategorySeeder::class);
         $this->call(CategoryTranslationSeeder::class);
-        $this->call(ProvinceSeeder::class);
-        $this->call(ProvinceTranslationSeeder::class);
         $this->call(SubscriberSeeder::class);
         $this->call(CategorySubscriberSeeder::class);
         $this->call(AllResourceSeeder::class);
@@ -25,5 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call(NewsSeeder::class);
         $this->call(NewsTranslationSeeder::class);
         $this->call(SocialsSeeder::class);
+        $this->call(ProvinceSeeder::class);
+        $this->call(ProvinceTranslationSeeder::class);
     }
 }
