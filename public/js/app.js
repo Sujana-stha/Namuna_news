@@ -100282,7 +100282,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
-var base_url = "http://54.254.62.41";
+var base_url = "http://54.254.62.41/";
 var access_token = window.localStorage.getItem('access_token');
 var axiosInstance = axios__WEBPACK_IMPORTED_MODULE_0___default.a.create({
   baseURL: base_url,
@@ -100584,7 +100584,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
  // import {getHeaders} from './axiosInstance'
 
-var URL = "http://54.254.62.41/"; //LOGIN API
+var URL = "http://54.254.62.41"; //LOGIN API
 
 function login(values) {
   console.log('api', values); // const headers = getHeaders
