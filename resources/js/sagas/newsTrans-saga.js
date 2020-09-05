@@ -12,7 +12,7 @@ export function* NewsTransWatcher() {
 }
 function* NewsTransSaga(action) {
     console.log('aaa', action);
-    const response = yield call(api.getNewsTrans);
+    const response = yield call(api.getNewsTrans, action.pageNumber);
     console.log('cat', response)
     const newsTrans = response
     if (response.errors) {

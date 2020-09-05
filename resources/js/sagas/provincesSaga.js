@@ -12,7 +12,7 @@ export function* ProvincesWatcher() {
 }
 function* ProvincesSaga(action) {
     
-    const response = yield call(api.getProvinces);
+    const response = yield call(api.getProvinces, action.pageNumber);
     console.log('cat', response)
     const provinces = response
     if (response.errors) {

@@ -77,7 +77,7 @@ class CategoriesListContainer extends Component {
     }
     // pagination function
     handlePageChange(pageNumber) {
-        
+        console.log('page',pageNumber)
         this.props.requestCategories(pageNumber)
     }
 

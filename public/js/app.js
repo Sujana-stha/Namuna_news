@@ -103075,7 +103075,7 @@ var Sidebar = /*#__PURE__*/function (_Component) {
           href: "# ",
           className: "brand-link brand-logo"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          src: "/dist/img/Namuna News English Logo.png",
+          src: "/dist/img/Namuna News English Logo - White.png",
           alt: "Namuna News Logo",
           className: " img-fluid"
         })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -103130,25 +103130,7 @@ var Sidebar = /*#__PURE__*/function (_Component) {
           className: "nav-link"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "nav-icon fas fa-chart-pie"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Categories", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "right fas fa-angle-left"
-        }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-          className: "nav nav-treeview"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          className: "nav-item"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-          href: "pages/charts/chartjs.html",
-          className: "nav-link"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "far fa-circle nav-icon"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Categories List"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          className: "nav-item"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-          href: "pages/charts/flot.html",
-          className: "nav-link"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "far fa-circle nav-icon"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Add Categories"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Categories"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "nav-item has-treeview"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
           to: "/categrories-translation",
@@ -103161,14 +103143,14 @@ var Sidebar = /*#__PURE__*/function (_Component) {
           to: "/languages",
           className: "nav-link"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "nav-icon fas fa-globe"
+          className: "nav-icon fas fa-language"
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Languages"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "nav-item has-treeview"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
           to: "/news",
           className: "nav-link"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "nav-icon fas fa-globe"
+          className: "nav-icon far fa-newspaper"
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "News"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "nav-item has-treeview"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
@@ -103182,7 +103164,7 @@ var Sidebar = /*#__PURE__*/function (_Component) {
           to: "/provinces",
           className: "nav-link"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "nav-icon fas fa-globe"
+          className: "nav-icon far fa-map"
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Provinces"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "nav-item has-treeview"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
@@ -103196,7 +103178,7 @@ var Sidebar = /*#__PURE__*/function (_Component) {
           to: "/resources",
           className: "nav-link"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "nav-icon fas fa-globe"
+          className: "nav-icon fas fa-video"
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Resources"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "nav-item has-treeview"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
@@ -105888,6 +105870,7 @@ var CategoriesListContainer = /*#__PURE__*/function (_Component) {
   }, {
     key: "handlePageChange",
     value: function handlePageChange(pageNumber) {
+      console.log('page', pageNumber);
       this.props.requestCategories(pageNumber);
     }
   }, {
@@ -109211,14 +109194,14 @@ function CategoryWatcher() {
   }, _marked);
 }
 
-function CategorySaga() {
+function CategorySaga(action) {
   var response, categories;
   return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function CategorySaga$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
           _context2.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_categories_api__WEBPACK_IMPORTED_MODULE_4__["getCategories"]);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_categories_api__WEBPACK_IMPORTED_MODULE_4__["getCategories"], action.pageNumber);
 
         case 2:
           response = _context2.sent;
@@ -109605,14 +109588,14 @@ function CategoryTransWatcher() {
   }, _marked);
 }
 
-function CategoryTransSaga() {
+function CategoryTransSaga(action) {
   var response, categoriesTrans;
   return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function CategoryTransSaga$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
           _context2.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_categoriesTrans_api__WEBPACK_IMPORTED_MODULE_4__["getCategoriesTrans"]);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_categoriesTrans_api__WEBPACK_IMPORTED_MODULE_4__["getCategoriesTrans"], action.pageNumber);
 
         case 2:
           response = _context2.sent;
@@ -109941,7 +109924,7 @@ function LanguageSaga(action) {
       switch (_context2.prev = _context2.next) {
         case 0:
           _context2.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_languages_api__WEBPACK_IMPORTED_MODULE_4__["getLanguages"]);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_languages_api__WEBPACK_IMPORTED_MODULE_4__["getLanguages"], action.pageNumber);
 
         case 2:
           response = _context2.sent;
@@ -110802,7 +110785,7 @@ function NewsTransSaga(action) {
         case 0:
           console.log('aaa', action);
           _context2.next = 3;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_newsTrans_api__WEBPACK_IMPORTED_MODULE_4__["getNewsTrans"]);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_newsTrans_api__WEBPACK_IMPORTED_MODULE_4__["getNewsTrans"], action.pageNumber);
 
         case 3:
           response = _context2.sent;
@@ -111135,7 +111118,7 @@ function ProvincesTransSaga(action) {
         case 0:
           console.log('sagaProvince', action);
           _context2.next = 3;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_provinceTrans_api__WEBPACK_IMPORTED_MODULE_4__["getProvincesTrans"]);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_provinceTrans_api__WEBPACK_IMPORTED_MODULE_4__["getProvincesTrans"], action.pageNumber);
 
         case 3:
           response = _context2.sent;
@@ -111464,7 +111447,7 @@ function ProvincesSaga(action) {
       switch (_context2.prev = _context2.next) {
         case 0:
           _context2.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_provinces_api__WEBPACK_IMPORTED_MODULE_4__["getProvinces"]);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_provinces_api__WEBPACK_IMPORTED_MODULE_4__["getProvinces"], action.pageNumber);
 
         case 2:
           response = _context2.sent;
@@ -111792,7 +111775,7 @@ function ResourcesTransSaga(action) {
       switch (_context2.prev = _context2.next) {
         case 0:
           _context2.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_resourcesTrans_api__WEBPACK_IMPORTED_MODULE_4__["getResourcesTrans"]);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_resourcesTrans_api__WEBPACK_IMPORTED_MODULE_4__["getResourcesTrans"], action.pageNumber);
 
         case 2:
           response = _context2.sent;
@@ -112120,7 +112103,7 @@ function ResourcesSaga(action) {
       switch (_context2.prev = _context2.next) {
         case 0:
           _context2.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_resources_api__WEBPACK_IMPORTED_MODULE_4__["getResources"]);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_resources_api__WEBPACK_IMPORTED_MODULE_4__["getResources"], action.pageNumber);
 
         case 2:
           response = _context2.sent;
