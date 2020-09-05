@@ -67,7 +67,7 @@ class ProvinceListContainer extends Component {
     // pagination function
     handlePageChange(pageNumber) {
         
-        this.props.requestNews(pageNumber)
+        this.props.requestProvinces(pageNumber)
     }
 
     hideDiv() {

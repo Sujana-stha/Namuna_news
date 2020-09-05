@@ -105888,7 +105888,7 @@ var CategoriesListContainer = /*#__PURE__*/function (_Component) {
   }, {
     key: "handlePageChange",
     value: function handlePageChange(pageNumber) {
-      this.props.requestNews(pageNumber);
+      this.props.requestCategories(pageNumber);
     }
   }, {
     key: "hideDiv",
@@ -106102,7 +106102,7 @@ var CategoriesTransListContainer = /*#__PURE__*/function (_Component) {
   }, {
     key: "handlePageChange",
     value: function handlePageChange(pageNumber) {
-      this.props.requestNews(pageNumber);
+      this.props.requestCategoriesTranslation(pageNumber);
     }
   }, {
     key: "hideDiv",
@@ -106312,7 +106312,7 @@ var LanguagesListContainer = /*#__PURE__*/function (_Component) {
   }, {
     key: "handlePageChange",
     value: function handlePageChange(pageNumber) {
-      this.props.requestNews(pageNumber);
+      this.props.requestLanguages(pageNumber);
     }
   }, {
     key: "hideDiv",
@@ -106844,7 +106844,7 @@ var NewsTransContainer = /*#__PURE__*/function (_Component) {
   }, {
     key: "handlePageChange",
     value: function handlePageChange(pageNumber) {
-      this.props.requestNews(pageNumber);
+      this.props.requestNewsTranslation(pageNumber);
     }
   }, {
     key: "hideDiv",
@@ -107087,7 +107087,7 @@ var ProvinceListContainer = /*#__PURE__*/function (_Component) {
   }, {
     key: "handlePageChange",
     value: function handlePageChange(pageNumber) {
-      this.props.requestNews(pageNumber);
+      this.props.requestProvinces(pageNumber);
     }
   }, {
     key: "hideDiv",
@@ -107294,7 +107294,7 @@ var ProvincesTransListContainer = /*#__PURE__*/function (_Component) {
   }, {
     key: "handlePageChange",
     value: function handlePageChange(pageNumber) {
-      this.props.requestNews(pageNumber);
+      this.props.requestProvincesTranslation(pageNumber);
     }
   }, {
     key: "hideDiv",
@@ -107499,7 +107499,7 @@ var ResourcesContainer = /*#__PURE__*/function (_Component) {
   }, {
     key: "handlePageChange",
     value: function handlePageChange(pageNumber) {
-      this.props.requestNews(pageNumber);
+      this.props.requestResources(pageNumber);
     }
   }, {
     key: "hideDiv",
@@ -107734,7 +107734,7 @@ var ResourcesTransContainer = /*#__PURE__*/function (_Component) {
   }, {
     key: "handlePageChange",
     value: function handlePageChange(pageNumber) {
-      this.props.requestNews(pageNumber);
+      this.props.requestResourcesTranslation(pageNumber);
     }
   }, {
     key: "hideDiv",

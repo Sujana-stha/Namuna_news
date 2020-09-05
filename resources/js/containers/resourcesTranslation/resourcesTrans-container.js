@@ -60,7 +60,7 @@ class ResourcesTransContainer extends Component {
     // pagination function
     handlePageChange(pageNumber) {
         
-        this.props.requestNews(pageNumber)
+        this.props.requestResourcesTranslation(pageNumber)
     }
 
     hideDiv() {

@@ -73,7 +73,7 @@ class ProvincesTransListContainer extends Component {
     // pagination function
     handlePageChange(pageNumber) {
         
-        this.props.requestNews(pageNumber)
+        this.props.requestProvincesTranslation(pageNumber)
     }
     hideDiv() {
         this.setState({ confirmText: null })

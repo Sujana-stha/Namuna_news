@@ -66,7 +66,7 @@ class LanguagesListContainer extends Component {
     // pagination function
     handlePageChange(pageNumber) {
         
-        this.props.requestNews(pageNumber)
+        this.props.requestLanguages(pageNumber)
     }
     hideDiv() {
         this.setState({ confirmText: null })

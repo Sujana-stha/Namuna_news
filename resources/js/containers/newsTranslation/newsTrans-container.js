@@ -58,7 +58,7 @@ class NewsTransContainer extends Component {
     // pagination function
     handlePageChange(pageNumber) {
         
-        this.props.requestNews(pageNumber)
+        this.props.requestNewsTranslation(pageNumber)
     }
     hideDiv() {
         this.setState({confirmText: null})
