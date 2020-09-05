@@ -10937,6 +10937,30 @@ a.text-dark:focus {
   width: 230px;
 }
 
+.breadcrumbs-wrapper .breadcrumbs-title {
+  text-transform: capitalize;
+  font-weight: bolder;
+}
+
+.breadcrumbs-wrapper .breadcrumb {
+  width: 120px;
+  display: inline-flex;
+}
+
+.breadcrumbs-wrapper .breadcrumb a {
+  text-transform: capitalize;
+}
+
+.breadcrumbs-wrapper .active.breadcrumb {
+  width: 180px;
+}
+
+.breadcrumbs-wrapper .first-item::after {
+  content: "/";
+  color: #000;
+  padding: 0 8px;
+}
+
 .main-sidebar .brand-logo {
   height: 100px;
 }
@@ -11014,5 +11038,18 @@ a.text-dark:focus {
   display: block;
   width: auto;
   height: 100%;
+}
+
+.nm-news-content .add-btn {
+  float: right;
+  margin-bottom: 20px;
+  border-radius: 0px;
+}
+
+.nm-news-content table .news-title {
+  max-width: 350px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 

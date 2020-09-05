@@ -9,7 +9,7 @@ const NewsList = (props) => {
                 return (
                     <tr key={newsList.id} className={`row-${newsList.id}`}>
                         <td>{((props.activePage-1)*props.itemsCountPerPage)+(index+1)}</td>
-                        <td>{newsList.slug == null ? '-': newsList.slug}</td>
+                        <td className="news-title">{newsList.slug == null ? '-': newsList.slug}</td>
                         <td>{newsList.category.slug}</td>
                         <td>{newsList.province.slug}</td>
                         <td>{newsList.author}</td>

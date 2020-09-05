@@ -92,10 +92,10 @@ class NewsContainer extends Component {
             )
         } else {
             return (
-                <div className="nm-content">
+                <div className="nm-content nm-news-content">
                     <div className="row">
                         <div className="col-sm-12 col-md-12">
-                            <NavLink to="/add-news" className="right btn btn-primary"><i className="fas fa-plus"></i> Add News</NavLink>
+                            <NavLink to="/add-news" className="add-btn right btn btn-primary"><i className="fas fa-plus"></i> Add News</NavLink>
                         </div>
                     <div className="col-sm-12 col-md-12 col-lg-12">
                         {/* {this.props.fetching ? (
@@ -107,7 +107,7 @@ class NewsContainer extends Component {
                             <thead>
                                 <tr>
                                     <th>S.N</th>
-                                    <th>Title</th>
+                                    <th className="news-title">Title</th>
                                     <th>Categories</th>
                                     <th>Province</th>
                                     <th>Author</th>
@@ -144,7 +144,8 @@ class NewsContainer extends Component {
                                 onChange={this.handlePageChange}
                                 firstPageText='First'
                                 lastPageText='Last'
-                                
+                                itemClass="page-item"
+                                linkClass="page-link"
                             />
                         </div>
                     </div>
