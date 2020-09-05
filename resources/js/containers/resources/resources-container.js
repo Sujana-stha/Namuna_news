@@ -137,7 +137,8 @@ class ResourcesContainer extends Component {
                                 onChange={this.handlePageChange}
                                 firstPageText='First'
                                 lastPageText='Last'
-                                
+                                itemClass="page-item"
+                                linkClass="page-link"
                             />
                         </div>
                     </div>

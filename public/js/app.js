@@ -105938,7 +105938,9 @@ var CategoriesListContainer = /*#__PURE__*/function (_Component) {
         pageRangeDisplayed: this.props.pageRangeDisplayed,
         onChange: this.handlePageChange,
         firstPageText: "First",
-        lastPageText: "Last"
+        lastPageText: "Last",
+        itemClass: "page-item",
+        linkClass: "page-link"
       })))));
     }
   }]);
@@ -106150,7 +106152,9 @@ var CategoriesTransListContainer = /*#__PURE__*/function (_Component) {
         pageRangeDisplayed: this.props.pageRangeDisplayed,
         onChange: this.handlePageChange,
         firstPageText: "First",
-        lastPageText: "Last"
+        lastPageText: "Last",
+        itemClass: "page-item",
+        linkClass: "page-link"
       })))));
     }
   }]);
@@ -106354,7 +106358,9 @@ var LanguagesListContainer = /*#__PURE__*/function (_Component) {
         pageRangeDisplayed: this.props.pageRangeDisplayed,
         onChange: this.handlePageChange,
         firstPageText: "First",
-        lastPageText: "Last"
+        lastPageText: "Last",
+        itemClass: "page-item",
+        linkClass: "page-link"
       })))));
     }
   }]);
@@ -106921,7 +106927,9 @@ var NewsTransContainer = /*#__PURE__*/function (_Component) {
           pageRangeDisplayed: this.props.pageRangeDisplayed,
           onChange: this.handlePageChange,
           firstPageText: "First",
-          lastPageText: "Last"
+          lastPageText: "Last",
+          itemClass: "page-item",
+          linkClass: "page-link"
         })))));
       }
     }
@@ -107123,7 +107131,9 @@ var ProvinceListContainer = /*#__PURE__*/function (_Component) {
         pageRangeDisplayed: this.props.pageRangeDisplayed,
         onChange: this.handlePageChange,
         firstPageText: "First",
-        lastPageText: "Last"
+        lastPageText: "Last",
+        itemClass: "page-item",
+        linkClass: "page-link"
       }))));
     }
   }]);
@@ -107336,7 +107346,9 @@ var ProvincesTransListContainer = /*#__PURE__*/function (_Component) {
         pageRangeDisplayed: this.props.pageRangeDisplayed,
         onChange: this.handlePageChange,
         firstPageText: "First",
-        lastPageText: "Last"
+        lastPageText: "Last",
+        itemClass: "page-item",
+        linkClass: "page-link"
       })))));
     }
   }]);
@@ -107566,7 +107578,9 @@ var ResourcesContainer = /*#__PURE__*/function (_Component) {
           pageRangeDisplayed: this.props.pageRangeDisplayed,
           onChange: this.handlePageChange,
           firstPageText: "First",
-          lastPageText: "Last"
+          lastPageText: "Last",
+          itemClass: "page-item",
+          linkClass: "page-link"
         })))));
       }
     }
@@ -107803,7 +107817,9 @@ var ResourcesTransContainer = /*#__PURE__*/function (_Component) {
           pageRangeDisplayed: this.props.pageRangeDisplayed,
           onChange: this.handlePageChange,
           firstPageText: "First",
-          lastPageText: "Last"
+          lastPageText: "Last",
+          itemClass: "page-item",
+          linkClass: "page-link"
         })))));
       }
     }
@@ -112460,8 +112476,8 @@ var isLogin = function isLogin() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! F:\xampp\htdocs\namunarestapi\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! F:\xampp\htdocs\namunarestapi\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! E:\Freelancing\Namuna-news\namuna_news\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! E:\Freelancing\Namuna-news\namuna_news\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
