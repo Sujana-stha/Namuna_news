@@ -53,25 +53,19 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
-        if(!$request->wantsJson()) {
-            return response()->json([
-                'error' => 'Accept Header not found with value application/json'
-            ]);
-        }
-
-        if($exception instanceOf ModelNotFoundException && $request->wantsJson()) {
+        if($exception instanceOf ModelNotFoundException) {
             return response()->json([
                 'error' => 'Resource not found'
             ], 404);
         }
 
-        if($exception instanceOf AuthenticationException && $request->wantsJson()) {
+        if($exception instanceOf AuthenticationException) {
             return response()->json([
                 'error' => 'Unauthenticated'
             ], 401);
         }
 
-        if($exception instanceOf MassAssignmentException && $request->wantsJson()) {
+        if($exception instanceOf MassAssignmentException) {
             return response()->json([
                 'error' => 'Fields not set to fillable in specific model'
             ], 401);

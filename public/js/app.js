@@ -100282,7 +100282,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 
-var base_url = "http://127.0.0.1:8000/";
+var base_url = "http://54.254.62.41/";
 var access_token = window.localStorage.getItem('access_token');
 var axiosInstance = axios__WEBPACK_IMPORTED_MODULE_0___default.a.create({
   baseURL: base_url,
@@ -100294,7 +100294,6 @@ var axiosInstance = axios__WEBPACK_IMPORTED_MODULE_0___default.a.create({
 var getHeaders = function getHeaders() {
   var access_token = window.localStorage.getItem('access_token');
   return {
-    Accept: "application/json",
     Authorization: "Bearer ".concat(access_token)
   };
 };
@@ -100585,7 +100584,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
  // import {getHeaders} from './axiosInstance'
 
-var URL = "http://127.0.0.1:8000"; //LOGIN API
+var URL = "http://54.254.62.41"; //LOGIN API
 
 function login(values) {
   console.log('api', values); // const headers = getHeaders
@@ -103350,14 +103349,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var redux_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-form */ "./node_modules/redux-form/es/index.js");
 /* harmony import */ var _autocomplete_field__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../autocomplete-field */ "./resources/js/components/autocomplete-field.js");
-/* harmony import */ var _textEditor_field__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../textEditor-field */ "./resources/js/components/textEditor-field.js");
-/* harmony import */ var _imagePreview__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../imagePreview */ "./resources/js/components/imagePreview.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _imagePreview__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../imagePreview */ "./resources/js/components/imagePreview.js");
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 // Insert Vehicle
-
-
 
 
 
@@ -103463,7 +103458,7 @@ var InsertNews = function InsertNews(props) {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "col-md-6"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Featured Image"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_1__["Field"], {
-    component: _imagePreview__WEBPACK_IMPORTED_MODULE_4__["default"],
+    component: _imagePreview__WEBPACK_IMPORTED_MODULE_3__["default"],
     name: "featured_image",
     type: "file"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_1__["Field"], {
@@ -103807,7 +103802,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var redux_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-form */ "./node_modules/redux-form/es/index.js");
 /* harmony import */ var _autocomplete_field__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../autocomplete-field */ "./resources/js/components/autocomplete-field.js");
-/* harmony import */ var _textEditor_field__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../textEditor-field */ "./resources/js/components/textEditor-field.js");
+/* harmony import */ var _texteditor_field__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../texteditor-field */ "./resources/js/components/texteditor-field.js");
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 // Insert Vehicle
@@ -103874,7 +103869,7 @@ var InsertNewsTrans = function InsertNewsTrans(props) {
     label: "Enter content",
     id: "content",
     name: "content",
-    component: _textEditor_field__WEBPACK_IMPORTED_MODULE_3__["default"]
+    component: _texteditor_field__WEBPACK_IMPORTED_MODULE_3__["default"]
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-footer"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -103917,7 +103912,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var redux_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-form */ "./node_modules/redux-form/es/index.js");
 /* harmony import */ var _autocomplete_field__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../autocomplete-field */ "./resources/js/components/autocomplete-field.js");
-/* harmony import */ var _textEditor_field__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../textEditor-field */ "./resources/js/components/textEditor-field.js");
+/* harmony import */ var _texteditor_field__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../texteditor-field */ "./resources/js/components/texteditor-field.js");
 /* harmony import */ var _api_newsTrans_api__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../api/newsTrans-api */ "./resources/js/api/newsTrans-api.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -104051,7 +104046,7 @@ var EditNewsTrans = /*#__PURE__*/function (_Component) {
         id: "content",
         name: "content",
         value: "content",
-        component: _textEditor_field__WEBPACK_IMPORTED_MODULE_3__["default"]
+        component: _texteditor_field__WEBPACK_IMPORTED_MODULE_3__["default"]
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-footer"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -105649,9 +105644,9 @@ var ResourcesTransList = function ResourcesTransList(props) {
 
 /***/ }),
 
-/***/ "./resources/js/components/textEditor-field.js":
+/***/ "./resources/js/components/texteditor-field.js":
 /*!*****************************************************!*\
-  !*** ./resources/js/components/textEditor-field.js ***!
+  !*** ./resources/js/components/texteditor-field.js ***!
   \*****************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
