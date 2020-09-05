@@ -12,7 +12,7 @@ export function* ProvincesTransWatcher() {
 }
 function* ProvincesTransSaga(action) {
     console.log('sagaProvince', action);
-    const response = yield call(api.getProvincesTrans);
+    const response = yield call(api.getProvincesTrans, action.pageNumber);
     console.log('catPror', response)
     const provincesTrans = response
     if (response.errors) {

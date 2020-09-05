@@ -67,7 +67,7 @@ class ProvinceListContainer extends Component {
     // pagination function
     handlePageChange(pageNumber) {
         
-        this.props.requestNews(pageNumber)
+        this.props.requestProvinces(pageNumber)
     }
 
     hideDiv() {
@@ -133,7 +133,8 @@ class ProvinceListContainer extends Component {
                                 onChange={this.handlePageChange}
                                 firstPageText='First'
                                 lastPageText='Last'
-                                
+                                itemClass="page-item"
+                                linkClass="page-link"
                             />
                     </div>
                 </div>

@@ -54,7 +54,7 @@ class ResourcesContainer extends Component {
     // pagination function
     handlePageChange(pageNumber) {
         
-        this.props.requestNews(pageNumber)
+        this.props.requestResources(pageNumber)
     }
     hideDiv() {
         this.setState({confirmText: null})
@@ -137,7 +137,8 @@ class ResourcesContainer extends Component {
                                 onChange={this.handlePageChange}
                                 firstPageText='First'
                                 lastPageText='Last'
-                                
+                                itemClass="page-item"
+                                linkClass="page-link"
                             />
                         </div>
                     </div>

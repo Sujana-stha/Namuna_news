@@ -10,8 +10,8 @@ import {notify} from 'react-notify-toast';
 export function* CategoryTransWatcher() {
     yield takeLatest(types.REQUEST_CATEGORIES_TRANSLATION, CategoryTransSaga)
 }
-function* CategoryTransSaga() {
-    const response = yield call(api.getCategoriesTrans);
+function* CategoryTransSaga(action) {
+    const response = yield call(api.getCategoriesTrans, action.pageNumber);
     console.log('cat', response)
     const categoriesTrans = response
     if (response.errors) {

@@ -58,7 +58,7 @@ class NewsTransContainer extends Component {
     // pagination function
     handlePageChange(pageNumber) {
         
-        this.props.requestNews(pageNumber)
+        this.props.requestNewsTranslation(pageNumber)
     }
     hideDiv() {
         this.setState({confirmText: null})
@@ -148,7 +148,8 @@ class NewsTransContainer extends Component {
                                 onChange={this.handlePageChange}
                                 firstPageText='First'
                                 lastPageText='Last'
-                                
+                                itemClass="page-item"
+                                linkClass="page-link"
                             />
                         </div>
                     </div>

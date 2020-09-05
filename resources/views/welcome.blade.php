@@ -12,17 +12,17 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         
         <!-- Font Awesome -->
-        <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+        <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
         <!-- Ionicons -->
         <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
         <!-- iCheck -->
-        <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+        <link rel="stylesheet" href="{{asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
         
         <!-- Theme style -->
-        <link rel="stylesheet" href="dist/css/adminlte.min.css">
+        <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
         <!-- overlayScrollbars -->
-        <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-        <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" href="{{asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
+        <link rel="stylesheet" href="{{asset('css/app.css')}}" type="text/css">
        
     </head>
     <body  class="hold-transition sidebar-mini layout-fixed">
@@ -30,7 +30,7 @@
         <!-- ================================================
 	    Scripts
 	    ================================================ -->
-		<script src="js/app.js"></script>
+		<script src="{{asset('js/app.js')}}"></script>
         <!-- jQuery -->
         <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
         
@@ -42,11 +42,11 @@
         
         
         <!-- AdminLTE App -->
-        <script src="dist/js/adminlte.js"></script>
+        <script src="{{asset('dist/js/adminlte.js')}}"></script>
         <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-        <script src="dist/js/pages/dashboard.js"></script>
+        <script src="{{asset('dist/js/pages/dashboard.js')}}"></script>
         <!-- AdminLTE for demo purposes -->
-        <script src="dist/js/demo.js"></script>
+        <script src="{{asset('dist/js/demo.js')}}"></script>
         
     </body>
 </html>

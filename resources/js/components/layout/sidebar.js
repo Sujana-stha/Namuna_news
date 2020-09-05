@@ -8,7 +8,7 @@ class Sidebar extends Component {
             <aside className="main-sidebar sidebar-dark-primary elevation-4">
                 {/* <!-- Brand Logo --> */}
                 <a href="# " className="brand-link brand-logo">
-                    <img src="/dist/img/Namuna News English Logo.png" alt="Namuna News Logo" className=" img-fluid" />
+                    <img src="/dist/img/Namuna News English Logo - White.png" alt="Namuna News Logo" className=" img-fluid" />
                     {/* <span className="brand-text font-weight-light">AdminLTE 3</span> */}
                 </a>
 
@@ -54,10 +54,10 @@ class Sidebar extends Component {
                                     <i className="nav-icon fas fa-chart-pie"></i>
                                     <p>
                                         Categories
-                                        <i className="right fas fa-angle-left"></i>
+                                        {/* <i className="right fas fa-angle-left"></i> */}
                                     </p>
                                 </NavLink>
-                                <ul className="nav nav-treeview">
+                                {/* <ul className="nav nav-treeview">
                                     <li className="nav-item">
                                         <a href="pages/charts/chartjs.html" className="nav-link">
                                             <i className="far fa-circle nav-icon"></i>
@@ -70,7 +70,7 @@ class Sidebar extends Component {
                                             <p>Add Categories</p>
                                         </a>
                                     </li>
-                                </ul>
+                                </ul> */}
                             </li>
                             <li className="nav-item has-treeview">
                                 <NavLink to="/categrories-translation" className="nav-link">
@@ -83,7 +83,7 @@ class Sidebar extends Component {
                             </li>
                             <li className="nav-item has-treeview">
                                 <NavLink to="/languages" className="nav-link">
-                                    <i className="nav-icon fas fa-globe"></i>
+                                    <i className="nav-icon fas fa-language"></i>
                                     <p>
                                         Languages
                                     </p>
@@ -92,7 +92,7 @@ class Sidebar extends Component {
                             </li>
                             <li className="nav-item has-treeview">
                                 <NavLink to="/news" className="nav-link">
-                                    <i className="nav-icon fas fa-globe"></i>
+                                    <i className="nav-icon far fa-newspaper"></i>
                                     <p>
                                         News
                                     </p>
@@ -109,7 +109,7 @@ class Sidebar extends Component {
                             </li>
                             <li className="nav-item has-treeview">
                                 <NavLink to="/provinces" className="nav-link">
-                                    <i className="nav-icon fas fa-globe"></i>
+                                    <i className="nav-icon far fa-map"></i>
                                     <p>
                                         Provinces
                                     </p>
@@ -125,7 +125,7 @@ class Sidebar extends Component {
                             </li>
                             <li className="nav-item has-treeview">
                                 <NavLink to="/resources" className="nav-link">
-                                    <i className="nav-icon fas fa-globe"></i>
+                                    <i className="nav-icon fas fa-video"></i>
                                     <p>
                                         Resources
                                     </p>

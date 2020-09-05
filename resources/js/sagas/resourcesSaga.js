@@ -12,7 +12,7 @@ export function* ResourcesWatcher() {
 }
 function* ResourcesSaga(action) {
     
-    const response = yield call(api.getResources);
+    const response = yield call(api.getResources, action.pageNumber);
     console.log('cat', response)
     const resources = response
     if (response.errors) {

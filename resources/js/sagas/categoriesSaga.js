@@ -10,8 +10,8 @@ import {notify} from 'react-notify-toast';
 export function* CategoryWatcher() {
     yield takeLatest(types.REQUEST_CATEGORIES, CategorySaga)
 }
-function* CategorySaga() {
-    const response = yield call(api.getCategories);
+function* CategorySaga(action) {
+    const response = yield call(api.getCategories, action.pageNumber);
     console.log('cat', response)
     const categories = response
     if (response.errors) {

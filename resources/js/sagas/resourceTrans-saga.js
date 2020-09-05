@@ -12,7 +12,7 @@ export function* ResourcesTransWatcher() {
 }
 function* ResourcesTransSaga(action) {
     
-    const response = yield call(api.getResourcesTrans);
+    const response = yield call(api.getResourcesTrans, action.pageNumber);
     console.log('cat', response)
     const resourcesTrans = response
     if (response.errors) {

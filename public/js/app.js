@@ -103074,7 +103074,7 @@ var Sidebar = /*#__PURE__*/function (_Component) {
           href: "# ",
           className: "brand-link brand-logo"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          src: "/dist/img/Namuna News English Logo.png",
+          src: "/dist/img/Namuna News English Logo - White.png",
           alt: "Namuna News Logo",
           className: " img-fluid"
         })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -103129,25 +103129,7 @@ var Sidebar = /*#__PURE__*/function (_Component) {
           className: "nav-link"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "nav-icon fas fa-chart-pie"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Categories", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "right fas fa-angle-left"
-        }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-          className: "nav nav-treeview"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          className: "nav-item"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-          href: "pages/charts/chartjs.html",
-          className: "nav-link"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "far fa-circle nav-icon"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Categories List"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          className: "nav-item"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-          href: "pages/charts/flot.html",
-          className: "nav-link"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "far fa-circle nav-icon"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Add Categories"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Categories"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "nav-item has-treeview"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
           to: "/categrories-translation",
@@ -103160,14 +103142,14 @@ var Sidebar = /*#__PURE__*/function (_Component) {
           to: "/languages",
           className: "nav-link"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "nav-icon fas fa-globe"
+          className: "nav-icon fas fa-language"
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Languages"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "nav-item has-treeview"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
           to: "/news",
           className: "nav-link"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "nav-icon fas fa-globe"
+          className: "nav-icon far fa-newspaper"
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "News"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "nav-item has-treeview"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
@@ -103181,7 +103163,7 @@ var Sidebar = /*#__PURE__*/function (_Component) {
           to: "/provinces",
           className: "nav-link"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "nav-icon fas fa-globe"
+          className: "nav-icon far fa-map"
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Provinces"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "nav-item has-treeview"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
@@ -103195,7 +103177,7 @@ var Sidebar = /*#__PURE__*/function (_Component) {
           to: "/resources",
           className: "nav-link"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "nav-icon fas fa-globe"
+          className: "nav-icon fas fa-video"
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Resources"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "nav-item has-treeview"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
@@ -103777,7 +103759,9 @@ var NewsList = function NewsList(props) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
       key: newsList.id,
       className: "row-".concat(newsList.id)
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, (props.activePage - 1) * props.itemsCountPerPage + (index + 1)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsList.slug == null ? '-' : newsList.slug), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsList.category.slug), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsList.province.slug), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsList.author), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsList.news_label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsList.status), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, (props.activePage - 1) * props.itemsCountPerPage + (index + 1)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+      className: "news-title"
+    }, newsList.slug == null ? '-' : newsList.slug), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsList.category.slug), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsList.province.slug), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsList.author), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsList.news_label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsList.status), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
       className: "action"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
       to: "/edit-news",
@@ -105881,7 +105865,8 @@ var CategoriesListContainer = /*#__PURE__*/function (_Component) {
   }, {
     key: "handlePageChange",
     value: function handlePageChange(pageNumber) {
-      this.props.requestNews(pageNumber);
+      console.log('page', pageNumber);
+      this.props.requestCategories(pageNumber);
     }
   }, {
     key: "hideDiv",
@@ -105931,7 +105916,9 @@ var CategoriesListContainer = /*#__PURE__*/function (_Component) {
         pageRangeDisplayed: this.props.pageRangeDisplayed,
         onChange: this.handlePageChange,
         firstPageText: "First",
-        lastPageText: "Last"
+        lastPageText: "Last",
+        itemClass: "page-item",
+        linkClass: "page-link"
       })))));
     }
   }]);
@@ -106093,7 +106080,7 @@ var CategoriesTransListContainer = /*#__PURE__*/function (_Component) {
   }, {
     key: "handlePageChange",
     value: function handlePageChange(pageNumber) {
-      this.props.requestNews(pageNumber);
+      this.props.requestCategoriesTranslation(pageNumber);
     }
   }, {
     key: "hideDiv",
@@ -106143,7 +106130,9 @@ var CategoriesTransListContainer = /*#__PURE__*/function (_Component) {
         pageRangeDisplayed: this.props.pageRangeDisplayed,
         onChange: this.handlePageChange,
         firstPageText: "First",
-        lastPageText: "Last"
+        lastPageText: "Last",
+        itemClass: "page-item",
+        linkClass: "page-link"
       })))));
     }
   }]);
@@ -106301,7 +106290,7 @@ var LanguagesListContainer = /*#__PURE__*/function (_Component) {
   }, {
     key: "handlePageChange",
     value: function handlePageChange(pageNumber) {
-      this.props.requestNews(pageNumber);
+      this.props.requestLanguages(pageNumber);
     }
   }, {
     key: "hideDiv",
@@ -106347,7 +106336,9 @@ var LanguagesListContainer = /*#__PURE__*/function (_Component) {
         pageRangeDisplayed: this.props.pageRangeDisplayed,
         onChange: this.handlePageChange,
         firstPageText: "First",
-        lastPageText: "Last"
+        lastPageText: "Last",
+        itemClass: "page-item",
+        linkClass: "page-link"
       })))));
     }
   }]);
@@ -106639,21 +106630,23 @@ var NewsContainer = /*#__PURE__*/function (_Component) {
         })));
       } else {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "nm-content"
+          className: "nm-content nm-news-content"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "row"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "col-sm-12 col-md-12"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
           to: "/add-news",
-          className: "right btn btn-primary"
+          className: "add-btn right btn btn-primary"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fas fa-plus"
         }), " Add News")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "col-sm-12 col-md-12 col-lg-12"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
           className: "table table-bordered"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "S.N"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Categories"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Province"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Author"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "News Label"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Status"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Action"))), this.props.news ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_news_news__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "S.N"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
+          className: "news-title"
+        }, "Title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Categories"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Province"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Author"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "News Label"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Status"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Action"))), this.props.news ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_news_news__WEBPACK_IMPORTED_MODULE_9__["default"], {
           news: this.props.news,
           onEditNews: this.editNews,
           confirmText: this.state.confirmText,
@@ -106671,7 +106664,9 @@ var NewsContainer = /*#__PURE__*/function (_Component) {
           pageRangeDisplayed: this.props.pageRangeDisplayed,
           onChange: this.handlePageChange,
           firstPageText: "First",
-          lastPageText: "Last"
+          lastPageText: "Last",
+          itemClass: "page-item",
+          linkClass: "page-link"
         })))));
       }
     }
@@ -106827,7 +106822,7 @@ var NewsTransContainer = /*#__PURE__*/function (_Component) {
   }, {
     key: "handlePageChange",
     value: function handlePageChange(pageNumber) {
-      this.props.requestNews(pageNumber);
+      this.props.requestNewsTranslation(pageNumber);
     }
   }, {
     key: "hideDiv",
@@ -106910,7 +106905,9 @@ var NewsTransContainer = /*#__PURE__*/function (_Component) {
           pageRangeDisplayed: this.props.pageRangeDisplayed,
           onChange: this.handlePageChange,
           firstPageText: "First",
-          lastPageText: "Last"
+          lastPageText: "Last",
+          itemClass: "page-item",
+          linkClass: "page-link"
         })))));
       }
     }
@@ -107068,7 +107065,7 @@ var ProvinceListContainer = /*#__PURE__*/function (_Component) {
   }, {
     key: "handlePageChange",
     value: function handlePageChange(pageNumber) {
-      this.props.requestNews(pageNumber);
+      this.props.requestProvinces(pageNumber);
     }
   }, {
     key: "hideDiv",
@@ -107112,7 +107109,9 @@ var ProvinceListContainer = /*#__PURE__*/function (_Component) {
         pageRangeDisplayed: this.props.pageRangeDisplayed,
         onChange: this.handlePageChange,
         firstPageText: "First",
-        lastPageText: "Last"
+        lastPageText: "Last",
+        itemClass: "page-item",
+        linkClass: "page-link"
       }))));
     }
   }]);
@@ -107273,7 +107272,7 @@ var ProvincesTransListContainer = /*#__PURE__*/function (_Component) {
   }, {
     key: "handlePageChange",
     value: function handlePageChange(pageNumber) {
-      this.props.requestNews(pageNumber);
+      this.props.requestProvincesTranslation(pageNumber);
     }
   }, {
     key: "hideDiv",
@@ -107325,7 +107324,9 @@ var ProvincesTransListContainer = /*#__PURE__*/function (_Component) {
         pageRangeDisplayed: this.props.pageRangeDisplayed,
         onChange: this.handlePageChange,
         firstPageText: "First",
-        lastPageText: "Last"
+        lastPageText: "Last",
+        itemClass: "page-item",
+        linkClass: "page-link"
       })))));
     }
   }]);
@@ -107476,7 +107477,7 @@ var ResourcesContainer = /*#__PURE__*/function (_Component) {
   }, {
     key: "handlePageChange",
     value: function handlePageChange(pageNumber) {
-      this.props.requestNews(pageNumber);
+      this.props.requestResources(pageNumber);
     }
   }, {
     key: "hideDiv",
@@ -107555,7 +107556,9 @@ var ResourcesContainer = /*#__PURE__*/function (_Component) {
           pageRangeDisplayed: this.props.pageRangeDisplayed,
           onChange: this.handlePageChange,
           firstPageText: "First",
-          lastPageText: "Last"
+          lastPageText: "Last",
+          itemClass: "page-item",
+          linkClass: "page-link"
         })))));
       }
     }
@@ -107709,7 +107712,7 @@ var ResourcesTransContainer = /*#__PURE__*/function (_Component) {
   }, {
     key: "handlePageChange",
     value: function handlePageChange(pageNumber) {
-      this.props.requestNews(pageNumber);
+      this.props.requestResourcesTranslation(pageNumber);
     }
   }, {
     key: "hideDiv",
@@ -107792,7 +107795,9 @@ var ResourcesTransContainer = /*#__PURE__*/function (_Component) {
           pageRangeDisplayed: this.props.pageRangeDisplayed,
           onChange: this.handlePageChange,
           firstPageText: "First",
-          lastPageText: "Last"
+          lastPageText: "Last",
+          itemClass: "page-item",
+          linkClass: "page-link"
         })))));
       }
     }
@@ -109184,14 +109189,14 @@ function CategoryWatcher() {
   }, _marked);
 }
 
-function CategorySaga() {
+function CategorySaga(action) {
   var response, categories;
   return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function CategorySaga$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
           _context2.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_categories_api__WEBPACK_IMPORTED_MODULE_4__["getCategories"]);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_categories_api__WEBPACK_IMPORTED_MODULE_4__["getCategories"], action.pageNumber);
 
         case 2:
           response = _context2.sent;
@@ -109578,14 +109583,14 @@ function CategoryTransWatcher() {
   }, _marked);
 }
 
-function CategoryTransSaga() {
+function CategoryTransSaga(action) {
   var response, categoriesTrans;
   return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function CategoryTransSaga$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
           _context2.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_categoriesTrans_api__WEBPACK_IMPORTED_MODULE_4__["getCategoriesTrans"]);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_categoriesTrans_api__WEBPACK_IMPORTED_MODULE_4__["getCategoriesTrans"], action.pageNumber);
 
         case 2:
           response = _context2.sent;
@@ -109914,7 +109919,7 @@ function LanguageSaga(action) {
       switch (_context2.prev = _context2.next) {
         case 0:
           _context2.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_languages_api__WEBPACK_IMPORTED_MODULE_4__["getLanguages"]);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_languages_api__WEBPACK_IMPORTED_MODULE_4__["getLanguages"], action.pageNumber);
 
         case 2:
           response = _context2.sent;
@@ -110775,7 +110780,7 @@ function NewsTransSaga(action) {
         case 0:
           console.log('aaa', action);
           _context2.next = 3;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_newsTrans_api__WEBPACK_IMPORTED_MODULE_4__["getNewsTrans"]);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_newsTrans_api__WEBPACK_IMPORTED_MODULE_4__["getNewsTrans"], action.pageNumber);
 
         case 3:
           response = _context2.sent;
@@ -111108,7 +111113,7 @@ function ProvincesTransSaga(action) {
         case 0:
           console.log('sagaProvince', action);
           _context2.next = 3;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_provinceTrans_api__WEBPACK_IMPORTED_MODULE_4__["getProvincesTrans"]);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_provinceTrans_api__WEBPACK_IMPORTED_MODULE_4__["getProvincesTrans"], action.pageNumber);
 
         case 3:
           response = _context2.sent;
@@ -111437,7 +111442,7 @@ function ProvincesSaga(action) {
       switch (_context2.prev = _context2.next) {
         case 0:
           _context2.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_provinces_api__WEBPACK_IMPORTED_MODULE_4__["getProvinces"]);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_provinces_api__WEBPACK_IMPORTED_MODULE_4__["getProvinces"], action.pageNumber);
 
         case 2:
           response = _context2.sent;
@@ -111765,7 +111770,7 @@ function ResourcesTransSaga(action) {
       switch (_context2.prev = _context2.next) {
         case 0:
           _context2.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_resourcesTrans_api__WEBPACK_IMPORTED_MODULE_4__["getResourcesTrans"]);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_resourcesTrans_api__WEBPACK_IMPORTED_MODULE_4__["getResourcesTrans"], action.pageNumber);
 
         case 2:
           response = _context2.sent;
@@ -112093,7 +112098,7 @@ function ResourcesSaga(action) {
       switch (_context2.prev = _context2.next) {
         case 0:
           _context2.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_resources_api__WEBPACK_IMPORTED_MODULE_4__["getResources"]);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_resources_api__WEBPACK_IMPORTED_MODULE_4__["getResources"], action.pageNumber);
 
         case 2:
           response = _context2.sent;
@@ -112449,8 +112454,8 @@ var isLogin = function isLogin() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! F:\xampp\htdocs\namunarestapi\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! F:\xampp\htdocs\namunarestapi\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! E:\Freelancing\Namuna-news\namuna_news\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! E:\Freelancing\Namuna-news\namuna_news\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

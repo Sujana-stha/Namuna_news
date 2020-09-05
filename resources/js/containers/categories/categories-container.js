@@ -77,8 +77,8 @@ class CategoriesListContainer extends Component {
     }
     // pagination function
     handlePageChange(pageNumber) {
-        
-        this.props.requestNews(pageNumber)
+        console.log('page',pageNumber)
+        this.props.requestCategories(pageNumber)
     }
 
     hideDiv() {
@@ -148,7 +148,8 @@ class CategoriesListContainer extends Component {
                                 onChange={this.handlePageChange}
                                 firstPageText='First'
                                 lastPageText='Last'
-                                
+                                itemClass="page-item"
+                                linkClass="page-link"
                             />
                         </div>
                     </div>

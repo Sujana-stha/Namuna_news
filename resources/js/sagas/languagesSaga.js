@@ -12,7 +12,7 @@ export function* LanguageWatcher() {
 }
 function* LanguageSaga(action) {
     
-    const response = yield call(api.getLanguages);
+    const response = yield call(api.getLanguages, action.pageNumber);
     console.log('cat', response)
     const languages = response
     if (response.errors) {
