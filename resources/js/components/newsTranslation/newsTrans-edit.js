@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import AutocompleteField from '../autocomplete-field';
-import TextEditorField from '../textEditor-field';
+import TextEditorField from '../texteditor-field';
 import * as newsTransApi from '../../api/newsTrans-api'
 
 class EditNewsTrans extends Component {
