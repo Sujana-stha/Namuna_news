@@ -20,13 +20,8 @@ export const isLogin = () => {
     } else {
         if(now-setupTime > hours*60*60*1000) {
             localStorage.clear()
-            // localStorage.setItem('setupTime', now);
         }
         return false;
     }
-    // if (localStorage.getItem('access-token')) {
-    //     return true;
-    // }
-
-    // return false;
+    
 }

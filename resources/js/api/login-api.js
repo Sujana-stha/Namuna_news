@@ -15,3 +15,15 @@ export function login(values) {
         }
     });
 }
+
+//LOGOUT API
+export function logout() {
+    const access_token = window.localStorage.getItem('access_token')
+    const headers = {Accept: "application/json", Authorization: `Bearer ${access_token}`};
+    return axios.post('/api/auth/logout',{},{headers: {...headers}})
+    .catch(error=> {
+        return {
+            errors: error
+        }
+    })
+}

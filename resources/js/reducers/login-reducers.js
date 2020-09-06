@@ -19,6 +19,17 @@ const loginReducer = function (state = initialState, action) {
                 requesting: false,
                 isAuthenticated: true,
             }
+        case types.LOGOUT_SUCCESS:
+            return {
+                requesting: false,
+                isAuthenticated: false,
+            }
+        case types.LOGOUT_ERROR:
+            return {
+                requesting: false,
+                isAuthenticated: true,
+            }
+        
         default:
         return state;
     }

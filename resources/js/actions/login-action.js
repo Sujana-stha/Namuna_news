@@ -15,3 +15,15 @@ export function loginSuccess(data) {
         data
     }
 }
+
+export function logoutRequest(){
+    return {
+        type: types.LOGOUT_REQUEST
+    }
+}
+
+export function logout() {
+    return {
+        type: types.LOGOUT_SUCCESS
+    }
+}
