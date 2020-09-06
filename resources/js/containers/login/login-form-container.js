@@ -1,11 +1,21 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {loginRequest} from '../../actions/login-action';
+import loadjs from 'loadjs';
 
 //COMPONENTS
 import LoginForm from '../../components/login/login-form';
 
 class LoginFormContainer extends Component {
+    componentDidMount() {
+        loadjs('/plugins/jquery/jquery.min.js', function () {
+            loadjs('/plugins/bootstrap/js/bootstrap.bundle.min.js', function() {
+                loadjs('/dist/js/adminlte.min.js', function() {
+                        loadjs('/dist/js/demo.js');
+                    })
+            })
+        })
+    }
     onSubmit(values) {
         console.log(values);
         this.props.loginRequest(values);
