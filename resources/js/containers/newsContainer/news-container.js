@@ -42,14 +42,16 @@ class NewsContainer extends Component {
 
     // edit functions
     editNews(values) {
-        console.log('news-id', values)
         this.setState ({
             isEditing : values
         })
     }
     submitEditNews(values) {
+        console.log('addsf-values', values)
         const pageNumber = this.props.activePage;
-        
+        if ( typeof values.category_id === 'string') { values.category_id = values.category_id } else { values.category_id = values.category_id.value }
+        if ( typeof values.province_id === 'string') { values.province_id = values.province_id } else { values.province_id = values.province_id.value }
+
         this.props.requestUpdateNews(values, pageNumber);
         this.setState({
             isEditing: false
@@ -70,10 +72,21 @@ class NewsContainer extends Component {
         this.setState({confirmText: null})
     }
     render() {
-        console.log("comp-prop", this.props)
         if(this.props.match.path === "/edit-news") {
             return (
-                <EditNews onSubmit={this.submitEditNews.bind(this)} editId= {this.state.isEditing}/>
+                <div className="nm-content">
+                    <div className="row">
+                        <div className="col-sm-12 col-md-12">
+                            <NavLink to="/news" className="btn btn-primary"><i className="fas fa-list"></i> All News</NavLink>
+                        </div>
+                        <EditNews 
+                        categories ={this.props.categories}
+                        provinces = {this.props.provinces}
+                        editId= {this.state.isEditing}
+                        activePage={this.props.activePage} 
+                        />
+                    </div>  
+                </div>
             )
         } else if(this.props.match.path ==="/add-news") {
             return (

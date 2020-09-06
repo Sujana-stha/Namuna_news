@@ -57,6 +57,7 @@ export function* editCategoriesTransSaga() {
 
 function* callEditCategoryTrans (action) {
     yield put(startSubmit('EditCategoriesTrans'));
+    console.log(action);
     let error = {};
     const result =  yield call(api.updateCategoriesTrans, action.values.id, action.values);
     const resp = result.data;

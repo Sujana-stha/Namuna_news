@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
-});
+}); 
 
 Route::group(['prefix' => 'auth'], function () {
     Route::post('login', 'AuthController@login');
@@ -25,7 +25,6 @@ Route::group(['prefix' => 'auth'], function () {
     Route::post('me', 'AuthController@me');
     Route::post('register', 'AuthController@register');
 });
-
 
 // Get all latest data
 Route::get('/languages/all', 'MasterGetController@getLanguages')->name('languages.all');

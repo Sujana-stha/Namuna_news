@@ -8,20 +8,8 @@ const CategoriesTransList = (props) => {
                     <tr key={categoryTrans.id} className={`row-${categoryTrans.id}`}>
                         <td>{((props.activePage-1)*props.itemsCountPerPage)+(index+1)}</td>
                         <td>{categoryTrans.title == null ? '-': categoryTrans.title}</td>
-                        <td>{props.categories.map(category => {
-                            if(categoryTrans.category_id == category.id) {
-                                return (
-                                <span key={category.id}>{category.slug}</span>
-                                )
-                            } 
-                        })}</td>
-                        <td>{props.languages.map(language => {
-                            if(categoryTrans.language_id == language.id) {
-                                return (
-                                <span key={language.id}>{language.language}</span>
-                                )
-                            } 
-                        })}</td>
+                        <td>{ categoryTrans.category.slug }</td>
+                        <td>{ categoryTrans.language.language }</td>
                         <td className="action">
                             <button type="button" onClick={props.onEditCategoryTrans.bind(null, categoryTrans.id)} className="btn btn-info btn-sm">Edit</button>
                             <button type="button" onClick={()=>props.showConfirmBox( categoryTrans.id)}  className="btn btn-danger btn-sm nm-delete-btn">Delete</button>

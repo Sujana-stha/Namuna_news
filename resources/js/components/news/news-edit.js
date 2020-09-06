@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import AutocompleteField from '../autocomplete-field';
-import ImagePreviewField from '../imagePreview';
+import EditImagePreviewField from '../editImagePreview';
 import { connect } from 'react-redux';
 import * as newsApi from '../../api/news-api'
+import {requestUpdateNews} from '../../actions/news-action';
 
 class EditNews extends Component {
     componentDidMount() {
@@ -20,6 +21,7 @@ class EditNews extends Component {
                 keywords: data.keywords,
                 author: data.author,
                 news_label: data.news_label,
+                featured_image: data.featured_image,
                 id: data.id
             }
             this.props.initialize(news);
@@ -49,8 +51,18 @@ class EditNews extends Component {
             </div>
         )
     }
+    onSubmit(values) {
+        console.log('addsf-values', values)
+        const pageNumber = this.props.activePage;
+        if ( typeof values.category_id === 'string') { values.category_id = values.category_id } else { values.category_id = values.category_id.value }
+        if ( typeof values.province_id === 'string') { values.province_id = values.province_id } else { values.province_id = values.province_id.value }
+
+        this.props.requestUpdateNews(values, pageNumber);
+        
+    }
+    
     render() {
-        const { handleSubmit } = this.props;
+        // const { handleSubmit } = this.props;
         return (
             <div className="col-md-12 col-xs-12 col-lg-12 col-sm-12">
                 <div className="card card-primary">
@@ -58,7 +70,7 @@ class EditNews extends Component {
                         <h3 className="card-title">Edit News</h3>
                     </div>
 
-                    <form onSubmit={handleSubmit} >
+                    <form onSubmit={this.props.handleSubmit((event) => this.onSubmit(event))} >
                         <div className="card-body">
                             <div className="form-row">
                             <Field
@@ -104,16 +116,19 @@ class EditNews extends Component {
                             />
                             <div className="col-md-6">
                                 <label>Featured Image</label>
-                                <Field component={ImagePreviewField} name="featured_image" type="file" />
+                                <Field value="featured_image" component={EditImagePreviewField} name="featured_image" type="file" />
                             </div>
                             <Field
-                                label="Enter News Label"
-                                id="news-label"
+                                label="Select News Label"
                                 name="news_label"
-                                type="text"
-                                placeholder="Enter News Label"
-                                component={this.renderInputField}
-                            />
+                                component={this.renderSelectField}
+                            >
+                                <option value="">Select News Label</option>
+                                <option value="normal">Normal</option>
+                                <option value="featured">Featured</option>
+                                <option value="breaking">Breaking</option>
+
+                            </Field>
                             </div>
                         </div>
                         <div className="card-footer">
@@ -130,12 +145,21 @@ function validate(values) {
     console.log('value', values);
     if (!values.slug) {
         errors.slug = "This Field is empty"
-    } else if (values.slug.length > 100) {
-        errors.slug = "Must be 100 character or Less!"
+    } else if (values.slug.length > 400) {
+        errors.slug = "Must be 400 character or Less!"
     }
     return errors;
 }
-export default reduxForm({
+EditNews= reduxForm({
     validate,
     form: 'EditNews'
 })(EditNews);
+
+function mapStateToProps(store) {
+    return {
+        news: store.newsState.news
+        
+    }
+}
+
+export default connect(mapStateToProps, { requestUpdateNews })(EditNews);

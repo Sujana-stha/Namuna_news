@@ -17,7 +17,7 @@ ReactDOM.render(
             <ConnectedRouter history = {history}>
                     <Switch>
                         <Route path="/auth" component={UnauthorizedLayout}/>
-                        <PrivateRoute path="/" component={DashboardLayout}/>
+                        <Route path="/" component={DashboardLayout}/>
                         <Redirect to="/auth"/>
                     </Switch>
             </ConnectedRouter>

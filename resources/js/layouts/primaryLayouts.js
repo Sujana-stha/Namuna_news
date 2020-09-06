@@ -29,12 +29,9 @@ class DashboardLayout extends Component {
         loadjs('/plugins/jquery/jquery.min.js', function () {
                 loadjs('/plugins/bootstrap/js/bootstrap.bundle.min.js', function() {
                     loadjs('/dist/js/adminlte.min.js', function() {
-                        
                             loadjs('/dist/js/demo.js');
                         })
-                    
                 })
-           
         })
     }
     render() {

@@ -121,6 +121,8 @@ class CategoriesTransListContainer extends Component {
                                     deleteCategoryTrans={this.props.requestDeleteCategoriesTranslation}
                                     categories={this.props.categories}
                                     languages={this.props.languages}
+                                    activePage={this.props.activePage}
+                                    itemsCountPerPage={this.props.itemsCountPerPage}
                                 />
 
                             ) : (

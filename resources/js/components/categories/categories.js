@@ -9,7 +9,7 @@ const CategoriesList = (props) => {
                     <tr key={category.id} className={`row-${category.id}`}>
                         <td>{((props.activePage-1)*props.itemsCountPerPage)+(index+1)}</td>
                         <td>{category.slug == null ? '-': category.slug}</td>
-                        <td>{category.parent =="No Parent" ? '-': category.parent}</td>
+                        <td>{category.parent =="None" ? '-': category.parent}</td>
                         <td className="action">
                             <button type="button" onClick={props.onEditCategory.bind(null, category.id)} className="btn btn-info btn-sm">Edit</button>
                             <button type="button" onClick={()=>props.showConfirmBox( category.id)}  className="btn btn-danger btn-sm nm-delete-btn">Delete</button>

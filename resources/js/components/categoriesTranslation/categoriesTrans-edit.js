@@ -7,9 +7,10 @@ class EditCategoryTrans extends Component {
 
         const id = this.props.editId;
         categoryTransApi.getSingleCategoriesTrans(id).then((response) => {
-            const data = response.data;
+            const data = response.data.data;
             console.log('data', data)
-            this.props.initialize(data);
+            const category = {'id': data.id, 'category_id': data.category.id, 'language_id': data.language.id, 'title': data.title}
+            this.props.initialize(category);
         })
     }
 

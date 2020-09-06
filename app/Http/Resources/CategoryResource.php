@@ -18,7 +18,8 @@ class CategoryResource extends JsonResource
         return [
             'id' => $this->id,
             'slug' => $this->slug,
-            'parent' => ($this->parent_id !== 0) ? Category::find($this->parent_id)->slug : 'No Parent',
+            'parent_id'=>$this->parent_id,
+            'parent' => ($this->parent_id !== 0) ? Category::find($this->parent_id)->slug : 'None',
             'display_status' => $this->display_status,
             'order' => $this->order,
             'category-translations' => [

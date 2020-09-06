@@ -53,29 +53,26 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Throwable $exception)
     {
-        if($exception instanceOf ModelNotFoundException) {
-            return response()->json([
-                'error' => 'Resource not found'
-            ], 404);
-        }
+        // if($exception instanceOf ModelNotFoundException) {
+        //     return response()->json([
+        //         'error' => 'Resource not found'
+        //     ], 404);
+        // }
 
-        if($exception instanceOf AuthenticationException) {
-            return response()->json([
-                'error' => 'Unauthenticated'
-            ], 401);
-        }
+        // if($exception instanceOf AuthenticationException) {
+        //     return response()->json([
+        //         'error' => 'Unauthenticated'
+        //     ], 401);
 
-        if($exception instanceOf MassAssignmentException) {
-            return response()->json([
-                'error' => 'Fields not set to fillable in specific model'
-            ], 401);
-        }
+        //     return redirect()->guest('login');
+        // }
+
+        // if($exception instanceOf MassAssignmentException) {
+        //     return response()->json([
+        //         'error' => 'Fields not set to fillable in specific model'
+        //     ], 401);
+        // }
 
         return parent::render($request, $exception);
-    }
-
-    protected function unauthenticated($request, AuthenticationException $exception)
-    {
-        return response()->json(['error' => 'Unauthenticated'], 401);
     }
 }

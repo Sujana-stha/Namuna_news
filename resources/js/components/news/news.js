@@ -14,6 +14,7 @@ const NewsList = (props) => {
                         <td>{newsList.province.slug}</td>
                         <td>{newsList.author}</td>
                         <td>{newsList.news_label}</td>
+                        <td><img src={newsList.featured_image} width="100" /></td>
                         <td>{newsList.status}</td>
                         <td className="action">
                             <Link to="/edit-news" onClick={props.onEditNews.bind(null, newsList.id)} className="btn btn-info btn-sm">Edit</Link>
