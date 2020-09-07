@@ -103030,7 +103030,7 @@ var Header = function Header(props) {
     }), "Alexander"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "dropdown-divider"
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-      href: "# ",
+      href: "#",
       className: "dropdown-item",
       onClick: props.logoutRequest
     }, "Logout"))))) // {/* <!-- /.navbar --> */}
@@ -103529,7 +103529,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var redux_form__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-form */ "./node_modules/redux-form/es/index.js");
 /* harmony import */ var _autocomplete_field__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../autocomplete-field */ "./resources/js/components/autocomplete-field.js");
-/* harmony import */ var _editImagePreview__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../editImagePreview */ "./resources/js/components/editImagePreview.js");
+/* harmony import */ var _editImagePreview__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../editImagePreview */ "./resources/js/components/editImagePreview.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _api_news_api__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../api/news-api */ "./resources/js/api/news-api.js");
 /* harmony import */ var _actions_news_action__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../actions/news-action */ "./resources/js/actions/news-action.js");
@@ -103739,7 +103739,7 @@ var EditNews = /*#__PURE__*/function (_Component) {
         className: "col-md-6"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Featured Image"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_1__["Field"], {
         value: "featured_image",
-        component: _editImagePreview__WEBPACK_IMPORTED_MODULE_7__["default"],
+        component: _editImagePreview__WEBPACK_IMPORTED_MODULE_3__["default"],
         name: "featured_image",
         type: "file"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_1__["Field"], {

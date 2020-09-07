@@ -57,7 +57,7 @@ class NewsController extends Controller
             "status"=>$request->status,
             "order"=>News::max('order')+1,
             "keywords"=>$request->keywords,
-            "author_id"=>auth()->id(),
+            "author_id"=>1,
             "news_label"=>$request->news_label,
             "featured_image"=>$featured_image,
         ]);
@@ -101,10 +101,21 @@ class NewsController extends Controller
         if($request->file('featured_image')) {
             \Storage::delete($featured_image);
             $featured_image = $request->file('featured_image')->store('public/news');
-            $news->update(['featured_image'=>$featured_image]);
         }
 
-        $news->update($request->except('featured_image'));
+        $news->update([
+            "slug"=>$request->slug,
+            "category_id"=>$request->category_id,
+            "province_id"=>$request->province_id,
+            "status"=>$request->status,
+            "order"=>$news->order,
+            "keywords"=>$request->keywords,
+            "author_id"=>1,
+            "news_label"=>$request->news_label,
+            "featured_image"=>$featured_image,
+        ]);
+
+        // $news->update($request->except('featured_image'));
 
         return response(['success'=>'News updated successfully'], 200);
     }

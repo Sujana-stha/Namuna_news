@@ -74,10 +74,9 @@ const Header = (props) => {
            
                         </a>
                         <div className="dropdown-divider"></div>
-                        <a href="# " className="dropdown-item" onClick={props.logoutRequest}>
+                        <a href="#" className="dropdown-item" onClick={props.logoutRequest}>
                             Logout
                         </a>
-                        
                     </div>
                 </li>
             </ul>
