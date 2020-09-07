@@ -105625,7 +105625,7 @@ function validate(values) {
   if (!values.type) {
     errors.type = "This field is empty.";
   } else if (values.type.length > 100) {
-    errors.type = "Must be 100 character or less!";
+    errors.type = "Must be 30 character or less!";
   }
 
   return errors;
