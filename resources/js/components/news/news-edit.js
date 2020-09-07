@@ -68,7 +68,7 @@ class EditNews extends Component {
                         <h3 className="card-title">Edit News</h3>
                     </div>
 
-                    <form onSubmit={handleSubmit} >
+                    <form onSubmit={handleSubmit} encType="x-www-form-urlencoded">
                         <div className="card-body">
                             <div className="form-row">
                             <Field

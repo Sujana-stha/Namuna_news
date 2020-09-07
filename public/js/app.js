@@ -100726,11 +100726,12 @@ function newsDetails(values) {
 
 function updateNews(newsId, values) {
   console.log("Updated:");
+  console.log(newsId);
   console.log(values);
   var access_token = window.localStorage.getItem('access_token');
   var headers = Object(_axiosInstance__WEBPACK_IMPORTED_MODULE_0__["getHeaders"])(access_token);
   var data = newsDetails(values);
-  return _axiosInstance__WEBPACK_IMPORTED_MODULE_0__["default"].put('/api/news/' + newsId, data, {
+  return _axiosInstance__WEBPACK_IMPORTED_MODULE_0__["default"].post('/api/news/' + newsId, data, {
     headers: headers
   })["catch"](function (error) {
     console.log(error);
@@ -103045,7 +103046,7 @@ var Header = function Header(props) {
     }), "Alexander"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "dropdown-divider"
     }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-      href: "# ",
+      href: "#",
       className: "dropdown-item",
       onClick: props.logoutRequest
     }, "Logout"))))) // {/* <!-- /.navbar --> */}
@@ -103687,7 +103688,8 @@ var EditNews = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         className: "card-title"
       }, "Edit News")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        onSubmit: handleSubmit
+        onSubmit: handleSubmit,
+        encType: "x-www-form-urlencoded"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -112673,8 +112675,8 @@ var isLogin = function isLogin() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! E:\Freelancing\namuna_news\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! E:\Freelancing\namuna_news\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! F:\xampp\htdocs\namuna_news_new\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! F:\xampp\htdocs\namuna_news_new\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

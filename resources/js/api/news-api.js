@@ -79,12 +79,13 @@ function newsDetails (values) {
 // UPDATE NEWS API
 export function updateNews(newsId, values) {
     console.log("Updated:");
+    console.log(newsId);
     console.log(values);
     const access_token = window.localStorage.getItem('access_token')
     const headers = getHeaders(access_token)
 
     const data = newsDetails(values)
-    return axios.put('/api/news/'+ newsId, data,{headers})
+    return axios.post('/api/news/'+ newsId, data, {headers})
     .catch(error=> {
         console.log(error)
         return {
