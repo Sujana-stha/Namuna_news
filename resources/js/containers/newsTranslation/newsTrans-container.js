@@ -45,6 +45,9 @@ class NewsTransContainer extends Component {
     }
     submitEditNewsTrans(values) {
         const pageNumber = this.props.activePage;
+        if ( typeof values.language_id =='number') { values.language_id = values.language_id } else { values.language_id = values.language_id.value }
+        if ( typeof values.news_id == 'number') { values.news_id = values.news_id } else { values.news_id = values.news_id.value }
+         
         this.props.requestUpdateNewsTranslation(values, pageNumber)
         this.setState({
             isEditing: false

@@ -16,9 +16,9 @@ ReactDOM.render(
         <Provider store={store}>
             <ConnectedRouter history = {history}>
                     <Switch>
-                        <Route path="/auth" component={UnauthorizedLayout}/>
+                        {/* <Route path="/auth" component={UnauthorizedLayout}/> */}
                         <Route path="/" component={DashboardLayout}/>
-                        <Redirect to="/auth"/>
+                        {/* <Redirect to="/auth"/> */}
                     </Switch>
             </ConnectedRouter>
 	    </Provider>,

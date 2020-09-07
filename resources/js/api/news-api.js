@@ -61,13 +61,29 @@ export function deleteNews(newsId) {
     });
 }
 
+function newsDetails (values) {
+    var formData = new FormData();
+
+    formData.append('slug', values.slug);
+    formData.append('author_id', values.author_id);
+    formData.append('category_id', values.category_id);
+    formData.append('keywords', values.keywords);
+    formData.append('news_label', values.news_label);
+    formData.append('province_id', values.province_id);
+    formData.append('status', values.status);
+    formData.append('featured_image', values.featured_image)
+    formData.append('_method', 'PUT') 
+    return formData;
+}
+
 // UPDATE NEWS API
 export function updateNews(newsId, values) {
     console.log("Updated:");
     console.log(values);
     const access_token = window.localStorage.getItem('access_token')
     const headers = getHeaders(access_token)
-    const data = formValues(values)
+
+    const data = newsDetails(values)
     return axios.put('/api/news/'+ newsId, data,{headers})
     .catch(error=> {
         console.log(error)

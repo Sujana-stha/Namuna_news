@@ -16,7 +16,7 @@ class AllResourceController extends Controller
      */
     public function index()
     {
-        $resources = AllResource::all();
+        $resources = AllResource::paginate(10);
 
         return MediaResource::collection($resources);
         // return response()->json($resources);

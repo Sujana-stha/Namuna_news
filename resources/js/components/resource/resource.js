@@ -11,7 +11,7 @@ const ResourcesList = (props) => {
                         <td>{resource.type == null ? '-': resource.type}</td>
                         <td>{resource.url}</td>
                         <td>{resource.videos.map((video, index) => {
-                            console.log('vv', video.views)
+                            
                             return (
                             <span key={index}>{video.views}</span>
                             )

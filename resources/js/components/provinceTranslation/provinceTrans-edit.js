@@ -7,9 +7,15 @@ class EditProvinceTrans extends Component {
 
         const id = this.props.editId;
         provinceTransApi.getSingleProvincesTrans(id).then((response) => {
-            const data = response.data;
+            const data = response.data.data;
             console.log('data', data)
-            this.props.initialize(data);
+            const provinceTrans = {
+                'id': data.id, 
+                'province_id': data.province.id, 
+                'language_id': data.language.id, 
+                'title': data.title
+            }
+            this.props.initialize(provinceTrans);
         })
     }
 
@@ -49,16 +55,21 @@ class EditProvinceTrans extends Component {
                         </div>
 
                         <form className="col s12" onSubmit={handleSubmit} >
+
                             <div className="card-body">
                                 <Field
-                                    label="Enter Title"
-                                    id="title"
-                                    name="title"
-                                    type="text"
-                                    value="title"
-                                    placeholder="Enter Title"
-                                    component={this.renderInputField}
-                                />
+                                    label="Select Language"
+                                    name="language_id"
+                                    component={this.renderSelectField}
+                                >
+                                    <option value="">Choose your option</option>
+                                    {this.props.languages.map(language => {
+                                        return (
+                                             <option key={language.id} value={language.id}>{language.language}</option>
+                                        )
+                                    })}
+                                </Field>
+                                
                                 <Field
                                     label="Select Province"
                                     name="province_id"
@@ -72,17 +83,14 @@ class EditProvinceTrans extends Component {
                                     })}
                                 </Field>
                                 <Field
-                                    label="Select Language"
-                                    name="language_id"
-                                    component={this.renderSelectField}
-                                >
-                                    <option value="">Choose your option</option>
-                                    {this.props.languages.map(language => {
-                                        return (
-                                             <option key={language.id} value={language.id}>{language.language}</option>
-                                        )
-                                    })}
-                                </Field>
+                                    label="Enter Title"
+                                    id="title"
+                                    name="title"
+                                    type="text"
+                                    value="title"
+                                    placeholder="Enter Title"
+                                    component={this.renderInputField}
+                                />
                             </div>
                             <div className="card-footer">
                                 <button type="submit" className="btn btn-primary">Update</button>

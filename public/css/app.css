@@ -10904,3 +10904,128 @@ a.text-dark:focus {
   }
 }
 
+.content-wrapper .row {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.login-page .login-box .login-logo img {
+  width: 230px;
+}
+
+.breadcrumbs-wrapper .breadcrumbs-title {
+  text-transform: capitalize;
+  font-weight: bolder;
+}
+
+.breadcrumbs-wrapper .breadcrumb {
+  width: 120px;
+  display: inline-flex;
+}
+
+.breadcrumbs-wrapper .breadcrumb a {
+  text-transform: capitalize;
+}
+
+.breadcrumbs-wrapper .active.breadcrumb {
+  width: 180px;
+}
+
+.breadcrumbs-wrapper .first-item::after {
+  content: "/";
+  color: #000;
+  padding: 0 8px;
+}
+
+.main-sidebar .brand-logo {
+  height: 100px;
+}
+
+.main-sidebar .brand-logo img {
+  position: relative;
+  bottom: 5px;
+}
+
+.main-sidebar .sidebar {
+  top: 53px;
+}
+
+.action {
+  position: relative;
+}
+
+.action .nm-delete-btn {
+  margin-left: 8px;
+}
+
+.action .tooltip-text {
+  width: 160px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 6px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 85%;
+  left: 0%;
+}
+
+.action .tooltip-full {
+  left: -55% !important;
+}
+
+.action .tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.tooltip-text a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.nm-uploader .preview-img {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.nm-uploader .preview-img .thumbInner {
+  display: inline-flex;
+  border-radius: 2px;
+  border: 1px solid #eaeaea;
+  margin-bottom: 8px;
+  margin-right: 8px;
+  width: 120px;
+  height: 120px;
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+.nm-uploader .preview-img .thumbInner img {
+  display: block;
+  width: auto;
+  height: 100%;
+}
+
+.nm-news-content .add-btn {
+  float: right;
+  margin-bottom: 20px;
+  border-radius: 0px;
+}
+
+.nm-news-content table .news-title {
+  max-width: 350px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
