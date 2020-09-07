@@ -6,6 +6,8 @@ use App\Http\Resources\NewsResource;
 use App\News;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Auth;
+
 class NewsController extends Controller
 {
     /**
@@ -103,6 +105,8 @@ class NewsController extends Controller
             $featured_image = $request->file('featured_image')->store('public/news');
         }
 
+        // $news->update($request->except('featured_image'));
+
         $news->update([
             "slug"=>$request->slug,
             "category_id"=>$request->category_id,
@@ -112,10 +116,8 @@ class NewsController extends Controller
             "keywords"=>$request->keywords,
             "author_id"=>1,
             "news_label"=>$request->news_label,
-            "featured_image"=>$featured_image,
+            "featured_image"=>$featured_image
         ]);
-
-        // $news->update($request->except('featured_image'));
 
         return response(['success'=>'News updated successfully'], 200);
     }

@@ -91,7 +91,22 @@ class AllResourceController extends Controller
      */
     public function update(Request $request, AllResource $resource)
     {
-        $resource->update($request->all());
+        $resource->update([
+            'type'=>$request->type,
+            'url'=>$request->url,
+            'status'=>$request->status,
+            'keywords'=>$request->keywords
+        ]);
+
+        $videoResource = VideoResource::where('resource_id', $resource->id)->first();
+
+        if($request->type == 'video') {
+            $videoResource->update([
+                'resource_id'=>$resource->id,
+                'order'=>$videoResource->order,
+                'views'=>$request->views
+            ]);
+        }
 
         return response(['success'=>'Resource updated successfully'], 200);
     }
