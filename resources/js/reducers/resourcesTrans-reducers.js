@@ -21,7 +21,7 @@ const resourcesTransReducer =  function(state = initialState, action) {
            
         case types.GET_RESOURCE_TRANSLATION_SUCCESS:
             return Object.assign({}, state, {
-                resourcesTrans: action.resourcesTrans.data,
+                resourcesTrans: action.resourcesTrans.data.data,
                 fetching: false,
                 itemsCountPerPage: action.resourcesTrans.data.meta.per_page,
                 totalItemsCount: action.resourcesTrans.data.meta.total,

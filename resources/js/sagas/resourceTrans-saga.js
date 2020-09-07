@@ -4,7 +4,7 @@ import * as types from '../actions/action-types';
 import * as api from '../api/resourcesTrans-api';
 import * as resourceTransAction from '../actions/resourceTranslation-action';
 import {notify} from 'react-notify-toast';
-
+import { push } from 'connected-react-router';
 
 //Get RESOURCES_TRANSLATION data in table
 export function* ResourcesTransWatcher() {
@@ -44,8 +44,9 @@ function* callResourcesTransSubmit(action) {
         notify.show("Cannot create new Resource Translation!", "error", 5000)
     } else {
         // yield put({type: types.ADD_RESOURCES_TRANSLATION_SUCCESS, resp, message: result.statusText});
-        yield put({type: types.REQUEST_RESOURCE_TRANSLATION}, pageNumber)
+        yield put({type: types.REQUEST_RESOURCE_TRANSLATION, pageNumber})
         notify.show("Resources Translation created successfully!", "success", 5000)
+        yield put(push('/translated-resources'));
     }
     yield put(stopSubmit('AddResourcesTrans', error));
     yield put(reset('AddResourcesTrans'));
@@ -72,6 +73,7 @@ function* callEditResourceTrans (action) {
         // yield put({type: types.UPDATE_RESOURCES_TRANSLATION_SUCCESS, resp, message: result.statusText});
         yield put({type: types.REQUEST_RESOURCE_TRANSLATION, pageNumber})
         notify.show("Updated successfully!", "success", 5000)
+        yield put(push('/translated-resources'));
     }
     yield put(stopSubmit('EditResourcesTrans', error));
     yield put(reset('EditResourcesTrans'));

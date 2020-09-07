@@ -4,7 +4,7 @@ import * as types from '../actions/action-types';
 import * as api from '../api/resources-api';
 import * as resourceAction from '../actions/resource-action';
 import {notify} from 'react-notify-toast';
-
+import { push } from 'connected-react-router';
 
 //Get RESOURCES data in table
 export function* ResourcesWatcher() {
@@ -46,6 +46,7 @@ function* callResourcesSubmit(action) {
         // yield put({type: types.ADD_RESOURCES_SUCCESS, resp, message: result.statusText});
         yield put({type: types.REQUEST_RESOURCES, pageNumber})
         notify.show("Resources created successfully!", "success", 5000)
+        yield put(push('/resources'));
     }
     yield put(stopSubmit('AddResources', error));
     yield put(reset('AddResources'));
@@ -71,6 +72,7 @@ function* callEditResource (action) {
         // yield put({type: types.UPDATE_RESOURCES_SUCCESS, resp, message: result.statusText});
         yield put({type: types.REQUEST_RESOURCES, pageNumber})
         notify.show("Updated successfully!", "success", 5000)
+        yield put(push('/resources'));
     }
     yield put(stopSubmit('EditResources', error));
     yield put(reset('EditResources'));

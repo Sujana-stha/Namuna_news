@@ -21,7 +21,7 @@ const provincesTransReducer =  function(state = initialState, action) {
            
         case types.GET_PROVINCE_TRANSLATION_SUCCESS:
             return Object.assign({}, state, {
-                provincesTrans: action.provincesTrans.data,
+                provincesTrans: action.provincesTrans.data.data,
                 fetching: false,
                 itemsCountPerPage: action.provincesTrans.data.meta.per_page,
                 totalItemsCount: action.provincesTrans.data.meta.total,

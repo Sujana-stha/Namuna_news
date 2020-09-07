@@ -100707,14 +100707,29 @@ function deleteNews(newsId) {
       errors: error
     };
   });
+}
+
+function newsDetails(values) {
+  var formData = new FormData();
+  formData.append('slug', values.slug);
+  formData.append('author_id', values.author_id);
+  formData.append('category_id', values.category_id);
+  formData.append('keywords', values.keywords);
+  formData.append('news_label', values.news_label);
+  formData.append('province_id', values.province_id);
+  formData.append('status', values.status);
+  formData.append('featured_image', values.featured_image);
+  formData.append('_method', 'PUT');
+  return formData;
 } // UPDATE NEWS API
+
 
 function updateNews(newsId, values) {
   console.log("Updated:");
   console.log(values);
   var access_token = window.localStorage.getItem('access_token');
   var headers = Object(_axiosInstance__WEBPACK_IMPORTED_MODULE_0__["getHeaders"])(access_token);
-  var data = formValues(values);
+  var data = newsDetails(values);
   return _axiosInstance__WEBPACK_IMPORTED_MODULE_0__["default"].put('/api/news/' + newsId, data, {
     headers: headers
   })["catch"](function (error) {
@@ -103651,33 +103666,18 @@ var EditNews = /*#__PURE__*/function (_Component) {
       }), children), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "error"
       }, touched ? error : ''));
-    }
-  }, {
-    key: "onSubmit",
-    value: function onSubmit(values) {
-      console.log('addsf-values', values);
-      var pageNumber = this.props.activePage;
+    } // onSubmit(values) {
+    //     const pageNumber = this.props.activePage;
+    //     if ( typeof values.category_id =='number') { values.category_id = values.category_id } else { values.category_id = values.category_id.value }
+    //     if ( typeof values.province_id == 'number') { values.province_id = values.province_id } else { values.province_id = values.province_id.value }
+    //     console.log('addsf-values', values)
+    //     this.props.requestUpdateNews(values, pageNumber);
+    // }
 
-      if (typeof values.category_id === 'string') {
-        values.category_id = values.category_id;
-      } else {
-        values.category_id = values.category_id.value;
-      }
-
-      if (typeof values.province_id === 'string') {
-        values.province_id = values.province_id;
-      } else {
-        values.province_id = values.province_id.value;
-      }
-
-      this.props.requestUpdateNews(values, pageNumber);
-    }
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
-
-      // const { handleSubmit } = this.props;
+      var handleSubmit = this.props.handleSubmit;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-md-12 col-xs-12 col-lg-12 col-sm-12"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -103687,9 +103687,7 @@ var EditNews = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         className: "card-title"
       }, "Edit News")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        onSubmit: this.props.handleSubmit(function (event) {
-          return _this2.onSubmit(event);
-        })
+        onSubmit: handleSubmit
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -103783,16 +103781,7 @@ EditNews = Object(redux_form__WEBPACK_IMPORTED_MODULE_1__["reduxForm"])({
   validate: validate,
   form: 'EditNews'
 })(EditNews);
-
-function mapStateToProps(store) {
-  return {
-    news: store.newsState.news
-  };
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_4__["connect"])(mapStateToProps, {
-  requestUpdateNews: _actions_news_action__WEBPACK_IMPORTED_MODULE_6__["requestUpdateNews"]
-})(EditNews));
+/* harmony default export */ __webpack_exports__["default"] = (EditNews);
 
 /***/ }),
 
@@ -104728,10 +104717,16 @@ var EditProvinceTrans = /*#__PURE__*/function (_Component) {
 
       var id = this.props.editId;
       _api_provinceTrans_api__WEBPACK_IMPORTED_MODULE_2__["getSingleProvincesTrans"](id).then(function (response) {
-        var data = response.data;
+        var data = response.data.data;
         console.log('data', data);
+        var provinceTrans = {
+          'id': data.id,
+          'province_id': data.province.id,
+          'language_id': data.language.id,
+          'title': data.title
+        };
 
-        _this.props.initialize(data);
+        _this.props.initialize(provinceTrans);
       });
     }
   }, {
@@ -104800,14 +104795,17 @@ var EditProvinceTrans = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_1__["Field"], {
-        label: "Enter Title",
-        id: "title",
-        name: "title",
-        type: "text",
-        value: "title",
-        placeholder: "Enter Title",
-        component: this.renderInputField
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_1__["Field"], {
+        label: "Select Language",
+        name: "language_id",
+        component: this.renderSelectField
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+        value: ""
+      }, "Choose your option"), this.props.languages.map(function (language) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+          key: language.id,
+          value: language.id
+        }, language.language);
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_1__["Field"], {
         label: "Select Province",
         name: "province_id",
         component: this.renderSelectField
@@ -104819,17 +104817,14 @@ var EditProvinceTrans = /*#__PURE__*/function (_Component) {
           value: province.id
         }, province.slug);
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_1__["Field"], {
-        label: "Select Language",
-        name: "language_id",
-        component: this.renderSelectField
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-        value: ""
-      }, "Choose your option"), this.props.languages.map(function (language) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-          key: language.id,
-          value: language.id
-        }, language.language);
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        label: "Enter Title",
+        id: "title",
+        name: "title",
+        type: "text",
+        value: "title",
+        placeholder: "Enter Title",
+        component: this.renderInputField
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-footer"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
@@ -104878,19 +104873,7 @@ var ProvinceTransList = function ProvinceTransList(props) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
       key: provinceTrans.id,
       className: "row-".concat(provinceTrans.id)
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, (props.activePage - 1) * props.itemsCountPerPage + (index + 1)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, provinceTrans.title == null ? '-' : provinceTrans.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, props.provinces.map(function (province) {
-      if (provinceTrans.province_id == province.id) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-          key: province.id
-        }, province.slug);
-      }
-    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, props.languages.map(function (language) {
-      if (provinceTrans.language_id == language.id) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-          key: language.id
-        }, language.language);
-      }
-    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, (props.activePage - 1) * props.itemsCountPerPage + (index + 1)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, provinceTrans.title == null ? '-' : provinceTrans.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, provinceTrans.province.slug), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, provinceTrans.language.language), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
       className: "action"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       type: "button",
@@ -104939,7 +104922,6 @@ var ResourcesList = function ResourcesList(props) {
       key: resource.id,
       className: "row-".concat(resource.id)
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, (props.activePage - 1) * props.itemsCountPerPage + (index + 1)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, resource.type == null ? '-' : resource.type), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, resource.url), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, resource.videos.map(function (video, index) {
-      console.log('vv', video.views);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         key: index
       }, video.views);
@@ -105308,8 +105290,8 @@ function validate(values) {
 
   if (!values.type) {
     errors.type = "This field is empty.";
-  } else if (values.type.length > 30) {
-    errors.type = "Must be 30 character or less!";
+  } else if (values.type.length > 100) {
+    errors.type = "Must be 100 character or less!";
   }
 
   return errors;
@@ -105642,8 +105624,8 @@ function validate(values) {
 
   if (!values.type) {
     errors.type = "This field is empty.";
-  } else if (values.type.length > 30) {
-    errors.type = "Must be 30 character or less!";
+  } else if (values.type.length > 100) {
+    errors.type = "Must be 100 character or less!";
   }
 
   return errors;
@@ -106653,13 +106635,13 @@ var NewsContainer = /*#__PURE__*/function (_Component) {
       console.log('addsf-values', values);
       var pageNumber = this.props.activePage;
 
-      if (typeof values.category_id === 'string') {
+      if (typeof values.category_id == 'number') {
         values.category_id = values.category_id;
       } else {
         values.category_id = values.category_id.value;
       }
 
-      if (typeof values.province_id === 'string') {
+      if (typeof values.province_id == 'number') {
         values.province_id = values.province_id;
       } else {
         values.province_id = values.province_id.value;
@@ -106709,7 +106691,7 @@ var NewsContainer = /*#__PURE__*/function (_Component) {
           categories: this.props.categories,
           provinces: this.props.provinces,
           editId: this.state.isEditing,
-          activePage: this.props.activePage
+          onSubmit: this.submitEditNews.bind(this)
         })));
       } else if (this.props.match.path === "/add-news") {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -106746,7 +106728,7 @@ var NewsContainer = /*#__PURE__*/function (_Component) {
           className: "table table-bordered"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "S.N"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
           className: "news-title"
-        }, "Title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Categories"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Province"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Author"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "News Label"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Status"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Action"))), this.props.news ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_news_news__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        }, "Title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Categories"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Province"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Author"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "News Label"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Image"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Status"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Action"))), this.props.news ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_news_news__WEBPACK_IMPORTED_MODULE_9__["default"], {
           news: this.props.news,
           onEditNews: this.editNews,
           confirmText: this.state.confirmText,
@@ -106906,6 +106888,19 @@ var NewsTransContainer = /*#__PURE__*/function (_Component) {
     key: "submitEditNewsTrans",
     value: function submitEditNewsTrans(values) {
       var pageNumber = this.props.activePage;
+
+      if (typeof values.language_id == 'number') {
+        values.language_id = values.language_id;
+      } else {
+        values.language_id = values.language_id.value;
+      }
+
+      if (typeof values.news_id == 'number') {
+        values.news_id = values.news_id;
+      } else {
+        values.news_id = values.news_id.value;
+      }
+
       this.props.requestUpdateNewsTranslation(values, pageNumber);
       this.setState({
         isEditing: false
@@ -107546,6 +107541,7 @@ var ResourcesContainer = /*#__PURE__*/function (_Component) {
     key: "onSubmitForm",
     value: function onSubmitForm(values) {
       var pageNumber = this.props.activePage;
+      console.log(values);
       this.props.requestAddResources(values, pageNumber);
     } // edit functions
 
@@ -107793,10 +107789,16 @@ var ResourcesTransContainer = /*#__PURE__*/function (_Component) {
   }, {
     key: "submitEditResourceTrans",
     value: function submitEditResourceTrans(values) {
-      var editId = this.state.isEditing;
+      // const editId= this.state.isEditing
       var pageNumber = this.props.activePage;
-      console.log(editId);
-      this.props.requestUpdateResourcesTranslation(values, editId, pageNumber);
+
+      if (typeof values.language_id == 'number') {
+        values.language_id = values.language_id;
+      } else {
+        values.language_id = values.language_id.value;
+      }
+
+      this.props.requestUpdateResourcesTranslation(values, pageNumber);
       this.setState({
         isEditing: false
       });
@@ -107967,13 +107969,8 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEB
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(connected_react_router__WEBPACK_IMPORTED_MODULE_3__["ConnectedRouter"], {
   history: _myhistory__WEBPACK_IMPORTED_MODULE_6__["default"]
 }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Switch"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Route"], {
-  path: "/auth",
-  component: _layouts_unauthorizedLayouts__WEBPACK_IMPORTED_MODULE_9__["default"]
-}), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Route"], {
   path: "/",
   component: _layouts_primaryLayouts__WEBPACK_IMPORTED_MODULE_8__["default"]
-}), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__["Redirect"], {
-  to: "/auth"
 })))), document.getElementById('root')); // serviceWorker.unregister();
 
 /***/ }),
@@ -108930,7 +108927,7 @@ var provincesTransReducer = function provincesTransReducer() {
 
     case _actions_action_types__WEBPACK_IMPORTED_MODULE_0__["GET_PROVINCE_TRANSLATION_SUCCESS"]:
       return Object.assign({}, state, {
-        provincesTrans: action.provincesTrans.data,
+        provincesTrans: action.provincesTrans.data.data,
         fetching: false,
         itemsCountPerPage: action.provincesTrans.data.meta.per_page,
         totalItemsCount: action.provincesTrans.data.meta.total,
@@ -109203,7 +109200,7 @@ var resourcesTransReducer = function resourcesTransReducer() {
 
     case _actions_action_types__WEBPACK_IMPORTED_MODULE_0__["GET_RESOURCE_TRANSLATION_SUCCESS"]:
       return Object.assign({}, state, {
-        resourcesTrans: action.resourcesTrans.data,
+        resourcesTrans: action.resourcesTrans.data.data,
         fetching: false,
         itemsCountPerPage: action.resourcesTrans.data.meta.per_page,
         totalItemsCount: action.resourcesTrans.data.meta.total,
@@ -111942,6 +111939,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_resourceTranslation_action__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../actions/resourceTranslation-action */ "./resources/js/actions/resourceTranslation-action.js");
 /* harmony import */ var react_notify_toast__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-notify-toast */ "./node_modules/react-notify-toast/bin/notify.js");
 /* harmony import */ var react_notify_toast__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_notify_toast__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var connected_react_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! connected-react-router */ "./node_modules/connected-react-router/esm/index.js");
 
 
 var _marked = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(ResourcesTransWatcher),
@@ -111952,6 +111950,7 @@ var _marked = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0
     _marked6 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callEditResourceTrans),
     _marked7 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(deleteResourcesTransSaga),
     _marked8 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callDeleteResourceTrans);
+
 
 
 
@@ -112077,27 +112076,30 @@ function callResourcesTransSubmit(action) {
           }
 
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot create new Resource Translation!", "error", 5000);
-          _context4.next = 19;
+          _context4.next = 21;
           break;
 
         case 16:
           _context4.next = 18;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
-            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_RESOURCE_TRANSLATION"]
-          }, pageNumber);
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_RESOURCE_TRANSLATION"],
+            pageNumber: pageNumber
+          });
 
         case 18:
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Resources Translation created successfully!", "success", 5000);
-
-        case 19:
           _context4.next = 21;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('AddResourcesTrans', error));
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(connected_react_router__WEBPACK_IMPORTED_MODULE_7__["push"])('/translated-resources'));
 
         case 21:
           _context4.next = 23;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('AddResourcesTrans'));
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('AddResourcesTrans', error));
 
         case 23:
+          _context4.next = 25;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('AddResourcesTrans'));
+
+        case 25:
         case "end":
           return _context4.stop();
       }
@@ -112156,7 +112158,7 @@ function callEditResourceTrans(action) {
         case 12:
           error = result.error;
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Update failed", "error", 5000);
-          _context6.next = 19;
+          _context6.next = 21;
           break;
 
         case 16:
@@ -112168,16 +112170,18 @@ function callEditResourceTrans(action) {
 
         case 18:
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Updated successfully!", "success", 5000);
-
-        case 19:
           _context6.next = 21;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('EditResourcesTrans', error));
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(connected_react_router__WEBPACK_IMPORTED_MODULE_7__["push"])('/translated-resources'));
 
         case 21:
           _context6.next = 23;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('EditResourcesTrans'));
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('EditResourcesTrans', error));
 
         case 23:
+          _context6.next = 25;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('EditResourcesTrans'));
+
+        case 25:
         case "end":
           return _context6.stop();
       }
@@ -112270,6 +112274,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_resource_action__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../actions/resource-action */ "./resources/js/actions/resource-action.js");
 /* harmony import */ var react_notify_toast__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-notify-toast */ "./node_modules/react-notify-toast/bin/notify.js");
 /* harmony import */ var react_notify_toast__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_notify_toast__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var connected_react_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! connected-react-router */ "./node_modules/connected-react-router/esm/index.js");
 
 
 var _marked = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(ResourcesWatcher),
@@ -112280,6 +112285,7 @@ var _marked = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0
     _marked6 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callEditResource),
     _marked7 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(deleteResourcesSaga),
     _marked8 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callDeleteResource);
+
 
 
 
@@ -112405,7 +112411,7 @@ function callResourcesSubmit(action) {
           }
 
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot create new Resource!", "error", 5000);
-          _context4.next = 19;
+          _context4.next = 21;
           break;
 
         case 16:
@@ -112417,16 +112423,18 @@ function callResourcesSubmit(action) {
 
         case 18:
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Resources created successfully!", "success", 5000);
-
-        case 19:
           _context4.next = 21;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('AddResources', error));
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(connected_react_router__WEBPACK_IMPORTED_MODULE_7__["push"])('/resources'));
 
         case 21:
           _context4.next = 23;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('AddResources'));
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('AddResources', error));
 
         case 23:
+          _context4.next = 25;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('AddResources'));
+
+        case 25:
         case "end":
           return _context4.stop();
       }
@@ -112484,7 +112492,7 @@ function callEditResource(action) {
         case 11:
           error = result.error;
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Update failed", "error", 5000);
-          _context6.next = 18;
+          _context6.next = 20;
           break;
 
         case 15:
@@ -112496,16 +112504,18 @@ function callEditResource(action) {
 
         case 17:
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Updated successfully!", "success", 5000);
-
-        case 18:
           _context6.next = 20;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('EditResources', error));
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(connected_react_router__WEBPACK_IMPORTED_MODULE_7__["push"])('/resources'));
 
         case 20:
           _context6.next = 22;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('EditResources'));
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('EditResources', error));
 
         case 22:
+          _context6.next = 24;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('EditResources'));
+
+        case 24:
         case "end":
           return _context6.stop();
       }
@@ -112663,8 +112673,8 @@ var isLogin = function isLogin() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! F:\xampp\htdocs\namuna_news_new\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! F:\xampp\htdocs\namuna_news_new\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! E:\Freelancing\namuna_news\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! E:\Freelancing\namuna_news\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

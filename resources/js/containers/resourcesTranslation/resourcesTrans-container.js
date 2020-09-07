@@ -44,10 +44,10 @@ class ResourcesTransContainer extends Component {
         })
     }
     submitEditResourceTrans(values) {
-        const editId= this.state.isEditing
+        // const editId= this.state.isEditing
         const pageNumber = this.props.activePage;
-        console.log(editId)
-        this.props.requestUpdateResourcesTranslation(values, editId, pageNumber);
+        if ( typeof values.language_id =='number') { values.language_id = values.language_id } else { values.language_id = values.language_id.value }
+        this.props.requestUpdateResourcesTranslation(values, pageNumber);
         this.setState({
             isEditing: false
         })

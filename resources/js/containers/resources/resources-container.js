@@ -29,6 +29,7 @@ class ResourcesContainer extends Component {
     //submit News form
     onSubmitForm(values) {
         const pageNumber = this.props.activePage;
+        console.log(values);
         this.props.requestAddResources(values, pageNumber);
     }
 

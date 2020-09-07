@@ -49,8 +49,8 @@ class NewsContainer extends Component {
     submitEditNews(values) {
         console.log('addsf-values', values)
         const pageNumber = this.props.activePage;
-        if ( typeof values.category_id === 'string') { values.category_id = values.category_id } else { values.category_id = values.category_id.value }
-        if ( typeof values.province_id === 'string') { values.province_id = values.province_id } else { values.province_id = values.province_id.value }
+        if ( typeof values.category_id =='number') { values.category_id = values.category_id } else { values.category_id = values.category_id.value }
+        if ( typeof values.province_id == 'number') { values.province_id = values.province_id } else { values.province_id = values.province_id.value }
 
         this.props.requestUpdateNews(values, pageNumber);
         this.setState({
@@ -83,7 +83,7 @@ class NewsContainer extends Component {
                         categories ={this.props.categories}
                         provinces = {this.props.provinces}
                         editId= {this.state.isEditing}
-                        activePage={this.props.activePage} 
+                        onSubmit={this.submitEditNews.bind(this)}
                         />
                     </div>  
                 </div>
@@ -125,6 +125,7 @@ class NewsContainer extends Component {
                                     <th>Province</th>
                                     <th>Author</th>
                                     <th>News Label</th>
+                                    <th>Image</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>

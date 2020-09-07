@@ -51,18 +51,16 @@ class EditNews extends Component {
             </div>
         )
     }
-    onSubmit(values) {
-        console.log('addsf-values', values)
-        const pageNumber = this.props.activePage;
-        if ( typeof values.category_id === 'string') { values.category_id = values.category_id } else { values.category_id = values.category_id.value }
-        if ( typeof values.province_id === 'string') { values.province_id = values.province_id } else { values.province_id = values.province_id.value }
-
-        this.props.requestUpdateNews(values, pageNumber);
-        
-    }
+    // onSubmit(values) {
+    //     const pageNumber = this.props.activePage;
+    //     if ( typeof values.category_id =='number') { values.category_id = values.category_id } else { values.category_id = values.category_id.value }
+    //     if ( typeof values.province_id == 'number') { values.province_id = values.province_id } else { values.province_id = values.province_id.value }
+    //     console.log('addsf-values', values)
+    //     this.props.requestUpdateNews(values, pageNumber);
+    // }
     
     render() {
-        // const { handleSubmit } = this.props;
+        const { handleSubmit } = this.props;
         return (
             <div className="col-md-12 col-xs-12 col-lg-12 col-sm-12">
                 <div className="card card-primary">
@@ -70,7 +68,7 @@ class EditNews extends Component {
                         <h3 className="card-title">Edit News</h3>
                     </div>
 
-                    <form onSubmit={this.props.handleSubmit((event) => this.onSubmit(event))} >
+                    <form onSubmit={handleSubmit} >
                         <div className="card-body">
                             <div className="form-row">
                             <Field
@@ -155,11 +153,6 @@ EditNews= reduxForm({
     form: 'EditNews'
 })(EditNews);
 
-function mapStateToProps(store) {
-    return {
-        news: store.newsState.news
-        
-    }
-}
 
-export default connect(mapStateToProps, { requestUpdateNews })(EditNews);
+
+export default EditNews;
