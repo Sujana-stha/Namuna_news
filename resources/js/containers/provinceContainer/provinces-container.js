@@ -90,11 +90,11 @@ class ProvinceListContainer extends Component {
                     </div>
 
                     <div className="col-sm-12 col-md-7 col-lg-7">
-                        {/* {this.props.fetching ? (
+                        {this.props.fetching ? (
                                 <Loading />
                             ) : (
                                 <div className="wr-not-loading"></div>
-                        )} */}
+                        )}
                         <table className="table table-bordered">
                             <thead>
                                 <tr>
@@ -120,7 +120,7 @@ class ProvinceListContainer extends Component {
                             ) : (
                                     <tbody>
                                         <tr>
-                                            <td >No Results Found !</td>
+                                            <td colSpan="4">No Results Found !</td>
                                         </tr>
                                     </tbody>
                                 )}

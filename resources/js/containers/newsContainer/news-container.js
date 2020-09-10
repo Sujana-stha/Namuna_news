@@ -11,6 +11,7 @@ import {requestProvinces} from '../../actions/province-action';
 import AddNews from '../../components/news/news-add';
 import NewsList from '../../components/news/news';
 import EditNews from '../../components/news/news-edit';
+import Loading from '../../components/loading';
 
 class NewsContainer extends Component {
     constructor(props) {
@@ -111,11 +112,11 @@ class NewsContainer extends Component {
                             <NavLink to="/add-news" className="add-btn right btn btn-primary"><i className="fas fa-plus"></i> Add News</NavLink>
                         </div>
                     <div className="col-sm-12 col-md-12 col-lg-12">
-                        {/* {this.props.fetching ? (
+                        {this.props.fetching ? (
                                 <Loading />
                             ) : (
                                 <div className="wr-not-loading"></div>
-                        )} */}
+                        )}
                         <table className="table table-bordered">
                             <thead>
                                 <tr>
@@ -144,7 +145,7 @@ class NewsContainer extends Component {
                             ):(
                                 <tbody>
                                     <tr>
-                                        <td>No Results Found !</td>
+                                        <td colSpan="9">No Results Found !</td>
                                     </tr>
                                 </tbody>
                             )}

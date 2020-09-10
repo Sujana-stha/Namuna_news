@@ -17,7 +17,6 @@ class LoginFormContainer extends Component {
         })
     }
     onSubmit(values) {
-        console.log(values);
         this.props.loginRequest(values);
     }
     render() {

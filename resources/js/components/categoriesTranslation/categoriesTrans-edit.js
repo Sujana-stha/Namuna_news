@@ -8,7 +8,6 @@ class EditCategoryTrans extends Component {
         const id = this.props.editId;
         categoryTransApi.getSingleCategoriesTrans(id).then((response) => {
             const data = response.data.data;
-            console.log('data', data)
             const category = {'id': data.id, 'category_id': data.category.id, 'language_id': data.language.id, 'title': data.title}
             this.props.initialize(category);
         })
@@ -18,8 +17,8 @@ class EditCategoryTrans extends Component {
         return (
             <div className="form-group">
                 <label htmlFor={id}>{label}</label>
-                <input value={value} id={id} type={type} className="form-control" placeholder={placeholder} {...input} />
-                <div className="error">
+                <input value={value} id={id} type={type} className={ touched ? "form-control is-invalid": "form-control"} placeholder={placeholder} {...input} />
+                <div className="error text-danger">
                     {touched ? error : ''}
                 </div>
             </div>
@@ -30,10 +29,10 @@ class EditCategoryTrans extends Component {
         return (
             <div className="form-group">
                 <label>{label}</label>
-                <select value={defaultValue} {...input} className="form-control">
+                <select value={defaultValue} {...input} className={ touched ? "form-control is-invalid": "form-control"}>
                     {children}
                 </select>
-                <div className="error">
+                <div className="error text-danger">
                     {touched ? error : ''}
                 </div>
             </div>

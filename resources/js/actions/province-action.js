@@ -15,6 +15,7 @@ export function getProvincesSuccess(provinces) {
     }
 }
 
+// ERROR FOR PROVINCES
 export function requestProvincesFailed() {
     return {
         type: types.REQUEST_PROVINCES_FAILED

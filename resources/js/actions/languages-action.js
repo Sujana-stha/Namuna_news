@@ -1,6 +1,6 @@
 import * as types from './action-types';
 
-//GET LIST OF CATEGORIES
+//GET LIST OF LANGUAGES
 export function requestLanguages(pageNumber) {
     return {
         type: types.REQUEST_LANGUAGES,
@@ -15,13 +15,14 @@ export function getLanguagesSuccess(languages) {
     }
 }
 
+// ERROR FOR LANGUAGE
 export function requestLanguagesFailed() {
     return {
         type: types.REQUEST_LANGUAGES_FAILED
     }
 }
 
-// ADD NEW CATEGORIES
+// ADD NEW LANGUAGES
 export function requestAddLanguages(values, pageNumber) {
     return {
         type: types.REQUEST_ADD_LANGUAGES,
@@ -37,7 +38,7 @@ export function addLanguagesSuccess(values, message) {
     }
 }
 
-//EDIT CATEGORIES
+//EDIT LANGUAGES
 export function requestUpdateLanguages( values, pageNumber) {
     return {
         type: types.REQUEST_EDIT_LANGUAGES,
@@ -52,7 +53,7 @@ export function updateLanguagesSuccess(languageId, values, message) {
     }
 }
 
-//DELETE CATEGORIES ACTION
+//DELETE LANGUAGES ACTION
 export function requestDeleteLanguages(languageId) {
     return {
         type: types.REQUEST_DELETE_LANGUAGES,

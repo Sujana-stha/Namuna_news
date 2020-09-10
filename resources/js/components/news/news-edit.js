@@ -12,7 +12,6 @@ class EditNews extends Component {
         const id = this.props.editId;
         newsApi.getSingleNews(id).then((response) => {
             const data = response.data.data;
-            console.log('data', data)
             const news =  {
                 slug: data.slug,
                 category_id: data.category == null ? null : { label: data.category.slug, value: data.category.id },
@@ -31,8 +30,8 @@ class EditNews extends Component {
         return (
             <div className="form-group col-md-6">
             <label htmlFor={id}>{label}</label>
-            <input value={value} id={id} type={type} className="form-control" placeholder={placeholder} {...input} />
-            <div className="error">
+            <input value={value} id={id} type={type} className={ touched ? "form-control is-invalid": "form-control"} placeholder={placeholder} {...input} />
+            <div className="error text-danger">
                 {touched ? error : ''}
             </div>
         </div>
@@ -51,13 +50,7 @@ class EditNews extends Component {
             </div>
         )
     }
-    // onSubmit(values) {
-    //     const pageNumber = this.props.activePage;
-    //     if ( typeof values.category_id =='number') { values.category_id = values.category_id } else { values.category_id = values.category_id.value }
-    //     if ( typeof values.province_id == 'number') { values.province_id = values.province_id } else { values.province_id = values.province_id.value }
-    //     console.log('addsf-values', values)
-    //     this.props.requestUpdateNews(values, pageNumber);
-    // }
+    
     
     render() {
         const { handleSubmit } = this.props;

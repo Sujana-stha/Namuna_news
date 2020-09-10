@@ -9,10 +9,10 @@ const NewsTransList = (props) => {
                 return (
                     <tr key={newsTran.id} className={`row-${newsTran.id}`}>
                         <td>{((props.activePage-1)*props.itemsCountPerPage)+(index+1)}</td>
-                        <td>{newsTran.title == null ? '-': newsTran.title}</td>
+                        <td className="news-title">{newsTran.title == null ? '-': newsTran.title}</td>
                         <td>{newsTran.news.slug}</td>
                         <td>{newsTran.language.language}</td>
-                        <td>{newsTran.content}</td>
+                        <td className="news-content">{newsTran.content}</td>
                         <td className="action">
                             <Link to="/edit-news-translation" onClick={props.onEditNewsTrans.bind(null, newsTran.id)} className="btn btn-info btn-sm">Edit</Link>
                             <button type="button" onClick={()=>props.showConfirmBox( newsTran.id)}  className="btn btn-danger btn-sm nm-delete-btn">Delete</button>

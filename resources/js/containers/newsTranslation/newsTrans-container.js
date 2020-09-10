@@ -11,6 +11,7 @@ import {requestNews} from '../../actions/news-action';
 import AddNewsTrans from '../../components/newsTranslation/newsTrans-add';
 import NewsTransList from '../../components/newsTranslation/newsTrans';
 import EditNewsTrans from '../../components/newsTranslation/newsTrans-edit';
+import Loading from '../../components/loading'
 
 class NewsTransContainer extends Component {
     constructor(props) {
@@ -101,25 +102,25 @@ class NewsTransContainer extends Component {
             )
         } else {
             return (
-                <div className="nm-content">
+                <div className="nm-content nm-news-content">
                     <div className="row">
                         <div className="col-sm-12 col-md-12">
-                            <NavLink to="/add-news-translation" className="right btn btn-primary"><i className="fas fa-plus"></i> Translate News</NavLink>
+                            <NavLink to="/add-news-translation" className="add-btn right btn btn-primary"><i className="fas fa-plus"></i> Translate News</NavLink>
                         </div>
                     <div className="col-sm-12 col-md-12 col-lg-12">
-                        {/* {this.props.fetching ? (
+                        {this.props.fetching ? (
                                 <Loading />
                             ) : (
                                 <div className="wr-not-loading"></div>
-                        )} */}
+                        )}
                         <table className="table table-bordered">
                             <thead>
                                 <tr>
                                     <th>S.N</th>
-                                    <th>Title</th>
+                                    <th className="news-title">Title</th>
                                     <th>News</th>
                                     <th>Language</th>
-                                    <th>Content</th>
+                                    <th className="news-content">Content</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -137,7 +138,7 @@ class NewsTransContainer extends Component {
                             ):(
                                 <tbody>
                                     <tr>
-                                        <td>No Results Found !</td>
+                                        <td colSpan="6">No Results Found !</td>
                                     </tr>
                                 </tbody>
                             )}

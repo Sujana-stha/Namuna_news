@@ -1,9 +1,40 @@
 
+// Preloader
+.progress {
+    margin-bottom: 15px;
+    .progress-bar {
+        width: 100%;
+    }
+}
 
 .content-wrapper {
     .row {
         margin-left: 0 !important;
         margin-right: 0 !important;
+    }
+    .nm-content {
+        .add-btn {
+            float: right;
+            margin-bottom: 20px;
+            border-radius: 0px;
+        }
+        table {
+            tbody {
+                tr {
+                    td {
+                        text-transform: capitalize;
+                    }
+                }
+            }
+        }
+        .nm-select-box {
+            z-index: 99;
+            margin-bottom: 1rem;
+        }
+        .form-row > [class*=col-] {
+            padding-right: 10px;
+            padding-left: 10px;
+        }
     }
 }
 
@@ -16,13 +47,15 @@
         }
     }
 }
+
+// Breadcrumbs
 .breadcrumbs-wrapper{
     .breadcrumbs-title {
         text-transform: capitalize;
         font-weight: bolder;
     }
     .breadcrumb {
-        width: 120px;
+        width: 185px;
         display: inline-flex;
         a {
             text-transform: capitalize;
@@ -38,7 +71,9 @@
     }
 }
 
+//Sidebar
 .main-sidebar {
+    background-color: #0e3d69;
     .brand-logo {
         height: 100px;
         img {
@@ -50,6 +85,7 @@
         top: 53px;
     }
 }
+// table action
 .action {
     position: relative;
     .nm-delete-btn {
@@ -105,20 +141,16 @@
             box-sizing: border-box;
             img {
                 display: block;
-                width: auto;
+                width: 100%;
                 height: 100%;
             }
         }
     }
 }
 .nm-news-content {
-    .add-btn {
-        float: right;
-        margin-bottom: 20px;
-        border-radius: 0px;
-    }
+    
     table {
-        .news-title {
+        .news-title, .news-content {
             max-width: 350px;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -126,3 +158,11 @@
         }
     }
 }
+
+// Table content 
+// .nm-content {
+//     .nm-empty-results {
+//         width: 100%;
+
+//     }
+// }

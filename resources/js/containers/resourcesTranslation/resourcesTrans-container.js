@@ -11,6 +11,7 @@ import {requestLanguages} from '../../actions/languages-action';
 import AddResourcesTrans from '../../components/resourceTranslation/add-resourceTrans';
 import ResourcesTransList from '../../components/resourceTranslation/resourceTrans';
 import EditResourcesTrans from '../../components/resourceTranslation/edit-resourceTrans';
+import Loading from '../../components/loading'
 
 class ResourcesTransContainer extends Component {
     constructor(props) {
@@ -38,7 +39,7 @@ class ResourcesTransContainer extends Component {
 
     // edit functions
     editResourceTrans(values) {
-        console.log('resource-id', values)
+       
         this.setState ({
             isEditing : values
         })
@@ -67,7 +68,6 @@ class ResourcesTransContainer extends Component {
         this.setState({confirmText: null})
     }
     render() {
-        console.log("comp-prop", this.props)
         if(this.props.match.path === "/edit-translated-resources") {
             return (
                 <div className="nm-content">
@@ -89,7 +89,7 @@ class ResourcesTransContainer extends Component {
                 <div className="nm-content">
                     <div className="row">
                         <div className="col-sm-12 col-md-12">
-                            <NavLink to="/translated-resources" className="btn btn-primary"><i className="fas fa-list"></i> All Translated Resources</NavLink>
+                            <NavLink to="/translated-resources" className="add-btn btn btn-primary"><i className="fas fa-list"></i> All Translated Resources</NavLink>
                         </div>
                         <AddResourcesTrans
                             onSubmit={this.onSubmitForm.bind(this)}
@@ -101,23 +101,23 @@ class ResourcesTransContainer extends Component {
             )
         } else {
             return (
-                <div className="nm-content">
+                <div className="nm-content nm-news-content">
                     <div className="row">
                         <div className="col-sm-12 col-md-12">
-                            <NavLink to="/add-resources-translation" className="right btn btn-primary"><i className="fas fa-plus"></i> Add Resources Translation</NavLink>
+                            <NavLink to="/add-resources-translation" className="add-btn right btn btn-primary"><i className="fas fa-plus"></i> Add Resources Translation</NavLink>
                         </div>
                     <div className="col-sm-12 col-md-12 col-lg-12">
-                        {/* {this.props.fetching ? (
+                        {this.props.fetching ? (
                                 <Loading />
                             ) : (
                                 <div className="wr-not-loading"></div>
-                        )} */}
+                        )}
                         <table className="table table-bordered">
                             <thead>
                                 <tr>
                                     <th>S.N</th>
-                                    <th>Title</th>
-                                    <th>Description</th>
+                                    <th className="news-title">Title</th>
+                                    <th className="news-content">Description</th>
                                     <th>Languages</th>
                                     <th>Resource Type</th>
                                     <th>Action</th>
@@ -137,7 +137,7 @@ class ResourcesTransContainer extends Component {
                             ):(
                                 <tbody>
                                     <tr>
-                                        <td>No Results Found !</td>
+                                        <td colSpan="6">No Results Found !</td>
                                     </tr>
                                 </tbody>
                             )}

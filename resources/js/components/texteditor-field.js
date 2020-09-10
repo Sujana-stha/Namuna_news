@@ -16,7 +16,7 @@ class TextEditorField extends Component {
         const {input} = this.props
         return (
             <div className="col s12">
-                <p>{this.props.label}</p>
+                <label>{this.props.label}</label>
                 <Editor
                     initialValue={input.value == "" ? "": input.value}
                     value ={input.value == "" ? "": input.value}

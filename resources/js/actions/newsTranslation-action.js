@@ -15,6 +15,7 @@ export function getNewsTranslationSuccess(newsTrans) {
     }
 }
 
+//ERROR FOR TRANSLATED NEWS
 export function requestNewsTranslationFailed() {
     return {
         type: types.REQUEST_NEWS_TRANSLATION_FAILED

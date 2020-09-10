@@ -15,6 +15,7 @@ export function getResourcesTranslationSuccess(resourceTrans) {
     }
 }
 
+//ERROR FOR TRANSLATED RESOURCES
 export function requestResourcesTranslationFailed() {
     return {
         type: types.REQUEST_RESOURCE_TRANSLATION_FAILED

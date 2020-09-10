@@ -15,6 +15,7 @@ export function getNewsSuccess(news) {
     }
 }
 
+// ERROR FOR NEWS
 export function requestNewsFailed() {
     return {
         type: types.REQUEST_NEWS_FAILED

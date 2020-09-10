@@ -1,6 +1,6 @@
 import * as types from './action-types';
 
-//GET LIST OF CATEGORIES
+//GET LIST OF TRANSLATED CATEGORIES ACTION
 export function requestCategoriesTranslation(pageNumber) {
     return {
         type: types.REQUEST_CATEGORIES_TRANSLATION,
@@ -15,13 +15,14 @@ export function getCategoriesTranslationSuccess(categoriesTrans) {
     }
 }
 
+// FAILED ACTION FOR TRANSLATED CATEGORIES 
 export function requestCategoriesTranslationFailed() {
     return {
         type: types.REQUEST_CATEGORIES_TRANSLATION_FAILED
     }
 }
 
-// ADD NEW CATEGORIES
+// ADD NEW TRANSLATED CATEGORIES
 export function requestAddCategoriesTranslation(values, pageNumber) {
     return {
         type: types.REQUEST_ADD_CATEGORIES_TRANSLATION,
@@ -37,7 +38,7 @@ export function addCategoriesTranslationSuccess(values, message) {
     }
 }
 
-//EDIT CATEGORIES
+//EDIT TRANSLATED CATEGORIES
 export function requestUpdateCategoriesTranslation( values, pageNumber) {
     return {
         type: types.REQUEST_EDIT_CATEGORIES_TRANSLATION,
@@ -52,7 +53,7 @@ export function updateCategoriesTranslationSuccess(categoryTransId, values, mess
     }
 }
 
-//DELETE CATEGORIES ACTION
+//DELETE TRANSLATED CATEGORIES ACTION
 export function requestDeleteCategoriesTranslation(categoryTransId) {
     return {
         type: types.REQUEST_DELETE_CATEGORIES_TRANSLATION,

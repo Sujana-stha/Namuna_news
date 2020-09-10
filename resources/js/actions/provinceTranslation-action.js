@@ -15,6 +15,7 @@ export function getProvincesTranslationSuccess(procincesTrans) {
     }
 }
 
+//ERROR FOR TRANSLATED PROVINCES
 export function requestProvincesTranslationFailed() {
     return {
         type: types.REQUEST_PROVINCE_TRANSLATION_FAILED

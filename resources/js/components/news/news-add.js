@@ -10,8 +10,8 @@ const renderInputField = ({ input, id, label, type, placeholder, meta: { touched
     return (
         <div className="form-group col-md-6">
             <label htmlFor={id}>{label}</label>
-            <input id={id} type={type} className="form-control" placeholder={placeholder} {...input} />
-            <div className="error">
+            <input id={id} type={type} className={ touched ? "form-control is-invalid": "form-control"} placeholder={placeholder} {...input} />
+            <div className="error text-danger">
                 {touched ? error : ''}
             </div>
         </div>
@@ -23,10 +23,10 @@ const renderSelectField = ({ input, label, meta: { touched, error }, defaultValu
     return (
         <div className="form-group col-md-6">
             <label>{label}</label>
-            <select value={defaultValue} {...input} className="form-control">
+            <select value={defaultValue} {...input} className={ touched ? "form-control is-invalid": "form-control"}>
                 {children}
             </select>
-            <div className="error">
+            <div className="error text-danger">
                 {touched ? error : ''}
             </div>
         </div>

@@ -16,12 +16,14 @@ export function loginSuccess(data) {
     }
 }
 
+// REQUEST LOGOUT
 export function logoutRequest(){
     return {
         type: types.LOGOUT_REQUEST
     }
 }
 
+//LOGOUT SUCCESS
 export function logout() {
     return {
         type: types.LOGOUT_SUCCESS

@@ -8,7 +8,7 @@ class EditProvinceTrans extends Component {
         const id = this.props.editId;
         provinceTransApi.getSingleProvincesTrans(id).then((response) => {
             const data = response.data.data;
-            console.log('data', data)
+            
             const provinceTrans = {
                 'id': data.id, 
                 'province_id': data.province.id, 
@@ -23,8 +23,8 @@ class EditProvinceTrans extends Component {
         return (
             <div className="form-group">
                 <label htmlFor={id}>{label}</label>
-                <input value={value} id={id} type={type} className="form-control" placeholder={placeholder} {...input} />
-                <div className="error">
+                <input value={value} id={id} type={type} className={ touched ? "form-control is-invalid": "form-control"} placeholder={placeholder} {...input} />
+                <div className="error text-danger">
                     {touched ? error : ''}
                 </div>
             </div>

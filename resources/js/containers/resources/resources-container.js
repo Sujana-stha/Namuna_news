@@ -9,6 +9,7 @@ import {requestAddResources, requestResources, requestDeleteResources, requestUp
 import AddResources from '../../components/resource/resources-add';
 import ResourcesList from '../../components/resource/resource';
 import EditResources from '../../components/resource/resources-edit';
+import Loading from '../../components/loading';
 
 class ResourcesContainer extends Component {
     constructor(props) {
@@ -61,13 +62,12 @@ class ResourcesContainer extends Component {
         this.setState({confirmText: null})
     }
     render() {
-        console.log("comp-prop", this.props)
         if(this.props.match.path === "/edit-resources") {
             return (
                 <div className="nm-content">
                     <div className="row">
                         <div className="col-sm-12 col-md-12">
-                            <NavLink to="/resources" className="btn btn-primary"><i className="fas fa-list"></i> All Resources</NavLink>
+                            <NavLink to="/resources" className="add-btn btn btn-primary"><i className="fas fa-list"></i> All Resources</NavLink>
                         </div>
                         <EditResources onSubmit={this.submitEditResource.bind(this)} editId= {this.state.isEditing}/>
                     </div>
@@ -78,7 +78,7 @@ class ResourcesContainer extends Component {
                 <div className="nm-content">
                     <div className="row">
                         <div className="col-sm-12 col-md-12">
-                            <NavLink to="/resources" className="btn btn-primary"><i className="fas fa-list"></i> All Resources</NavLink>
+                            <NavLink to="/resources" className="add-btn btn btn-primary"><i className="fas fa-list"></i> All Resources</NavLink>
                         </div>
                         <AddResources
                             onSubmit={this.onSubmitForm.bind(this)}
@@ -91,14 +91,14 @@ class ResourcesContainer extends Component {
                 <div className="nm-content">
                     <div className="row">
                         <div className="col-sm-12 col-md-12">
-                            <NavLink to="/add-resources" className="right btn btn-primary"><i className="fas fa-plus"></i> Add Resources</NavLink>
+                            <NavLink to="/add-resources" className="add-btn right btn btn-primary"><i className="fas fa-plus"></i> Add Resources</NavLink>
                         </div>
                     <div className="col-sm-12 col-md-12 col-lg-12">
-                        {/* {this.props.fetching ? (
+                        {this.props.fetching ? (
                                 <Loading />
                             ) : (
                                 <div className="wr-not-loading"></div>
-                        )} */}
+                        )}
                         <table className="table table-bordered">
                             <thead>
                                 <tr>
@@ -124,7 +124,7 @@ class ResourcesContainer extends Component {
                             ):(
                                 <tbody>
                                     <tr>
-                                        <td>No Results Found !</td>
+                                        <td colSpan="6">No Results Found !</td>
                                     </tr>
                                 </tbody>
                             )}

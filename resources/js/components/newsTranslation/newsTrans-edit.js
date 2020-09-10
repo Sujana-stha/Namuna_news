@@ -10,7 +10,7 @@ class EditNewsTrans extends Component {
         const id = this.props.editId;
         newsTransApi.getSingleNewsTrans(id).then((response) => {
             const data = response.data.data;
-            console.log('data', data)
+            
             const newsTrans =  {
                 title: data.title,
                 news_id: data.news == null ? null : { label: data.news.slug, value: data.news.id },
@@ -25,8 +25,8 @@ class EditNewsTrans extends Component {
         return (
             <div className="form-group">
             <label htmlFor={id}>{label}</label>
-            <input value={value} id={id} type={type} className="form-control" placeholder={placeholder} {...input} />
-            <div className="error">
+            <input value={value} id={id} type={type} className={ touched ? "form-control is-invalid": "form-control"} placeholder={placeholder} {...input} />
+            <div className="error text-danger">
                 {touched ? error : ''}
             </div>
         </div>

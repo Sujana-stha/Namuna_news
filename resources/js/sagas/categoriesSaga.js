@@ -75,28 +75,6 @@ function* callEditCategory (action) {
 
 }
 
-
-// change status value
-export function* toggleCategoriesStatusSaga() {
-    yield takeLatest(types.REQUEST_CHANGE_CATEGORIES_STATUS, callCategoryToggleStatus);
-}
-
-function* callCategoryToggleStatus(action) {
-    const result =  yield call(api.updateCategoriesStatus, action.categoryId, action.values);
-    const resp = result.data;
-    const pageNumber= action.pageNumber
-    if (result.errors) {
-        yield put({ type: types.REQUEST_CATEGORIES_FAILED, errors: result.error});
-        error = result.error;
-        notify.show(`Cannot update status`, "error", 5000)
-
-    } else {
-        // yield put({type: types.CATEGORIES_STATUS_SUCCESS, resp, message: result.statusText});
-        yield put({type: types.REQUEST_CATEGORIES, pageNumber})
-        notify.show(`Status updated successfully!`, "success", 5000)
-    }
-}
-
 // delete CATEGORIES data from table
 export function* deleteCategoriesSaga() {
     yield takeLatest(types.REQUEST_DELETE_CATEGORIES, callDeleteCategory)

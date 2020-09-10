@@ -55,19 +55,6 @@ export function updateCategories(categoryId, values) {
     });
 }
 
-// TOGGLE STATUS API
-export function updateCategoriesStatus (categoryId, values) {
-    const access_token = window.localStorage.getItem('access_token')
-    const headers = getHeaders(access_token)
-    return axios.put('/api/categories/'+ categoryId, values,{headers})
-    .catch(error=> {
-        console.log(error)
-        return {
-            errors: error
-        }
-    });
-}
-
 // GET SINGLE DATA OF CAtegories
 export function getSingleCategories (categoryId) {
     const access_token = window.localStorage.getItem('access_token')

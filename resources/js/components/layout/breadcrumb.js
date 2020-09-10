@@ -5,7 +5,7 @@ import { Route, Link } from 'react-router-dom'
 const BreadcrumbPageTitle = ({ match, ...rest }) => {
     return (
         <div className="col-sm-6">
-            {match.isExact ? <h2 className="m-0 text-dark">{match.params.path.replace(/-/g, ' ')}</h2> : null}
+            {match.isExact ? <h2 className="m-0 text-dark breadcrumbs-title">{match.params.path.replace(/-/g, ' ')}</h2> : null}
             <Route path={`${match.url}/:path`} component={BreadcrumbPageTitle} />
         </div>
     )
@@ -22,9 +22,12 @@ const Breadcrumbs = () => {
         //   </ul>
         // </div>
         <div className="content-header">
-            <div className="container-fluid">
+            <div className="breadcrumbs-wrapper container-fluid">
                 <div className="row mb-2">
-                    <Route path='/:path' component={BreadcrumbPageTitle}/>
+                    
+                        <Route path='/:path' component={BreadcrumbPageTitle}/>
+                    
+                    
                     <div className="col-sm-6">
                         <ol className="breadcrumb float-sm-right">
                             <Route path='/:path' component={BreadcrumbsItem} />

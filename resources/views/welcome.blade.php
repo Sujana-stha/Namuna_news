@@ -28,8 +28,8 @@
     <body  class="hold-transition sidebar-mini layout-fixed">
         <div id="root">
         </div>
-        <button class="btn btn-primary" style="position:absolute; right:10px; top:10px; z-index:9999" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();"> Logout </button>
+        <button type="submit" class="btn btn-primary" style="position:absolute; right:10px; top:10px; z-index:9999" onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();"> Logout </button>
         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
             @csrf
         </form>

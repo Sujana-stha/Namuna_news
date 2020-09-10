@@ -56,13 +56,16 @@ class CategoriesListContainer extends Component {
     }
 
     // toggle status function
-    toggleStatus(categoryId, status) {
+    toggleStatus(category) {
+        console.log('stat', category)
         const pageNumber = this.props.activePage;
-        const newCategoriesStatus = {
-            display_status: status == 1 ? "0" : "1"
+        if(category.display_status == "0") {
+            category.display_status= "1"
+        } else {
+            category.display_status = "0"
         }
-        console.log(newCategoriesStatus)
-        this.props.requestCategoriesStatus(categoryId, newCategoriesStatus, pageNumber);
+        console.log(category)
+        this.props.requestUpdateCategories( category, pageNumber);
         
     }
 
@@ -77,7 +80,6 @@ class CategoriesListContainer extends Component {
     }
     // pagination function
     handlePageChange(pageNumber) {
-        console.log('page',pageNumber)
         this.props.requestCategories(pageNumber)
     }
 
@@ -86,7 +88,6 @@ class CategoriesListContainer extends Component {
     }
 
     render() {
-        console.log('prp', this.props)
         return (
             <div className="nm-content">
                 <div className="row">
@@ -101,11 +102,11 @@ class CategoriesListContainer extends Component {
 
                     </div>
                     <div className="col-sm-12 col-md-8 col-lg-8">
-                        {/* {this.props.fetching ? (
-                                <Loading />
-                            ) : (
-                                <div className="wr-not-loading"></div>
-                        )} */}
+                        {this.props.fetching ? (
+                            <Loading />
+                        ) : (
+                            <div className="wr-not-loading"></div>
+                        )}
                         <table className="table table-bordered">
                             <thead>
                                 <tr>
@@ -134,7 +135,7 @@ class CategoriesListContainer extends Component {
                             ) : (
                                     <tbody>
                                         <tr>
-                                            <td >No Results Found !</td>
+                                            <td colSpan="5">No Results Found !</td>
                                         </tr>
                                     </tbody>
                                 )}

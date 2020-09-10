@@ -15,6 +15,7 @@ export function getResourcesSuccess(resources) {
     }
 }
 
+// ERROR FOR RESOURCES
 export function requestResourcesFailed() {
     return {
         type: types.REQUEST_RESOURCES_FAILED

@@ -1,6 +1,6 @@
 import * as types from './action-types';
 
-//GET LIST OF CATEGORIES
+//GET LIST OF CATEGORIES ACTION
 export function requestCategories(pageNumber) {
     return {
         type: types.REQUEST_CATEGORIES,
@@ -16,13 +16,14 @@ export function getCategoriesSuccess(categories) {
     }
 }
 
+// CATEGORIES FAILED ACTION
 export function requestCategoriesFailed() {
     return {
         type: types.REQUEST_CATEGORIES_FAILED
     }
 }
 
-// ADD NEW CATEGORIES
+// ADD NEW CATEGORIES ACTION
 export function requestAddCategories(values, pageNumber) {
     return {
         type: types.REQUEST_ADD_CATEGORIES,
@@ -38,7 +39,7 @@ export function addCategoriesSuccess(values, message) {
     }
 }
 
-//EDIT CATEGORIES
+//EDIT CATEGORIES ACTION
 export function requestUpdateCategories( values, pageNumber) {
     return {
         type: types.REQUEST_EDIT_CATEGORIES,
@@ -53,7 +54,7 @@ export function updateCategoriesSuccess(categoryId, values, message) {
     }
 }
 
-//DELETE CATEGORIES ACTION
+//DELETE CATEGORIES ACTION ACTION
 export function requestDeleteCategories(categoryId) {
     return {
         type: types.REQUEST_DELETE_CATEGORIES,
@@ -68,7 +69,7 @@ export function deleteCategoriesSuccess(categoryId, message) {
     }
 }
 
-//CHANHE CATEGORIES STATUS
+//CHANHE CATEGORIES STATUS ACTION
 export function requestCategoriesStatus (categoryId,values) {
     return {
         type: types.REQUEST_CHANGE_CATEGORIES_STATUS,
