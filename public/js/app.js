@@ -104480,6 +104480,9 @@ function validate(values) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_switch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-switch */ "./node_modules/react-switch/index.js");
+/* harmony import */ var react_switch__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_switch__WEBPACK_IMPORTED_MODULE_1__);
+
 
 
 var ProvincesList = function ProvincesList(props) {
@@ -104487,7 +104490,7 @@ var ProvincesList = function ProvincesList(props) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
       key: province.id,
       className: "row-".concat(province.id)
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, (props.activePage - 1) * props.itemsCountPerPage + (index + 1)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, province.slug == null ? '-' : province.slug), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, province.display_status), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, (props.activePage - 1) * props.itemsCountPerPage + (index + 1)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, province.slug == null ? '-' : province.slug), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
       className: "action"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       type: "button",
@@ -104507,7 +104510,21 @@ var ProvincesList = function ProvincesList(props) {
     }, "Yes"), " \xA0", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       href: "# ",
       onClick: props.hideConfirmBox.bind(null)
-    }, "No")) : null));
+    }, "No")) : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "nm-switch"
+    }, province.display_status == 1 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_switch__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      onChange: function onChange() {
+        return props.provinceStatus(province);
+      },
+      checked: true,
+      className: "react-switch"
+    }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_switch__WEBPACK_IMPORTED_MODULE_1___default.a, {
+      onChange: function onChange() {
+        return props.provinceStatus(province);
+      },
+      checked: props.isChecked,
+      className: "react-switch"
+    }))));
   }));
 };
 
@@ -107120,12 +107137,14 @@ var ProvinceListContainer = /*#__PURE__*/function (_Component) {
     _this = _super.call(this);
     _this.state = {
       isEditing: false,
-      confirmText: null
+      confirmText: null,
+      isChecked: false
     };
     _this.editProvince = _this.editProvince.bind(_assertThisInitialized(_this));
     _this.deleteItem = _this.deleteItem.bind(_assertThisInitialized(_this));
     _this.hideDiv = _this.hideDiv.bind(_assertThisInitialized(_this));
     _this.handlePageChange = _this.handlePageChange.bind(_assertThisInitialized(_this));
+    _this.toggleStatus = _this.toggleStatus.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -107162,6 +107181,21 @@ var ProvinceListContainer = /*#__PURE__*/function (_Component) {
       this.setState({
         isEditing: values
       });
+    } // toggle status function
+
+  }, {
+    key: "toggleStatus",
+    value: function toggleStatus(province) {
+      var pageNumber = this.props.activePage;
+
+      if (province.display_status == "0") {
+        province.display_status = "1";
+      } else {
+        province.display_status = "0";
+      }
+
+      console.log(province);
+      this.props.requestUpdateProvinces(province, pageNumber);
     }
   }, {
     key: "deleteProvinceAction",
@@ -107209,12 +107243,14 @@ var ProvinceListContainer = /*#__PURE__*/function (_Component) {
         className: "wr-not-loading"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
         className: "table table-bordered"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "S.N"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Status"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Action"))), this.props.provinces.length ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_province_province__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "S.N"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Action"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Status"))), this.props.provinces.length ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_province_province__WEBPACK_IMPORTED_MODULE_7__["default"], {
         provinces: this.props.provinces,
         onEditProvince: this.editProvince,
         confirmText: this.state.confirmText,
         showConfirmBox: this.deleteItem,
         hideConfirmBox: this.hideDiv,
+        provinceStatus: this.toggleStatus,
+        isChecked: this.state.isChecked,
         deleteProvince: this.props.requestDeleteProvinces,
         activePage: this.props.activePage,
         itemsCountPerPage: this.props.itemsCountPerPage
@@ -107242,7 +107278,7 @@ var ProvinceListContainer = /*#__PURE__*/function (_Component) {
 function mapStateToProps(store) {
   return {
     provinces: store.provincesState.provinces,
-    fetching: store.languageState.fetching,
+    fetching: store.provincesState.fetching,
     activePage: store.provincesState.activePage,
     itemsCountPerPage: store.provincesState.itemsCountPerPage,
     totalItemsCount: store.provincesState.totalItemsCount,

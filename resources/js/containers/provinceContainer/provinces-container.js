@@ -16,12 +16,13 @@ class ProvinceListContainer extends Component {
         this.state = {
             isEditing: false,
             confirmText: null,
-            
+            isChecked: false
         }
         this.editProvince = this.editProvince.bind(this)
         this.deleteItem = this.deleteItem.bind(this)
         this.hideDiv = this.hideDiv.bind(this)
         this.handlePageChange = this.handlePageChange.bind(this)
+        this.toggleStatus = this.toggleStatus.bind(this)
     }
 
     componentDidMount() {
@@ -54,6 +55,21 @@ class ProvinceListContainer extends Component {
             isEditing: values
         })
     }
+
+    // toggle status function
+    toggleStatus(province) {
+        
+        const pageNumber = this.props.activePage;
+        if(province.display_status == "0") {
+            province.display_status= "1"
+        } else {
+            province.display_status = "0"
+        }
+        console.log(province)
+        this.props.requestUpdateProvinces( province, pageNumber);
+        
+    }
+
 
     deleteProvinceAction(provinceId) {
         this.props.requestDeleteProvinces(provinceId);
@@ -100,8 +116,8 @@ class ProvinceListContainer extends Component {
                                 <tr>
                                     <th>S.N</th>
                                     <th >Title</th>
-                                    <th>Status</th>
                                     <th>Action</th>
+                                    <th>Status</th>
                                     
                                 </tr>
                             </thead>
@@ -113,6 +129,8 @@ class ProvinceListContainer extends Component {
                                     confirmText={this.state.confirmText}
                                     showConfirmBox={this.deleteItem}
                                     hideConfirmBox={this.hideDiv}
+                                    provinceStatus={this.toggleStatus}
+                                    isChecked = {this.state.isChecked}
                                     deleteProvince={this.props.requestDeleteProvinces}
                                     activePage={this.props.activePage}
                                     itemsCountPerPage={this.props.itemsCountPerPage}
@@ -146,7 +164,7 @@ class ProvinceListContainer extends Component {
 function mapStateToProps(store) {
     return {
         provinces: store.provincesState.provinces,
-        fetching: store.languageState.fetching,
+        fetching: store.provincesState.fetching,
         activePage: store.provincesState.activePage,
         itemsCountPerPage: store.provincesState.itemsCountPerPage,
         totalItemsCount: store.provincesState.totalItemsCount,
