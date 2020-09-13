@@ -1,6 +1,19 @@
 import * as types from './action-types';
 
 //GET LIST OF RESOURCES
+export function requestAllResources() {
+    return {
+        type: types.REQUEST_ALL_RESOURCES
+    }
+}
+export function getAllResources(resources) {
+    return {
+        type: types.ALL_RESOURCES,
+        resources
+    }
+}
+
+
 export function requestResources(pageNumber) {
     return {
         type: types.REQUEST_RESOURCES,

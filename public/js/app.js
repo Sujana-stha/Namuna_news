@@ -99252,7 +99252,7 @@ module.exports = function(module) {
 /*!**********************************************!*\
   !*** ./resources/js/actions/action-types.js ***!
   \**********************************************/
-/*! exports provided: REQUEST_LOGIN, LOGIN_SUCCESS, LOGIN_ERROR, LOGOUT_ERROR, LOGOUT_REQUEST, LOGOUT_SUCCESS, REQUEST_CATEGORIES, GET_CATEGORIES_SUCCESS, REQUEST_CATEGORIES_FAILED, REQUEST_ADD_CATEGORIES, ADD_CATEGORIES_SUCCESS, REQUEST_EDIT_CATEGORIES, EDIT_CATEGORIES_SUCCESS, REQUEST_DELETE_CATEGORIES, DELETE_CATEGORIES_SUCCESS, REQUEST_CHANGE_CATEGORIES_STATUS, CHANGE_CATEGORIES_STATUS_SUCCESS, REQUEST_LANGUAGES, GET_LANGUAGES_SUCCESS, REQUEST_LANGUAGES_FAILED, REQUEST_ADD_LANGUAGES, ADD_LANGUAGES_SUCCESS, REQUEST_EDIT_LANGUAGES, EDIT_LANGUAGES_SUCCESS, REQUEST_DELETE_LANGUAGES, DELETE_LANGUAGES_SUCCESS, REQUEST_NEWS, GET_NEWS_SUCCESS, REQUEST_NEWS_FAILED, REQUEST_ADD_NEWS, ADD_NEWS_SUCCESS, REQUEST_EDIT_NEWS, EDIT_NEWS_SUCCESS, REQUEST_DELETE_NEWS, DELETE_NEWS_SUCCESS, REQUEST_PROVINCES, GET_PROVINCES_SUCCESS, REQUEST_PROVINCES_FAILED, REQUEST_ADD_PROVINCES, ADD_PROVINCES_SUCCESS, REQUEST_EDIT_PROVINCES, EDIT_PROVINCES_SUCCESS, REQUEST_DELETE_PROVINCES, DELETE_PROVINCES_SUCCESS, REQUEST_RESOURCES, GET_RESOURCES_SUCCESS, REQUEST_RESOURCES_FAILED, REQUEST_ADD_RESOURCES, ADD_RESOURCES_SUCCESS, REQUEST_EDIT_RESOURCES, EDIT_RESOURCES_SUCCESS, REQUEST_DELETE_RESOURCES, DELETE_RESOURCES_SUCCESS, REQUEST_CATEGORIES_TRANSLATION, GET_CATEGORIES_TRANSLATION_SUCCESS, REQUEST_CATEGORIES_TRANSLATION_FAILED, REQUEST_ADD_CATEGORIES_TRANSLATION, ADD_CATEGORIES_TRANSLATION_SUCCESS, REQUEST_EDIT_CATEGORIES_TRANSLATION, EDIT_CATEGORIES_TRANSLATION_SUCCESS, REQUEST_DELETE_CATEGORIES_TRANSLATION, DELETE_CATEGORIES_TRANSLATION_SUCCESS, REQUEST_NEWS_TRANSLATION, GET_NEWS_TRANSLATION_SUCCESS, REQUEST_NEWS_TRANSLATION_FAILED, REQUEST_ADD_NEWS_TRANSLATION, ADD_NEWS_TRANSLATION_SUCCESS, REQUEST_EDIT_NEWS_TRANSLATION, EDIT_NEWS_TRANSLATION_SUCCESS, REQUEST_DELETE_NEWS_TRANSLATION, DELETE_NEWS_TRANSLATION_SUCCESS, REQUEST_PROVINCE_TRANSLATION, GET_PROVINCE_TRANSLATION_SUCCESS, REQUEST_PROVINCE_TRANSLATION_FAILED, REQUEST_ADD_PROVINCE_TRANSLATION, ADD_PROVINCE_TRANSLATION_SUCCESS, REQUEST_EDIT_PROVINCE_TRANSLATION, EDIT_PROVINCE_TRANSLATION_SUCCESS, REQUEST_DELETE_PROVINCE_TRANSLATION, DELETE_PROVINCE_TRANSLATION_SUCCESS, REQUEST_RESOURCE_TRANSLATION, GET_RESOURCE_TRANSLATION_SUCCESS, REQUEST_RESOURCE_TRANSLATION_FAILED, REQUEST_ADD_RESOURCE_TRANSLATION, ADD_RESOURCE_TRANSLATION_SUCCESS, REQUEST_EDIT_RESOURCE_TRANSLATION, EDIT_RESOURCE_TRANSLATION_SUCCESS, REQUEST_DELETE_RESOURCE_TRANSLATION, DELETE_RESOURCE_TRANSLATION_SUCCESS */
+/*! exports provided: REQUEST_LOGIN, LOGIN_SUCCESS, LOGIN_ERROR, LOGOUT_ERROR, LOGOUT_REQUEST, LOGOUT_SUCCESS, REQUEST_CATEGORIES, GET_CATEGORIES_SUCCESS, REQUEST_CATEGORIES_FAILED, REQUEST_ADD_CATEGORIES, ADD_CATEGORIES_SUCCESS, REQUEST_EDIT_CATEGORIES, EDIT_CATEGORIES_SUCCESS, REQUEST_DELETE_CATEGORIES, DELETE_CATEGORIES_SUCCESS, REQUEST_ALL_CATEGORIES, CATEGORIES_LIST_ALL, REQUEST_LANGUAGES, GET_LANGUAGES_SUCCESS, REQUEST_LANGUAGES_FAILED, REQUEST_ADD_LANGUAGES, ADD_LANGUAGES_SUCCESS, REQUEST_EDIT_LANGUAGES, EDIT_LANGUAGES_SUCCESS, REQUEST_DELETE_LANGUAGES, DELETE_LANGUAGES_SUCCESS, ALL_LANGUAGE, REQUEST_ALL_LANGUAGE, REQUEST_NEWS, GET_NEWS_SUCCESS, REQUEST_NEWS_FAILED, REQUEST_ADD_NEWS, ADD_NEWS_SUCCESS, REQUEST_EDIT_NEWS, EDIT_NEWS_SUCCESS, REQUEST_DELETE_NEWS, DELETE_NEWS_SUCCESS, ALL_NEWS, REQUEST_ALL_NEWS, REQUEST_PROVINCES, GET_PROVINCES_SUCCESS, REQUEST_PROVINCES_FAILED, REQUEST_ADD_PROVINCES, ADD_PROVINCES_SUCCESS, REQUEST_EDIT_PROVINCES, EDIT_PROVINCES_SUCCESS, REQUEST_DELETE_PROVINCES, DELETE_PROVINCES_SUCCESS, REQUEST_ALL_PROVINCE, ALL_PROVINCE, REQUEST_RESOURCES, GET_RESOURCES_SUCCESS, REQUEST_RESOURCES_FAILED, REQUEST_ADD_RESOURCES, ADD_RESOURCES_SUCCESS, REQUEST_EDIT_RESOURCES, EDIT_RESOURCES_SUCCESS, REQUEST_DELETE_RESOURCES, DELETE_RESOURCES_SUCCESS, REQUEST_ALL_RESOURCES, ALL_RESOURCES, REQUEST_CATEGORIES_TRANSLATION, GET_CATEGORIES_TRANSLATION_SUCCESS, REQUEST_CATEGORIES_TRANSLATION_FAILED, REQUEST_ADD_CATEGORIES_TRANSLATION, ADD_CATEGORIES_TRANSLATION_SUCCESS, REQUEST_EDIT_CATEGORIES_TRANSLATION, EDIT_CATEGORIES_TRANSLATION_SUCCESS, REQUEST_DELETE_CATEGORIES_TRANSLATION, DELETE_CATEGORIES_TRANSLATION_SUCCESS, REQUEST_NEWS_TRANSLATION, GET_NEWS_TRANSLATION_SUCCESS, REQUEST_NEWS_TRANSLATION_FAILED, REQUEST_ADD_NEWS_TRANSLATION, ADD_NEWS_TRANSLATION_SUCCESS, REQUEST_EDIT_NEWS_TRANSLATION, EDIT_NEWS_TRANSLATION_SUCCESS, REQUEST_DELETE_NEWS_TRANSLATION, DELETE_NEWS_TRANSLATION_SUCCESS, REQUEST_PROVINCE_TRANSLATION, GET_PROVINCE_TRANSLATION_SUCCESS, REQUEST_PROVINCE_TRANSLATION_FAILED, REQUEST_ADD_PROVINCE_TRANSLATION, ADD_PROVINCE_TRANSLATION_SUCCESS, REQUEST_EDIT_PROVINCE_TRANSLATION, EDIT_PROVINCE_TRANSLATION_SUCCESS, REQUEST_DELETE_PROVINCE_TRANSLATION, DELETE_PROVINCE_TRANSLATION_SUCCESS, REQUEST_RESOURCE_TRANSLATION, GET_RESOURCE_TRANSLATION_SUCCESS, REQUEST_RESOURCE_TRANSLATION_FAILED, REQUEST_ADD_RESOURCE_TRANSLATION, ADD_RESOURCE_TRANSLATION_SUCCESS, REQUEST_EDIT_RESOURCE_TRANSLATION, EDIT_RESOURCE_TRANSLATION_SUCCESS, REQUEST_DELETE_RESOURCE_TRANSLATION, DELETE_RESOURCE_TRANSLATION_SUCCESS */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -99272,8 +99272,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EDIT_CATEGORIES_SUCCESS", function() { return EDIT_CATEGORIES_SUCCESS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REQUEST_DELETE_CATEGORIES", function() { return REQUEST_DELETE_CATEGORIES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE_CATEGORIES_SUCCESS", function() { return DELETE_CATEGORIES_SUCCESS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REQUEST_CHANGE_CATEGORIES_STATUS", function() { return REQUEST_CHANGE_CATEGORIES_STATUS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CHANGE_CATEGORIES_STATUS_SUCCESS", function() { return CHANGE_CATEGORIES_STATUS_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REQUEST_ALL_CATEGORIES", function() { return REQUEST_ALL_CATEGORIES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CATEGORIES_LIST_ALL", function() { return CATEGORIES_LIST_ALL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REQUEST_LANGUAGES", function() { return REQUEST_LANGUAGES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_LANGUAGES_SUCCESS", function() { return GET_LANGUAGES_SUCCESS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REQUEST_LANGUAGES_FAILED", function() { return REQUEST_LANGUAGES_FAILED; });
@@ -99283,6 +99283,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EDIT_LANGUAGES_SUCCESS", function() { return EDIT_LANGUAGES_SUCCESS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REQUEST_DELETE_LANGUAGES", function() { return REQUEST_DELETE_LANGUAGES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE_LANGUAGES_SUCCESS", function() { return DELETE_LANGUAGES_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ALL_LANGUAGE", function() { return ALL_LANGUAGE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REQUEST_ALL_LANGUAGE", function() { return REQUEST_ALL_LANGUAGE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REQUEST_NEWS", function() { return REQUEST_NEWS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_NEWS_SUCCESS", function() { return GET_NEWS_SUCCESS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REQUEST_NEWS_FAILED", function() { return REQUEST_NEWS_FAILED; });
@@ -99292,6 +99294,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EDIT_NEWS_SUCCESS", function() { return EDIT_NEWS_SUCCESS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REQUEST_DELETE_NEWS", function() { return REQUEST_DELETE_NEWS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE_NEWS_SUCCESS", function() { return DELETE_NEWS_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ALL_NEWS", function() { return ALL_NEWS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REQUEST_ALL_NEWS", function() { return REQUEST_ALL_NEWS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REQUEST_PROVINCES", function() { return REQUEST_PROVINCES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_PROVINCES_SUCCESS", function() { return GET_PROVINCES_SUCCESS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REQUEST_PROVINCES_FAILED", function() { return REQUEST_PROVINCES_FAILED; });
@@ -99301,6 +99305,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EDIT_PROVINCES_SUCCESS", function() { return EDIT_PROVINCES_SUCCESS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REQUEST_DELETE_PROVINCES", function() { return REQUEST_DELETE_PROVINCES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE_PROVINCES_SUCCESS", function() { return DELETE_PROVINCES_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REQUEST_ALL_PROVINCE", function() { return REQUEST_ALL_PROVINCE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ALL_PROVINCE", function() { return ALL_PROVINCE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REQUEST_RESOURCES", function() { return REQUEST_RESOURCES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_RESOURCES_SUCCESS", function() { return GET_RESOURCES_SUCCESS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REQUEST_RESOURCES_FAILED", function() { return REQUEST_RESOURCES_FAILED; });
@@ -99310,6 +99316,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EDIT_RESOURCES_SUCCESS", function() { return EDIT_RESOURCES_SUCCESS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REQUEST_DELETE_RESOURCES", function() { return REQUEST_DELETE_RESOURCES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DELETE_RESOURCES_SUCCESS", function() { return DELETE_RESOURCES_SUCCESS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REQUEST_ALL_RESOURCES", function() { return REQUEST_ALL_RESOURCES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ALL_RESOURCES", function() { return ALL_RESOURCES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REQUEST_CATEGORIES_TRANSLATION", function() { return REQUEST_CATEGORIES_TRANSLATION; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_CATEGORIES_TRANSLATION_SUCCESS", function() { return GET_CATEGORIES_TRANSLATION_SUCCESS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REQUEST_CATEGORIES_TRANSLATION_FAILED", function() { return REQUEST_CATEGORIES_TRANSLATION_FAILED; });
@@ -99363,8 +99371,8 @@ var REQUEST_EDIT_CATEGORIES = 'REQUEST_EDIT_CATEGORIES';
 var EDIT_CATEGORIES_SUCCESS = 'EDIT_CATEGORIES_SUCCESS';
 var REQUEST_DELETE_CATEGORIES = 'DELETE_CATEGORIES';
 var DELETE_CATEGORIES_SUCCESS = 'DELETE_CATEGORIES_SUCCESS';
-var REQUEST_CHANGE_CATEGORIES_STATUS = 'REQUEST_CHANGE_CATEGORIES_STATUS';
-var CHANGE_CATEGORIES_STATUS_SUCCESS = 'CHANGE_CATEGORIES_STATUS_SUCCESS'; //LANGUAGES
+var REQUEST_ALL_CATEGORIES = 'REQUEST_ALL_CATEGORIES';
+var CATEGORIES_LIST_ALL = 'CATEGORIES_LIST_ALL'; //LANGUAGES
 
 var REQUEST_LANGUAGES = 'REQUEST_LANGUAGES';
 var GET_LANGUAGES_SUCCESS = 'GET_LANGUAGES_SUCCESS';
@@ -99374,7 +99382,9 @@ var ADD_LANGUAGES_SUCCESS = 'ADD_LANGUAGES_SUCCESS';
 var REQUEST_EDIT_LANGUAGES = 'REQUEST_EDIT_LANGUAGES';
 var EDIT_LANGUAGES_SUCCESS = 'EDIT_LANGUAGES_SUCCESS';
 var REQUEST_DELETE_LANGUAGES = 'REQUEST_DELETE_LANGUAGES';
-var DELETE_LANGUAGES_SUCCESS = 'DELETE_LANGUAGES_SUCCESS'; //NEWS
+var DELETE_LANGUAGES_SUCCESS = 'DELETE_LANGUAGES_SUCCESS';
+var ALL_LANGUAGE = 'ALL_LANGUAGE';
+var REQUEST_ALL_LANGUAGE = 'REQUEST_ALL_LANGUAGE'; //NEWS
 
 var REQUEST_NEWS = 'REQUEST_NEWS';
 var GET_NEWS_SUCCESS = 'GET_NEWS_SUCCESS';
@@ -99384,7 +99394,9 @@ var ADD_NEWS_SUCCESS = 'ADD_NEWS_SUCCESS';
 var REQUEST_EDIT_NEWS = 'REQUEST_EDIT_NEWS';
 var EDIT_NEWS_SUCCESS = 'EDIT_NEWS_SUCCESS';
 var REQUEST_DELETE_NEWS = 'REQUEST_DELETE_NEWS';
-var DELETE_NEWS_SUCCESS = 'DELETE_NEWS_SUCCESS'; //PROVINCES
+var DELETE_NEWS_SUCCESS = 'DELETE_NEWS_SUCCESS';
+var ALL_NEWS = 'ALL_NEWS';
+var REQUEST_ALL_NEWS = 'REQUEST_ALL_NEWS'; //PROVINCES
 
 var REQUEST_PROVINCES = 'REQUEST_PROVINCES';
 var GET_PROVINCES_SUCCESS = 'GET_PROVINCES_SUCCESS';
@@ -99394,7 +99406,9 @@ var ADD_PROVINCES_SUCCESS = 'ADD_PROVINCES_SUCCESS';
 var REQUEST_EDIT_PROVINCES = 'REQUEST_EDIT_PROVINCES';
 var EDIT_PROVINCES_SUCCESS = 'EDIT_PROVINCES_SUCCESS';
 var REQUEST_DELETE_PROVINCES = 'REQUEST_DELETE_PROVINCES';
-var DELETE_PROVINCES_SUCCESS = 'DELETE_PROVINCES_SUCCESS'; //RESOURCES
+var DELETE_PROVINCES_SUCCESS = 'DELETE_PROVINCES_SUCCESS';
+var REQUEST_ALL_PROVINCE = 'REQUEST_ALL_PROVINCE';
+var ALL_PROVINCE = 'ALL_PROVINCE'; //RESOURCES
 
 var REQUEST_RESOURCES = 'REQUEST_RESOURCES';
 var GET_RESOURCES_SUCCESS = 'GET_RESOURCES_SUCCESS';
@@ -99404,7 +99418,9 @@ var ADD_RESOURCES_SUCCESS = 'ADD_RESOURCES_SUCCESS';
 var REQUEST_EDIT_RESOURCES = 'REQUEST_EDIT_RESOURCES';
 var EDIT_RESOURCES_SUCCESS = 'EDIT_RESOURCES_SUCCESS';
 var REQUEST_DELETE_RESOURCES = 'REQUEST_DELETE_RESOURCES';
-var DELETE_RESOURCES_SUCCESS = 'DELETE_RESOURCES_SUCCESS'; //CATEGORIES TRANSLATION
+var DELETE_RESOURCES_SUCCESS = 'DELETE_RESOURCES_SUCCESS';
+var REQUEST_ALL_RESOURCES = 'REQUEST_ALL_RESOURCES';
+var ALL_RESOURCES = 'ALL_RESOURCES'; //CATEGORIES TRANSLATION
 
 var REQUEST_CATEGORIES_TRANSLATION = 'REQUEST_CATEGORIES_TRANSLATION';
 var GET_CATEGORIES_TRANSLATION_SUCCESS = 'GET_CATEGORIES_TRANSLATION_SUCCESS';
@@ -99452,11 +99468,13 @@ var DELETE_RESOURCE_TRANSLATION_SUCCESS = 'DELETE_RESOURCE_TRANSLATION_SUCCESS';
 /*!***************************************************!*\
   !*** ./resources/js/actions/categories-action.js ***!
   \***************************************************/
-/*! exports provided: requestCategories, getCategoriesSuccess, requestCategoriesFailed, requestAddCategories, addCategoriesSuccess, requestUpdateCategories, updateCategoriesSuccess, requestDeleteCategories, deleteCategoriesSuccess, requestCategoriesStatus, CategoriesStatusSuccess */
+/*! exports provided: requestAllCategories, getAllCategories, requestCategories, getCategoriesSuccess, requestCategoriesFailed, requestAddCategories, addCategoriesSuccess, requestUpdateCategories, updateCategoriesSuccess, requestDeleteCategories, deleteCategoriesSuccess */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestAllCategories", function() { return requestAllCategories; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getAllCategories", function() { return getAllCategories; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestCategories", function() { return requestCategories; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getCategoriesSuccess", function() { return getCategoriesSuccess; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestCategoriesFailed", function() { return requestCategoriesFailed; });
@@ -99466,10 +99484,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateCategoriesSuccess", function() { return updateCategoriesSuccess; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestDeleteCategories", function() { return requestDeleteCategories; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteCategoriesSuccess", function() { return deleteCategoriesSuccess; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestCategoriesStatus", function() { return requestCategoriesStatus; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CategoriesStatusSuccess", function() { return CategoriesStatusSuccess; });
 /* harmony import */ var _action_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./action-types */ "./resources/js/actions/action-types.js");
- //GET LIST OF CATEGORIES ACTION
+ //Get list of all categories
+
+function requestAllCategories() {
+  return {
+    type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_ALL_CATEGORIES"]
+  };
+}
+function getAllCategories(categories) {
+  return {
+    type: _action_types__WEBPACK_IMPORTED_MODULE_0__["CATEGORIES_LIST_ALL"],
+    categories: categories
+  };
+} //GET LIST OF CATEGORIES ACTION
 
 function requestCategories(pageNumber) {
   return {
@@ -99530,22 +99558,6 @@ function requestDeleteCategories(categoryId) {
 function deleteCategoriesSuccess(categoryId, message) {
   return {
     type: _action_types__WEBPACK_IMPORTED_MODULE_0__["DELETE_CATEGORIES_SUCCESS"],
-    categoryId: categoryId,
-    message: message
-  };
-} //CHANHE CATEGORIES STATUS ACTION
-
-function requestCategoriesStatus(categoryId, values) {
-  return {
-    type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_CHANGE_CATEGORIES_STATUS"],
-    values: values,
-    categoryId: categoryId
-  };
-}
-function CategoriesStatusSuccess(categoryId, values) {
-  return {
-    type: _action_types__WEBPACK_IMPORTED_MODULE_0__["CHANGE_CATEGORIES_STATUS_SUCCESS"],
-    values: values,
     categoryId: categoryId,
     message: message
   };
@@ -99644,11 +99656,13 @@ function deleteCategoriesTranslationSuccess(categoryTransId, message) {
 /*!**************************************************!*\
   !*** ./resources/js/actions/languages-action.js ***!
   \**************************************************/
-/*! exports provided: requestLanguages, getLanguagesSuccess, requestLanguagesFailed, requestAddLanguages, addLanguagesSuccess, requestUpdateLanguages, updateLanguagesSuccess, requestDeleteLanguages, deleteLanguagesSuccess */
+/*! exports provided: requestAllLanguages, getAllLanguages, requestLanguages, getLanguagesSuccess, requestLanguagesFailed, requestAddLanguages, addLanguagesSuccess, requestUpdateLanguages, updateLanguagesSuccess, requestDeleteLanguages, deleteLanguagesSuccess */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestAllLanguages", function() { return requestAllLanguages; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getAllLanguages", function() { return getAllLanguages; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestLanguages", function() { return requestLanguages; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getLanguagesSuccess", function() { return getLanguagesSuccess; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestLanguagesFailed", function() { return requestLanguagesFailed; });
@@ -99659,7 +99673,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestDeleteLanguages", function() { return requestDeleteLanguages; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteLanguagesSuccess", function() { return deleteLanguagesSuccess; });
 /* harmony import */ var _action_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./action-types */ "./resources/js/actions/action-types.js");
- //GET LIST OF LANGUAGES
+ //Get list of all languages
+
+function requestAllLanguages() {
+  return {
+    type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_ALL_LANGUAGE"]
+  };
+}
+function getAllLanguages(language) {
+  return {
+    type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_ALL_LANGUAGE"],
+    language: language
+  };
+} //GET LIST OF LANGUAGES
 
 function requestLanguages(pageNumber) {
   return {
@@ -99775,11 +99801,13 @@ function logout() {
 /*!*********************************************!*\
   !*** ./resources/js/actions/news-action.js ***!
   \*********************************************/
-/*! exports provided: requestNews, getNewsSuccess, requestNewsFailed, requestAddNews, addNewsSuccess, requestUpdateNews, updateNewsSuccess, requestDeleteNews, deleteNewsSuccess */
+/*! exports provided: requestAllNews, getAllNews, requestNews, getNewsSuccess, requestNewsFailed, requestAddNews, addNewsSuccess, requestUpdateNews, updateNewsSuccess, requestDeleteNews, deleteNewsSuccess */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestAllNews", function() { return requestAllNews; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getAllNews", function() { return getAllNews; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestNews", function() { return requestNews; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getNewsSuccess", function() { return getNewsSuccess; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestNewsFailed", function() { return requestNewsFailed; });
@@ -99790,7 +99818,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestDeleteNews", function() { return requestDeleteNews; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteNewsSuccess", function() { return deleteNewsSuccess; });
 /* harmony import */ var _action_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./action-types */ "./resources/js/actions/action-types.js");
- //GET LIST OF NEWS
+ //get all list of news
+
+function requestAllNews() {
+  return {
+    type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_ALL_NEWS"]
+  };
+}
+function getAllNews(news) {
+  return {
+    type: _action_types__WEBPACK_IMPORTED_MODULE_0__["ALL_NEWS"],
+    news: news
+  };
+} //GET LIST OF NEWS
 
 function requestNews(pageNumber) {
   return {
@@ -99949,11 +99989,13 @@ function deleteNewsTranslationSuccess(newsTransId, message) {
 /*!*************************************************!*\
   !*** ./resources/js/actions/province-action.js ***!
   \*************************************************/
-/*! exports provided: requestProvinces, getProvincesSuccess, requestProvincesFailed, requestAddProvinces, addProvincesSuccess, requestUpdateProvinces, updateProvincesSuccess, requestDeleteProvinces, deleteProvincesSuccess */
+/*! exports provided: requestAllProvinces, getAllProvinces, requestProvinces, getProvincesSuccess, requestProvincesFailed, requestAddProvinces, addProvincesSuccess, requestUpdateProvinces, updateProvincesSuccess, requestDeleteProvinces, deleteProvincesSuccess */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestAllProvinces", function() { return requestAllProvinces; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getAllProvinces", function() { return getAllProvinces; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestProvinces", function() { return requestProvinces; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getProvincesSuccess", function() { return getProvincesSuccess; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestProvincesFailed", function() { return requestProvincesFailed; });
@@ -99964,7 +100006,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestDeleteProvinces", function() { return requestDeleteProvinces; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteProvincesSuccess", function() { return deleteProvincesSuccess; });
 /* harmony import */ var _action_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./action-types */ "./resources/js/actions/action-types.js");
- //GET LIST OF PROVINCES
+ //get all list of provinces
+
+function requestAllProvinces() {
+  return {
+    type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_ALL_PROVINCE"]
+  };
+}
+function getAllProvinces(province) {
+  return {
+    type: _action_types__WEBPACK_IMPORTED_MODULE_0__["ALL_PROVINCE"],
+    province: province
+  };
+} //GET LIST OF PROVINCES
 
 function requestProvinces(pageNumber) {
   return {
@@ -100123,11 +100177,13 @@ function deleteProvincesTranslationSuccess(procinceTransId, message) {
 /*!*************************************************!*\
   !*** ./resources/js/actions/resource-action.js ***!
   \*************************************************/
-/*! exports provided: requestResources, getResourcesSuccess, requestResourcesFailed, requestAddResources, addResourcesSuccess, requestUpdateResources, updateResourcesSuccess, requestDeleteResources, deleteResourcesSuccess */
+/*! exports provided: requestAllResources, getAllResources, requestResources, getResourcesSuccess, requestResourcesFailed, requestAddResources, addResourcesSuccess, requestUpdateResources, updateResourcesSuccess, requestDeleteResources, deleteResourcesSuccess */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestAllResources", function() { return requestAllResources; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getAllResources", function() { return getAllResources; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestResources", function() { return requestResources; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getResourcesSuccess", function() { return getResourcesSuccess; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestResourcesFailed", function() { return requestResourcesFailed; });
@@ -100140,6 +100196,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _action_types__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./action-types */ "./resources/js/actions/action-types.js");
  //GET LIST OF RESOURCES
 
+function requestAllResources() {
+  return {
+    type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_ALL_RESOURCES"]
+  };
+}
+function getAllResources(resources) {
+  return {
+    type: _action_types__WEBPACK_IMPORTED_MODULE_0__["ALL_RESOURCES"],
+    resources: resources
+  };
+}
 function requestResources(pageNumber) {
   return {
     type: _action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_RESOURCES"],
@@ -100329,7 +100396,7 @@ var getHeaders = function getHeaders() {
 /*!********************************************!*\
   !*** ./resources/js/api/categories-api.js ***!
   \********************************************/
-/*! exports provided: getCategories, addCategories, deleteCategories, updateCategories, getSingleCategories */
+/*! exports provided: getCategories, addCategories, deleteCategories, updateCategories, getSingleCategories, getAllCategories */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -100339,6 +100406,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteCategories", function() { return deleteCategories; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateCategories", function() { return updateCategories; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSingleCategories", function() { return getSingleCategories; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getAllCategories", function() { return getAllCategories; });
 /* harmony import */ var _axiosInstance__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./axiosInstance */ "./resources/js/api/axiosInstance.js");
  //GET ALL CATEGORIES API
 
@@ -100400,6 +100468,19 @@ function getSingleCategories(categoryId) {
   var access_token = window.localStorage.getItem('access_token');
   var headers = Object(_axiosInstance__WEBPACK_IMPORTED_MODULE_0__["getHeaders"])(access_token);
   return _axiosInstance__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/categories/' + categoryId, {
+    headers: headers
+  })["catch"](function (error) {
+    console.log(error);
+    return {
+      errors: error
+    };
+  });
+} // Get all data of categories
+
+function getAllCategories() {
+  var access_token = window.localStorage.getItem('access_token');
+  var headers = Object(_axiosInstance__WEBPACK_IMPORTED_MODULE_0__["getHeaders"])(access_token);
+  return _axiosInstance__WEBPACK_IMPORTED_MODULE_0__["default"].get("/api/categories/all", {
     headers: headers
   })["catch"](function (error) {
     console.log(error);
@@ -100500,7 +100581,7 @@ function getSingleCategoriesTrans(categoryTransId) {
 /*!*******************************************!*\
   !*** ./resources/js/api/languages-api.js ***!
   \*******************************************/
-/*! exports provided: getLanguages, addLanguages, deleteLanguages, updateLanguages, getSingleLanguages */
+/*! exports provided: getLanguages, addLanguages, deleteLanguages, updateLanguages, getSingleLanguages, getAllLanguages */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -100510,6 +100591,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteLanguages", function() { return deleteLanguages; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateLanguages", function() { return updateLanguages; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSingleLanguages", function() { return getSingleLanguages; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getAllLanguages", function() { return getAllLanguages; });
 /* harmony import */ var _axiosInstance__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./axiosInstance */ "./resources/js/api/axiosInstance.js");
  //GET ALL LANGUAGES API
 
@@ -100576,6 +100658,19 @@ function getSingleLanguages(languageId) {
       errors: error
     };
   });
+} //Get all list of languages
+
+function getAllLanguages() {
+  var access_token = window.localStorage.getItem('access_token');
+  var headers = Object(_axiosInstance__WEBPACK_IMPORTED_MODULE_0__["getHeaders"])(access_token);
+  return _axiosInstance__WEBPACK_IMPORTED_MODULE_0__["default"].get("/api/languages/all", {
+    headers: headers
+  })["catch"](function (error) {
+    console.log(error);
+    return {
+      errors: error
+    };
+  });
 }
 
 /***/ }),
@@ -100635,7 +100730,7 @@ function logout() {
 /*!**************************************!*\
   !*** ./resources/js/api/news-api.js ***!
   \**************************************/
-/*! exports provided: getNews, addNews, deleteNews, updateNews, getSingleNews */
+/*! exports provided: getNews, addNews, deleteNews, updateNews, getSingleNews, getAllNews */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -100645,6 +100740,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteNews", function() { return deleteNews; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateNews", function() { return updateNews; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSingleNews", function() { return getSingleNews; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getAllNews", function() { return getAllNews; });
 /* harmony import */ var _axiosInstance__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./axiosInstance */ "./resources/js/api/axiosInstance.js");
  //GET ALL NEWS API
 
@@ -100742,6 +100838,19 @@ function getSingleNews(newsId) {
   var access_token = window.localStorage.getItem('access_token');
   var headers = Object(_axiosInstance__WEBPACK_IMPORTED_MODULE_0__["getHeaders"])(access_token);
   return _axiosInstance__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/news/' + newsId, {
+    headers: headers
+  })["catch"](function (error) {
+    console.log(error);
+    return {
+      errors: error
+    };
+  });
+} // Get all list of news
+
+function getAllNews() {
+  var access_token = window.localStorage.getItem('access_token');
+  var headers = Object(_axiosInstance__WEBPACK_IMPORTED_MODULE_0__["getHeaders"])(access_token);
+  return _axiosInstance__WEBPACK_IMPORTED_MODULE_0__["default"].get("/api/news/all", {
     headers: headers
   })["catch"](function (error) {
     console.log(error);
@@ -100926,7 +101035,7 @@ function getSingleProvincesTrans(provinceTransId) {
 /*!*******************************************!*\
   !*** ./resources/js/api/provinces-api.js ***!
   \*******************************************/
-/*! exports provided: getProvinces, addProvinces, deleteProvinces, updateProvinces, getSingleProvinces */
+/*! exports provided: getProvinces, addProvinces, deleteProvinces, updateProvinces, getSingleProvinces, getAllProvinces */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -100936,6 +101045,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteProvinces", function() { return deleteProvinces; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateProvinces", function() { return updateProvinces; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSingleProvinces", function() { return getSingleProvinces; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getAllProvinces", function() { return getAllProvinces; });
 /* harmony import */ var _axiosInstance__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./axiosInstance */ "./resources/js/api/axiosInstance.js");
  //GET ALL PROVINCES API
 
@@ -101002,6 +101112,19 @@ function getSingleProvinces(provinceId) {
       errors: error
     };
   });
+} // Get all lists of Provinces
+
+function getAllProvinces() {
+  var access_token = window.localStorage.getItem('access_token');
+  var headers = Object(_axiosInstance__WEBPACK_IMPORTED_MODULE_0__["getHeaders"])(access_token);
+  return _axiosInstance__WEBPACK_IMPORTED_MODULE_0__["default"].get("/api/province/all", {
+    headers: headers
+  })["catch"](function (error) {
+    console.log(error);
+    return {
+      errors: error
+    };
+  });
 }
 
 /***/ }),
@@ -101010,7 +101133,7 @@ function getSingleProvinces(provinceId) {
 /*!*******************************************!*\
   !*** ./resources/js/api/resources-api.js ***!
   \*******************************************/
-/*! exports provided: getResources, addResources, deleteResources, updateResources, getSingleResources */
+/*! exports provided: getResources, addResources, deleteResources, updateResources, getSingleResources, getAllResources */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -101020,6 +101143,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteResources", function() { return deleteResources; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateResources", function() { return updateResources; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getSingleResources", function() { return getSingleResources; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getAllResources", function() { return getAllResources; });
 /* harmony import */ var _axiosInstance__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./axiosInstance */ "./resources/js/api/axiosInstance.js");
  //GET ALL RESOURCES API
 
@@ -101079,6 +101203,19 @@ function getSingleResources(resourceId) {
   var access_token = window.localStorage.getItem('access_token');
   var headers = Object(_axiosInstance__WEBPACK_IMPORTED_MODULE_0__["getHeaders"])(access_token);
   return _axiosInstance__WEBPACK_IMPORTED_MODULE_0__["default"].get('/api/resources/' + resourceId, {
+    headers: headers
+  })["catch"](function (error) {
+    console.log(error);
+    return {
+      errors: error
+    };
+  });
+} // Get all list of resources
+
+function getAllResources() {
+  var access_token = window.localStorage.getItem('access_token');
+  var headers = Object(_axiosInstance__WEBPACK_IMPORTED_MODULE_0__["getHeaders"])(access_token);
+  return _axiosInstance__WEBPACK_IMPORTED_MODULE_0__["default"].get("/api/resources/all", {
     headers: headers
   })["catch"](function (error) {
     console.log(error);
@@ -101280,8 +101417,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 
- // import {requestVehicleAttrCreate} from '../../actions/deals-action';
-// import {requestLoggedUser} from '../../actions/users-action';
+
 
 var AutocompleteField = /*#__PURE__*/function (_Component) {
   _inherits(AutocompleteField, _Component);
@@ -101301,16 +101437,11 @@ var AutocompleteField = /*#__PURE__*/function (_Component) {
       placeholderText: 'Select one...'
     };
     return _this;
-  } // componentDidMount() {
-  //     this.props.requestLoggedUser();
-  // }
-
+  }
 
   _createClass(AutocompleteField, [{
     key: "handleFocus",
     value: function handleFocus(itemList) {
-      // const option = Object.keys(itemList).map((item) => ({label:itemList[item], value: item }))
-      console.log('items', itemList);
       var option = itemList.map(function (item) {
         if (item.language) {
           return {
@@ -101356,13 +101487,16 @@ var AutocompleteField = /*#__PURE__*/function (_Component) {
 
       var _this$props = this.props,
           itemList = _this$props.itemList,
-          input = _this$props.input;
+          input = _this$props.input,
+          _this$props$meta = _this$props.meta,
+          touched = _this$props$meta.touched,
+          error = _this$props$meta.error;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "nm-select-field col-md-6"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         className: ""
       }, this.props.label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: ""
+        className: touched && error ? "form-control is-invalid" : "form-control"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_select__WEBPACK_IMPORTED_MODULE_1__["default"], _extends({}, input, {
         className: "nm-select-box",
         isClearable: true,
@@ -101378,7 +101512,9 @@ var AutocompleteField = /*#__PURE__*/function (_Component) {
         onChange: this.handleChange.bind(this),
         options: this.state.options,
         value: this.state.value ? this.state.value : input.value
-      }))));
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "error text-danger"
+      }, touched ? error : ''));
     }
   }]);
 
@@ -101422,7 +101558,7 @@ var renderInputField = function renderInputField(_ref) {
   }, label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", _extends({
     id: id,
     type: type,
-    className: touched ? "form-control is-invalid" : "form-control",
+    className: touched && error ? "form-control is-invalid" : "form-control",
     placeholder: placeholder
   }, input)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "error text-danger"
@@ -101442,9 +101578,9 @@ var renderSelectField = function renderSelectField(_ref2) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", _extends({
     value: defaultValue
   }, input, {
-    className: "form-control"
+    className: touched && error ? "form-control is-invalid" : "form-control"
   }), children), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "error"
+    className: "error text-danger"
   }, touched ? error : ''));
 };
 
@@ -101509,8 +101645,16 @@ var validate = function validate(values) {
 
   if (!values.slug) {
     errors.slug = "This field is empty.";
-  } else if (values.slug.length > 30) {
-    errors.slug = "Must be 30 character or less!";
+  } else if (values.slug.length > 100) {
+    errors.slug = "Must be 100 character or less!";
+  }
+
+  if (!values.display_status) {
+    errors.display_status = "You must select a option.";
+  }
+
+  if (!values.parent_id) {
+    errors.parent_id = "You must select a option.";
   }
 
   return errors;
@@ -101646,7 +101790,6 @@ var EditCategory = /*#__PURE__*/function (_Component) {
       var id = this.props.editId;
       _api_categories_api__WEBPACK_IMPORTED_MODULE_2__["getSingleCategories"](id).then(function (response) {
         var data = response.data.data;
-        console.log('data', data);
 
         _this.props.initialize(data);
       });
@@ -101671,7 +101814,7 @@ var EditCategory = /*#__PURE__*/function (_Component) {
         value: value,
         id: id,
         type: type,
-        className: touched ? "form-control is-invalid" : "form-control",
+        className: touched && error ? "form-control is-invalid" : "form-control",
         placeholder: placeholder
       }, input)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "error text-danger"
@@ -101692,7 +101835,7 @@ var EditCategory = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", _extends({
         value: defaultValue
       }, input, {
-        className: "form-control"
+        className: touched && error ? "form-control is-invalid" : "form-control"
       }), children), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "error"
       }, touched ? error : ''));
@@ -101762,8 +101905,16 @@ function validate(values) {
 
   if (!values.slug) {
     errors.slug = "This field is empty.";
-  } else if (values.slug.length > 30) {
-    errors.slug = "Must be 30 character or less!";
+  } else if (values.slug.length > 100) {
+    errors.slug = "Must be 100 character or less!";
+  }
+
+  if (!values.display_status) {
+    errors.display_status = "You must select a option.";
+  }
+
+  if (!values.parent_id) {
+    errors.parent_id = "You must select a option.";
   }
 
   return errors;
@@ -101809,7 +101960,7 @@ var renderInputField = function renderInputField(_ref) {
   }, label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", _extends({
     id: id,
     type: type,
-    className: touched ? "form-control is-invalid" : "form-control",
+    className: touched && error ? "form-control is-invalid" : "form-control",
     placeholder: placeholder
   }, input)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "error text-danger"
@@ -101829,7 +101980,7 @@ var renderSelectField = function renderSelectField(_ref2) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", _extends({
     value: defaultValue
   }, input, {
-    className: touched ? "form-control is-invalid" : "form-control"
+    className: touched && error ? "form-control is-invalid" : "form-control"
   }), children), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "error text-danger"
   }, touched ? error : ''));
@@ -101891,8 +102042,16 @@ var validate = function validate(values) {
 
   if (!values.title) {
     errors.title = "This field is empty.";
-  } else if (values.title.length > 30) {
-    errors.title = "Must be 30 character or less!";
+  } else if (values.title.length > 100) {
+    errors.title = "Must be 100 character or less!";
+  }
+
+  if (!values.language_id) {
+    errors.language_id = "You must select a option.";
+  }
+
+  if (!values.category_id) {
+    errors.category_id = "You must select a option.";
   }
 
   return errors;
@@ -101995,7 +102154,7 @@ var EditCategoryTrans = /*#__PURE__*/function (_Component) {
         value: value,
         id: id,
         type: type,
-        className: touched ? "form-control is-invalid" : "form-control",
+        className: touched && error ? "form-control is-invalid" : "form-control",
         placeholder: placeholder
       }, input)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "error text-danger"
@@ -102016,7 +102175,7 @@ var EditCategoryTrans = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", _extends({
         value: defaultValue
       }, input, {
-        className: touched ? "form-control is-invalid" : "form-control"
+        className: touched && error ? "form-control is-invalid" : "form-control"
       }), children), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "error text-danger"
       }, touched ? error : ''));
@@ -102089,6 +102248,14 @@ function validate(values) {
     errors.title = "This field is empty.";
   } else if (values.title.length > 30) {
     errors.title = "Must be 30 character or less!";
+  }
+
+  if (!values.language_id) {
+    errors.language_id = "You must select a option.";
+  }
+
+  if (!values.category_id) {
+    errors.category_id = "You must select a option.";
   }
 
   return errors;
@@ -102268,11 +102435,9 @@ var EditImagePreviewField = /*#__PURE__*/function (_Component) {
   _createClass(EditImagePreviewField, [{
     key: "onFileChange",
     value: function onFileChange(e) {
-      console.log(e);
       var targetFile = e.target.files[0];
 
       if (targetFile) {
-        console.log("p", targetFile);
         var files = [targetFile];
         this.setState({
           files: files.map(function (file) {
@@ -102289,7 +102454,9 @@ var EditImagePreviewField = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log('prop-image', this.props);
+      var _this$props$meta = this.props.meta,
+          touched = _this$props$meta.touched,
+          error = _this$props$meta.error;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "nm-uploader"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -102297,12 +102464,14 @@ var EditImagePreviewField = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.onFileChange.bind(this),
         type: "file",
-        className: "custom-file-input",
+        className: touched && error ? "custom-file-input is-invalid" : "custom-file-input",
         id: "customFile"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         className: "custom-file-label",
         htmlFor: "customFile"
-      }, "Choose file")), this.props.input.value ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
+      }, "Choose file")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "error text-danger"
+      }, touched ? error : ''), this.props.input.value ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
         className: "preview-img"
       }, typeof this.props.input.value == 'string' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "thumbInner"
@@ -102488,11 +102657,9 @@ var ImagePreviewField = /*#__PURE__*/function (_Component) {
   _createClass(ImagePreviewField, [{
     key: "onFileChange",
     value: function onFileChange(e) {
-      console.log(e);
       var targetFile = e.target.files[0];
 
       if (targetFile) {
-        console.log("p", targetFile);
         var files = [targetFile];
         this.setState({
           files: files.map(function (file) {
@@ -102509,6 +102676,9 @@ var ImagePreviewField = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this$props$meta = this.props.meta,
+          touched = _this$props$meta.touched,
+          error = _this$props$meta.error;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "nm-uploader"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -102516,12 +102686,14 @@ var ImagePreviewField = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         onChange: this.onFileChange.bind(this),
         type: "file",
-        className: "custom-file-input",
+        className: touched && error ? "custom-file-input is-invalid" : "custom-file-input",
         id: "customFile"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         className: "custom-file-label",
         htmlFor: "customFile"
-      }, "Choose file")), this.state.files ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
+      }, "Choose file")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "error text-danger"
+      }, touched ? error : ''), this.state.files ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("aside", {
         className: "preview-img"
       }, this.state.files.map(function (file) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -102626,7 +102798,7 @@ var EditLanguages = /*#__PURE__*/function (_Component) {
         value: value,
         id: id,
         type: type,
-        className: touched ? "form-control is-invalid" : "form-control",
+        className: touched && error ? "form-control is-invalid" : "form-control",
         placeholder: placeholder
       }, input)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "error text-danger"
@@ -102736,7 +102908,7 @@ var renderInputField = function renderInputField(_ref) {
   }, label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", _extends({
     id: id,
     type: type,
-    className: touched ? "form-control is-invalid" : "form-control",
+    className: touched && error ? "form-control is-invalid" : "form-control",
     placeholder: placeholder
   }, input)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "error text-danger"
@@ -102951,7 +103123,7 @@ var Footer = function Footer() {
     className: "main-footer"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "Copyright \xA9 2019-2020 ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     href: "https://softtechmultimedia.com"
-  }, "STM"), "."), "All rights reserved.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "SoftTech Multimedia"), "."), "All rights reserved.", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "float-right d-none d-sm-inline-block"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("b", null, "Version"), " 1.0.0"));
 };
@@ -103119,17 +103291,11 @@ var Sidebar = /*#__PURE__*/function (_Component) {
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "user-panel mt-3 pb-3 mb-3 d-flex"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "image"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          src: "dist/img/user2-160x160.jpg",
-          className: "img-circle elevation-2",
-          alt: "User Image"
-        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "info"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
           href: "#",
           className: "d-block"
-        }, "Alexander Pierce"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+        }, "Hello Admin!"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
           className: "mt-2 mb-3"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
           className: "nav nav-pills nav-sidebar flex-column",
@@ -103138,8 +103304,8 @@ var Sidebar = /*#__PURE__*/function (_Component) {
           "data-accordion": "false"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "nav-item"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-          href: "#",
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
+          to: "/",
           className: "nav-link active"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "nav-icon fas fa-tachometer-alt"
@@ -103153,7 +103319,7 @@ var Sidebar = /*#__PURE__*/function (_Component) {
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Categories"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "nav-item has-treeview"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-          to: "/categrories-translation",
+          to: "/categories-translation",
           className: "nav-link"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "nav-icon fas fa-globe"
@@ -103165,20 +103331,6 @@ var Sidebar = /*#__PURE__*/function (_Component) {
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "nav-icon fas fa-language"
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Languages"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          className: "nav-item has-treeview"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-          to: "/news",
-          className: "nav-link"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "nav-icon far fa-newspaper"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "News"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          className: "nav-item has-treeview"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
-          to: "/news-translation",
-          className: "nav-link"
-        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "nav-icon fas fa-globe"
-        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "News Translation"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "nav-item has-treeview"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
           to: "/provinces",
@@ -103193,6 +103345,20 @@ var Sidebar = /*#__PURE__*/function (_Component) {
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "nav-icon fas fa-globe"
         }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Provinces Translation"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          className: "nav-item has-treeview"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
+          to: "/news",
+          className: "nav-link"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "nav-icon far fa-newspaper"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "News"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          className: "nav-item has-treeview"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
+          to: "/news-translation",
+          className: "nav-link"
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "nav-icon fas fa-globe"
+        }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "News Translation"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           className: "nav-item has-treeview"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
           to: "/resources",
@@ -103398,7 +103564,7 @@ var renderInputField = function renderInputField(_ref) {
   }, label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", _extends({
     id: id,
     type: type,
-    className: touched ? "form-control is-invalid" : "form-control",
+    className: touched && error ? "form-control is-invalid" : "form-control",
     placeholder: placeholder
   }, input)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "error text-danger"
@@ -103418,7 +103584,7 @@ var renderSelectField = function renderSelectField(_ref2) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", _extends({
     value: defaultValue
   }, input, {
-    className: touched ? "form-control is-invalid" : "form-control"
+    className: touched && error ? "form-control is-invalid" : "form-control"
   }), children), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "error text-danger"
   }, touched ? error : ''));
@@ -103463,8 +103629,6 @@ var InsertNews = function InsertNews(props) {
   }, "Choose your option"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: "draft"
   }, "Draft"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "active"
-  }, "Active"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: "hidden"
   }, "Hidden"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: "deleted"
@@ -103472,20 +103636,13 @@ var InsertNews = function InsertNews(props) {
     name: "category_id",
     label: "Categories",
     itemList: props.categories,
-    apiName: "categories",
     component: _autocomplete_field__WEBPACK_IMPORTED_MODULE_2__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_1__["Field"], {
     name: "province_id",
     label: "Provinces",
     itemList: props.provinces,
     component: _autocomplete_field__WEBPACK_IMPORTED_MODULE_2__["default"]
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "col-md-6"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Featured Image"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_1__["Field"], {
-    component: _imagePreview__WEBPACK_IMPORTED_MODULE_3__["default"],
-    name: "featured_image",
-    type: "file"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_1__["Field"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_1__["Field"], {
     label: "Select News Label",
     name: "news_label",
     component: renderSelectField
@@ -103494,10 +103651,18 @@ var InsertNews = function InsertNews(props) {
   }, "Select News Label"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: "normal"
   }, "Normal"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "active"
+  }, "Active"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: "featured"
   }, "Featured"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: "breaking"
-  }, "Breaking")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, "Breaking")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "col-md-6"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Featured Image"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_1__["Field"], {
+    component: _imagePreview__WEBPACK_IMPORTED_MODULE_3__["default"],
+    name: "featured_image",
+    type: "file"
+  })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-footer"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "submit",
@@ -103507,12 +103672,37 @@ var InsertNews = function InsertNews(props) {
 
 function validate(values) {
   var errors = {};
-  console.log('value', values);
 
   if (!values.slug) {
     errors.slug = "This Field is empty";
-  } else if (values.slug.length > 300) {
-    errors.slug = "Must be 300 character or Less!";
+  } else if (values.slug.length > 500) {
+    errors.slug = "Must be 500 character or Less!";
+  }
+
+  if (!values.keywords) {
+    errors.keywords = "Keywords Field is empty";
+  } else if (values.keywords.length > 500) {
+    errors.keywords = "Must be 500 character or Less!";
+  }
+
+  if (!values.status) {
+    errors.status = "You must select a option.";
+  }
+
+  if (!values.category_id) {
+    errors.category_id = "You must select a option.";
+  }
+
+  if (!values.province_id) {
+    errors.province_id = "You must select a option.";
+  }
+
+  if (!values.featured_image) {
+    errors.featured_image = "You must upload a Featured Image!";
+  }
+
+  if (!values.news_label) {
+    errors.news_label = "You must select a option.";
   }
 
   return errors;
@@ -103635,7 +103825,7 @@ var EditNews = /*#__PURE__*/function (_Component) {
         value: value,
         id: id,
         type: type,
-        className: touched ? "form-control is-invalid" : "form-control",
+        className: touched && error ? "form-control is-invalid" : "form-control",
         placeholder: placeholder
       }, input)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "error text-danger"
@@ -103656,7 +103846,7 @@ var EditNews = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", _extends({
         value: defaultValue
       }, input, {
-        className: "form-control"
+        className: touched && error ? "form-control is-invalid" : "form-control"
       }), children), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "error"
       }, touched ? error : ''));
@@ -103721,14 +103911,7 @@ var EditNews = /*#__PURE__*/function (_Component) {
         label: "Provinces",
         itemList: this.props.provinces,
         component: _autocomplete_field__WEBPACK_IMPORTED_MODULE_2__["default"]
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col-md-6"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Featured Image"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_1__["Field"], {
-        value: "featured_image",
-        component: _editImagePreview__WEBPACK_IMPORTED_MODULE_3__["default"],
-        name: "featured_image",
-        type: "file"
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_1__["Field"], {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_1__["Field"], {
         label: "Select News Label",
         name: "news_label",
         component: this.renderSelectField
@@ -103740,7 +103923,14 @@ var EditNews = /*#__PURE__*/function (_Component) {
         value: "featured"
       }, "Featured"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "breaking"
-      }, "Breaking")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Breaking")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "col-md-6"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Featured Image"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_1__["Field"], {
+        value: "featured_image",
+        component: _editImagePreview__WEBPACK_IMPORTED_MODULE_3__["default"],
+        name: "featured_image",
+        type: "file"
+      })))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-footer"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
@@ -103754,12 +103944,37 @@ var EditNews = /*#__PURE__*/function (_Component) {
 
 function validate(values) {
   var errors = {};
-  console.log('value', values);
 
   if (!values.slug) {
     errors.slug = "This Field is empty";
-  } else if (values.slug.length > 400) {
-    errors.slug = "Must be 400 character or Less!";
+  } else if (values.slug.length > 500) {
+    errors.slug = "Must be 500 character or Less!";
+  }
+
+  if (!values.keywords) {
+    errors.keywords = "Keywords Field is empty";
+  } else if (values.keywords.length > 500) {
+    errors.keywords = "Must be 500 character or Less!";
+  }
+
+  if (!values.status) {
+    errors.status = "You must select a option.";
+  }
+
+  if (!values.category_id) {
+    errors.category_id = "You must select a option.";
+  }
+
+  if (!values.province_id) {
+    errors.province_id = "You must select a option.";
+  }
+
+  if (!values.featured_image) {
+    errors.featured_image = "You must upload a Featured Image!";
+  }
+
+  if (!values.news_label) {
+    errors.news_label = "You must select a option.";
   }
 
   return errors;
@@ -103795,7 +104010,7 @@ var NewsList = function NewsList(props) {
       className: "row-".concat(newsList.id)
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, (props.activePage - 1) * props.itemsCountPerPage + (index + 1)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
       className: "news-title"
-    }, newsList.slug == null ? '-' : newsList.slug), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsList.category.slug), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsList.province.slug), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsList.author), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsList.news_label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    }, newsList.slug == null ? '-' : newsList.slug), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsList.category.slug), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsList.author), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
       src: newsList.featured_image,
       width: "100"
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsList.status), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
@@ -103858,13 +104073,13 @@ var renderInputField = function renderInputField(_ref) {
       touched = _ref$meta.touched,
       error = _ref$meta.error;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "form-group"
+    className: "form-group col-md-12 col-lg-12"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
     htmlFor: id
   }, label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", _extends({
     id: id,
     type: type,
-    className: touched ? "form-control is-invalid" : "form-control",
+    className: touched && error ? "form-control is-invalid" : "form-control",
     placeholder: placeholder
   }, input)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "error text-danger"
@@ -103885,6 +104100,8 @@ var InsertNewsTrans = function InsertNewsTrans(props) {
     onSubmit: handleSubmit
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-body"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "form-row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_1__["Field"], {
     name: "language_id",
     label: "Choose language",
@@ -103907,7 +104124,7 @@ var InsertNewsTrans = function InsertNewsTrans(props) {
     id: "content",
     name: "content",
     component: _texteditor_field__WEBPACK_IMPORTED_MODULE_3__["default"]
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-footer"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "submit",
@@ -103917,12 +104134,23 @@ var InsertNewsTrans = function InsertNewsTrans(props) {
 
 function validate(values) {
   var errors = {};
-  console.log('value', values);
 
   if (!values.title) {
     errors.title = "This Field is empty";
-  } else if (values.title.length > 100) {
-    errors.title = "Must be 100 character or Less!";
+  } else if (values.title.length > 500) {
+    errors.title = "Must be 500 character or Less!";
+  }
+
+  if (!values.language_id) {
+    errors.language_id = "You must select a option.";
+  }
+
+  if (!values.news_id) {
+    errors.news_id = "You must select a option.";
+  }
+
+  if (!values.content) {
+    errors.content = "The Content Field is empty.";
   }
 
   return errors;
@@ -104030,14 +104258,14 @@ var EditNewsTrans = /*#__PURE__*/function (_Component) {
           touched = _ref$meta.touched,
           error = _ref$meta.error;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group"
+        className: "form-group col-md-12 col-lg-12 col-sm-12"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: id
       }, label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", _extends({
         value: value,
         id: id,
         type: type,
-        className: touched ? "form-control is-invalid" : "form-control",
+        className: touched && error ? "form-control is-invalid" : "form-control",
         placeholder: placeholder
       }, input)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "error text-danger"
@@ -104059,6 +104287,8 @@ var EditNewsTrans = /*#__PURE__*/function (_Component) {
         onSubmit: handleSubmit
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-row"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_1__["Field"], {
         name: "language_id",
         label: "Choose language",
@@ -104075,7 +104305,7 @@ var EditNewsTrans = /*#__PURE__*/function (_Component) {
         name: "title",
         value: "title",
         type: "text",
-        placeholder: "Enter Title",
+        placeholder: "Enter Translated Title",
         component: this.renderInputField
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_1__["Field"], {
         label: "Enter content",
@@ -104083,7 +104313,7 @@ var EditNewsTrans = /*#__PURE__*/function (_Component) {
         name: "content",
         value: "content",
         component: _texteditor_field__WEBPACK_IMPORTED_MODULE_3__["default"]
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-footer"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
@@ -104097,12 +104327,23 @@ var EditNewsTrans = /*#__PURE__*/function (_Component) {
 
 function validate(values) {
   var errors = {};
-  console.log('value', values);
 
   if (!values.title) {
     errors.title = "This Field is empty";
-  } else if (values.title.length > 100) {
-    errors.title = "Must be 100 character or Less!";
+  } else if (values.title.length > 500) {
+    errors.title = "Must be 500 character or Less!";
+  }
+
+  if (!values.language_id) {
+    errors.language_id = "You must select a option.";
+  }
+
+  if (!values.news_id) {
+    errors.news_id = "You must select a option.";
+  }
+
+  if (!values.content) {
+    errors.content = "The Content Field is empty.";
   }
 
   return errors;
@@ -104138,8 +104379,6 @@ var NewsTransList = function NewsTransList(props) {
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, (props.activePage - 1) * props.itemsCountPerPage + (index + 1)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
       className: "news-title"
     }, newsTran.title == null ? '-' : newsTran.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsTran.news.slug), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, newsTran.language.language), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
-      className: "news-content"
-    }, newsTran.content), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
       className: "action"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
       to: "/edit-news-translation",
@@ -104200,7 +104439,7 @@ var renderInputField = function renderInputField(_ref) {
   }, label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", _extends({
     id: id,
     type: type,
-    className: touched ? "form-control is-invalid" : "form-control",
+    className: touched && error ? "form-control is-invalid" : "form-control",
     placeholder: placeholder
   }, input)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "error text-danger"
@@ -104220,9 +104459,9 @@ var renderSelectField = function renderSelectField(_ref2) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", _extends({
     value: defaultValue
   }, input, {
-    className: "form-control"
+    className: touched && error ? "form-control is-invalid" : "form-control"
   }), children), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "error"
+    className: "error text-danger"
   }, touched ? error : ''));
 };
 
@@ -104271,9 +104510,13 @@ var validate = function validate(values) {
   var errors = {};
 
   if (!values.slug) {
-    errors.code = "This field is empty.";
-  } else if (values.slug.length > 10) {
-    errors.slug = "Must be 10 character or less!";
+    errors.slug = "This field is empty.";
+  } else if (values.slug.length > 100) {
+    errors.slug = "Must be 100 character or less!";
+  }
+
+  if (!values.display_status) {
+    errors.display_status = "You must select a option.";
   }
 
   return errors;
@@ -104376,7 +104619,7 @@ var EditProvince = /*#__PURE__*/function (_Component) {
         value: value,
         id: id,
         type: type,
-        className: touched ? "form-control is-invalid" : "form-control",
+        className: touched && error ? "form-control is-invalid" : "form-control",
         placeholder: placeholder
       }, input)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "error text-danger"
@@ -104397,7 +104640,7 @@ var EditProvince = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", _extends({
         value: defaultValue
       }, input, {
-        className: "form-control"
+        className: touched && error ? "form-control is-invalid" : "form-control"
       }), children), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "error"
       }, touched ? error : ''));
@@ -104454,9 +104697,13 @@ function validate(values) {
   var errors = {};
 
   if (!values.slug) {
-    errors.slug = "This field is empty.";
-  } else if (values.slug.length > 30) {
-    errors.slug = "Must be 30 character or less!";
+    errors.code = "This field is empty.";
+  } else if (values.slug.length > 100) {
+    errors.slug = "Must be 100 character or less!";
+  }
+
+  if (!values.display_status) {
+    errors.display_status = "You must select a option.";
   }
 
   return errors;
@@ -104565,7 +104812,7 @@ var renderInputField = function renderInputField(_ref) {
   }, label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", _extends({
     id: id,
     type: type,
-    className: touched ? "form-control is-invalid" : "form-control",
+    className: touched && error ? "form-control is-invalid" : "form-control",
     placeholder: placeholder
   }, input)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "error text-danger"
@@ -104585,7 +104832,7 @@ var renderSelectField = function renderSelectField(_ref2) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", _extends({
     value: defaultValue
   }, input, {
-    className: "form-control"
+    className: touched && error ? "form-control is-invalid" : "form-control"
   }), children), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "error"
   }, touched ? error : ''));
@@ -104611,11 +104858,7 @@ var ProvinceTransForm = function ProvinceTransForm(props) {
     label: "Select Province",
     name: "province_id",
     component: renderSelectField
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: ""
-  }, "Choose your option"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: ""
-  }, "Choose your option"), props.provinces.map(function (province) {
+  }, props.provinces.map(function (province) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
       key: province.id,
       value: province.id
@@ -104651,8 +104894,16 @@ var validate = function validate(values) {
 
   if (!values.title) {
     errors.title = "This field is empty.";
-  } else if (values.title.length > 30) {
-    errors.title = "Must be 30 character or less!";
+  } else if (values.title.length > 100) {
+    errors.title = "Must be 100 character or less!";
+  }
+
+  if (!values.language_id) {
+    errors.language_id = "You must select a option.";
+  }
+
+  if (!values.province_id) {
+    errors.province_id = "You must select a option.";
   }
 
   return errors;
@@ -104755,7 +105006,7 @@ var EditProvinceTrans = /*#__PURE__*/function (_Component) {
         value: value,
         id: id,
         type: type,
-        className: touched ? "form-control is-invalid" : "form-control",
+        className: touched && error ? "form-control is-invalid" : "form-control",
         placeholder: placeholder
       }, input)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "error text-danger"
@@ -104776,7 +105027,7 @@ var EditProvinceTrans = /*#__PURE__*/function (_Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", _extends({
         value: defaultValue
       }, input, {
-        className: "form-control"
+        className: touched && error ? "form-control is-invalid" : "form-control"
       }), children), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "error"
       }, touched ? error : ''));
@@ -104847,8 +105098,16 @@ function validate(values) {
 
   if (!values.title) {
     errors.title = "This field is empty.";
-  } else if (values.title.length > 30) {
-    errors.title = "Must be 30 character or less!";
+  } else if (values.title.length > 100) {
+    errors.title = "Must be 100 character or less!";
+  }
+
+  if (!values.language_id) {
+    errors.language_id = "You must select a option.";
+  }
+
+  if (!values.province_id) {
+    errors.province_id = "You must select a option.";
   }
 
   return errors;
@@ -104986,13 +105245,13 @@ var renderInputField = function renderInputField(_ref) {
       touched = _ref$meta.touched,
       error = _ref$meta.error;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "form-group"
+    className: "form-group col-md-6 col-lg-6"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
     htmlFor: id
   }, label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", _extends({
     id: id,
     type: type,
-    className: touched ? "form-control is-invalid" : "form-control",
+    className: touched && error ? "form-control is-invalid" : "form-control",
     placeholder: placeholder
   }, input)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "error text-danger"
@@ -105008,11 +105267,11 @@ var renderSelectField = function renderSelectField(_ref2) {
       defaultValue = _ref2.defaultValue,
       children = _ref2.children;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "form-group"
+    className: "form-group col-md-6 col-lg-6"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", _extends({
     value: defaultValue
   }, input, {
-    className: "form-control"
+    className: touched && error ? "form-control is-invalid" : "form-control"
   }), children), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "error"
   }, touched ? error : ''));
@@ -105032,13 +105291,13 @@ var ResourceForm = function ResourceForm(props) {
     onSubmit: handleSubmit
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-body"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "form-row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_1__["Field"], {
     label: "Select Resource Type",
     name: "type",
     component: renderSelectField
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: ""
-  }, "Choose your option"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: "video"
   }, "Video"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: "file"
@@ -105067,7 +105326,7 @@ var ResourceForm = function ResourceForm(props) {
     label: "Enter Views",
     id: "views",
     name: "views",
-    type: "number",
+    type: "text",
     placeholder: "Enter Views",
     component: renderInputField
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_1__["Field"], {
@@ -105077,7 +105336,7 @@ var ResourceForm = function ResourceForm(props) {
     type: "text",
     placeholder: "Enter Keywords",
     component: renderInputField
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-footer"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "submit",
@@ -105088,10 +105347,30 @@ var ResourceForm = function ResourceForm(props) {
 var validate = function validate(values) {
   var errors = {};
 
-  if (!values.slug) {
-    errors.slug = "This field is empty.";
-  } else if (values.slug.length > 30) {
-    errors.slug = "Must be 30 character or less!";
+  if (!values.url) {
+    errors.url = "This field is empty.";
+  } else if (values.url.length > 200) {
+    errors.url = "Must be 200 character or less!";
+  }
+
+  if (!values.type) {
+    errors.type = "You must select a option.";
+  }
+
+  if (!values.status) {
+    errors.status = "You must select a option.";
+  }
+
+  if (!values.views) {
+    errors.views = "This field is empty.";
+  } else if (values.views.length > 200) {
+    errors.url = "Must be 200 character or less!";
+  }
+
+  if (!values.keywords) {
+    errors.keywords = "This field is empty.";
+  } else if (values.keywords.length > 500) {
+    errors.url = "Must be 500 character or less!";
   }
 
   return errors;
@@ -105181,14 +105460,14 @@ var EditResource = /*#__PURE__*/function (_Component) {
           touched = _ref$meta.touched,
           error = _ref$meta.error;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group"
+        className: "form-group col-md-6 col-lg-6"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: id
       }, label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", _extends({
         value: value,
         id: id,
         type: type,
-        className: touched ? "form-control is-invalid" : "form-control",
+        className: touched && error ? "form-control is-invalid" : "form-control",
         placeholder: placeholder
       }, input)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "error text-danger"
@@ -105205,11 +105484,11 @@ var EditResource = /*#__PURE__*/function (_Component) {
           defaultValue = _ref2.defaultValue,
           children = _ref2.children;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group"
+        className: "form-group col-md-6 col-lg-6"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", _extends({
         value: defaultValue
       }, input, {
-        className: "form-control"
+        className: touched && error ? "form-control is-invalid" : "form-control"
       }), children), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "error"
       }, touched ? error : ''));
@@ -105230,6 +105509,8 @@ var EditResource = /*#__PURE__*/function (_Component) {
         onSubmit: handleSubmit
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-row"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_1__["Field"], {
         label: "Select Resource Type",
         name: "type",
@@ -105278,7 +105559,7 @@ var EditResource = /*#__PURE__*/function (_Component) {
         type: "text",
         placeholder: "Enter Keywords",
         component: this.renderInputField
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-footer"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
@@ -105293,10 +105574,30 @@ var EditResource = /*#__PURE__*/function (_Component) {
 function validate(values) {
   var errors = {};
 
+  if (!values.url) {
+    errors.url = "This field is empty.";
+  } else if (values.url.length > 200) {
+    errors.url = "Must be 200 character or less!";
+  }
+
   if (!values.type) {
-    errors.type = "This field is empty.";
-  } else if (values.type.length > 100) {
-    errors.type = "Must be 100 character or less!";
+    errors.type = "You must select a option.";
+  }
+
+  if (!values.status) {
+    errors.status = "You must select a option.";
+  }
+
+  if (!values.views) {
+    errors.views = "This field is empty.";
+  } else if (values.views.length > 200) {
+    errors.url = "Must be 200 character or less!";
+  }
+
+  if (!values.keywords) {
+    errors.keywords = "This field is empty.";
+  } else if (values.keywords.length > 500) {
+    errors.url = "Must be 500 character or less!";
   }
 
   return errors;
@@ -105338,13 +105639,13 @@ var renderInputField = function renderInputField(_ref) {
       touched = _ref$meta.touched,
       error = _ref$meta.error;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "form-group"
+    className: "form-group col-md-12"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
     htmlFor: id
   }, label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", _extends({
     id: id,
     type: type,
-    className: touched ? "form-control is-invalid" : "form-control",
+    className: touched && error ? "form-control is-invalid" : "form-control",
     placeholder: placeholder
   }, input)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "error text-danger"
@@ -105360,13 +105661,13 @@ var renderSelectField = function renderSelectField(_ref2) {
       defaultValue = _ref2.defaultValue,
       children = _ref2.children;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "form-group"
+    className: "form-group col-md-6"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", _extends({
     value: defaultValue
   }, input, {
-    className: "form-control"
+    className: touched && error ? "form-control is-invalid" : "form-control"
   }), children), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "error"
+    className: "error text-danger"
   }, touched ? error : ''));
 };
 
@@ -105384,6 +105685,8 @@ var ResourceTransForm = function ResourceTransForm(props) {
     onSubmit: handleSubmit
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-body"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "form-row"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_1__["Field"], {
     label: "Select Resource",
     name: "resource_id",
@@ -105394,7 +105697,7 @@ var ResourceTransForm = function ResourceTransForm(props) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
       key: resource.id,
       value: resource.id
-    }, resource.type);
+    }, resource.url);
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_1__["Field"], {
     name: "language_id",
     label: "Choose Languages",
@@ -105414,7 +105717,7 @@ var ResourceTransForm = function ResourceTransForm(props) {
     type: "text",
     placeholder: "Enter Description",
     component: renderInputField
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "card-footer"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "submit",
@@ -105427,8 +105730,22 @@ var validate = function validate(values) {
 
   if (!values.title) {
     errors.title = "This field is empty.";
-  } else if (values.title.length > 30) {
-    errors.title = "Must be 30 character or less!";
+  } else if (values.title.length > 100) {
+    errors.title = "Must be 100 character or less!";
+  }
+
+  if (!values.description) {
+    errors.description = "This field is empty.";
+  } else if (values.description.length > 500) {
+    errors.description = "Must be 500 character or less!";
+  }
+
+  if (!values.language_id) {
+    errors.language_id = "You must select a option.";
+  }
+
+  if (!values.resource_id) {
+    errors.resource_id = "You must select a option.";
   }
 
   return errors;
@@ -105503,7 +105820,6 @@ var EditResource = /*#__PURE__*/function (_Component) {
       var id = this.props.editId;
       _api_resourcesTrans_api__WEBPACK_IMPORTED_MODULE_2__["getSingleResourcesTrans"](id).then(function (response) {
         var data = response.data.data;
-        console.log('data', data);
         var resources = {
           description: data.description,
           title: data.title,
@@ -105531,14 +105847,14 @@ var EditResource = /*#__PURE__*/function (_Component) {
           touched = _ref$meta.touched,
           error = _ref$meta.error;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group"
+        className: "form-group col-md-12 col-lg-12 col-sm-12"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         htmlFor: id
       }, label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", _extends({
         value: value,
         id: id,
         type: type,
-        className: touched ? "form-control is-invalid" : "form-control",
+        className: touched && error ? "form-control is-invalid" : "form-control",
         placeholder: placeholder
       }, input)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "error text-danger"
@@ -105555,11 +105871,11 @@ var EditResource = /*#__PURE__*/function (_Component) {
           defaultValue = _ref2.defaultValue,
           children = _ref2.children;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-group"
+        className: "form-group col-md-6 col-lg-6"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", _extends({
         value: defaultValue
       }, input, {
-        className: "form-control"
+        className: touched && error ? "form-control is-invalid" : "form-control"
       }), children), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "error"
       }, touched ? error : ''));
@@ -105580,6 +105896,8 @@ var EditResource = /*#__PURE__*/function (_Component) {
         onSubmit: handleSubmit
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "form-row"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(redux_form__WEBPACK_IMPORTED_MODULE_1__["Field"], {
         label: "Select Resource",
         name: "resource_id",
@@ -105612,7 +105930,7 @@ var EditResource = /*#__PURE__*/function (_Component) {
         type: "text",
         placeholder: "Enter Description",
         component: this.renderInputField
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-footer"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         type: "submit",
@@ -105627,10 +105945,24 @@ var EditResource = /*#__PURE__*/function (_Component) {
 function validate(values) {
   var errors = {};
 
-  if (!values.type) {
-    errors.type = "This field is empty.";
-  } else if (values.type.length > 100) {
-    errors.type = "Must be 30 character or less!";
+  if (!values.title) {
+    errors.title = "This field is empty.";
+  } else if (values.title.length > 100) {
+    errors.title = "Must be 100 character or less!";
+  }
+
+  if (!values.description) {
+    errors.description = "This field is empty.";
+  } else if (values.description.length > 500) {
+    errors.description = "Must be 500 character or less!";
+  }
+
+  if (!values.language_id) {
+    errors.language_id = "You must select a option.";
+  }
+
+  if (!values.resource_id) {
+    errors.resource_id = "You must select a option.";
   }
 
   return errors;
@@ -105746,7 +106078,6 @@ var TextEditorField = /*#__PURE__*/function (_Component) {
   _createClass(TextEditorField, [{
     key: "handleEditorChange",
     value: function handleEditorChange(e) {
-      console.log('Content was updated:', e.target.getContent());
       var content = e.target.getContent();
 
       if (content != "") {
@@ -105756,20 +106087,26 @@ var TextEditorField = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var input = this.props.input;
+      var _this$props = this.props,
+          input = _this$props.input,
+          _this$props$meta = _this$props.meta,
+          touched = _this$props$meta.touched,
+          error = _this$props$meta.error;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "col s12"
+        className: "col-sm-12 col-md-12 col-lg-12"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, this.props.label), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_tinymce_tinymce_react__WEBPACK_IMPORTED_MODULE_1__["Editor"], {
         initialValue: input.value == "" ? "" : input.value,
         value: input.value == "" ? "" : input.value,
         init: {
-          height: 250,
+          height: 450,
           plugins: 'advlist link image code help lists wordcount insertdatetime',
           toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | formatselect | bullist numlist outdent indent | code | help',
           branding: false
         },
         onChange: this.handleEditorChange.bind(this)
-      }));
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "error text-danger"
+      }, touched ? error : ''));
     }
   }]);
 
@@ -105863,6 +106200,7 @@ var CategoriesListContainer = /*#__PURE__*/function (_Component) {
       // call action to run the relative saga
       var pageNumber = this.props.activePage;
       this.props.requestCategories(pageNumber);
+      this.props.requestAllCategories();
     } // submit function for new data
 
   }, {
@@ -105893,7 +106231,6 @@ var CategoriesListContainer = /*#__PURE__*/function (_Component) {
   }, {
     key: "toggleStatus",
     value: function toggleStatus(category) {
-      console.log('stat', category);
       var pageNumber = this.props.activePage;
 
       if (category.display_status == "0") {
@@ -105902,7 +106239,6 @@ var CategoriesListContainer = /*#__PURE__*/function (_Component) {
         category.display_status = "0";
       }
 
-      console.log(category);
       this.props.requestUpdateCategories(category, pageNumber);
     }
   }, {
@@ -105942,10 +106278,10 @@ var CategoriesListContainer = /*#__PURE__*/function (_Component) {
       }, this.state.isEditing ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_categories_edit_categories_form__WEBPACK_IMPORTED_MODULE_6__["default"], {
         onSubmit: this.submitEditCategory.bind(this),
         editId: this.state.isEditing,
-        categories: this.props.categories
+        categories: this.props.allCategories
       }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_categories_categories_form__WEBPACK_IMPORTED_MODULE_5__["default"], {
         onSubmit: this.submitCategory.bind(this),
-        categories: this.props.categories
+        categories: this.props.allCategories
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-12 col-md-8 col-lg-8"
       }, this.props.fetching ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_loading__WEBPACK_IMPORTED_MODULE_8__["default"], null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -105989,6 +106325,7 @@ var CategoriesListContainer = /*#__PURE__*/function (_Component) {
 function mapStateToProps(store) {
   return {
     categories: store.categoryState.categories,
+    allCategories: store.categoryState.all_categories,
     fetching: store.categoryState.fetching,
     activePage: store.categoryState.activePage,
     itemsCountPerPage: store.categoryState.itemsCountPerPage,
@@ -106002,7 +106339,7 @@ function mapStateToProps(store) {
   requestDeleteCategories: _actions_categories_action__WEBPACK_IMPORTED_MODULE_4__["requestDeleteCategories"],
   requestAddCategories: _actions_categories_action__WEBPACK_IMPORTED_MODULE_4__["requestAddCategories"],
   requestUpdateCategories: _actions_categories_action__WEBPACK_IMPORTED_MODULE_4__["requestUpdateCategories"],
-  requestCategoriesStatus: _actions_categories_action__WEBPACK_IMPORTED_MODULE_4__["requestCategoriesStatus"]
+  requestAllCategories: _actions_categories_action__WEBPACK_IMPORTED_MODULE_4__["requestAllCategories"]
 })(CategoriesListContainer));
 
 /***/ }),
@@ -106092,10 +106429,9 @@ var CategoriesTransListContainer = /*#__PURE__*/function (_Component) {
     value: function componentDidMount() {
       // call action to run the relative saga
       var pageNumber = this.props.activePage;
-      this.props.requestCategories(pageNumber);
-      this.props.requestCategoriesTranslation();
-      this.props.requestLanguages();
-      console.log(this.props);
+      this.props.requestCategoriesTranslation(pageNumber);
+      this.props.requestAllLanguages();
+      this.props.requestAllCategories();
     } // submit function for new data
 
   }, {
@@ -106159,12 +106495,12 @@ var CategoriesTransListContainer = /*#__PURE__*/function (_Component) {
       }, this.state.isEditing ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_categoriesTranslation_categoriesTrans_edit__WEBPACK_IMPORTED_MODULE_8__["default"], {
         onSubmit: this.submitEditCategoryTrans.bind(this),
         editId: this.state.isEditing,
-        categories: this.props.categories,
-        languages: this.props.languages
+        categories: this.props.allCategories,
+        languages: this.props.allLanguages
       }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_categoriesTranslation_categoriesTrans_add__WEBPACK_IMPORTED_MODULE_7__["default"], {
         onSubmit: this.submitCategoryTrans.bind(this),
-        categories: this.props.categories,
-        languages: this.props.languages
+        categories: this.props.allCategories,
+        languages: this.props.allLanguages
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-12 col-md-8 col-lg-8"
       }, this.props.fetching ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_loading__WEBPACK_IMPORTED_MODULE_10__["default"], null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -106178,8 +106514,6 @@ var CategoriesTransListContainer = /*#__PURE__*/function (_Component) {
         showConfirmBox: this.deleteItem,
         hideConfirmBox: this.hideDiv,
         deleteCategoryTrans: this.props.requestDeleteCategoriesTranslation,
-        categories: this.props.categories,
-        languages: this.props.languages,
         activePage: this.props.activePage,
         itemsCountPerPage: this.props.itemsCountPerPage
       }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
@@ -106208,8 +106542,8 @@ var CategoriesTransListContainer = /*#__PURE__*/function (_Component) {
 function mapStateToProps(store) {
   return {
     categoriesTrans: store.categoryTransState.categoriesTrans,
-    categories: store.categoryState.categories,
-    languages: store.languageState.languages,
+    allCategories: store.categoryState.all_categories,
+    allLanguages: store.languageState.all_languages,
     fetching: store.categoryTransState.fetching,
     activePage: store.categoryTransState.activePage,
     itemsCountPerPage: store.categoryTransState.itemsCountPerPage,
@@ -106219,12 +106553,12 @@ function mapStateToProps(store) {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, {
-  requestCategories: _actions_categories_action__WEBPACK_IMPORTED_MODULE_5__["requestCategories"],
+  requestAllCategories: _actions_categories_action__WEBPACK_IMPORTED_MODULE_5__["requestAllCategories"],
   requestCategoriesTranslation: _actions_categoriesTranslation_action__WEBPACK_IMPORTED_MODULE_4__["requestCategoriesTranslation"],
   requestDeleteCategoriesTranslation: _actions_categoriesTranslation_action__WEBPACK_IMPORTED_MODULE_4__["requestDeleteCategoriesTranslation"],
   requestAddCategoriesTranslation: _actions_categoriesTranslation_action__WEBPACK_IMPORTED_MODULE_4__["requestAddCategoriesTranslation"],
   requestUpdateCategoriesTranslation: _actions_categoriesTranslation_action__WEBPACK_IMPORTED_MODULE_4__["requestUpdateCategoriesTranslation"],
-  requestLanguages: _actions_languages_action__WEBPACK_IMPORTED_MODULE_6__["requestLanguages"]
+  requestAllLanguages: _actions_languages_action__WEBPACK_IMPORTED_MODULE_6__["requestAllLanguages"]
 })(CategoriesTransListContainer));
 
 /***/ }),
@@ -106632,8 +106966,8 @@ var NewsContainer = /*#__PURE__*/function (_Component) {
     value: function componentDidMount() {
       var pageNumber = this.props.activePage;
       this.props.requestNews(pageNumber);
-      this.props.requestCategories();
-      this.props.requestProvinces();
+      this.props.requestAllCategories();
+      this.props.requestAllProvinces();
     } //submit News form
 
   }, {
@@ -106654,7 +106988,6 @@ var NewsContainer = /*#__PURE__*/function (_Component) {
   }, {
     key: "submitEditNews",
     value: function submitEditNews(values) {
-      console.log('addsf-values', values);
       var pageNumber = this.props.activePage;
 
       if (typeof values.category_id == 'number') {
@@ -106706,12 +107039,12 @@ var NewsContainer = /*#__PURE__*/function (_Component) {
           className: "col-sm-12 col-md-12"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
           to: "/news",
-          className: "btn btn-primary"
+          className: "add-btn btn btn-primary"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fas fa-list"
         }), " All News")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_news_news_edit__WEBPACK_IMPORTED_MODULE_10__["default"], {
-          categories: this.props.categories,
-          provinces: this.props.provinces,
+          categories: this.props.allCategories,
+          provinces: this.props.allProvinces,
           editId: this.state.isEditing,
           onSubmit: this.submitEditNews.bind(this)
         })));
@@ -106724,12 +107057,12 @@ var NewsContainer = /*#__PURE__*/function (_Component) {
           className: "col-sm-12 col-md-12"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
           to: "/news",
-          className: "btn btn-primary"
+          className: "add-btn btn btn-primary"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fas fa-list"
         }), " All News")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_news_news_add__WEBPACK_IMPORTED_MODULE_8__["default"], {
-          categories: this.props.categories,
-          provinces: this.props.provinces,
+          categories: this.props.allCategories,
+          provinces: this.props.allProvinces,
           onSubmit: this.onSubmitForm.bind(this)
         })));
       } else {
@@ -106752,7 +107085,7 @@ var NewsContainer = /*#__PURE__*/function (_Component) {
           className: "table table-bordered"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "S.N"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
           className: "news-title"
-        }, "Title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Categories"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Province"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Author"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "News Label"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Image"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Status"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Action"))), this.props.news ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_news_news__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        }, "Title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Categories"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Author"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Image"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Status"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Action"))), this.props.news ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_news_news__WEBPACK_IMPORTED_MODULE_9__["default"], {
           news: this.props.news,
           onEditNews: this.editNews,
           confirmText: this.state.confirmText,
@@ -106787,8 +107120,8 @@ function mapStateToProps(store) {
   return {
     news: store.newsState.news,
     fetching: store.newsState.fetching,
-    categories: store.categoryState.categories,
-    provinces: store.provincesState.provinces,
+    allCategories: store.categoryState.all_categories,
+    allProvinces: store.provincesState.all_provinces,
     activePage: store.newsState.activePage,
     itemsCountPerPage: store.newsState.itemsCountPerPage,
     totalItemsCount: store.newsState.totalItemsCount,
@@ -106801,8 +107134,8 @@ function mapStateToProps(store) {
   requestNews: _actions_news_action__WEBPACK_IMPORTED_MODULE_5__["requestNews"],
   requestDeleteNews: _actions_news_action__WEBPACK_IMPORTED_MODULE_5__["requestDeleteNews"],
   requestUpdateNews: _actions_news_action__WEBPACK_IMPORTED_MODULE_5__["requestUpdateNews"],
-  requestCategories: _actions_categories_action__WEBPACK_IMPORTED_MODULE_6__["requestCategories"],
-  requestProvinces: _actions_province_action__WEBPACK_IMPORTED_MODULE_7__["requestProvinces"]
+  requestAllCategories: _actions_categories_action__WEBPACK_IMPORTED_MODULE_6__["requestAllCategories"],
+  requestAllProvinces: _actions_province_action__WEBPACK_IMPORTED_MODULE_7__["requestAllProvinces"]
 })(NewsContainer));
 
 /***/ }),
@@ -106893,8 +107226,8 @@ var NewsTransContainer = /*#__PURE__*/function (_Component) {
     value: function componentDidMount() {
       var pageNumber = this.props.activePage;
       this.props.requestNewsTranslation(pageNumber);
-      this.props.requestNews();
-      this.props.requestLanguages();
+      this.props.requestAllNews();
+      this.props.requestAllLanguages();
     } //submit News form
 
   }, {
@@ -106907,7 +107240,6 @@ var NewsTransContainer = /*#__PURE__*/function (_Component) {
   }, {
     key: "editNewsTranslation",
     value: function editNewsTranslation(values) {
-      console.log('newsTrans-id', values);
       this.setState({
         isEditing: values
       });
@@ -106957,8 +107289,6 @@ var NewsTransContainer = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log("compii-prop", this.props);
-
       if (this.props.match.path === "/edit-news-translation") {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "nm-content"
@@ -106968,12 +107298,12 @@ var NewsTransContainer = /*#__PURE__*/function (_Component) {
           className: "col-sm-12 col-md-12"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
           to: "/news-translation",
-          className: "btn btn-primary"
+          className: "add-btn btn btn-primary"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fas fa-list"
         }), " All Translated News")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_newsTranslation_newsTrans_edit__WEBPACK_IMPORTED_MODULE_10__["default"], {
-          languages: this.props.languages,
-          news: this.props.news,
+          languages: this.props.allLanguages,
+          news: this.props.allNews,
           editId: this.state.isEditing,
           onSubmit: this.submitEditNewsTrans.bind(this)
         })));
@@ -106986,12 +107316,12 @@ var NewsTransContainer = /*#__PURE__*/function (_Component) {
           className: "col-sm-12 col-md-12"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
           to: "/news-translation",
-          className: "btn btn-primary"
+          className: "add-btn btn btn-primary"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fas fa-list"
         }), " All Translated News")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_newsTranslation_newsTrans_add__WEBPACK_IMPORTED_MODULE_8__["default"], {
-          languages: this.props.languages,
-          news: this.props.news,
+          languages: this.props.allLanguages,
+          news: this.props.allNews,
           onSubmit: this.onSubmitForm.bind(this)
         })));
       } else {
@@ -107014,9 +107344,7 @@ var NewsTransContainer = /*#__PURE__*/function (_Component) {
           className: "table table-bordered"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "S.N"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
           className: "news-title"
-        }, "Title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "News"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Language"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-          className: "news-content"
-        }, "Content"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Action"))), this.props.newsTrans ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_newsTranslation_newsTrans__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        }, "Title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "News"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Language"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Action"))), this.props.newsTrans ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_newsTranslation_newsTrans__WEBPACK_IMPORTED_MODULE_9__["default"], {
           newsTrans: this.props.newsTrans,
           onEditNewsTrans: this.editNewsTranslation,
           confirmText: this.state.confirmText,
@@ -107051,8 +107379,8 @@ function mapStateToProps(store) {
   return {
     newsTrans: store.newsTransState.newsTrans,
     fetching: store.newsTransState.fetching,
-    news: store.newsState.news,
-    languages: store.languageState.languages,
+    allNews: store.newsState.all_news,
+    allLanguages: store.languageState.all_languages,
     activePage: store.newsTransState.activePage,
     itemsCountPerPage: store.newsTransState.itemsCountPerPage,
     totalItemsCount: store.newsTransState.totalItemsCount,
@@ -107061,12 +107389,12 @@ function mapStateToProps(store) {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["connect"])(mapStateToProps, {
-  requestNews: _actions_news_action__WEBPACK_IMPORTED_MODULE_7__["requestNews"],
+  requestAllNews: _actions_news_action__WEBPACK_IMPORTED_MODULE_7__["requestAllNews"],
   requestAddNewsTranslation: _actions_newsTranslation_action__WEBPACK_IMPORTED_MODULE_5__["requestAddNewsTranslation"],
   requestNewsTranslation: _actions_newsTranslation_action__WEBPACK_IMPORTED_MODULE_5__["requestNewsTranslation"],
   requestDeleteNewsTranslation: _actions_newsTranslation_action__WEBPACK_IMPORTED_MODULE_5__["requestDeleteNewsTranslation"],
   requestUpdateNewsTranslation: _actions_newsTranslation_action__WEBPACK_IMPORTED_MODULE_5__["requestUpdateNewsTranslation"],
-  requestLanguages: _actions_languages_action__WEBPACK_IMPORTED_MODULE_6__["requestLanguages"]
+  requestAllLanguages: _actions_languages_action__WEBPACK_IMPORTED_MODULE_6__["requestAllLanguages"]
 })(NewsTransContainer));
 
 /***/ }),
@@ -107154,7 +107482,6 @@ var ProvinceListContainer = /*#__PURE__*/function (_Component) {
       // call action to run the relative saga
       var pageNumber = this.props.activePage;
       this.props.requestProvinces(pageNumber);
-      console.log(this.props);
     } // submit function for new data
 
   }, {
@@ -107194,7 +107521,6 @@ var ProvinceListContainer = /*#__PURE__*/function (_Component) {
         province.display_status = "0";
       }
 
-      console.log(province);
       this.props.requestUpdateProvinces(province, pageNumber);
     }
   }, {
@@ -107225,7 +107551,6 @@ var ProvinceListContainer = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log('props', this.props);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "nm-content"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -107381,9 +107706,8 @@ var ProvincesTransListContainer = /*#__PURE__*/function (_Component) {
       // call action to run the relative saga
       var pageNumber = this.props.activePage;
       this.props.requestProvincesTranslation(pageNumber);
-      this.props.requestProvinces();
-      this.props.requestLanguages();
-      console.log(this.props);
+      this.props.requestAllProvinces();
+      this.props.requestAllLanguages();
     } // submit function for new data
 
   }, {
@@ -107447,12 +107771,12 @@ var ProvincesTransListContainer = /*#__PURE__*/function (_Component) {
       }, this.state.isEditing ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_provinceTranslation_provinceTrans_edit__WEBPACK_IMPORTED_MODULE_8__["default"], {
         onSubmit: this.submitEditProvinceTrans.bind(this),
         editId: this.state.isEditing,
-        provinces: this.props.provinces,
-        languages: this.props.languages
+        provinces: this.props.allProvinces,
+        languages: this.props.allLanguages
       }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_provinceTranslation_provinceTrans_add__WEBPACK_IMPORTED_MODULE_7__["default"], {
         onSubmit: this.submitProvinceTrans.bind(this),
-        provinces: this.props.provinces,
-        languages: this.props.languages
+        provinces: this.props.allProvinces,
+        languages: this.props.allLanguages
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "col-sm-12 col-md-8 col-lg-8"
       }, this.props.fetching ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_loading__WEBPACK_IMPORTED_MODULE_10__["default"], null) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -107466,8 +107790,6 @@ var ProvincesTransListContainer = /*#__PURE__*/function (_Component) {
         showConfirmBox: this.deleteItem,
         hideConfirmBox: this.hideDiv,
         deleteProvinceTrans: this.props.requestDeleteProvincesTranslation,
-        provinces: this.props.provinces,
-        languages: this.props.languages,
         activePage: this.props.activePage,
         itemsCountPerPage: this.props.itemsCountPerPage
       }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
@@ -107496,8 +107818,8 @@ var ProvincesTransListContainer = /*#__PURE__*/function (_Component) {
 function mapStateToProps(store) {
   return {
     provincesTrans: store.provinceTransState.provincesTrans,
-    provinces: store.provincesState.provinces,
-    languages: store.languageState.languages,
+    allProvinces: store.provincesState.all_provinces,
+    allLanguages: store.languageState.all_languages,
     fetching: store.provinceTransState.fetching,
     activePage: store.provinceTransState.activePage,
     itemsCountPerPage: store.provinceTransState.itemsCountPerPage,
@@ -107511,8 +107833,8 @@ function mapStateToProps(store) {
   requestDeleteProvincesTranslation: _actions_provinceTranslation_action__WEBPACK_IMPORTED_MODULE_4__["requestDeleteProvincesTranslation"],
   requestAddProvincesTranslation: _actions_provinceTranslation_action__WEBPACK_IMPORTED_MODULE_4__["requestAddProvincesTranslation"],
   requestUpdateProvincesTranslation: _actions_provinceTranslation_action__WEBPACK_IMPORTED_MODULE_4__["requestUpdateProvincesTranslation"],
-  requestLanguages: _actions_languages_action__WEBPACK_IMPORTED_MODULE_6__["requestLanguages"],
-  requestProvinces: _actions_province_action__WEBPACK_IMPORTED_MODULE_5__["requestProvinces"]
+  requestAllLanguages: _actions_languages_action__WEBPACK_IMPORTED_MODULE_6__["requestAllLanguages"],
+  requestAllProvinces: _actions_province_action__WEBPACK_IMPORTED_MODULE_5__["requestAllProvinces"]
 })(ProvincesTransListContainer));
 
 /***/ }),
@@ -107605,14 +107927,12 @@ var ResourcesContainer = /*#__PURE__*/function (_Component) {
     key: "onSubmitForm",
     value: function onSubmitForm(values) {
       var pageNumber = this.props.activePage;
-      console.log(values);
       this.props.requestAddResources(values, pageNumber);
     } // edit functions
 
   }, {
     key: "editResource",
     value: function editResource(values) {
-      console.log('resource-id', values);
       this.setState({
         isEditing: values
       });
@@ -107835,8 +108155,8 @@ var ResourcesTransContainer = /*#__PURE__*/function (_Component) {
     value: function componentDidMount() {
       var pageNumber = this.props.activePage;
       this.props.requestResourcesTranslation(pageNumber);
-      this.props.requestResources();
-      this.props.requestLanguages();
+      this.props.requestAllResources();
+      this.props.requestAllLanguages();
     } //submit Resources translation form
 
   }, {
@@ -107902,14 +108222,14 @@ var ResourcesTransContainer = /*#__PURE__*/function (_Component) {
           className: "col-sm-12 col-md-12"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["NavLink"], {
           to: "/translated-resources",
-          className: "btn btn-primary"
+          className: "add-btn btn btn-primary"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fas fa-list"
         }), " All Translated Resources")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_resourceTranslation_edit_resourceTrans__WEBPACK_IMPORTED_MODULE_10__["default"], {
           onSubmit: this.submitEditResourceTrans.bind(this),
           editId: this.state.isEditing,
-          resources: this.props.resources,
-          languages: this.props.languages
+          resources: this.props.allResources,
+          languages: this.props.allLanguages
         })));
       } else if (this.props.match.path === "/add-resources-translation") {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -107925,8 +108245,8 @@ var ResourcesTransContainer = /*#__PURE__*/function (_Component) {
           className: "fas fa-list"
         }), " All Translated Resources")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_resourceTranslation_add_resourceTrans__WEBPACK_IMPORTED_MODULE_8__["default"], {
           onSubmit: this.onSubmitForm.bind(this),
-          resources: this.props.resources,
-          languages: this.props.languages
+          resources: this.props.allResources,
+          languages: this.props.allLanguages
         })));
       } else {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -107984,8 +108304,8 @@ var ResourcesTransContainer = /*#__PURE__*/function (_Component) {
 function mapStateToProps(store) {
   return {
     resourcesTrans: store.resourcesTransState.resourcesTrans,
-    resources: store.resourceState.resources,
-    languages: store.languageState.languages,
+    allResources: store.resourceState.all_resources,
+    allLanguages: store.languageState.all_languages,
     fetching: store.resourcesTransState.fetching,
     activePage: store.resourcesTransState.activePage,
     itemsCountPerPage: store.resourcesTransState.itemsCountPerPage,
@@ -107995,8 +108315,8 @@ function mapStateToProps(store) {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["connect"])(mapStateToProps, {
-  requestResources: _actions_resource_action__WEBPACK_IMPORTED_MODULE_6__["requestResources"],
-  requestLanguages: _actions_languages_action__WEBPACK_IMPORTED_MODULE_7__["requestLanguages"],
+  requestAllResources: _actions_resource_action__WEBPACK_IMPORTED_MODULE_6__["requestAllResources"],
+  requestAllLanguages: _actions_languages_action__WEBPACK_IMPORTED_MODULE_7__["requestAllLanguages"],
   requestResourcesTranslation: _actions_resourceTranslation_action__WEBPACK_IMPORTED_MODULE_5__["requestResourcesTranslation"],
   requestAddResourcesTranslation: _actions_resourceTranslation_action__WEBPACK_IMPORTED_MODULE_5__["requestAddResourcesTranslation"],
   requestUpdateResourcesTranslation: _actions_resourceTranslation_action__WEBPACK_IMPORTED_MODULE_5__["requestUpdateResourcesTranslation"],
@@ -108174,7 +108494,7 @@ var DashboardLayout = /*#__PURE__*/function (_Component) {
         path: "/languages",
         component: _containers_languages_languages_container__WEBPACK_IMPORTED_MODULE_11__["default"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
-        path: "/categrories-translation",
+        path: "/categories-translation",
         component: _containers_categoriesTranslation_categoriesTrans_container__WEBPACK_IMPORTED_MODULE_12__["default"]
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
         path: "/news",
@@ -108394,7 +108714,8 @@ var initialState = {
   activePage: 1,
   itemsCountPerPage: 10,
   totalItemsCount: 1,
-  pageRangeDisplayed: 5
+  pageRangeDisplayed: 5,
+  all_categories: []
 };
 
 var categoriesReducer = function categoriesReducer() {
@@ -108402,6 +108723,12 @@ var categoriesReducer = function categoriesReducer() {
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
+    case _actions_action_types__WEBPACK_IMPORTED_MODULE_0__["CATEGORIES_LIST_ALL"]:
+      return Object.assign({}, state, {
+        all_categories: action.categories.data
+      });
+    // reducer to get paginated categories
+
     case _actions_action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_CATEGORIES"]:
       return _objectSpread(_objectSpread({}, state), {}, {
         fetching: true
@@ -108437,23 +108764,6 @@ var categoriesReducer = function categoriesReducer() {
           return category;
         }),
         sending: false
-      });
-
-    case _actions_action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_CHANGE_CATEGORIES_STATUS"]:
-      return _objectSpread(_objectSpread({}, state), {}, {
-        fetching: true
-      });
-
-    case _actions_action_types__WEBPACK_IMPORTED_MODULE_0__["CHANGE_CATEGORIES_STATUS_SUCCESS"]:
-      return _objectSpread(_objectSpread({}, state), {}, {
-        categories: state.categories.map(function (category) {
-          if (category.id === action.resp.id) {
-            return action.resp;
-          }
-
-          return category;
-        }),
-        fetching: false
       });
 
     case _actions_action_types__WEBPACK_IMPORTED_MODULE_0__["DELETE_CATEGORIES_SUCCESS"]:
@@ -108515,7 +108825,6 @@ var categoriesTransReducer = function categoriesTransReducer() {
       });
 
     case _actions_action_types__WEBPACK_IMPORTED_MODULE_0__["GET_CATEGORIES_TRANSLATION_SUCCESS"]:
-      console.log('reducer', action);
       return Object.assign({}, state, {
         categoriesTrans: action.categoriesTrans.data.data,
         fetching: false,
@@ -108650,7 +108959,8 @@ var initialState = {
   itemsCountPerPage: 10,
   totalItemsCount: 1,
   pageRangeDisplayed: 5,
-  sending: false
+  sending: false,
+  all_languages: []
 };
 
 var languagesReducer = function languagesReducer() {
@@ -108658,8 +108968,13 @@ var languagesReducer = function languagesReducer() {
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
+    //reducers to get all languages
+    case _actions_action_types__WEBPACK_IMPORTED_MODULE_0__["ALL_LANGUAGE"]:
+      return Object.assign({}, state, {
+        all_languages: action.languages.data
+      });
+
     case _actions_action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_LANGUAGES"]:
-      console.log(state);
       return _objectSpread(_objectSpread({}, state), {}, {
         fetching: true
       });
@@ -108801,7 +109116,8 @@ var initialState = {
   activePage: 1,
   itemsCountPerPage: 10,
   totalItemsCount: 1,
-  pageRangeDisplayed: 5
+  pageRangeDisplayed: 5,
+  all_news: []
 };
 
 var newsReducer = function newsReducer() {
@@ -108809,14 +109125,17 @@ var newsReducer = function newsReducer() {
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
+    case _actions_action_types__WEBPACK_IMPORTED_MODULE_0__["ALL_NEWS"]:
+      return Object.assign({}, state, {
+        all_news: action.news.data
+      });
+
     case _actions_action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_NEWS"]:
-      console.log(state);
       return _objectSpread(_objectSpread({}, state), {}, {
         fetching: true
       });
 
     case _actions_action_types__WEBPACK_IMPORTED_MODULE_0__["GET_NEWS_SUCCESS"]:
-      console.log('sdfsfasfa', action.news.data.meta.per_page);
       return Object.assign({}, state, {
         news: action.news.data.data,
         fetching: false,
@@ -108902,7 +109221,6 @@ var newsTransReducer = function newsTransReducer() {
 
   switch (action.type) {
     case _actions_action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_NEWS_TRANSLATION"]:
-      console.log(state);
       return _objectSpread(_objectSpread({}, state), {}, {
         fetching: true
       });
@@ -108993,7 +109311,6 @@ var provincesTransReducer = function provincesTransReducer() {
 
   switch (action.type) {
     case _actions_action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_PROVINCE_TRANSLATION"]:
-      console.log(state);
       return _objectSpread(_objectSpread({}, state), {}, {
         fetching: true
       });
@@ -109075,7 +109392,8 @@ var initialState = {
   itemsCountPerPage: 10,
   totalItemsCount: 1,
   pageRangeDisplayed: 5,
-  sending: false
+  sending: false,
+  all_provinces: []
 };
 
 var provincesReducer = function provincesReducer() {
@@ -109083,8 +109401,12 @@ var provincesReducer = function provincesReducer() {
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
+    case _actions_action_types__WEBPACK_IMPORTED_MODULE_0__["ALL_PROVINCE"]:
+      return Object.assign({}, state, {
+        all_provinces: action.provinces.data
+      });
+
     case _actions_action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_PROVINCES"]:
-      console.log(state);
       return _objectSpread(_objectSpread({}, state), {}, {
         fetching: true
       });
@@ -109166,7 +109488,8 @@ var initialState = {
   itemsCountPerPage: 10,
   totalItemsCount: 1,
   pageRangeDisplayed: 5,
-  sending: false
+  sending: false,
+  all_resources: []
 };
 
 var resourcesReducer = function resourcesReducer() {
@@ -109174,8 +109497,12 @@ var resourcesReducer = function resourcesReducer() {
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
   switch (action.type) {
+    case _actions_action_types__WEBPACK_IMPORTED_MODULE_0__["ALL_RESOURCES"]:
+      return Object.assign({}, state, {
+        all_resources: action.resources.data
+      });
+
     case _actions_action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_RESOURCES"]:
-      console.log(state);
       return _objectSpread(_objectSpread({}, state), {}, {
         fetching: true
       });
@@ -109266,7 +109593,6 @@ var resourcesTransReducer = function resourcesTransReducer() {
 
   switch (action.type) {
     case _actions_action_types__WEBPACK_IMPORTED_MODULE_0__["REQUEST_RESOURCE_TRANSLATION"]:
-      console.log(state);
       return _objectSpread(_objectSpread({}, state), {}, {
         fetching: true
       });
@@ -109325,11 +109651,12 @@ var resourcesTransReducer = function resourcesTransReducer() {
 /*!**********************************************!*\
   !*** ./resources/js/sagas/categoriesSaga.js ***!
   \**********************************************/
-/*! exports provided: CategoryWatcher, submitCategoriesSaga, editCategoriesSaga, deleteCategoriesSaga */
+/*! exports provided: AllCategoryWatcher, CategoryWatcher, submitCategoriesSaga, editCategoriesSaga, deleteCategoriesSaga */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AllCategoryWatcher", function() { return AllCategoryWatcher; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CategoryWatcher", function() { return CategoryWatcher; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "submitCategoriesSaga", function() { return submitCategoriesSaga; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editCategoriesSaga", function() { return editCategoriesSaga; });
@@ -109345,29 +109672,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_notify_toast__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_notify_toast__WEBPACK_IMPORTED_MODULE_6__);
 
 
-var _marked = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(CategoryWatcher),
-    _marked2 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(CategorySaga),
-    _marked3 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(submitCategoriesSaga),
-    _marked4 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callCategoriesSubmit),
-    _marked5 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(editCategoriesSaga),
-    _marked6 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callEditCategory),
-    _marked7 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(deleteCategoriesSaga),
-    _marked8 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callDeleteCategory);
+var _marked = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(AllCategoryWatcher),
+    _marked2 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(AllCategorySaga),
+    _marked3 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(CategoryWatcher),
+    _marked4 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(CategorySaga),
+    _marked5 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(submitCategoriesSaga),
+    _marked6 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callCategoriesSubmit),
+    _marked7 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(editCategoriesSaga),
+    _marked8 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callEditCategory),
+    _marked9 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(deleteCategoriesSaga),
+    _marked10 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callDeleteCategory);
 
 
 
 
 
 
- //Get CATEGORIES data in table
+ // watcher to call saga function to get all categories
 
-function CategoryWatcher() {
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function CategoryWatcher$(_context) {
+function AllCategoryWatcher() {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function AllCategoryWatcher$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
           _context.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_CATEGORIES"], CategorySaga);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_ALL_CATEGORIES"], AllCategorySaga);
 
         case 2:
         case "end":
@@ -109377,60 +109706,57 @@ function CategoryWatcher() {
   }, _marked);
 }
 
-function CategorySaga(action) {
+function AllCategorySaga() {
   var response, categories;
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function CategorySaga$(_context2) {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function AllCategorySaga$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
           _context2.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_categories_api__WEBPACK_IMPORTED_MODULE_4__["getCategories"], action.pageNumber);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_categories_api__WEBPACK_IMPORTED_MODULE_4__["getAllCategories"]);
 
         case 2:
           response = _context2.sent;
-          console.log('cat', response);
-          categories = response;
+          categories = response.data;
 
-          if (!response.errors) {
-            _context2.next = 12;
+          if (!response) {
+            _context2.next = 9;
             break;
           }
 
-          _context2.next = 8;
+          _context2.next = 7;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["CATEGORIES_LIST_ALL"],
+            categories: categories
+          });
+
+        case 7:
+          _context2.next = 11;
+          break;
+
+        case 9:
+          _context2.next = 11;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_CATEGORIES_FAILED"],
             errors: response.error
           });
 
-        case 8:
-          error = response.errors;
-          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot get all categories", "error", 5000);
-          _context2.next = 14;
-          break;
-
-        case 12:
-          _context2.next = 14;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
-            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["GET_CATEGORIES_SUCCESS"],
-            categories: categories
-          });
-
-        case 14:
+        case 11:
         case "end":
           return _context2.stop();
       }
     }
   }, _marked2);
-} // Submit form data of CATEGORIES
+} //Get CATEGORIES data in table
 
 
-function submitCategoriesSaga() {
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function submitCategoriesSaga$(_context3) {
+function CategoryWatcher() {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function CategoryWatcher$(_context3) {
     while (1) {
       switch (_context3.prev = _context3.next) {
         case 0:
           _context3.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_ADD_CATEGORIES"], callCategoriesSubmit);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_CATEGORIES"], CategorySaga);
 
         case 2:
         case "end":
@@ -109440,81 +109766,59 @@ function submitCategoriesSaga() {
   }, _marked3);
 }
 
-function callCategoriesSubmit(action) {
-  var error, result, resp, pageNumber;
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callCategoriesSubmit$(_context4) {
+function CategorySaga(action) {
+  var response, categories;
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function CategorySaga$(_context4) {
     while (1) {
       switch (_context4.prev = _context4.next) {
         case 0:
           _context4.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["startSubmit"])('AddCategories'));
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_categories_api__WEBPACK_IMPORTED_MODULE_4__["getCategories"], action.pageNumber);
 
         case 2:
-          error = {};
-          _context4.next = 5;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_categories_api__WEBPACK_IMPORTED_MODULE_4__["addCategories"], action.values);
+          response = _context4.sent;
+          categories = response;
 
-        case 5:
-          result = _context4.sent;
-          resp = result.data;
-          pageNumber = action.pageNumber;
-
-          if (!result.errors) {
-            _context4.next = 16;
+          if (!response.error) {
+            _context4.next = 11;
             break;
           }
 
-          _context4.next = 11;
+          _context4.next = 7;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_CATEGORIES_FAILED"],
-            errors: result.error
+            errors: response.error
           });
 
-        case 11:
-          error = result.error;
-
-          if (resp.errorcode == 23000) {
-            react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Category Description already exists!", "error", 5000);
-          }
-
-          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot create new category!", "error", 5000);
-          _context4.next = 19;
+        case 7:
+          error = response.errors;
+          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot get all categories", "error", 5000);
+          _context4.next = 13;
           break;
 
-        case 16:
-          _context4.next = 18;
+        case 11:
+          _context4.next = 13;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
-            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_CATEGORIES"],
-            pageNumber: pageNumber
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["GET_CATEGORIES_SUCCESS"],
+            categories: categories
           });
 
-        case 18:
-          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Categories created successfully!", "success", 5000);
-
-        case 19:
-          _context4.next = 21;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('AddCategories', error));
-
-        case 21:
-          _context4.next = 23;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('AddCategories'));
-
-        case 23:
+        case 13:
         case "end":
           return _context4.stop();
       }
     }
   }, _marked4);
-} //edit form data of CATEGORIES
+} // Submit form data of CATEGORIES
 
 
-function editCategoriesSaga() {
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function editCategoriesSaga$(_context5) {
+function submitCategoriesSaga() {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function submitCategoriesSaga$(_context5) {
     while (1) {
       switch (_context5.prev = _context5.next) {
         case 0:
           _context5.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_EDIT_CATEGORIES"], callEditCategory);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_ADD_CATEGORIES"], callCategoriesSubmit);
 
         case 2:
         case "end":
@@ -109524,76 +109828,78 @@ function editCategoriesSaga() {
   }, _marked5);
 }
 
-function callEditCategory(action) {
-  var error, result, resp, pageNumber;
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callEditCategory$(_context6) {
+function callCategoriesSubmit(action) {
+  var result, resp, pageNumber;
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callCategoriesSubmit$(_context6) {
     while (1) {
       switch (_context6.prev = _context6.next) {
         case 0:
           _context6.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["startSubmit"])('EditCategories'));
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["startSubmit"])('AddCategories'));
 
         case 2:
-          error = {};
-          _context6.next = 5;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_categories_api__WEBPACK_IMPORTED_MODULE_4__["updateCategories"], action.values.id, action.values);
+          _context6.next = 4;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_categories_api__WEBPACK_IMPORTED_MODULE_4__["addCategories"], action.values);
 
-        case 5:
+        case 4:
           result = _context6.sent;
           resp = result.data;
           pageNumber = action.pageNumber;
 
-          if (!result.errors) {
-            _context6.next = 15;
+          if (!result.error) {
+            _context6.next = 14;
             break;
           }
 
-          _context6.next = 11;
+          _context6.next = 10;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_CATEGORIES_FAILED"],
             errors: result.error
           });
 
-        case 11:
-          error = result.error;
-          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Update failed", "error", 5000);
-          _context6.next = 18;
+        case 10:
+          if (resp.errorcode == 23000) {
+            react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Category Description already exists!", "error", 5000);
+          }
+
+          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot create new category!", "error", 5000);
+          _context6.next = 17;
           break;
 
-        case 15:
-          _context6.next = 17;
+        case 14:
+          _context6.next = 16;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_CATEGORIES"],
             pageNumber: pageNumber
           });
 
+        case 16:
+          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Categories created successfully!", "success", 5000);
+
         case 17:
-          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Updated successfully!", "success", 5000);
+          _context6.next = 19;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('AddCategories', error));
 
-        case 18:
-          _context6.next = 20;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('EditCategories', error));
+        case 19:
+          _context6.next = 21;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('AddCategories'));
 
-        case 20:
-          _context6.next = 22;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('EditCategories'));
-
-        case 22:
+        case 21:
         case "end":
           return _context6.stop();
       }
     }
   }, _marked6);
-} // delete CATEGORIES data from table
+} //edit form data of CATEGORIES
 
 
-function deleteCategoriesSaga() {
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function deleteCategoriesSaga$(_context7) {
+function editCategoriesSaga() {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function editCategoriesSaga$(_context7) {
     while (1) {
       switch (_context7.prev = _context7.next) {
         case 0:
           _context7.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_DELETE_CATEGORIES"], callDeleteCategory);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_EDIT_CATEGORIES"], callEditCategory);
 
         case 2:
         case "end":
@@ -109603,24 +109909,100 @@ function deleteCategoriesSaga() {
   }, _marked7);
 }
 
-function callDeleteCategory(action) {
-  var result;
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callDeleteCategory$(_context8) {
+function callEditCategory(action) {
+  var result, pageNumber;
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callEditCategory$(_context8) {
     while (1) {
       switch (_context8.prev = _context8.next) {
         case 0:
           _context8.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_categories_api__WEBPACK_IMPORTED_MODULE_4__["deleteCategories"], action.categoryId);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["startSubmit"])('EditCategories'));
 
         case 2:
-          result = _context8.sent;
+          _context8.next = 4;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_categories_api__WEBPACK_IMPORTED_MODULE_4__["updateCategories"], action.values.id, action.values);
 
-          if (!result.errors) {
-            _context8.next = 10;
+        case 4:
+          result = _context8.sent;
+          pageNumber = action.pageNumber;
+
+          if (!result.error) {
+            _context8.next = 12;
             break;
           }
 
-          _context8.next = 6;
+          _context8.next = 9;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_CATEGORIES_FAILED"],
+            errors: result.error
+          });
+
+        case 9:
+          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Update failed", "error", 5000);
+          _context8.next = 15;
+          break;
+
+        case 12:
+          _context8.next = 14;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_CATEGORIES"],
+            pageNumber: pageNumber
+          });
+
+        case 14:
+          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Updated successfully!", "success", 5000);
+
+        case 15:
+          _context8.next = 17;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('EditCategories', error));
+
+        case 17:
+          _context8.next = 19;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('EditCategories'));
+
+        case 19:
+        case "end":
+          return _context8.stop();
+      }
+    }
+  }, _marked8);
+} // delete CATEGORIES data from table
+
+
+function deleteCategoriesSaga() {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function deleteCategoriesSaga$(_context9) {
+    while (1) {
+      switch (_context9.prev = _context9.next) {
+        case 0:
+          _context9.next = 2;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_DELETE_CATEGORIES"], callDeleteCategory);
+
+        case 2:
+        case "end":
+          return _context9.stop();
+      }
+    }
+  }, _marked9);
+}
+
+function callDeleteCategory(action) {
+  var result;
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callDeleteCategory$(_context10) {
+    while (1) {
+      switch (_context10.prev = _context10.next) {
+        case 0:
+          _context10.next = 2;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_categories_api__WEBPACK_IMPORTED_MODULE_4__["deleteCategories"], action.categoryId);
+
+        case 2:
+          result = _context10.sent;
+
+          if (!result.error) {
+            _context10.next = 10;
+            break;
+          }
+
+          _context10.next = 6;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_CATEGORIES_FAILED"],
             errors: result.error
@@ -109629,11 +110011,11 @@ function callDeleteCategory(action) {
         case 6:
           error = result.error;
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Delete failed", "error", 5000);
-          _context8.next = 13;
+          _context10.next = 13;
           break;
 
         case 10:
-          _context8.next = 12;
+          _context10.next = 12;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(_actions_categories_action__WEBPACK_IMPORTED_MODULE_5__["deleteCategoriesSuccess"](action.categoryId));
 
         case 12:
@@ -109641,10 +110023,10 @@ function callDeleteCategory(action) {
 
         case 13:
         case "end":
-          return _context8.stop();
+          return _context10.stop();
       }
     }
-  }, _marked8);
+  }, _marked10);
 }
 
 /***/ }),
@@ -109716,34 +110098,33 @@ function CategoryTransSaga(action) {
 
         case 2:
           response = _context2.sent;
-          console.log('cat', response);
           categoriesTrans = response;
 
           if (!response.errors) {
-            _context2.next = 12;
+            _context2.next = 11;
             break;
           }
 
-          _context2.next = 8;
+          _context2.next = 7;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_CATEGORIES_TRANSLATION_FAILED"],
             errors: response.error
           });
 
-        case 8:
+        case 7:
           error = response.errors;
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot get all categories Translation", "error", 5000);
-          _context2.next = 14;
+          _context2.next = 13;
           break;
 
-        case 12:
-          _context2.next = 14;
+        case 11:
+          _context2.next = 13;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["GET_CATEGORIES_TRANSLATION_SUCCESS"],
             categoriesTrans: categoriesTrans
           });
 
-        case 14:
+        case 13:
         case "end":
           return _context2.stop();
       }
@@ -109785,21 +110166,20 @@ function callCategoriesTransSubmit(action) {
         case 5:
           result = _context4.sent;
           resp = result.data;
-          console.log('cccs', resp);
           pageNumber = action.pageNumber;
 
           if (!result.errors) {
-            _context4.next = 17;
+            _context4.next = 16;
             break;
           }
 
-          _context4.next = 12;
+          _context4.next = 11;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_CATEGORIES_TRANSLATION_FAILED"],
             errors: result.error
           });
 
-        case 12:
+        case 11:
           error = result.error;
 
           if (resp.errorcode == 23000) {
@@ -109807,28 +110187,28 @@ function callCategoriesTransSubmit(action) {
           }
 
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot create new category Translation!", "error", 5000);
-          _context4.next = 20;
+          _context4.next = 19;
           break;
 
-        case 17:
-          _context4.next = 19;
+        case 16:
+          _context4.next = 18;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_CATEGORIES_TRANSLATION"],
             pageNumber: pageNumber
           });
 
-        case 19:
+        case 18:
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Categories Translation created successfully!", "success", 5000);
 
-        case 20:
-          _context4.next = 22;
+        case 19:
+          _context4.next = 21;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('AddCategoriesTrans', error));
 
-        case 22:
-          _context4.next = 24;
+        case 21:
+          _context4.next = 23;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('AddCategoriesTrans'));
 
-        case 24:
+        case 23:
         case "end":
           return _context4.stop();
       }
@@ -109863,52 +110243,51 @@ function callEditCategoryTrans(action) {
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["startSubmit"])('EditCategoriesTrans'));
 
         case 2:
-          console.log(action);
           error = {};
-          _context6.next = 6;
+          _context6.next = 5;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_categoriesTrans_api__WEBPACK_IMPORTED_MODULE_4__["updateCategoriesTrans"], action.values.id, action.values);
 
-        case 6:
+        case 5:
           result = _context6.sent;
           resp = result.data;
           pageNumber = action.pageNumber;
 
           if (!result.errors) {
-            _context6.next = 16;
+            _context6.next = 15;
             break;
           }
 
-          _context6.next = 12;
+          _context6.next = 11;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_CATEGORIES_TRANSLATION_FAILED"],
             errors: result.error
           });
 
-        case 12:
+        case 11:
           error = result.error;
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Update failed", "error", 5000);
-          _context6.next = 19;
+          _context6.next = 18;
           break;
 
-        case 16:
-          _context6.next = 18;
+        case 15:
+          _context6.next = 17;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_CATEGORIES_TRANSLATION"],
             pageNumber: pageNumber
           });
 
-        case 18:
+        case 17:
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Updated successfully!", "success", 5000);
 
-        case 19:
-          _context6.next = 21;
+        case 18:
+          _context6.next = 20;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('EditCategoriesTrans', error));
 
-        case 21:
-          _context6.next = 23;
+        case 20:
+          _context6.next = 22;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('EditCategoriesTrans'));
 
-        case 23:
+        case 22:
         case "end":
           return _context6.stop();
       }
@@ -109983,11 +110362,12 @@ function callDeleteCategoryTrans(action) {
 /*!*********************************************!*\
   !*** ./resources/js/sagas/languagesSaga.js ***!
   \*********************************************/
-/*! exports provided: LanguageWatcher, submitLanguagesSaga, editLanguagesSaga, deleteLanguagesSaga */
+/*! exports provided: AllLanguagesWatcher, LanguageWatcher, submitLanguagesSaga, editLanguagesSaga, deleteLanguagesSaga */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AllLanguagesWatcher", function() { return AllLanguagesWatcher; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LanguageWatcher", function() { return LanguageWatcher; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "submitLanguagesSaga", function() { return submitLanguagesSaga; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editLanguagesSaga", function() { return editLanguagesSaga; });
@@ -110003,29 +110383,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_notify_toast__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_notify_toast__WEBPACK_IMPORTED_MODULE_6__);
 
 
-var _marked = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(LanguageWatcher),
-    _marked2 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(LanguageSaga),
-    _marked3 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(submitLanguagesSaga),
-    _marked4 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callLanguagesSubmit),
-    _marked5 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(editLanguagesSaga),
-    _marked6 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callEditLanguage),
-    _marked7 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(deleteLanguagesSaga),
-    _marked8 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callDeleteLanguage);
+var _marked = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(AllLanguagesWatcher),
+    _marked2 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(AllLanguageSaga),
+    _marked3 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(LanguageWatcher),
+    _marked4 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(LanguageSaga),
+    _marked5 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(submitLanguagesSaga),
+    _marked6 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callLanguagesSubmit),
+    _marked7 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(editLanguagesSaga),
+    _marked8 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callEditLanguage),
+    _marked9 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(deleteLanguagesSaga),
+    _marked10 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callDeleteLanguage);
 
 
 
 
 
 
- //Get makes data in table
+ // watcher to call saga function to get all languages
 
-function LanguageWatcher() {
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function LanguageWatcher$(_context) {
+function AllLanguagesWatcher() {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function AllLanguagesWatcher$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
           _context.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_LANGUAGES"], LanguageSaga);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_ALL_LANGUAGE"], AllLanguageSaga);
 
         case 2:
         case "end":
@@ -110035,60 +110417,57 @@ function LanguageWatcher() {
   }, _marked);
 }
 
-function LanguageSaga(action) {
+function AllLanguageSaga() {
   var response, languages;
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function LanguageSaga$(_context2) {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function AllLanguageSaga$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
           _context2.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_languages_api__WEBPACK_IMPORTED_MODULE_4__["getLanguages"], action.pageNumber);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_languages_api__WEBPACK_IMPORTED_MODULE_4__["getAllLanguages"]);
 
         case 2:
           response = _context2.sent;
-          console.log('cat', response);
-          languages = response;
+          languages = response.data;
 
-          if (!response.errors) {
-            _context2.next = 12;
+          if (!response) {
+            _context2.next = 9;
             break;
           }
 
-          _context2.next = 8;
+          _context2.next = 7;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["ALL_LANGUAGE"],
+            languages: languages
+          });
+
+        case 7:
+          _context2.next = 11;
+          break;
+
+        case 9:
+          _context2.next = 11;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_LANGUAGES_FAILED"],
             errors: response.error
           });
 
-        case 8:
-          error = response.errors;
-          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot get all languages", "error", 5000);
-          _context2.next = 14;
-          break;
-
-        case 12:
-          _context2.next = 14;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
-            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["GET_LANGUAGES_SUCCESS"],
-            languages: languages
-          });
-
-        case 14:
+        case 11:
         case "end":
           return _context2.stop();
       }
     }
   }, _marked2);
-} // Submit form data of makes
+} //Get makes data in table
 
 
-function submitLanguagesSaga() {
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function submitLanguagesSaga$(_context3) {
+function LanguageWatcher() {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function LanguageWatcher$(_context3) {
     while (1) {
       switch (_context3.prev = _context3.next) {
         case 0:
           _context3.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_ADD_LANGUAGES"], callLanguagesSubmit);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_LANGUAGES"], LanguageSaga);
 
         case 2:
         case "end":
@@ -110098,81 +110477,59 @@ function submitLanguagesSaga() {
   }, _marked3);
 }
 
-function callLanguagesSubmit(action) {
-  var error, result, resp, pageNumber;
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callLanguagesSubmit$(_context4) {
+function LanguageSaga(action) {
+  var response, languages;
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function LanguageSaga$(_context4) {
     while (1) {
       switch (_context4.prev = _context4.next) {
         case 0:
           _context4.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["startSubmit"])('AddLanguages'));
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_languages_api__WEBPACK_IMPORTED_MODULE_4__["getLanguages"], action.pageNumber);
 
         case 2:
-          error = {};
-          _context4.next = 5;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_languages_api__WEBPACK_IMPORTED_MODULE_4__["addLanguages"], action.values);
+          response = _context4.sent;
+          languages = response;
 
-        case 5:
-          result = _context4.sent;
-          resp = result.data;
-          pageNumber = action.pageNumber;
-
-          if (!(result.errors && !resp.success || result.errors || !resp.success)) {
-            _context4.next = 16;
+          if (!response.errors) {
+            _context4.next = 11;
             break;
           }
 
-          _context4.next = 11;
+          _context4.next = 7;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_LANGUAGES_FAILED"],
-            errors: result.error || resp.errormsg
+            errors: response.error
           });
 
-        case 11:
-          error = result.error || resp.errormsg;
-
-          if (resp.errorcode == 23000) {
-            react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Languages Description already exists!", "error", 5000);
-          }
-
-          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot create new Language!", "error", 5000);
-          _context4.next = 19;
+        case 7:
+          error = response.errors;
+          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot get all languages", "error", 5000);
+          _context4.next = 13;
           break;
 
-        case 16:
-          _context4.next = 18;
+        case 11:
+          _context4.next = 13;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
-            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_LANGUAGES"],
-            pageNumber: pageNumber
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["GET_LANGUAGES_SUCCESS"],
+            languages: languages
           });
 
-        case 18:
-          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Languages created successfully!", "success", 5000);
-
-        case 19:
-          _context4.next = 21;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('AddLanguages', error));
-
-        case 21:
-          _context4.next = 23;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('AddLanguages'));
-
-        case 23:
+        case 13:
         case "end":
           return _context4.stop();
       }
     }
   }, _marked4);
-} //edit form data of makes
+} // Submit form data of makes
 
 
-function editLanguagesSaga() {
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function editLanguagesSaga$(_context5) {
+function submitLanguagesSaga() {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function submitLanguagesSaga$(_context5) {
     while (1) {
       switch (_context5.prev = _context5.next) {
         case 0:
           _context5.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_EDIT_LANGUAGES"], callEditLanguage);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_ADD_LANGUAGES"], callLanguagesSubmit);
 
         case 2:
         case "end":
@@ -110182,39 +110539,43 @@ function editLanguagesSaga() {
   }, _marked5);
 }
 
-function callEditLanguage(action) {
-  var error, result, resp, pageNumber;
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callEditLanguage$(_context6) {
+function callLanguagesSubmit(action) {
+  var result, resp, pageNumber;
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callLanguagesSubmit$(_context6) {
     while (1) {
       switch (_context6.prev = _context6.next) {
         case 0:
           _context6.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["startSubmit"])('EditLanguages'));
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["startSubmit"])('AddLanguages'));
 
         case 2:
-          error = {};
-          _context6.next = 5;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_languages_api__WEBPACK_IMPORTED_MODULE_4__["updateLanguages"], action.values.id, action.values);
+          _context6.next = 4;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_languages_api__WEBPACK_IMPORTED_MODULE_4__["addLanguages"], action.values);
 
-        case 5:
+        case 4:
           result = _context6.sent;
           resp = result.data;
           pageNumber = action.pageNumber;
 
-          if (!result.errors) {
+          if (!(result.errors && !resp.success || result.errors || !resp.success)) {
             _context6.next = 15;
             break;
           }
 
-          _context6.next = 11;
+          _context6.next = 10;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_LANGUAGES_FAILED"],
-            errors: result.error
+            errors: result.error || resp.errormsg
           });
 
-        case 11:
-          error = result.error;
-          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Update failed", "error", 5000);
+        case 10:
+          error = result.error || resp.errormsg;
+
+          if (resp.errorcode == 23000) {
+            react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Languages Description already exists!", "error", 5000);
+          }
+
+          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot create new Language!", "error", 5000);
           _context6.next = 18;
           break;
 
@@ -110226,15 +110587,15 @@ function callEditLanguage(action) {
           });
 
         case 17:
-          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Updated successfully!", "success", 5000);
+          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Languages created successfully!", "success", 5000);
 
         case 18:
           _context6.next = 20;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('EditLanguages', error));
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('AddLanguages', error));
 
         case 20:
           _context6.next = 22;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('EditLanguages'));
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('AddLanguages'));
 
         case 22:
         case "end":
@@ -110242,16 +110603,16 @@ function callEditLanguage(action) {
       }
     }
   }, _marked6);
-} // delete makes data from table
+} //edit form data of makes
 
 
-function deleteLanguagesSaga() {
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function deleteLanguagesSaga$(_context7) {
+function editLanguagesSaga() {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function editLanguagesSaga$(_context7) {
     while (1) {
       switch (_context7.prev = _context7.next) {
         case 0:
           _context7.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_DELETE_LANGUAGES"], callDeleteLanguage);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_EDIT_LANGUAGES"], callEditLanguage);
 
         case 2:
         case "end":
@@ -110261,49 +110622,124 @@ function deleteLanguagesSaga() {
   }, _marked7);
 }
 
-function callDeleteLanguage(action) {
-  var result;
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callDeleteLanguage$(_context8) {
+function callEditLanguage(action) {
+  var result, pageNumber;
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callEditLanguage$(_context8) {
     while (1) {
       switch (_context8.prev = _context8.next) {
         case 0:
-          console.log('saga', action);
-          _context8.next = 3;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_languages_api__WEBPACK_IMPORTED_MODULE_4__["deleteLanguages"], action.languageId);
+          _context8.next = 2;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["startSubmit"])('EditLanguages'));
 
-        case 3:
+        case 2:
+          _context8.next = 4;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_languages_api__WEBPACK_IMPORTED_MODULE_4__["updateLanguages"], action.values.id, action.values);
+
+        case 4:
           result = _context8.sent;
+          pageNumber = action.pageNumber;
 
           if (!result.errors) {
-            _context8.next = 11;
+            _context8.next = 12;
             break;
           }
 
-          _context8.next = 7;
+          _context8.next = 9;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_LANGUAGES_FAILED"],
             errors: result.error
           });
 
-        case 7:
-          error = result.error;
-          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Delete failed", "error", 5000);
-          _context8.next = 14;
+        case 9:
+          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Update failed", "error", 5000);
+          _context8.next = 15;
           break;
 
-        case 11:
-          _context8.next = 13;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(_actions_languages_action__WEBPACK_IMPORTED_MODULE_5__["deleteLanguagesSuccess"](action.languageId));
-
-        case 13:
-          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Deleted successfully!", "error", 5000);
+        case 12:
+          _context8.next = 14;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_LANGUAGES"],
+            pageNumber: pageNumber
+          });
 
         case 14:
+          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Updated successfully!", "success", 5000);
+
+        case 15:
+          _context8.next = 17;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('EditLanguages', error));
+
+        case 17:
+          _context8.next = 19;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('EditLanguages'));
+
+        case 19:
         case "end":
           return _context8.stop();
       }
     }
   }, _marked8);
+} // delete makes data from table
+
+
+function deleteLanguagesSaga() {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function deleteLanguagesSaga$(_context9) {
+    while (1) {
+      switch (_context9.prev = _context9.next) {
+        case 0:
+          _context9.next = 2;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_DELETE_LANGUAGES"], callDeleteLanguage);
+
+        case 2:
+        case "end":
+          return _context9.stop();
+      }
+    }
+  }, _marked9);
+}
+
+function callDeleteLanguage(action) {
+  var result;
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callDeleteLanguage$(_context10) {
+    while (1) {
+      switch (_context10.prev = _context10.next) {
+        case 0:
+          _context10.next = 2;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_languages_api__WEBPACK_IMPORTED_MODULE_4__["deleteLanguages"], action.languageId);
+
+        case 2:
+          result = _context10.sent;
+
+          if (!result.errors) {
+            _context10.next = 10;
+            break;
+          }
+
+          _context10.next = 6;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_LANGUAGES_FAILED"],
+            errors: result.error
+          });
+
+        case 6:
+          error = result.error;
+          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Delete failed", "error", 5000);
+          _context10.next = 13;
+          break;
+
+        case 10:
+          _context10.next = 12;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(_actions_languages_action__WEBPACK_IMPORTED_MODULE_5__["deleteLanguagesSuccess"](action.languageId));
+
+        case 12:
+          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Deleted successfully!", "error", 5000);
+
+        case 13:
+        case "end":
+          return _context10.stop();
+      }
+    }
+  }, _marked10);
 }
 
 /***/ }),
@@ -110375,68 +110811,67 @@ function loginFlow(action) {
 
         case 5:
           result = _context2.sent;
-          console.log('saga', result);
           resp = result.data;
           now = new Date().getTime();
 
           if (!(result.status == 200)) {
-            _context2.next = 19;
+            _context2.next = 18;
             break;
           }
 
           window.localStorage.setItem("access_token", resp.access_token);
           localStorage.setItem('setupTime', now);
-          _context2.next = 14;
+          _context2.next = 13;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["LOGIN_SUCCESS"],
             resp: resp
           });
 
-        case 14:
-          _context2.next = 16;
+        case 13:
+          _context2.next = 15;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(connected_react_router__WEBPACK_IMPORTED_MODULE_6__["push"])('/'));
 
-        case 16:
+        case 15:
           react_notify_toast__WEBPACK_IMPORTED_MODULE_5__["notify"].show("Login Successfull!", "success", 5000);
-          _context2.next = 20;
+          _context2.next = 19;
           break;
 
-        case 19:
+        case 18:
           if (result.errors) {
             react_notify_toast__WEBPACK_IMPORTED_MODULE_5__["notify"].show("Incorrect Email or Password!", "error", 5000);
             localStorage.clear();
           }
 
-        case 20:
-          _context2.next = 27;
+        case 19:
+          _context2.next = 26;
           break;
 
-        case 22:
-          _context2.prev = 22;
+        case 21:
+          _context2.prev = 21;
           _context2.t0 = _context2["catch"](2);
-          _context2.next = 26;
+          _context2.next = 25;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["LOGIN_ERROR"],
             error: _context2.t0
           });
 
-        case 26:
+        case 25:
           react_notify_toast__WEBPACK_IMPORTED_MODULE_5__["notify"].show("Cannot Login!", "error", 5000);
 
-        case 27:
-          _context2.next = 29;
+        case 26:
+          _context2.next = 28;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('LoginForm'));
 
-        case 29:
-          _context2.next = 31;
+        case 28:
+          _context2.next = 30;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('LoginForm'));
 
-        case 31:
+        case 30:
         case "end":
           return _context2.stop();
       }
     }
-  }, _marked2, null, [[2, 22]]);
+  }, _marked2, null, [[2, 21]]);
 } //LOGOUT
 //logout Request
 
@@ -110469,57 +110904,56 @@ function logoutFlow() {
 
         case 3:
           response = _context4.sent;
-          console.log('response', response);
 
           if (!(response.status == 200)) {
-            _context4.next = 16;
+            _context4.next = 15;
             break;
           }
 
           window.localStorage.removeItem('access_token');
           window.localStorage.removeItem('setupTime');
-          _context4.next = 10;
+          _context4.next = 9;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["LOGOUT_SUCCESS"]
           });
 
-        case 10:
-          _context4.next = 12;
+        case 9:
+          _context4.next = 11;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(connected_react_router__WEBPACK_IMPORTED_MODULE_6__["push"])('/auth/login'));
 
-        case 12:
+        case 11:
           react_notify_toast__WEBPACK_IMPORTED_MODULE_5__["notify"].show("You are successfully logged out!", "success", 5000);
           window.reload();
-          _context4.next = 17;
+          _context4.next = 16;
           break;
 
-        case 16:
+        case 15:
           if (response.errors) {
             react_notify_toast__WEBPACK_IMPORTED_MODULE_5__["notify"].show("Something went wrong. Please try again");
           }
 
-        case 17:
-          _context4.next = 24;
+        case 16:
+          _context4.next = 23;
           break;
 
-        case 19:
-          _context4.prev = 19;
+        case 18:
+          _context4.prev = 18;
           _context4.t0 = _context4["catch"](0);
-          _context4.next = 23;
+          _context4.next = 22;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["LOGOUT_ERROR"],
             error: _context4.t0
           });
 
-        case 23:
+        case 22:
           react_notify_toast__WEBPACK_IMPORTED_MODULE_5__["notify"].show("Something went wrong. Please try again!", "error", 5000);
 
-        case 24:
+        case 23:
         case "end":
           return _context4.stop();
       }
     }
-  }, _marked4, null, [[0, 19]]);
+  }, _marked4, null, [[0, 18]]);
 }
 
 /***/ }),
@@ -110597,11 +111031,12 @@ function rootSaga() {
 /*!****************************************!*\
   !*** ./resources/js/sagas/newsSaga.js ***!
   \****************************************/
-/*! exports provided: NewsWatcher, submitNewsSaga, editNewsSaga, deleteNewsSaga */
+/*! exports provided: AllNewsWatcher, NewsWatcher, submitNewsSaga, editNewsSaga, deleteNewsSaga */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AllNewsWatcher", function() { return AllNewsWatcher; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NewsWatcher", function() { return NewsWatcher; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "submitNewsSaga", function() { return submitNewsSaga; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editNewsSaga", function() { return editNewsSaga; });
@@ -110618,14 +111053,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var connected_react_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! connected-react-router */ "./node_modules/connected-react-router/esm/index.js");
 
 
-var _marked = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(NewsWatcher),
-    _marked2 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(NewsSaga),
-    _marked3 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(submitNewsSaga),
-    _marked4 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callNewsSubmit),
-    _marked5 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(editNewsSaga),
-    _marked6 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callEditNews),
-    _marked7 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(deleteNewsSaga),
-    _marked8 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callDeleteNews);
+var _marked = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(AllNewsWatcher),
+    _marked2 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(AllNewsSaga),
+    _marked3 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(NewsWatcher),
+    _marked4 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(NewsSaga),
+    _marked5 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(submitNewsSaga),
+    _marked6 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callNewsSubmit),
+    _marked7 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(editNewsSaga),
+    _marked8 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callEditNews),
+    _marked9 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(deleteNewsSaga),
+    _marked10 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callDeleteNews);
 
 
 
@@ -110633,15 +111070,15 @@ var _marked = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0
 
 
 
- //Get news data in table
+ // watcher to call saga function to get all languages
 
-function NewsWatcher() {
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function NewsWatcher$(_context) {
+function AllNewsWatcher() {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function AllNewsWatcher$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
           _context.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_NEWS"], NewsSaga);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_ALL_NEWS"], AllNewsSaga);
 
         case 2:
         case "end":
@@ -110651,60 +111088,57 @@ function NewsWatcher() {
   }, _marked);
 }
 
-function NewsSaga(action) {
+function AllNewsSaga() {
   var response, news;
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function NewsSaga$(_context2) {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function AllNewsSaga$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
           _context2.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_news_api__WEBPACK_IMPORTED_MODULE_4__["getNews"], action.pageNumber);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_news_api__WEBPACK_IMPORTED_MODULE_4__["getAllNews"]);
 
         case 2:
           response = _context2.sent;
-          console.log('cat', response);
-          news = response;
+          news = response.data;
 
-          if (!response.errors) {
-            _context2.next = 12;
+          if (!response) {
+            _context2.next = 9;
             break;
           }
 
-          _context2.next = 8;
+          _context2.next = 7;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["ALL_NEWS"],
+            news: news
+          });
+
+        case 7:
+          _context2.next = 11;
+          break;
+
+        case 9:
+          _context2.next = 11;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_NEWS_FAILED"],
             errors: response.error
           });
 
-        case 8:
-          error = response.errors;
-          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot get all news", "error", 5000);
-          _context2.next = 14;
-          break;
-
-        case 12:
-          _context2.next = 14;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
-            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["GET_NEWS_SUCCESS"],
-            news: news
-          });
-
-        case 14:
+        case 11:
         case "end":
           return _context2.stop();
       }
     }
   }, _marked2);
-} // Submit form data of NEWS
+} //Get news data in table
 
 
-function submitNewsSaga() {
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function submitNewsSaga$(_context3) {
+function NewsWatcher() {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function NewsWatcher$(_context3) {
     while (1) {
       switch (_context3.prev = _context3.next) {
         case 0:
           _context3.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_ADD_NEWS"], callNewsSubmit);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_NEWS"], NewsSaga);
 
         case 2:
         case "end":
@@ -110714,84 +111148,59 @@ function submitNewsSaga() {
   }, _marked3);
 }
 
-function callNewsSubmit(action) {
-  var error, result, resp, pageNumber;
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callNewsSubmit$(_context4) {
+function NewsSaga(action) {
+  var response, news;
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function NewsSaga$(_context4) {
     while (1) {
       switch (_context4.prev = _context4.next) {
         case 0:
           _context4.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["startSubmit"])('AddNews'));
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_news_api__WEBPACK_IMPORTED_MODULE_4__["getNews"], action.pageNumber);
 
         case 2:
-          error = {};
-          console.log('action-news', action);
-          _context4.next = 6;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_news_api__WEBPACK_IMPORTED_MODULE_4__["addNews"], action.values);
+          response = _context4.sent;
+          news = response;
 
-        case 6:
-          result = _context4.sent;
-          resp = result.data;
-          pageNumber = action.pageNumber;
-
-          if (!(result.errors && !resp.success || result.errors || !resp.success)) {
-            _context4.next = 17;
+          if (!response.errors) {
+            _context4.next = 11;
             break;
           }
 
-          _context4.next = 12;
+          _context4.next = 7;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_NEWS_FAILED"],
-            errors: result.error || resp.errormsg
+            errors: response.error
           });
 
-        case 12:
-          error = result.error || resp.errormsg;
-
-          if (resp.errorcode == 23000) {
-            react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("News Description already exists!", "error", 5000);
-          }
-
-          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot create new News!", "error", 5000);
-          _context4.next = 22;
+        case 7:
+          error = response.errors;
+          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot get all news", "error", 5000);
+          _context4.next = 13;
           break;
 
-        case 17:
-          _context4.next = 19;
+        case 11:
+          _context4.next = 13;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
-            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_NEWS"],
-            pageNumber: pageNumber
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["GET_NEWS_SUCCESS"],
+            news: news
           });
 
-        case 19:
-          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("News created successfully!", "success", 5000);
-          _context4.next = 22;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(connected_react_router__WEBPACK_IMPORTED_MODULE_7__["push"])('/news'));
-
-        case 22:
-          _context4.next = 24;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('AddNews', error));
-
-        case 24:
-          _context4.next = 26;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('AddNews'));
-
-        case 26:
+        case 13:
         case "end":
           return _context4.stop();
       }
     }
   }, _marked4);
-} //edit form data of NEWS
+} // Submit form data of NEWS
 
 
-function editNewsSaga() {
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function editNewsSaga$(_context5) {
+function submitNewsSaga() {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function submitNewsSaga$(_context5) {
     while (1) {
       switch (_context5.prev = _context5.next) {
         case 0:
           _context5.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_EDIT_NEWS"], callEditNews);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_ADD_NEWS"], callNewsSubmit);
 
         case 2:
         case "end":
@@ -110801,39 +111210,43 @@ function editNewsSaga() {
   }, _marked5);
 }
 
-function callEditNews(action) {
-  var error, result, resp, pageNumber;
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callEditNews$(_context6) {
+function callNewsSubmit(action) {
+  var result, resp, pageNumber;
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callNewsSubmit$(_context6) {
     while (1) {
       switch (_context6.prev = _context6.next) {
         case 0:
           _context6.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["startSubmit"])('EditNews'));
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["startSubmit"])('AddNews'));
 
         case 2:
-          error = {};
-          _context6.next = 5;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_news_api__WEBPACK_IMPORTED_MODULE_4__["updateNews"], action.values.id, action.values);
+          _context6.next = 4;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_news_api__WEBPACK_IMPORTED_MODULE_4__["addNews"], action.values);
 
-        case 5:
+        case 4:
           result = _context6.sent;
           resp = result.data;
           pageNumber = action.pageNumber;
 
-          if (!result.errors) {
+          if (!(result.errors && !resp.success || result.errors || !resp.success)) {
             _context6.next = 15;
             break;
           }
 
-          _context6.next = 11;
+          _context6.next = 10;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_NEWS_FAILED"],
-            errors: result.error
+            errors: result.error || resp.errormsg
           });
 
-        case 11:
-          error = result.error;
-          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Update failed", "error", 5000);
+        case 10:
+          error = result.error || resp.errormsg;
+
+          if (resp.errorcode == 23000) {
+            react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("News Description already exists!", "error", 5000);
+          }
+
+          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot create new News!", "error", 5000);
           _context6.next = 20;
           break;
 
@@ -110845,17 +111258,17 @@ function callEditNews(action) {
           });
 
         case 17:
-          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Updated successfully!", "success", 5000);
+          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("News created successfully!", "success", 5000);
           _context6.next = 20;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(connected_react_router__WEBPACK_IMPORTED_MODULE_7__["push"])('/news'));
 
         case 20:
           _context6.next = 22;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('EditNews', error));
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('AddNews', error));
 
         case 22:
           _context6.next = 24;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('EditNews'));
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('AddNews'));
 
         case 24:
         case "end":
@@ -110863,16 +111276,16 @@ function callEditNews(action) {
       }
     }
   }, _marked6);
-} // delete NEWS data from table
+} //edit form data of NEWS
 
 
-function deleteNewsSaga() {
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function deleteNewsSaga$(_context7) {
+function editNewsSaga() {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function editNewsSaga$(_context7) {
     while (1) {
       switch (_context7.prev = _context7.next) {
         case 0:
           _context7.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_DELETE_NEWS"], callDeleteNews);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_EDIT_NEWS"], callEditNews);
 
         case 2:
         case "end":
@@ -110882,24 +111295,104 @@ function deleteNewsSaga() {
   }, _marked7);
 }
 
-function callDeleteNews(action) {
-  var result;
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callDeleteNews$(_context8) {
+function callEditNews(action) {
+  var error, result, pageNumber;
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callEditNews$(_context8) {
     while (1) {
       switch (_context8.prev = _context8.next) {
         case 0:
           _context8.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_news_api__WEBPACK_IMPORTED_MODULE_4__["deleteNews"], action.newsId);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["startSubmit"])('EditNews'));
 
         case 2:
+          error = {};
+          _context8.next = 5;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_news_api__WEBPACK_IMPORTED_MODULE_4__["updateNews"], action.values.id, action.values);
+
+        case 5:
           result = _context8.sent;
+          pageNumber = action.pageNumber;
 
           if (!result.errors) {
-            _context8.next = 10;
+            _context8.next = 14;
             break;
           }
 
-          _context8.next = 6;
+          _context8.next = 10;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_NEWS_FAILED"],
+            errors: result.error
+          });
+
+        case 10:
+          error = result.error;
+          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Update failed", "error", 5000);
+          _context8.next = 19;
+          break;
+
+        case 14:
+          _context8.next = 16;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_NEWS"],
+            pageNumber: pageNumber
+          });
+
+        case 16:
+          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Updated successfully!", "success", 5000);
+          _context8.next = 19;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(connected_react_router__WEBPACK_IMPORTED_MODULE_7__["push"])('/news'));
+
+        case 19:
+          _context8.next = 21;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('EditNews', error));
+
+        case 21:
+          _context8.next = 23;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('EditNews'));
+
+        case 23:
+        case "end":
+          return _context8.stop();
+      }
+    }
+  }, _marked8);
+} // delete NEWS data from table
+
+
+function deleteNewsSaga() {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function deleteNewsSaga$(_context9) {
+    while (1) {
+      switch (_context9.prev = _context9.next) {
+        case 0:
+          _context9.next = 2;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_DELETE_NEWS"], callDeleteNews);
+
+        case 2:
+        case "end":
+          return _context9.stop();
+      }
+    }
+  }, _marked9);
+}
+
+function callDeleteNews(action) {
+  var result;
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callDeleteNews$(_context10) {
+    while (1) {
+      switch (_context10.prev = _context10.next) {
+        case 0:
+          _context10.next = 2;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_news_api__WEBPACK_IMPORTED_MODULE_4__["deleteNews"], action.newsId);
+
+        case 2:
+          result = _context10.sent;
+
+          if (!result.errors) {
+            _context10.next = 10;
+            break;
+          }
+
+          _context10.next = 6;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_NEWS_FAILED"],
             errors: result.error
@@ -110908,11 +111401,11 @@ function callDeleteNews(action) {
         case 6:
           error = result.error;
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Delete failed", "error", 5000);
-          _context8.next = 13;
+          _context10.next = 13;
           break;
 
         case 10:
-          _context8.next = 12;
+          _context10.next = 12;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(_actions_news_action__WEBPACK_IMPORTED_MODULE_5__["deleteNewsSuccess"](action.newsId));
 
         case 12:
@@ -110920,10 +111413,10 @@ function callDeleteNews(action) {
 
         case 13:
         case "end":
-          return _context8.stop();
+          return _context10.stop();
       }
     }
-  }, _marked8);
+  }, _marked10);
 }
 
 /***/ }),
@@ -110992,40 +111485,38 @@ function NewsTransSaga(action) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
-          console.log('aaa', action);
-          _context2.next = 3;
+          _context2.next = 2;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_newsTrans_api__WEBPACK_IMPORTED_MODULE_4__["getNewsTrans"], action.pageNumber);
 
-        case 3:
+        case 2:
           response = _context2.sent;
-          console.log('cat', response);
           newsTrans = response;
 
           if (!response.errors) {
-            _context2.next = 13;
+            _context2.next = 11;
             break;
           }
 
-          _context2.next = 9;
+          _context2.next = 7;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_NEWS_TRANSLATION_FAILED"],
             errors: response.error
           });
 
-        case 9:
+        case 7:
           error = response.errors;
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot get all news Translation", "error", 5000);
-          _context2.next = 15;
+          _context2.next = 13;
           break;
 
-        case 13:
-          _context2.next = 15;
+        case 11:
+          _context2.next = 13;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["GET_NEWS_TRANSLATION_SUCCESS"],
             newsTrans: newsTrans
           });
 
-        case 15:
+        case 13:
         case "end":
           return _context2.stop();
       }
@@ -111325,40 +111816,38 @@ function ProvincesTransSaga(action) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
-          console.log('sagaProvince', action);
-          _context2.next = 3;
+          _context2.next = 2;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_provinceTrans_api__WEBPACK_IMPORTED_MODULE_4__["getProvincesTrans"], action.pageNumber);
 
-        case 3:
+        case 2:
           response = _context2.sent;
-          console.log('catPror', response);
           provincesTrans = response;
 
           if (!response.errors) {
-            _context2.next = 13;
+            _context2.next = 11;
             break;
           }
 
-          _context2.next = 9;
+          _context2.next = 7;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_PROVINCE_TRANSLATION_FAILED"],
             errors: response.error
           });
 
-        case 9:
+        case 7:
           error = response.errors;
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot get all provinces Translation", "error", 5000);
-          _context2.next = 15;
+          _context2.next = 13;
           break;
 
-        case 13:
-          _context2.next = 15;
+        case 11:
+          _context2.next = 13;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["GET_PROVINCE_TRANSLATION_SUCCESS"],
             provincesTrans: provincesTrans
           });
 
-        case 15:
+        case 13:
         case "end":
           return _context2.stop();
       }
@@ -111552,38 +112041,37 @@ function callDeleteProvinceTrans(action) {
     while (1) {
       switch (_context8.prev = _context8.next) {
         case 0:
-          console.log('prdel', action);
-          _context8.next = 3;
+          _context8.next = 2;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_provinceTrans_api__WEBPACK_IMPORTED_MODULE_4__["deleteProvincesTrans"], action.procinceTransId);
 
-        case 3:
+        case 2:
           result = _context8.sent;
 
           if (!result.errors) {
-            _context8.next = 11;
+            _context8.next = 10;
             break;
           }
 
-          _context8.next = 7;
+          _context8.next = 6;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_PROVINCE_TRANSLATION_FAILED"],
             errors: result.error
           });
 
-        case 7:
+        case 6:
           error = result.error;
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Delete failed", "error", 5000);
-          _context8.next = 14;
+          _context8.next = 13;
           break;
 
-        case 11:
-          _context8.next = 13;
+        case 10:
+          _context8.next = 12;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(_actions_provinceTranslation_action__WEBPACK_IMPORTED_MODULE_5__["deleteProvincesTranslationSuccess"](action.provinceTransId));
 
-        case 13:
+        case 12:
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Deleted successfully!", "error", 5000);
 
-        case 14:
+        case 13:
         case "end":
           return _context8.stop();
       }
@@ -111597,11 +112085,12 @@ function callDeleteProvinceTrans(action) {
 /*!*********************************************!*\
   !*** ./resources/js/sagas/provincesSaga.js ***!
   \*********************************************/
-/*! exports provided: ProvincesWatcher, submitProvincesSaga, editProvincesSaga, deleteProvincesSaga */
+/*! exports provided: AllProvincesWatcher, ProvincesWatcher, submitProvincesSaga, editProvincesSaga, deleteProvincesSaga */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AllProvincesWatcher", function() { return AllProvincesWatcher; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProvincesWatcher", function() { return ProvincesWatcher; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "submitProvincesSaga", function() { return submitProvincesSaga; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editProvincesSaga", function() { return editProvincesSaga; });
@@ -111617,29 +112106,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_notify_toast__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_notify_toast__WEBPACK_IMPORTED_MODULE_6__);
 
 
-var _marked = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(ProvincesWatcher),
-    _marked2 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(ProvincesSaga),
-    _marked3 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(submitProvincesSaga),
-    _marked4 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callProvincesSubmit),
-    _marked5 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(editProvincesSaga),
-    _marked6 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callEditProvince),
-    _marked7 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(deleteProvincesSaga),
-    _marked8 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callDeleteProvince);
+var _marked = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(AllProvincesWatcher),
+    _marked2 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(AllProvincesSaga),
+    _marked3 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(ProvincesWatcher),
+    _marked4 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(ProvincesSaga),
+    _marked5 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(submitProvincesSaga),
+    _marked6 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callProvincesSubmit),
+    _marked7 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(editProvincesSaga),
+    _marked8 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callEditProvince),
+    _marked9 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(deleteProvincesSaga),
+    _marked10 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callDeleteProvince);
 
 
 
 
 
 
- //Get PROVINCES data in table
+ // watcher to call saga function to get all languages
 
-function ProvincesWatcher() {
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function ProvincesWatcher$(_context) {
+function AllProvincesWatcher() {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function AllProvincesWatcher$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
           _context.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_PROVINCES"], ProvincesSaga);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_ALL_PROVINCE"], AllProvincesSaga);
 
         case 2:
         case "end":
@@ -111649,60 +112140,57 @@ function ProvincesWatcher() {
   }, _marked);
 }
 
-function ProvincesSaga(action) {
+function AllProvincesSaga() {
   var response, provinces;
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function ProvincesSaga$(_context2) {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function AllProvincesSaga$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
           _context2.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_provinces_api__WEBPACK_IMPORTED_MODULE_4__["getProvinces"], action.pageNumber);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_provinces_api__WEBPACK_IMPORTED_MODULE_4__["getAllProvinces"]);
 
         case 2:
           response = _context2.sent;
-          console.log('cat', response);
-          provinces = response;
+          provinces = response.data;
 
-          if (!response.errors) {
-            _context2.next = 12;
+          if (!response) {
+            _context2.next = 9;
             break;
           }
 
-          _context2.next = 8;
+          _context2.next = 7;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["ALL_PROVINCE"],
+            provinces: provinces
+          });
+
+        case 7:
+          _context2.next = 11;
+          break;
+
+        case 9:
+          _context2.next = 11;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_PROVINCES_FAILED"],
             errors: response.error
           });
 
-        case 8:
-          error = response.errors;
-          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot get all provinces", "error", 5000);
-          _context2.next = 14;
-          break;
-
-        case 12:
-          _context2.next = 14;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
-            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["GET_PROVINCES_SUCCESS"],
-            provinces: provinces
-          });
-
-        case 14:
+        case 11:
         case "end":
           return _context2.stop();
       }
     }
   }, _marked2);
-} // Submit form data of PROVINCES
+} //Get PROVINCES data in table
 
 
-function submitProvincesSaga() {
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function submitProvincesSaga$(_context3) {
+function ProvincesWatcher() {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function ProvincesWatcher$(_context3) {
     while (1) {
       switch (_context3.prev = _context3.next) {
         case 0:
           _context3.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_ADD_PROVINCES"], callProvincesSubmit);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_PROVINCES"], ProvincesSaga);
 
         case 2:
         case "end":
@@ -111712,31 +112200,93 @@ function submitProvincesSaga() {
   }, _marked3);
 }
 
-function callProvincesSubmit(action) {
-  var error, result, resp, pageNumber;
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callProvincesSubmit$(_context4) {
+function ProvincesSaga(action) {
+  var response, provinces;
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function ProvincesSaga$(_context4) {
     while (1) {
       switch (_context4.prev = _context4.next) {
         case 0:
           _context4.next = 2;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_provinces_api__WEBPACK_IMPORTED_MODULE_4__["getProvinces"], action.pageNumber);
+
+        case 2:
+          response = _context4.sent;
+          provinces = response;
+
+          if (!response.errors) {
+            _context4.next = 11;
+            break;
+          }
+
+          _context4.next = 7;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_PROVINCES_FAILED"],
+            errors: response.error
+          });
+
+        case 7:
+          error = response.errors;
+          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot get all provinces", "error", 5000);
+          _context4.next = 13;
+          break;
+
+        case 11:
+          _context4.next = 13;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["GET_PROVINCES_SUCCESS"],
+            provinces: provinces
+          });
+
+        case 13:
+        case "end":
+          return _context4.stop();
+      }
+    }
+  }, _marked4);
+} // Submit form data of PROVINCES
+
+
+function submitProvincesSaga() {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function submitProvincesSaga$(_context5) {
+    while (1) {
+      switch (_context5.prev = _context5.next) {
+        case 0:
+          _context5.next = 2;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_ADD_PROVINCES"], callProvincesSubmit);
+
+        case 2:
+        case "end":
+          return _context5.stop();
+      }
+    }
+  }, _marked5);
+}
+
+function callProvincesSubmit(action) {
+  var error, result, resp, pageNumber;
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callProvincesSubmit$(_context6) {
+    while (1) {
+      switch (_context6.prev = _context6.next) {
+        case 0:
+          _context6.next = 2;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["startSubmit"])('AddProvinces'));
 
         case 2:
           error = {};
-          _context4.next = 5;
+          _context6.next = 5;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_provinces_api__WEBPACK_IMPORTED_MODULE_4__["addProvinces"], action.values);
 
         case 5:
-          result = _context4.sent;
+          result = _context6.sent;
           resp = result.data;
           pageNumber = action.pageNumber;
 
           if (!(result.errors && !resp.success || result.errors || !resp.success)) {
-            _context4.next = 16;
+            _context6.next = 16;
             break;
           }
 
-          _context4.next = 11;
+          _context6.next = 11;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_PROVINCES_FAILED"],
             errors: result.error || resp.errormsg
@@ -111750,11 +112300,11 @@ function callProvincesSubmit(action) {
           }
 
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot create new Province!", "error", 5000);
-          _context4.next = 19;
+          _context6.next = 19;
           break;
 
         case 16:
-          _context4.next = 18;
+          _context6.next = 18;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_PROVINCES"],
             pageNumber: pageNumber
@@ -111764,108 +112314,29 @@ function callProvincesSubmit(action) {
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Provinces created successfully!", "success", 5000);
 
         case 19:
-          _context4.next = 21;
+          _context6.next = 21;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('AddProvinces', error));
 
         case 21:
-          _context4.next = 23;
+          _context6.next = 23;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('AddProvinces'));
 
         case 23:
-        case "end":
-          return _context4.stop();
-      }
-    }
-  }, _marked4);
-} //edit form data of PROVINCES
-
-
-function editProvincesSaga() {
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function editProvincesSaga$(_context5) {
-    while (1) {
-      switch (_context5.prev = _context5.next) {
-        case 0:
-          _context5.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_EDIT_PROVINCES"], callEditProvince);
-
-        case 2:
-        case "end":
-          return _context5.stop();
-      }
-    }
-  }, _marked5);
-}
-
-function callEditProvince(action) {
-  var error, result, resp, pageNumber;
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callEditProvince$(_context6) {
-    while (1) {
-      switch (_context6.prev = _context6.next) {
-        case 0:
-          _context6.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["startSubmit"])('EditProvinces'));
-
-        case 2:
-          error = {};
-          _context6.next = 5;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_provinces_api__WEBPACK_IMPORTED_MODULE_4__["updateProvinces"], action.values.id, action.values);
-
-        case 5:
-          result = _context6.sent;
-          resp = result.data;
-          pageNumber = action.pageNumber;
-
-          if (!result.errors) {
-            _context6.next = 15;
-            break;
-          }
-
-          _context6.next = 11;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
-            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_PROVINCES_FAILED"],
-            errors: result.error
-          });
-
-        case 11:
-          error = result.error;
-          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Update failed", "error", 5000);
-          _context6.next = 18;
-          break;
-
-        case 15:
-          _context6.next = 17;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
-            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_PROVINCES"],
-            pageNumber: pageNumber
-          });
-
-        case 17:
-          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Updated successfully!", "success", 5000);
-
-        case 18:
-          _context6.next = 20;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('EditProvinces', error));
-
-        case 20:
-          _context6.next = 22;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('EditProvinces'));
-
-        case 22:
         case "end":
           return _context6.stop();
       }
     }
   }, _marked6);
-} // delete PROVINCES data from table
+} //edit form data of PROVINCES
 
 
-function deleteProvincesSaga() {
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function deleteProvincesSaga$(_context7) {
+function editProvincesSaga() {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function editProvincesSaga$(_context7) {
     while (1) {
       switch (_context7.prev = _context7.next) {
         case 0:
           _context7.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_DELETE_PROVINCES"], callDeleteProvince);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_EDIT_PROVINCES"], callEditProvince);
 
         case 2:
         case "end":
@@ -111875,24 +112346,103 @@ function deleteProvincesSaga() {
   }, _marked7);
 }
 
-function callDeleteProvince(action) {
-  var result;
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callDeleteProvince$(_context8) {
+function callEditProvince(action) {
+  var error, result, resp, pageNumber;
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callEditProvince$(_context8) {
     while (1) {
       switch (_context8.prev = _context8.next) {
         case 0:
           _context8.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_provinces_api__WEBPACK_IMPORTED_MODULE_4__["deleteProvinces"], action.provinceId);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["startSubmit"])('EditProvinces'));
 
         case 2:
+          error = {};
+          _context8.next = 5;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_provinces_api__WEBPACK_IMPORTED_MODULE_4__["updateProvinces"], action.values.id, action.values);
+
+        case 5:
           result = _context8.sent;
+          resp = result.data;
+          pageNumber = action.pageNumber;
 
           if (!result.errors) {
-            _context8.next = 10;
+            _context8.next = 15;
             break;
           }
 
-          _context8.next = 6;
+          _context8.next = 11;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_PROVINCES_FAILED"],
+            errors: result.error
+          });
+
+        case 11:
+          error = result.error;
+          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Update failed", "error", 5000);
+          _context8.next = 18;
+          break;
+
+        case 15:
+          _context8.next = 17;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_PROVINCES"],
+            pageNumber: pageNumber
+          });
+
+        case 17:
+          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Updated successfully!", "success", 5000);
+
+        case 18:
+          _context8.next = 20;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('EditProvinces', error));
+
+        case 20:
+          _context8.next = 22;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('EditProvinces'));
+
+        case 22:
+        case "end":
+          return _context8.stop();
+      }
+    }
+  }, _marked8);
+} // delete PROVINCES data from table
+
+
+function deleteProvincesSaga() {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function deleteProvincesSaga$(_context9) {
+    while (1) {
+      switch (_context9.prev = _context9.next) {
+        case 0:
+          _context9.next = 2;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_DELETE_PROVINCES"], callDeleteProvince);
+
+        case 2:
+        case "end":
+          return _context9.stop();
+      }
+    }
+  }, _marked9);
+}
+
+function callDeleteProvince(action) {
+  var result;
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callDeleteProvince$(_context10) {
+    while (1) {
+      switch (_context10.prev = _context10.next) {
+        case 0:
+          _context10.next = 2;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_provinces_api__WEBPACK_IMPORTED_MODULE_4__["deleteProvinces"], action.provinceId);
+
+        case 2:
+          result = _context10.sent;
+
+          if (!result.errors) {
+            _context10.next = 10;
+            break;
+          }
+
+          _context10.next = 6;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_PROVINCES_FAILED"],
             errors: result.error
@@ -111901,11 +112451,11 @@ function callDeleteProvince(action) {
         case 6:
           error = result.error;
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Delete failed", "error", 5000);
-          _context8.next = 13;
+          _context10.next = 13;
           break;
 
         case 10:
-          _context8.next = 12;
+          _context10.next = 12;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(_actions_province_action__WEBPACK_IMPORTED_MODULE_5__["deleteProvincesSuccess"](action.provinceId));
 
         case 12:
@@ -111913,10 +112463,10 @@ function callDeleteProvince(action) {
 
         case 13:
         case "end":
-          return _context8.stop();
+          return _context10.stop();
       }
     }
-  }, _marked8);
+  }, _marked10);
 }
 
 /***/ }),
@@ -111990,34 +112540,33 @@ function ResourcesTransSaga(action) {
 
         case 2:
           response = _context2.sent;
-          console.log('cat', response);
           resourcesTrans = response;
 
           if (!response.errors) {
-            _context2.next = 12;
+            _context2.next = 11;
             break;
           }
 
-          _context2.next = 8;
+          _context2.next = 7;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_RESOURCE_TRANSLATION_FAILED"],
             errors: response.error
           });
 
-        case 8:
+        case 7:
           error = response.errors;
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot get all resources Translation", "error", 5000);
-          _context2.next = 14;
+          _context2.next = 13;
           break;
 
-        case 12:
-          _context2.next = 14;
+        case 11:
+          _context2.next = 13;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["GET_RESOURCE_TRANSLATION_SUCCESS"],
             resourcesTrans: resourcesTrans
           });
 
-        case 14:
+        case 13:
         case "end":
           return _context2.stop();
       }
@@ -112139,53 +112688,52 @@ function callEditResourceTrans(action) {
 
         case 2:
           error = {};
-          console.log(action);
-          _context6.next = 6;
+          _context6.next = 5;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_resourcesTrans_api__WEBPACK_IMPORTED_MODULE_4__["updateResourcesTrans"], action.values.id, action.values);
 
-        case 6:
+        case 5:
           result = _context6.sent;
           resp = result.data;
           pageNumber = action.pageNumber;
 
           if (!result.errors) {
-            _context6.next = 16;
+            _context6.next = 15;
             break;
           }
 
-          _context6.next = 12;
+          _context6.next = 11;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_RESOURCE_TRANSLATION_FAILED"],
             errors: result.error
           });
 
-        case 12:
+        case 11:
           error = result.error;
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Update failed", "error", 5000);
-          _context6.next = 21;
+          _context6.next = 20;
           break;
 
-        case 16:
-          _context6.next = 18;
+        case 15:
+          _context6.next = 17;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_RESOURCE_TRANSLATION"],
             pageNumber: pageNumber
           });
 
-        case 18:
+        case 17:
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Updated successfully!", "success", 5000);
-          _context6.next = 21;
+          _context6.next = 20;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(connected_react_router__WEBPACK_IMPORTED_MODULE_7__["push"])('/translated-resources'));
 
-        case 21:
-          _context6.next = 23;
+        case 20:
+          _context6.next = 22;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('EditResourcesTrans', error));
 
-        case 23:
-          _context6.next = 25;
+        case 22:
+          _context6.next = 24;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('EditResourcesTrans'));
 
-        case 25:
+        case 24:
         case "end":
           return _context6.stop();
       }
@@ -112260,11 +112808,12 @@ function callDeleteResourceTrans(action) {
 /*!*********************************************!*\
   !*** ./resources/js/sagas/resourcesSaga.js ***!
   \*********************************************/
-/*! exports provided: ResourcesWatcher, submitResourcesSaga, editResourcesSaga, deleteResourcesSaga */
+/*! exports provided: AllResourcesWatcher, ResourcesWatcher, submitResourcesSaga, editResourcesSaga, deleteResourcesSaga */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AllResourcesWatcher", function() { return AllResourcesWatcher; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ResourcesWatcher", function() { return ResourcesWatcher; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "submitResourcesSaga", function() { return submitResourcesSaga; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editResourcesSaga", function() { return editResourcesSaga; });
@@ -112281,14 +112830,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var connected_react_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! connected-react-router */ "./node_modules/connected-react-router/esm/index.js");
 
 
-var _marked = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(ResourcesWatcher),
-    _marked2 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(ResourcesSaga),
-    _marked3 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(submitResourcesSaga),
-    _marked4 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callResourcesSubmit),
-    _marked5 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(editResourcesSaga),
-    _marked6 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callEditResource),
-    _marked7 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(deleteResourcesSaga),
-    _marked8 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callDeleteResource);
+var _marked = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(AllResourcesWatcher),
+    _marked2 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(AllResourcesSaga),
+    _marked3 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(ResourcesWatcher),
+    _marked4 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(ResourcesSaga),
+    _marked5 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(submitResourcesSaga),
+    _marked6 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callResourcesSubmit),
+    _marked7 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(editResourcesSaga),
+    _marked8 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callEditResource),
+    _marked9 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(deleteResourcesSaga),
+    _marked10 = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(callDeleteResource);
 
 
 
@@ -112296,15 +112847,15 @@ var _marked = /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0
 
 
 
- //Get RESOURCES data in table
+ // watcher to call saga function to get all languages
 
-function ResourcesWatcher() {
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function ResourcesWatcher$(_context) {
+function AllResourcesWatcher() {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function AllResourcesWatcher$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
           _context.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_RESOURCES"], ResourcesSaga);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_ALL_RESOURCES"], AllResourcesSaga);
 
         case 2:
         case "end":
@@ -112314,60 +112865,57 @@ function ResourcesWatcher() {
   }, _marked);
 }
 
-function ResourcesSaga(action) {
+function AllResourcesSaga() {
   var response, resources;
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function ResourcesSaga$(_context2) {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function AllResourcesSaga$(_context2) {
     while (1) {
       switch (_context2.prev = _context2.next) {
         case 0:
           _context2.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_resources_api__WEBPACK_IMPORTED_MODULE_4__["getResources"], action.pageNumber);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_resources_api__WEBPACK_IMPORTED_MODULE_4__["getAllResources"]);
 
         case 2:
           response = _context2.sent;
-          console.log('cat', response);
-          resources = response;
+          resources = response.data;
 
-          if (!response.errors) {
-            _context2.next = 12;
+          if (!response) {
+            _context2.next = 9;
             break;
           }
 
-          _context2.next = 8;
+          _context2.next = 7;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["ALL_RESOURCES"],
+            resources: resources
+          });
+
+        case 7:
+          _context2.next = 11;
+          break;
+
+        case 9:
+          _context2.next = 11;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_RESOURCES_FAILED"],
             errors: response.error
           });
 
-        case 8:
-          error = response.errors;
-          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot get all resources", "error", 5000);
-          _context2.next = 14;
-          break;
-
-        case 12:
-          _context2.next = 14;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
-            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["GET_RESOURCES_SUCCESS"],
-            resources: resources
-          });
-
-        case 14:
+        case 11:
         case "end":
           return _context2.stop();
       }
     }
   }, _marked2);
-} // Submit form data of RESOURCES
+} //Get RESOURCES data in table
 
 
-function submitResourcesSaga() {
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function submitResourcesSaga$(_context3) {
+function ResourcesWatcher() {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function ResourcesWatcher$(_context3) {
     while (1) {
       switch (_context3.prev = _context3.next) {
         case 0:
           _context3.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_ADD_RESOURCES"], callResourcesSubmit);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_RESOURCES"], ResourcesSaga);
 
         case 2:
         case "end":
@@ -112377,31 +112925,93 @@ function submitResourcesSaga() {
   }, _marked3);
 }
 
-function callResourcesSubmit(action) {
-  var error, result, resp, pageNumber;
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callResourcesSubmit$(_context4) {
+function ResourcesSaga(action) {
+  var response, resources;
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function ResourcesSaga$(_context4) {
     while (1) {
       switch (_context4.prev = _context4.next) {
         case 0:
           _context4.next = 2;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_resources_api__WEBPACK_IMPORTED_MODULE_4__["getResources"], action.pageNumber);
+
+        case 2:
+          response = _context4.sent;
+          resources = response;
+
+          if (!response.errors) {
+            _context4.next = 11;
+            break;
+          }
+
+          _context4.next = 7;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_RESOURCES_FAILED"],
+            errors: response.error
+          });
+
+        case 7:
+          error = response.errors;
+          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot get all resources", "error", 5000);
+          _context4.next = 13;
+          break;
+
+        case 11:
+          _context4.next = 13;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["GET_RESOURCES_SUCCESS"],
+            resources: resources
+          });
+
+        case 13:
+        case "end":
+          return _context4.stop();
+      }
+    }
+  }, _marked4);
+} // Submit form data of RESOURCES
+
+
+function submitResourcesSaga() {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function submitResourcesSaga$(_context5) {
+    while (1) {
+      switch (_context5.prev = _context5.next) {
+        case 0:
+          _context5.next = 2;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_ADD_RESOURCES"], callResourcesSubmit);
+
+        case 2:
+        case "end":
+          return _context5.stop();
+      }
+    }
+  }, _marked5);
+}
+
+function callResourcesSubmit(action) {
+  var error, result, resp, pageNumber;
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callResourcesSubmit$(_context6) {
+    while (1) {
+      switch (_context6.prev = _context6.next) {
+        case 0:
+          _context6.next = 2;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["startSubmit"])('AddResources'));
 
         case 2:
           error = {};
-          _context4.next = 5;
+          _context6.next = 5;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_resources_api__WEBPACK_IMPORTED_MODULE_4__["addResources"], action.values);
 
         case 5:
-          result = _context4.sent;
+          result = _context6.sent;
           resp = result.data;
           pageNumber = action.pageNumber;
 
           if (!(result.errors && !resp.success || result.errors || !resp.success)) {
-            _context4.next = 16;
+            _context6.next = 16;
             break;
           }
 
-          _context4.next = 11;
+          _context6.next = 11;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_RESOURCES_FAILED"],
             errors: result.error || resp.errormsg
@@ -112415,11 +113025,11 @@ function callResourcesSubmit(action) {
           }
 
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Cannot create new Resource!", "error", 5000);
-          _context4.next = 21;
+          _context6.next = 21;
           break;
 
         case 16:
-          _context4.next = 18;
+          _context6.next = 18;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_RESOURCES"],
             pageNumber: pageNumber
@@ -112427,114 +113037,33 @@ function callResourcesSubmit(action) {
 
         case 18:
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Resources created successfully!", "success", 5000);
-          _context4.next = 21;
+          _context6.next = 21;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(connected_react_router__WEBPACK_IMPORTED_MODULE_7__["push"])('/resources'));
 
         case 21:
-          _context4.next = 23;
+          _context6.next = 23;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('AddResources', error));
 
         case 23:
-          _context4.next = 25;
+          _context6.next = 25;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('AddResources'));
 
         case 25:
-        case "end":
-          return _context4.stop();
-      }
-    }
-  }, _marked4);
-} //edit form data of RESOURCES
-
-
-function editResourcesSaga() {
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function editResourcesSaga$(_context5) {
-    while (1) {
-      switch (_context5.prev = _context5.next) {
-        case 0:
-          _context5.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_EDIT_RESOURCES"], callEditResource);
-
-        case 2:
-        case "end":
-          return _context5.stop();
-      }
-    }
-  }, _marked5);
-}
-
-function callEditResource(action) {
-  var error, result, resp, pageNumber;
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callEditResource$(_context6) {
-    while (1) {
-      switch (_context6.prev = _context6.next) {
-        case 0:
-          _context6.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["startSubmit"])('EditResources'));
-
-        case 2:
-          error = {};
-          _context6.next = 5;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_resources_api__WEBPACK_IMPORTED_MODULE_4__["updateResources"], action.values.id, action.values);
-
-        case 5:
-          result = _context6.sent;
-          resp = result.data;
-          pageNumber = action.pageNumber;
-
-          if (!result.errors) {
-            _context6.next = 15;
-            break;
-          }
-
-          _context6.next = 11;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
-            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_RESOURCES_FAILED"],
-            errors: result.error
-          });
-
-        case 11:
-          error = result.error;
-          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Update failed", "error", 5000);
-          _context6.next = 20;
-          break;
-
-        case 15:
-          _context6.next = 17;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
-            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_RESOURCES"],
-            pageNumber: pageNumber
-          });
-
-        case 17:
-          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Updated successfully!", "success", 5000);
-          _context6.next = 20;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(connected_react_router__WEBPACK_IMPORTED_MODULE_7__["push"])('/resources'));
-
-        case 20:
-          _context6.next = 22;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('EditResources', error));
-
-        case 22:
-          _context6.next = 24;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('EditResources'));
-
-        case 24:
         case "end":
           return _context6.stop();
       }
     }
   }, _marked6);
-} // delete RESOURCES data from table
+} //edit form data of RESOURCES
 
 
-function deleteResourcesSaga() {
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function deleteResourcesSaga$(_context7) {
+function editResourcesSaga() {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function editResourcesSaga$(_context7) {
     while (1) {
       switch (_context7.prev = _context7.next) {
         case 0:
           _context7.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_DELETE_RESOURCES"], callDeleteResource);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_EDIT_RESOURCES"], callEditResource);
 
         case 2:
         case "end":
@@ -112544,24 +113073,105 @@ function deleteResourcesSaga() {
   }, _marked7);
 }
 
-function callDeleteResource(action) {
-  var result;
-  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callDeleteResource$(_context8) {
+function callEditResource(action) {
+  var error, result, resp, pageNumber;
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callEditResource$(_context8) {
     while (1) {
       switch (_context8.prev = _context8.next) {
         case 0:
           _context8.next = 2;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_resources_api__WEBPACK_IMPORTED_MODULE_4__["deleteResources"], action.resourceId);
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["startSubmit"])('EditResources'));
 
         case 2:
+          error = {};
+          _context8.next = 5;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_resources_api__WEBPACK_IMPORTED_MODULE_4__["updateResources"], action.values.id, action.values);
+
+        case 5:
           result = _context8.sent;
+          resp = result.data;
+          pageNumber = action.pageNumber;
 
           if (!result.errors) {
-            _context8.next = 10;
+            _context8.next = 15;
             break;
           }
 
-          _context8.next = 6;
+          _context8.next = 11;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_RESOURCES_FAILED"],
+            errors: result.error
+          });
+
+        case 11:
+          error = result.error;
+          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Update failed", "error", 5000);
+          _context8.next = 20;
+          break;
+
+        case 15:
+          _context8.next = 17;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
+            type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_RESOURCES"],
+            pageNumber: pageNumber
+          });
+
+        case 17:
+          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Updated successfully!", "success", 5000);
+          _context8.next = 20;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(connected_react_router__WEBPACK_IMPORTED_MODULE_7__["push"])('/resources'));
+
+        case 20:
+          _context8.next = 22;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["stopSubmit"])('EditResources', error));
+
+        case 22:
+          _context8.next = 24;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(Object(redux_form__WEBPACK_IMPORTED_MODULE_2__["reset"])('EditResources'));
+
+        case 24:
+        case "end":
+          return _context8.stop();
+      }
+    }
+  }, _marked8);
+} // delete RESOURCES data from table
+
+
+function deleteResourcesSaga() {
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function deleteResourcesSaga$(_context9) {
+    while (1) {
+      switch (_context9.prev = _context9.next) {
+        case 0:
+          _context9.next = 2;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["takeLatest"])(_actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_DELETE_RESOURCES"], callDeleteResource);
+
+        case 2:
+        case "end":
+          return _context9.stop();
+      }
+    }
+  }, _marked9);
+}
+
+function callDeleteResource(action) {
+  var result;
+  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function callDeleteResource$(_context10) {
+    while (1) {
+      switch (_context10.prev = _context10.next) {
+        case 0:
+          _context10.next = 2;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["call"])(_api_resources_api__WEBPACK_IMPORTED_MODULE_4__["deleteResources"], action.resourceId);
+
+        case 2:
+          result = _context10.sent;
+
+          if (!result.errors) {
+            _context10.next = 10;
+            break;
+          }
+
+          _context10.next = 6;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_RESOURCES_FAILED"],
             errors: result.error
@@ -112570,11 +113180,11 @@ function callDeleteResource(action) {
         case 6:
           error = result.error;
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Delete failed", "error", 5000);
-          _context8.next = 13;
+          _context10.next = 13;
           break;
 
         case 10:
-          _context8.next = 12;
+          _context10.next = 12;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(_actions_resource_action__WEBPACK_IMPORTED_MODULE_5__["deleteResourcesSuccess"](action.resourceId));
 
         case 12:
@@ -112582,10 +113192,10 @@ function callDeleteResource(action) {
 
         case 13:
         case "end":
-          return _context8.stop();
+          return _context10.stop();
       }
     }
-  }, _marked8);
+  }, _marked10);
 }
 
 /***/ }),

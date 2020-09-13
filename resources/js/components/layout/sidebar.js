@@ -16,11 +16,11 @@ class Sidebar extends Component {
                 <div className="sidebar">
                     {/* <!-- Sidebar user panel (optional) --> */}
                     <div className="user-panel mt-3 pb-3 mb-3 d-flex">
-                        <div className="image">
+                        {/* <div className="image">
                             <img src="dist/img/user2-160x160.jpg" className="img-circle elevation-2" alt="User Image" />
-                        </div>
+                        </div> */}
                         <div className="info">
-                            <a href="#" className="d-block">Alexander Pierce</a>
+                            <a href="#" className="d-block">Hello Admin!</a>
                         </div>
                     </div>
 
@@ -31,13 +31,13 @@ class Sidebar extends Component {
                         <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                             {/* <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library --> */}
                             <li className="nav-item">
-                                <a href="#" className="nav-link active">
+                                <NavLink to="/" className="nav-link active">
                                     <i className="nav-icon fas fa-tachometer-alt"></i>
                                     <p>
                                         Dashboard
                                         
                                     </p>
-                                </a>
+                                </NavLink>
                             </li>
                             <li className="nav-item has-treeview">
                                 <NavLink to="/categories" className="nav-link">
@@ -63,7 +63,7 @@ class Sidebar extends Component {
                                 </ul> */}
                             </li>
                             <li className="nav-item has-treeview">
-                                <NavLink to="/categrories-translation" className="nav-link">
+                                <NavLink to="/categories-translation" className="nav-link">
                                     <i className="nav-icon fas fa-globe"></i>
                                     <p>
                                         Categories Translation
@@ -79,6 +79,22 @@ class Sidebar extends Component {
                                     </p>
                                 </NavLink>
                                 
+                            </li>
+                            <li className="nav-item has-treeview">
+                                <NavLink to="/provinces" className="nav-link">
+                                    <i className="nav-icon far fa-map"></i>
+                                    <p>
+                                        Provinces
+                                    </p>
+                                </NavLink>
+                            </li>
+                            <li className="nav-item has-treeview">
+                                <NavLink to="/provinces-translation" className="nav-link">
+                                    <i className="nav-icon fas fa-globe"></i>
+                                    <p>
+                                        Provinces Translation
+                                    </p>
+                                </NavLink>
                             </li>
                             <li className="nav-item has-treeview">
                                 <NavLink to="/news" className="nav-link">
@@ -97,22 +113,7 @@ class Sidebar extends Component {
                                     </p>
                                 </NavLink>
                             </li>
-                            <li className="nav-item has-treeview">
-                                <NavLink to="/provinces" className="nav-link">
-                                    <i className="nav-icon far fa-map"></i>
-                                    <p>
-                                        Provinces
-                                    </p>
-                                </NavLink>
-                            </li>
-                            <li className="nav-item has-treeview">
-                                <NavLink to="/provinces-translation" className="nav-link">
-                                    <i className="nav-icon fas fa-globe"></i>
-                                    <p>
-                                        Provinces Translation
-                                    </p>
-                                </NavLink>
-                            </li>
+                            
                             <li className="nav-item has-treeview">
                                 <NavLink to="/resources" className="nav-link">
                                     <i className="nav-icon fas fa-video"></i>

@@ -15,7 +15,6 @@ function* loginFlow(action) {
     yield put(startSubmit('LoginForm'))
     try {
         const result =  yield call(api.login, action.data)
-        console.log('saga',result);
         const resp= result.data;
         var now = new Date().getTime();
         
@@ -49,7 +48,6 @@ export function* logoutWatcher() {
 function* logoutFlow() {
     try {
         const response = yield call(api.logout)
-        console.log('response', response)
         if(response.status == 200) {
             window.localStorage.removeItem('access_token');
             window.localStorage.removeItem('setupTime');

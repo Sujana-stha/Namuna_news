@@ -8,14 +8,19 @@ const initialState = {
     itemsCountPerPage: 10,
     totalItemsCount: 1,
     pageRangeDisplayed: 5,
-    sending: false
+    sending: false,
+    all_provinces: []
 }
 
 const provincesReducer =  function(state = initialState, action) {
     switch(action.type) {
-        
+
+        case types.ALL_PROVINCE:
+            return Object.assign({}, state, {
+                all_provinces: action.provinces.data
+            })
+
         case types.REQUEST_PROVINCES: 
-            console.log(state);
 
             return {...state, fetching: true};
            

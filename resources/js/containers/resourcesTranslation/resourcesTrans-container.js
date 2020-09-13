@@ -4,8 +4,8 @@ import store from '../../store';
 import { connect } from 'react-redux';
 import Pagination from 'react-js-pagination'
 import {requestResourcesTranslation, requestAddResourcesTranslation, requestUpdateResourcesTranslation, requestDeleteResourcesTranslation} from '../../actions/resourceTranslation-action';
-import { requestResources} from '../../actions/resource-action';
-import {requestLanguages} from '../../actions/languages-action';
+import { requestAllResources} from '../../actions/resource-action';
+import {requestAllLanguages} from '../../actions/languages-action';
 
 //COMPONENTS
 import AddResourcesTrans from '../../components/resourceTranslation/add-resourceTrans';
@@ -28,8 +28,8 @@ class ResourcesTransContainer extends Component {
     componentDidMount() {
         const pageNumber = this.props.activePage;
         this.props.requestResourcesTranslation(pageNumber);
-        this.props.requestResources();
-        this.props.requestLanguages();
+        this.props.requestAllResources();
+        this.props.requestAllLanguages();
     }
     //submit Resources translation form
     onSubmitForm(values) {
@@ -48,6 +48,7 @@ class ResourcesTransContainer extends Component {
         // const editId= this.state.isEditing
         const pageNumber = this.props.activePage;
         if ( typeof values.language_id =='number') { values.language_id = values.language_id } else { values.language_id = values.language_id.value }
+
         this.props.requestUpdateResourcesTranslation(values, pageNumber);
         this.setState({
             isEditing: false
@@ -73,13 +74,13 @@ class ResourcesTransContainer extends Component {
                 <div className="nm-content">
                     <div className="row">
                         <div className="col-sm-12 col-md-12">
-                            <NavLink to="/translated-resources" className="btn btn-primary"><i className="fas fa-list"></i> All Translated Resources</NavLink>
+                            <NavLink to="/translated-resources" className="add-btn btn btn-primary"><i className="fas fa-list"></i> All Translated Resources</NavLink>
                         </div>
                         <EditResourcesTrans 
                         onSubmit={this.submitEditResourceTrans.bind(this)} 
                         editId= {this.state.isEditing}
-                        resources = {this.props.resources}
-                        languages ={this.props.languages}
+                        resources = {this.props.allResources}
+                        languages ={this.props.allLanguages}
                         />
                     </div>
                 </div>
@@ -93,8 +94,8 @@ class ResourcesTransContainer extends Component {
                         </div>
                         <AddResourcesTrans
                             onSubmit={this.onSubmitForm.bind(this)}
-                            resources = {this.props.resources}
-                            languages ={this.props.languages}
+                            resources = {this.props.allResources}
+                            languages ={this.props.allLanguages}
                         />
                     </div>  
                 </div>
@@ -165,8 +166,8 @@ class ResourcesTransContainer extends Component {
 function mapStateToProps(store) {
     return {
         resourcesTrans: store.resourcesTransState.resourcesTrans,
-        resources: store.resourceState.resources,
-        languages: store.languageState.languages,
+        allResources: store.resourceState.all_resources,
+        allLanguages: store.languageState.all_languages,
         fetching: store.resourcesTransState.fetching,
         activePage: store.resourcesTransState.activePage,
         itemsCountPerPage: store.resourcesTransState.itemsCountPerPage,
@@ -174,4 +175,4 @@ function mapStateToProps(store) {
         pageRangeDisplayed: store.resourcesTransState.pageRangeDisplayed,
     }
 }
-export default connect(mapStateToProps, { requestResources, requestLanguages,requestResourcesTranslation, requestAddResourcesTranslation, requestUpdateResourcesTranslation, requestDeleteResourcesTranslation})(ResourcesTransContainer);
+export default connect(mapStateToProps, { requestAllResources, requestAllLanguages,requestResourcesTranslation, requestAddResourcesTranslation, requestUpdateResourcesTranslation, requestDeleteResourcesTranslation})(ResourcesTransContainer);

@@ -15,7 +15,7 @@ class EditLanguages extends Component {
         return (
             <div className="form-group">
             <label htmlFor={id}>{label}</label>
-            <input value={value} id={id} type={type} className={ touched ? "form-control is-invalid": "form-control"} placeholder={placeholder} {...input} />
+            <input value={value} id={id} type={type} className={ touched && error ? "form-control is-invalid": "form-control"} placeholder={placeholder} {...input} />
             <div className="error text-danger">
                 {touched ? error : ''}
             </div>

@@ -8,14 +8,19 @@ const initialState = {
     itemsCountPerPage: 10,
     totalItemsCount: 1,
     pageRangeDisplayed: 5,
-    sending: false
+    sending: false,
+    all_languages: []
 }
 
 const languagesReducer =  function(state = initialState, action) {
     switch(action.type) {
-        
+        //reducers to get all languages
+        case types.ALL_LANGUAGE:
+            return Object.assign({}, state, {
+                all_languages: action.languages.data
+            })
+
         case types.REQUEST_LANGUAGES: 
-            console.log(state);
 
             return {...state, fetching: true};
            

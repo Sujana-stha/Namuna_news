@@ -7,6 +7,17 @@
     }
 }
 
+.sidebar {
+    .user-panel {
+        .info {
+            a {
+                font-size: 23px;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
 .content-wrapper {
     .row {
         margin-left: 0 !important;
@@ -27,10 +38,23 @@
                 }
             }
         }
-        .nm-select-box {
-            z-index: 99;
-            margin-bottom: 1rem;
-        }
+        .nm-select-field {
+            margin-bottom: 15px;
+            .form-control {
+                padding: 0;
+                height: 40px;
+            }
+            .nm-select-box {
+                z-index: 99;
+                margin-bottom: 1rem;
+                padding: 0;
+                border: 0;
+                .css-yk16xz-control {
+                    border-color: transparent;
+                }
+            }
+        } 
+        
         .form-row > [class*=col-] {
             padding-right: 10px;
             padding-left: 10px;

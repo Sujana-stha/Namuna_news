@@ -13,7 +13,6 @@ export function* ResourcesTransWatcher() {
 function* ResourcesTransSaga(action) {
     
     const response = yield call(api.getResourcesTrans, action.pageNumber);
-    console.log('cat', response)
     const resourcesTrans = response
     if (response.errors) {
         yield put({ type: types.REQUEST_RESOURCE_TRANSLATION_FAILED, errors: response.error});
@@ -60,7 +59,6 @@ export function* editResourcesTransSaga() {
 function* callEditResourceTrans (action) {
     yield put(startSubmit('EditResourcesTrans'));
     let error = {};
-    console.log(action);
     const result =  yield call(api.updateResourcesTrans, action.values.id, action.values);
     const resp = result.data;
     const pageNumber= action.pageNumber
@@ -70,7 +68,6 @@ function* callEditResourceTrans (action) {
         error = result.error;
         notify.show("Update failed", "error", 5000)
     } else {
-        // yield put({type: types.UPDATE_RESOURCES_TRANSLATION_SUCCESS, resp, message: result.statusText});
         yield put({type: types.REQUEST_RESOURCE_TRANSLATION, pageNumber})
         notify.show("Updated successfully!", "success", 5000)
         yield put(push('/translated-resources'));

@@ -11,9 +11,7 @@ export function* ProvincesTransWatcher() {
     yield takeLatest(types.REQUEST_PROVINCE_TRANSLATION, ProvincesTransSaga)
 }
 function* ProvincesTransSaga(action) {
-    console.log('sagaProvince', action);
     const response = yield call(api.getProvincesTrans, action.pageNumber);
-    console.log('catPror', response)
     const provincesTrans = response
     if (response.errors) {
         yield put({ type: types.REQUEST_PROVINCE_TRANSLATION_FAILED, errors: response.error});
@@ -83,7 +81,6 @@ export function* deleteProvincesTransSaga() {
 }
 
 function* callDeleteProvinceTrans(action) {
-    console.log('prdel', action)
     const result = yield call(api.deleteProvincesTrans, action.procinceTransId);
 
     if(result.errors) {

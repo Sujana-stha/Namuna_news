@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-
 const NewsTransList = (props) => {
     return (
         <tbody>
@@ -12,7 +11,6 @@ const NewsTransList = (props) => {
                         <td className="news-title">{newsTran.title == null ? '-': newsTran.title}</td>
                         <td>{newsTran.news.slug}</td>
                         <td>{newsTran.language.language}</td>
-                        <td className="news-content">{newsTran.content}</td>
                         <td className="action">
                             <Link to="/edit-news-translation" onClick={props.onEditNewsTrans.bind(null, newsTran.id)} className="btn btn-info btn-sm">Edit</Link>
                             <button type="button" onClick={()=>props.showConfirmBox( newsTran.id)}  className="btn btn-danger btn-sm nm-delete-btn">Delete</button>

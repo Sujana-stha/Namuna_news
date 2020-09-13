@@ -15,7 +15,6 @@ const resourcesTransReducer =  function(state = initialState, action) {
     switch(action.type) {
         
         case types.REQUEST_RESOURCE_TRANSLATION: 
-            console.log(state);
 
             return {...state, fetching: true};
            

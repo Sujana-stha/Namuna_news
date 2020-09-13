@@ -10912,6 +10912,11 @@ a.text-dark:focus {
   width: 100%;
 }
 
+.sidebar .user-panel .info a {
+  font-size: 23px;
+  font-weight: bold;
+}
+
 .content-wrapper .row {
   margin-left: 0 !important;
   margin-right: 0 !important;
@@ -10927,9 +10932,24 @@ a.text-dark:focus {
   text-transform: capitalize;
 }
 
-.content-wrapper .nm-content .nm-select-box {
+.content-wrapper .nm-content .nm-select-field {
+  margin-bottom: 15px;
+}
+
+.content-wrapper .nm-content .nm-select-field .form-control {
+  padding: 0;
+  height: 40px;
+}
+
+.content-wrapper .nm-content .nm-select-field .nm-select-box {
   z-index: 99;
   margin-bottom: 1rem;
+  padding: 0;
+  border: 0;
+}
+
+.content-wrapper .nm-content .nm-select-field .nm-select-box .css-yk16xz-control {
+  border-color: transparent;
 }
 
 .content-wrapper .nm-content .form-row > [class*=col-] {

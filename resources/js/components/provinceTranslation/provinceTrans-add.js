@@ -5,7 +5,7 @@ const renderInputField = ({ input, id, label, type, placeholder, meta: { touched
     return (
         <div className="form-group">
             <label htmlFor={id}>{label}</label>
-            <input id={id} type={type} className={ touched ? "form-control is-invalid": "form-control"} placeholder={placeholder} {...input} />
+            <input id={id} type={type} className={ touched && error ? "form-control is-invalid": "form-control"} placeholder={placeholder} {...input} />
             <div className="error text-danger">
                 {touched ? error : ''}
             </div>
@@ -18,7 +18,7 @@ const renderSelectField = ({ input, label, meta: { touched, error }, defaultValu
     return (
         <div className="form-group">
             <label>{label}</label>
-            <select value={defaultValue} {...input} className="form-control">
+            <select value={defaultValue} {...input} className={ touched && error ? "form-control is-invalid": "form-control"}>
                 {children}
             </select>
             <div className="error">
@@ -48,8 +48,6 @@ const ProvinceTransForm = props => {
                                 name="province_id"
                                 component={renderSelectField}
                             >
-                                <option value="">Choose your option</option>
-                                <option value="">Choose your option</option>
                                 {props.provinces.map(province => {
                                     return (
                                         <option key={province.id} value={province.id}>{province.slug}</option>
@@ -93,8 +91,14 @@ const validate = (values) => {
     const errors = {}
     if (!values.title) {
         errors.title = "This field is empty."
-    } else if (values.title.length > 30) {
-        errors.title = "Must be 30 character or less!"
+    } else if (values.title.length > 100) {
+        errors.title = "Must be 100 character or less!"
+    }
+    if(!values.language_id) {
+        errors.language_id = "You must select a option."
+    }
+    if(!values.province_id) {
+        errors.province_id = "You must select a option."
     }
     return errors;
 }

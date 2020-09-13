@@ -20,7 +20,6 @@ const categoriesTransReducer =  function(state = initialState, action) {
             return {...state, fetching: true};
            
         case types.GET_CATEGORIES_TRANSLATION_SUCCESS:
-            console.log('reducer',action);
             return Object.assign({}, state, {
                 categoriesTrans: action.categoriesTrans.data.data,
                 fetching: false,

@@ -5,6 +5,20 @@ import * as api from '../api/categories-api';
 import * as categoryAction from '../actions/categories-action';
 import {notify} from 'react-notify-toast';
 
+// watcher to call saga function to get all categories
+export function* AllCategoryWatcher() {
+    yield takeLatest(types.REQUEST_ALL_CATEGORIES, AllCategorySaga)
+}
+
+function* AllCategorySaga() {
+    const response = yield call(api.getAllCategories);
+    const categories = response.data
+    if (response) {
+        yield put({type: types.CATEGORIES_LIST_ALL, categories});
+    } else {
+        yield put({ type: types.REQUEST_CATEGORIES_FAILED, errors: response.error});
+    }
+}
 
 //Get CATEGORIES data in table
 export function* CategoryWatcher() {
@@ -12,9 +26,9 @@ export function* CategoryWatcher() {
 }
 function* CategorySaga(action) {
     const response = yield call(api.getCategories, action.pageNumber);
-    console.log('cat', response)
     const categories = response
-    if (response.errors) {
+
+    if (response.error) {
         yield put({ type: types.REQUEST_CATEGORIES_FAILED, errors: response.error});
         error = response.errors;
         notify.show("Cannot get all categories", "error", 5000)
@@ -29,23 +43,21 @@ export function* submitCategoriesSaga() {
 }
 function* callCategoriesSubmit(action) {
     yield put(startSubmit('AddCategories'));
-    let error = {};
     const result =  yield call(api.addCategories, action.values);
     const resp = result.data
     const pageNumber= action.pageNumber
     
-    if (result.errors) {
+    if (result.error) {
         yield put({ type: types.REQUEST_CATEGORIES_FAILED, errors: result.error});
-        error = result.error;
         if(resp.errorcode==23000) {
             notify.show("Category Description already exists!","error", 5000);
         }
         notify.show("Cannot create new category!", "error", 5000)
     } else {
-        // yield put({type: types.ADD_CATEGORIES_SUCCESS, resp, message: result.statusText});
         yield put({type: types.REQUEST_CATEGORIES, pageNumber})
         notify.show("Categories created successfully!", "success", 5000)
     }
+
     yield put(stopSubmit('AddCategories', error));
     yield put(reset('AddCategories'));
 }
@@ -56,20 +68,20 @@ export function* editCategoriesSaga() {
 }
 
 function* callEditCategory (action) {
+    
     yield put(startSubmit('EditCategories'));
-    let error = {};
     const result =  yield call(api.updateCategories, action.values.id, action.values);
-    const resp = result.data;
     const pageNumber= action.pageNumber
-    if (result.errors) {
+    
+    if (result.error) {
         yield put({ type: types.REQUEST_CATEGORIES_FAILED, errors: result.error});
-        error = result.error;
         notify.show("Update failed", "error", 5000)
+    
     } else {
-        // yield put({type: types.UPDATE_CATEGORIES_SUCCESS, resp, message: result.statusText});
         yield put({type: types.REQUEST_CATEGORIES, pageNumber})
         notify.show("Updated successfully!", "success", 5000)
     }
+
     yield put(stopSubmit('EditCategories', error));
     yield put(reset('EditCategories'));
 
@@ -83,7 +95,7 @@ export function* deleteCategoriesSaga() {
 function* callDeleteCategory(action) {
     const result = yield call(api.deleteCategories, action.categoryId);
 
-    if(result.errors) {
+    if(result.error) {
         yield put({ type: types.REQUEST_CATEGORIES_FAILED, errors: result.error});
         error = result.error;
         notify.show("Delete failed", "error", 5000)

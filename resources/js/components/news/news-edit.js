@@ -30,7 +30,7 @@ class EditNews extends Component {
         return (
             <div className="form-group col-md-6">
             <label htmlFor={id}>{label}</label>
-            <input value={value} id={id} type={type} className={ touched ? "form-control is-invalid": "form-control"} placeholder={placeholder} {...input} />
+            <input value={value} id={id} type={type} className={ touched && error ? "form-control is-invalid": "form-control"} placeholder={placeholder} {...input} />
             <div className="error text-danger">
                 {touched ? error : ''}
             </div>
@@ -41,7 +41,7 @@ class EditNews extends Component {
         return (
             <div className="form-group col-md-6">
                 <label>{label}</label>
-                <select value={defaultValue} {...input} className="form-control">
+                <select value={defaultValue} {...input} className={ touched && error ? "form-control is-invalid": "form-control"}>
                     {children}
                 </select>
                 <div className="error">
@@ -105,10 +105,7 @@ class EditNews extends Component {
                                 itemList={this.props.provinces}
                                 component={AutocompleteField}
                             />
-                            <div className="col-md-6">
-                                <label>Featured Image</label>
-                                <Field value="featured_image" component={EditImagePreviewField} name="featured_image" type="file" />
-                            </div>
+                            
                             <Field
                                 label="Select News Label"
                                 name="news_label"
@@ -120,6 +117,10 @@ class EditNews extends Component {
                                 <option value="breaking">Breaking</option>
 
                             </Field>
+                            <div className="col-md-6">
+                                <label>Featured Image</label>
+                                <Field value="featured_image" component={EditImagePreviewField} name="featured_image" type="file" />
+                            </div>
                             </div>
                         </div>
                         <div className="card-footer">
@@ -133,11 +134,30 @@ class EditNews extends Component {
 }
 function validate(values) {
     const errors = {}
-    console.log('value', values);
     if (!values.slug) {
         errors.slug = "This Field is empty"
-    } else if (values.slug.length > 400) {
-        errors.slug = "Must be 400 character or Less!"
+    } else if (values.slug.length > 500) {
+        errors.slug = "Must be 500 character or Less!"
+    }
+    if (!values.keywords) {
+        errors.keywords = "Keywords Field is empty"
+    } else if (values.keywords.length > 500) {
+        errors.keywords = "Must be 500 character or Less!"
+    }
+    if(!values.status) {
+        errors.status = "You must select a option."
+    }
+    if(!values.category_id) {
+        errors.category_id = "You must select a option."
+    }
+    if(!values.province_id) {
+        errors.province_id = "You must select a option."
+    }
+    if (!values.featured_image) {
+        errors.featured_image = "You must upload a Featured Image!"
+    }
+    if(!values.news_label) {
+        errors.news_label = "You must select a option."
     }
     return errors;
 }

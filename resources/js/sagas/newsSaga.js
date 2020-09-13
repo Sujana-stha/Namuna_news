@@ -6,14 +6,31 @@ import * as newsAction from '../actions/news-action';
 import {notify} from 'react-notify-toast';
 import { push } from 'connected-react-router';
 
+// watcher to call saga function to get all languages
+export function* AllNewsWatcher() {
+    yield takeLatest(types.REQUEST_ALL_NEWS, AllNewsSaga)
+}
+
+function* AllNewsSaga() {
+    const response = yield call(api.getAllNews);
+    const news = response.data
+
+    if (response) {
+        yield put({type: types.ALL_NEWS, news});
+    } else {
+        yield put({ type: types.REQUEST_NEWS_FAILED, errors: response.error});
+    }
+}
+
+
 //Get news data in table
 export function* NewsWatcher() {
     yield takeLatest(types.REQUEST_NEWS, NewsSaga)
 }
 function* NewsSaga(action) {
     const response = yield call(api.getNews, action.pageNumber);
-    console.log('cat', response)
     const news = response
+
     if (response.errors) {
         yield put({ type: types.REQUEST_NEWS_FAILED, errors: response.error});
         error = response.errors;
@@ -29,8 +46,7 @@ export function* submitNewsSaga() {
 }
 function* callNewsSubmit(action) {
     yield put(startSubmit('AddNews'));
-    let error = {};
-    console.log('action-news', action)
+    
     const result =  yield call(api.addNews, action.values);
     const resp = result.data
     const pageNumber= action.pageNumber
@@ -43,11 +59,12 @@ function* callNewsSubmit(action) {
         }
         notify.show("Cannot create new News!", "error", 5000)
     } else {
-        // yield put({type: types.ADD_CATEGORIES_SUCCESS, resp, message: result.statusText});
+        
         yield put({type: types.REQUEST_NEWS, pageNumber})
         notify.show("News created successfully!", "success", 5000);
         yield put(push('/news'));
     }
+
     yield put(stopSubmit('AddNews', error));
     yield put(reset('AddNews'));
 }
@@ -61,7 +78,6 @@ function* callEditNews (action) {
     yield put(startSubmit('EditNews'));
     let error = {};
     const result =  yield call(api.updateNews, action.values.id, action.values);
-    const resp = result.data;
     const pageNumber = action.pageNumber
     
     if (result.errors) {
@@ -69,7 +85,7 @@ function* callEditNews (action) {
         error = result.error;
         notify.show("Update failed", "error", 5000)
     } else {
-        // yield put({type: types.UPDATE_CATEGORIES_SUCCESS, resp, message: result.statusText});
+        
         yield put({type: types.REQUEST_NEWS, pageNumber})
         notify.show("Updated successfully!", "success", 5000)
         yield put(push('/news'));

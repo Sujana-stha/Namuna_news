@@ -11,9 +11,7 @@ const NewsList = (props) => {
                         <td>{((props.activePage-1)*props.itemsCountPerPage)+(index+1)}</td>
                         <td className="news-title">{newsList.slug == null ? '-': newsList.slug}</td>
                         <td>{newsList.category.slug}</td>
-                        <td>{newsList.province.slug}</td>
                         <td>{newsList.author}</td>
-                        <td>{newsList.news_label}</td>
                         <td><img src={newsList.featured_image} width="100" /></td>
                         <td>{newsList.status}</td>
                         <td className="action">

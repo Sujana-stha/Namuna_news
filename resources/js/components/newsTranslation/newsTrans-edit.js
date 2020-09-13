@@ -23,9 +23,9 @@ class EditNewsTrans extends Component {
     }
     renderInputField({input,id, label, value, type, placeholder, meta: {touched, error}}) {
         return (
-            <div className="form-group">
+            <div className="form-group col-md-12 col-lg-12 col-sm-12">
             <label htmlFor={id}>{label}</label>
-            <input value={value} id={id} type={type} className={ touched ? "form-control is-invalid": "form-control"} placeholder={placeholder} {...input} />
+            <input value={value} id={id} type={type} className={ touched && error ? "form-control is-invalid": "form-control"} placeholder={placeholder} {...input} />
             <div className="error text-danger">
                 {touched ? error : ''}
             </div>
@@ -44,6 +44,7 @@ class EditNewsTrans extends Component {
 
                     <form onSubmit={handleSubmit} >
                         <div className="card-body">
+                            <div className="form-row">
                             <Field name="language_id"
                                 label="Choose language"
                                 itemList={this.props.languages}
@@ -60,7 +61,7 @@ class EditNewsTrans extends Component {
                                 name="title"
                                 value="title"
                                 type="text"
-                                placeholder="Enter Title"
+                                placeholder="Enter Translated Title"
                                 component={this.renderInputField}
                             />
                             <Field
@@ -70,7 +71,7 @@ class EditNewsTrans extends Component {
                                 value="content"
                                 component={TextEditorField}
                             />
-                            
+                            </div>
                         </div>
                         <div className="card-footer">
                             <button type="submit" className="btn btn-primary">Update</button>
@@ -83,11 +84,19 @@ class EditNewsTrans extends Component {
 }
 function validate(values) {
     const errors = {}
-    console.log('value', values);
     if (!values.title) {
         errors.title = "This Field is empty"
-    } else if (values.title.length > 100) {
-        errors.title = "Must be 100 character or Less!"
+    } else if (values.title.length > 500) {
+        errors.title = "Must be 500 character or Less!"
+    }
+    if(!values.language_id) {
+        errors.language_id = "You must select a option."
+    }
+    if(!values.news_id) {
+        errors.news_id = "You must select a option."
+    }
+    if(!values.content) {
+        errors.content = "The Content Field is empty."
     }
     return errors;
 }

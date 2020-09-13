@@ -65,3 +65,16 @@ export function getSingleProvinces (provinceId) {
         }
     });
 }
+
+// Get all lists of Provinces
+export function getAllProvinces() {
+    const access_token = window.localStorage.getItem('access_token')
+    const headers = getHeaders(access_token)
+    return axios.get(`/api/province/all`,{headers})
+    .catch(error=> {
+        console.log(error)
+        return {
+            errors: error
+        }
+    });
+}

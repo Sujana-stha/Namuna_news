@@ -3,9 +3,9 @@ import { Field, reduxForm } from 'redux-form';
 
 const renderInputField = ({ input, id, label, type, placeholder, meta: { touched, error } }) => {
     return (
-        <div className="form-group">
+        <div className="form-group col-md-6 col-lg-6">
             <label htmlFor={id}>{label}</label>
-            <input id={id} type={type} className={ touched ? "form-control is-invalid": "form-control"} placeholder={placeholder} {...input} />
+            <input id={id} type={type} className={ touched && error ? "form-control is-invalid": "form-control"} placeholder={placeholder} {...input} />
             <div className="error text-danger">
                 {touched ? error : ''}
             </div>
@@ -15,9 +15,9 @@ const renderInputField = ({ input, id, label, type, placeholder, meta: { touched
 
 const renderSelectField = ({ input, label, meta: { touched, error }, defaultValue, children }) => {
     return (
-        <div className="form-group">
+        <div className="form-group col-md-6 col-lg-6">
             <label>{label}</label>
-            <select value={defaultValue} {...input} className="form-control">
+            <select value={defaultValue} {...input} className={ touched && error ? "form-control is-invalid": "form-control"}>
                 {children}
             </select>
             <div className="error">
@@ -38,12 +38,12 @@ const ResourceForm = props => {
 
                     <form onSubmit={handleSubmit} >
                         <div className="card-body">
+                            <div className="form-row">
                             <Field
                                 label="Select Resource Type"
                                 name="type"
                                 component={renderSelectField}
                             >
-                                <option value="">Choose your option</option>
                                 <option value="video">Video</option>
                                 <option value="file">File</option>
                             </Field>
@@ -70,7 +70,7 @@ const ResourceForm = props => {
                                 label="Enter Views"
                                 id="views"
                                 name="views"
-                                type="number"
+                                type="text"
                                 placeholder="Enter Views"
                                 component={renderInputField}
                             />
@@ -82,6 +82,7 @@ const ResourceForm = props => {
                                 placeholder="Enter Keywords"
                                 component={renderInputField}
                             />
+                            </div>
                         </div>
                         <div className="card-footer">
                             <button type="submit" className="btn btn-primary">Submit</button>
@@ -96,10 +97,26 @@ const ResourceForm = props => {
 
 const validate = (values) => {
     const errors = {}
-    if (!values.slug) {
-        errors.slug = "This field is empty."
-    } else if (values.slug.length > 30) {
-        errors.slug = "Must be 30 character or less!"
+    if (!values.url) {
+        errors.url = "This field is empty."
+    } else if (values.url.length > 200) {
+        errors.url = "Must be 200 character or less!"
+    }
+    if(!values.type) {
+        errors.type = "You must select a option."
+    }
+    if(!values.status) {
+        errors.status = "You must select a option."
+    }
+    if (!values.views) {
+        errors.views = "This field is empty."
+    } else if (values.views.length > 200) {
+        errors.url = "Must be 200 character or less!"
+    }
+    if (!values.keywords) {
+        errors.keywords = "This field is empty."
+    } else if (values.keywords.length > 500) {
+        errors.url = "Must be 500 character or less!"
     }
     return errors;
 }

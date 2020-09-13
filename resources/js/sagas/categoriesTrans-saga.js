@@ -12,7 +12,6 @@ export function* CategoryTransWatcher() {
 }
 function* CategoryTransSaga(action) {
     const response = yield call(api.getCategoriesTrans, action.pageNumber);
-    console.log('cat', response)
     const categoriesTrans = response
     if (response.errors) {
         yield put({ type: types.REQUEST_CATEGORIES_TRANSLATION_FAILED, errors: response.error});
@@ -32,7 +31,6 @@ function* callCategoriesTransSubmit(action) {
     let error = {};
     const result =  yield call(api.addCategoriesTrans, action.values);
     const resp = result.data
-    console.log('cccs', resp)
     const pageNumber= action.pageNumber
     if (result.errors) {
         yield put({ type: types.REQUEST_CATEGORIES_TRANSLATION_FAILED, errors: result.error});
@@ -57,7 +55,6 @@ export function* editCategoriesTransSaga() {
 
 function* callEditCategoryTrans (action) {
     yield put(startSubmit('EditCategoriesTrans'));
-    console.log(action);
     let error = {};
     const result =  yield call(api.updateCategoriesTrans, action.values.id, action.values);
     const resp = result.data;

@@ -30,13 +30,11 @@ class ResourcesContainer extends Component {
     //submit News form
     onSubmitForm(values) {
         const pageNumber = this.props.activePage;
-        console.log(values);
         this.props.requestAddResources(values, pageNumber);
     }
 
     // edit functions
     editResource(values) {
-        console.log('resource-id', values)
         this.setState ({
             isEditing : values
         })

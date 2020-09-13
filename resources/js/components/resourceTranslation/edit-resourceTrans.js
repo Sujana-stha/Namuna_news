@@ -9,7 +9,6 @@ class EditResource extends Component {
         const id = this.props.editId;
         resourceTransApi.getSingleResourcesTrans(id).then((response) => {
             const data = response.data.data;
-            console.log('data', data)
             const resources = {
                 description: data.description,
                 title: data.title,
@@ -23,9 +22,9 @@ class EditResource extends Component {
 
     renderInputField({ input, id, label, value, type, placeholder, meta: { touched, error } }) {
         return (
-            <div className="form-group">
+            <div className="form-group col-md-12 col-lg-12 col-sm-12">
                 <label htmlFor={id}>{label}</label>
-                <input value={value} id={id} type={type} className={ touched ? "form-control is-invalid": "form-control"} placeholder={placeholder} {...input} />
+                <input value={value} id={id} type={type} className={ touched && error ? "form-control is-invalid": "form-control"} placeholder={placeholder} {...input} />
                 <div className="error text-danger">
                     {touched ? error : ''}
                 </div>
@@ -35,9 +34,9 @@ class EditResource extends Component {
 
     renderSelectField({ input, label, meta: { touched, error }, defaultValue, children }) {
         return (
-            <div className="form-group">
+            <div className="form-group col-md-6 col-lg-6">
                 <label>{label}</label>
-                <select value={defaultValue} {...input} className="form-control">
+                <select value={defaultValue} {...input} className={ touched && error ? "form-control is-invalid": "form-control"}>
                     {children}
                 </select>
                 <div className="error">
@@ -57,6 +56,7 @@ class EditResource extends Component {
 
                     <form onSubmit={handleSubmit} >
                         <div className="card-body">
+                            <div className="form-row">
                             <Field
                                 label="Select Resource"
                                 name="resource_id"
@@ -94,6 +94,7 @@ class EditResource extends Component {
                                 placeholder="Enter Description"
                                 component={this.renderInputField}
                             />
+                            </div>
                         </div>
                         <div className="card-footer">
                             <button type="submit" className="btn btn-primary">Update</button>
@@ -107,10 +108,23 @@ class EditResource extends Component {
 function validate(values) {
     const errors = {}
 
-    if (!values.type) {
-        errors.type = "This field is empty."
-    } else if (values.type.length > 100) {
-        errors.type = "Must be 30 character or less!"
+    if (!values.title) {
+        errors.title = "This field is empty."
+    } else if (values.title.length > 100) {
+        errors.title = "Must be 100 character or less!"
+    }
+
+    if (!values.description) {
+        errors.description = "This field is empty."
+    } else if (values.description.length > 500) {
+        errors.description = "Must be 500 character or less!"
+    }
+
+    if(!values.language_id) {
+        errors.language_id = "You must select a option."
+    }
+    if(!values.resource_id) {
+        errors.resource_id = "You must select a option."
     }
 
     return errors;

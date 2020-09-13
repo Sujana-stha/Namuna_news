@@ -9,18 +9,23 @@ const initialState = {
     itemsCountPerPage: 10,
     totalItemsCount: 1,
     pageRangeDisplayed: 5,
+    all_news: []
 }
 
 const newsReducer =  function(state = initialState, action) {
     switch(action.type) {
+
+        case types.ALL_NEWS:
+            return Object.assign({}, state, {
+                all_news: action.news.data
+            })
+
         
         case types.REQUEST_NEWS: 
-            console.log(state);
 
             return {...state, fetching: true};
            
         case types.GET_NEWS_SUCCESS:
-            console.log('sdfsfasfa',action.news.data.meta.per_page)
             return Object.assign({}, state, {
                 news: action.news.data.data,
                 fetching: false,

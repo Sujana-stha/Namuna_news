@@ -8,14 +8,20 @@ const initialState = {
     itemsCountPerPage: 10,
     totalItemsCount: 1,
     pageRangeDisplayed: 5,
-    sending: false
+    sending: false,
+    all_resources: [] 
 }
 
 const resourcesReducer =  function(state = initialState, action) {
     switch(action.type) {
+
+        case types.ALL_RESOURCES:
+            return Object.assign({}, state, {
+                all_resources: action.resources.data
+            })
+
         
         case types.REQUEST_RESOURCES: 
-            console.log(state);
 
             return {...state, fetching: true};
            

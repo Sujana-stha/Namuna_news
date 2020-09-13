@@ -29,7 +29,6 @@ class ProvinceListContainer extends Component {
         // call action to run the relative saga
         const pageNumber = this.props.activePage;
         this.props.requestProvinces(pageNumber);
-        console.log(this.props)
 
     }
 
@@ -65,7 +64,6 @@ class ProvinceListContainer extends Component {
         } else {
             province.display_status = "0"
         }
-        console.log(province)
         this.props.requestUpdateProvinces( province, pageNumber);
         
     }
@@ -91,7 +89,6 @@ class ProvinceListContainer extends Component {
     }
 
     render() {
-        console.log('props', this.props)
         return (
             <div className="nm-content">
                 <div className="row">

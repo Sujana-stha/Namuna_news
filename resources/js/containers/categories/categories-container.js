@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Pagination from 'react-js-pagination'
 import store from '../../store';
-import { requestCategories, requestDeleteCategories, requestAddCategories, requestUpdateCategories, requestCategoriesStatus } from '../../actions/categories-action';
+import { requestCategories, requestDeleteCategories, requestAddCategories, requestUpdateCategories, requestAllCategories } from '../../actions/categories-action';
 
 
 //COMPONENT
@@ -30,7 +30,7 @@ class CategoriesListContainer extends Component {
         // call action to run the relative saga
         const pageNumber = this.props.activePage;
         this.props.requestCategories(pageNumber);
-        
+        this.props.requestAllCategories();        
     }
 
     // submit function for new data
@@ -57,14 +57,12 @@ class CategoriesListContainer extends Component {
 
     // toggle status function
     toggleStatus(category) {
-        console.log('stat', category)
         const pageNumber = this.props.activePage;
         if(category.display_status == "0") {
             category.display_status= "1"
         } else {
             category.display_status = "0"
         }
-        console.log(category)
         this.props.requestUpdateCategories( category, pageNumber);
         
     }
@@ -95,9 +93,9 @@ class CategoriesListContainer extends Component {
                         {this.state.isEditing ? (
                             <EditCategory
                                 onSubmit={this.submitEditCategory.bind(this)}
-                                editId={this.state.isEditing} categories={this.props.categories} />
+                                editId={this.state.isEditing} categories={this.props.allCategories} />
                         ) : (
-                                <CategoryForm onSubmit={this.submitCategory.bind(this)} categories={this.props.categories} />
+                                <CategoryForm onSubmit={this.submitCategory.bind(this)} categories={this.props.allCategories} />
                             )}
 
                     </div>
@@ -164,6 +162,7 @@ function mapStateToProps(store) {
     
     return {
         categories: store.categoryState.categories,
+        allCategories: store.categoryState.all_categories,
         fetching: store.categoryState.fetching,
         activePage: store.categoryState.activePage,
         itemsCountPerPage: store.categoryState.itemsCountPerPage,
@@ -172,4 +171,4 @@ function mapStateToProps(store) {
     }
 }
 
-export default connect(mapStateToProps, { requestCategories, requestDeleteCategories, requestAddCategories, requestUpdateCategories, requestCategoriesStatus })(CategoriesListContainer);
+export default connect(mapStateToProps, { requestCategories, requestDeleteCategories, requestAddCategories, requestUpdateCategories, requestAllCategories })(CategoriesListContainer);

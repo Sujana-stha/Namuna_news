@@ -1,5 +1,18 @@
 import * as types from './action-types';
 
+//Get list of all categories
+export function requestAllCategories() {
+    return {
+        type: types.REQUEST_ALL_CATEGORIES
+    }
+}
+export function getAllCategories(categories) {
+    return {
+        type: types.CATEGORIES_LIST_ALL,
+        categories
+    }
+}
+
 //GET LIST OF CATEGORIES ACTION
 export function requestCategories(pageNumber) {
     return {
@@ -69,20 +82,3 @@ export function deleteCategoriesSuccess(categoryId, message) {
     }
 }
 
-//CHANHE CATEGORIES STATUS ACTION
-export function requestCategoriesStatus (categoryId,values) {
-    return {
-        type: types.REQUEST_CHANGE_CATEGORIES_STATUS,
-        values,
-        categoryId 
-    }
-}
-
-export function CategoriesStatusSuccess (categoryId, values) {
-    return {
-        type: types.CHANGE_CATEGORIES_STATUS_SUCCESS,
-        values,
-        categoryId,
-        message
-    }
-}

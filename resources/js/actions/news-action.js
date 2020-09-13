@@ -1,5 +1,18 @@
 import * as types from './action-types';
 
+//get all list of news
+export function requestAllNews() {
+    return {
+        type: types.REQUEST_ALL_NEWS
+    }
+}
+export function getAllNews(news) {
+    return {
+        type: types.ALL_NEWS,
+        news
+    }
+}
+
 //GET LIST OF NEWS
 export function requestNews(pageNumber) {
     return {

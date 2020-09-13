@@ -4,8 +4,8 @@ import store from '../../store';
 import { connect } from 'react-redux';
 import Pagination from 'react-js-pagination'
 import {requestAddNewsTranslation, requestNewsTranslation, requestDeleteNewsTranslation, requestUpdateNewsTranslation} from '../../actions/newsTranslation-action';
-import {requestLanguages} from '../../actions/languages-action';
-import {requestNews} from '../../actions/news-action';
+import {requestAllLanguages} from '../../actions/languages-action';
+import {requestAllNews} from '../../actions/news-action';
 
 //COMPONENTS
 import AddNewsTrans from '../../components/newsTranslation/newsTrans-add';
@@ -28,8 +28,8 @@ class NewsTransContainer extends Component {
     componentDidMount() {
         const pageNumber = this.props.activePage;
         this.props.requestNewsTranslation(pageNumber);
-        this.props.requestNews();
-        this.props.requestLanguages();
+        this.props.requestAllNews();
+        this.props.requestAllLanguages();
     }
     //submit News form
     onSubmitForm(values) {
@@ -39,7 +39,6 @@ class NewsTransContainer extends Component {
 
     // edit functions
     editNewsTranslation(values) {
-        console.log('newsTrans-id', values)
         this.setState ({
             isEditing : values
         })
@@ -68,17 +67,16 @@ class NewsTransContainer extends Component {
         this.setState({confirmText: null})
     }
     render() {
-        console.log("compii-prop", this.props)
         if(this.props.match.path === "/edit-news-translation") {
             return (
                 <div className="nm-content">
                     <div className="row">
                         <div className="col-sm-12 col-md-12">
-                            <NavLink to="/news-translation" className="btn btn-primary"><i className="fas fa-list"></i> All Translated News</NavLink>
+                            <NavLink to="/news-translation" className="add-btn btn btn-primary"><i className="fas fa-list"></i> All Translated News</NavLink>
                         </div>
                         <EditNewsTrans 
-                        languages ={this.props.languages}
-                        news = {this.props.news} 
+                        languages ={this.props.allLanguages}
+                        news = {this.props.allNews} 
                         editId= {this.state.isEditing}
                         onSubmit ={this.submitEditNewsTrans.bind(this)}
                         />
@@ -90,11 +88,11 @@ class NewsTransContainer extends Component {
                 <div className="nm-content">
                     <div className="row">
                         <div className="col-sm-12 col-md-12">
-                            <NavLink to="/news-translation" className="btn btn-primary"><i className="fas fa-list"></i> All Translated News</NavLink>
+                            <NavLink to="/news-translation" className="add-btn btn btn-primary"><i className="fas fa-list"></i> All Translated News</NavLink>
                         </div>
                         <AddNewsTrans
-                            languages ={this.props.languages}
-                            news = {this.props.news}
+                            languages ={this.props.allLanguages}
+                            news = {this.props.allNews}
                             onSubmit={this.onSubmitForm.bind(this)}
                         />
                     </div>  
@@ -120,7 +118,6 @@ class NewsTransContainer extends Component {
                                     <th className="news-title">Title</th>
                                     <th>News</th>
                                     <th>Language</th>
-                                    <th className="news-content">Content</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -167,12 +164,12 @@ function mapStateToProps(store) {
     return {
         newsTrans:store.newsTransState.newsTrans,
         fetching: store.newsTransState.fetching,
-        news: store.newsState.news,
-        languages: store.languageState.languages,
+        allNews: store.newsState.all_news,
+        allLanguages: store.languageState.all_languages,
         activePage: store.newsTransState.activePage,
         itemsCountPerPage: store.newsTransState.itemsCountPerPage,
         totalItemsCount: store.newsTransState.totalItemsCount,
         pageRangeDisplayed: store.newsTransState.pageRangeDisplayed,
     }
 }
-export default connect(mapStateToProps, {requestNews, requestAddNewsTranslation, requestNewsTranslation, requestDeleteNewsTranslation, requestUpdateNewsTranslation,requestLanguages })(NewsTransContainer);
+export default connect(mapStateToProps, {requestAllNews, requestAddNewsTranslation, requestNewsTranslation, requestDeleteNewsTranslation, requestUpdateNewsTranslation,requestAllLanguages })(NewsTransContainer);

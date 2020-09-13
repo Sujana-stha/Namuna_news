@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import Pagination from 'react-js-pagination'
 import store from '../../store';
 import { requestCategoriesTranslation, requestDeleteCategoriesTranslation, requestAddCategoriesTranslation, requestUpdateCategoriesTranslation } from '../../actions/categoriesTranslation-action';
-import {requestCategories} from '../../actions/categories-action';
-import {requestLanguages} from '../../actions/languages-action';
+import {requestAllCategories} from '../../actions/categories-action';
+import {requestAllLanguages} from '../../actions/languages-action';
 
 //COMPONENT
 import CategoryTransForm from '../../components/categoriesTranslation/categoriesTrans-add';
@@ -30,10 +30,9 @@ class CategoriesTransListContainer extends Component {
     componentDidMount() {
         // call action to run the relative saga
         const pageNumber = this.props.activePage;
-        this.props.requestCategories(pageNumber);
-        this.props.requestCategoriesTranslation();
-        this.props.requestLanguages();
-        console.log(this.props)
+        this.props.requestCategoriesTranslation(pageNumber);
+        this.props.requestAllLanguages();
+        this.props.requestAllCategories();
 
     }
 
@@ -87,9 +86,9 @@ class CategoriesTransListContainer extends Component {
                         {this.state.isEditing ? (
                             <EditCategoryTrans
                                 onSubmit={this.submitEditCategoryTrans.bind(this)}
-                                editId={this.state.isEditing} categories={this.props.categories} languages={this.props.languages} />
+                                editId={this.state.isEditing} categories={this.props.allCategories} languages={this.props.allLanguages} />
                         ) : (
-                                <CategoryTransForm onSubmit={this.submitCategoryTrans.bind(this)} categories={this.props.categories} languages={this.props.languages}/>
+                                <CategoryTransForm onSubmit={this.submitCategoryTrans.bind(this)} categories={this.props.allCategories} languages={this.props.allLanguages}/>
                             )}
 
                     </div>
@@ -118,8 +117,6 @@ class CategoriesTransListContainer extends Component {
                                     showConfirmBox={this.deleteItem}
                                     hideConfirmBox={this.hideDiv}
                                     deleteCategoryTrans={this.props.requestDeleteCategoriesTranslation}
-                                    categories={this.props.categories}
-                                    languages={this.props.languages}
                                     activePage={this.props.activePage}
                                     itemsCountPerPage={this.props.itemsCountPerPage}
                                 />
@@ -156,8 +153,8 @@ function mapStateToProps(store) {
     
     return {
         categoriesTrans: store.categoryTransState.categoriesTrans,
-        categories: store.categoryState.categories,
-        languages: store.languageState.languages,
+        allCategories: store.categoryState.all_categories,
+        allLanguages: store.languageState.all_languages,
         fetching: store.categoryTransState.fetching,
         activePage: store.categoryTransState.activePage,
         itemsCountPerPage: store.categoryTransState.itemsCountPerPage,
@@ -166,4 +163,4 @@ function mapStateToProps(store) {
     }
 }
 
-export default connect(mapStateToProps, { requestCategories, requestCategoriesTranslation, requestDeleteCategoriesTranslation, requestAddCategoriesTranslation, requestUpdateCategoriesTranslation, requestLanguages })(CategoriesTransListContainer);
+export default connect(mapStateToProps, { requestAllCategories, requestCategoriesTranslation, requestDeleteCategoriesTranslation, requestAddCategoriesTranslation, requestUpdateCategoriesTranslation, requestAllLanguages })(CategoriesTransListContainer);

@@ -106,3 +106,16 @@ export function getSingleNews (newsId) {
         }
     });
 }
+
+// Get all list of news
+export function getAllNews() {
+    const access_token = window.localStorage.getItem('access_token')
+    const headers = getHeaders(access_token)
+    return axios.get(`/api/news/all`,{headers})
+    .catch(error=> {
+        console.log(error)
+        return {
+            errors: error
+        }
+    });
+}

@@ -6,6 +6,23 @@ import * as provinceAction from '../actions/province-action';
 import {notify} from 'react-notify-toast';
 
 
+// watcher to call saga function to get all languages
+export function* AllProvincesWatcher() {
+    yield takeLatest(types.REQUEST_ALL_PROVINCE, AllProvincesSaga)
+}
+
+function* AllProvincesSaga() {
+    const response = yield call(api.getAllProvinces);
+    const provinces = response.data
+
+    if (response) {
+        yield put({type: types.ALL_PROVINCE, provinces});
+    } else {
+        yield put({ type: types.REQUEST_PROVINCES_FAILED, errors: response.error});
+    }
+}
+
+
 //Get PROVINCES data in table
 export function* ProvincesWatcher() {
     yield takeLatest(types.REQUEST_PROVINCES, ProvincesSaga)
@@ -13,7 +30,6 @@ export function* ProvincesWatcher() {
 function* ProvincesSaga(action) {
     
     const response = yield call(api.getProvinces, action.pageNumber);
-    console.log('cat', response)
     const provinces = response
     if (response.errors) {
         yield put({ type: types.REQUEST_PROVINCES_FAILED, errors: response.error});

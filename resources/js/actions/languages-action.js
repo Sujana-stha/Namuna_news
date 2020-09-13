@@ -1,5 +1,19 @@
 import * as types from './action-types';
 
+//Get list of all languages
+export function requestAllLanguages() {
+    return {
+        type: types.REQUEST_ALL_LANGUAGE
+    }
+}
+
+export function getAllLanguages(language) {
+    return {
+        type: types.REQUEST_ALL_LANGUAGE,
+        language
+    }
+}
+
 //GET LIST OF LANGUAGES
 export function requestLanguages(pageNumber) {
     return {

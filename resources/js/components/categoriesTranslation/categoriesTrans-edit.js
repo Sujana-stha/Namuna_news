@@ -17,7 +17,7 @@ class EditCategoryTrans extends Component {
         return (
             <div className="form-group">
                 <label htmlFor={id}>{label}</label>
-                <input value={value} id={id} type={type} className={ touched ? "form-control is-invalid": "form-control"} placeholder={placeholder} {...input} />
+                <input value={value} id={id} type={type} className={ touched && error ? "form-control is-invalid": "form-control"} placeholder={placeholder} {...input} />
                 <div className="error text-danger">
                     {touched ? error : ''}
                 </div>
@@ -29,7 +29,7 @@ class EditCategoryTrans extends Component {
         return (
             <div className="form-group">
                 <label>{label}</label>
-                <select value={defaultValue} {...input} className={ touched ? "form-control is-invalid": "form-control"}>
+                <select value={defaultValue} {...input} className={ touched && error ? "form-control is-invalid": "form-control"}>
                     {children}
                 </select>
                 <div className="error text-danger">
@@ -103,7 +103,12 @@ function validate(values) {
     } else if (values.title.length > 30) {
         errors.title = "Must be 30 character or less!"
     }
-
+    if(!values.language_id) {
+        errors.language_id = "You must select a option."
+    }
+    if(!values.category_id) {
+        errors.category_id = "You must select a option."
+    }
     return errors;
 }
 

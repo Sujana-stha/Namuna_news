@@ -129,12 +129,8 @@ class ImagePreviewField extends Component {
       }
     }
     onFileChange (e) {
-      console.log(e)
-      
-      
       const targetFile = e.target.files[0]
       if (targetFile) {
-        console.log("p", targetFile)
         var files = [targetFile]
         this.setState({
           files: files.map(file=> Object.assign(file, {
@@ -148,14 +144,16 @@ class ImagePreviewField extends Component {
     }
 
     render() {
-
+      const { meta: {touched, error}} = this.props
       return (
         <div className="nm-uploader">
         <div className="custom-file">
-          <input onChange={this.onFileChange.bind(this)} type="file" className="custom-file-input" id="customFile"/>
+          <input onChange={this.onFileChange.bind(this)} type="file" className={ touched && error? "custom-file-input is-invalid": "custom-file-input"} id="customFile"/>
           <label className="custom-file-label" htmlFor="customFile">Choose file</label>
         </div>
-        
+        <div className="error text-danger">
+            {touched ? error : ''}
+          </div>
           {this.state.files ? (
             <aside className="preview-img">
               {this.state.files.map((file)=> {

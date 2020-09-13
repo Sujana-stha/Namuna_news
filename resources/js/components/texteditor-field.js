@@ -4,7 +4,6 @@ import {Editor} from '@tinymce/tinymce-react';
 class TextEditorField extends Component {
     
     handleEditorChange(e) {
-        console.log('Content was updated:', e.target.getContent())
         const content = e.target.getContent()
         if(content != "") {
             this.props.input.onChange(content)
@@ -13,21 +12,24 @@ class TextEditorField extends Component {
     }
 
     render() {
-        const {input} = this.props
+        const {input, meta: {touched, error} } = this.props
         return (
-            <div className="col s12">
+            <div className="col-sm-12 col-md-12 col-lg-12">
                 <label>{this.props.label}</label>
                 <Editor
                     initialValue={input.value == "" ? "": input.value}
                     value ={input.value == "" ? "": input.value}
                     init={{
-                        height: 250,
+                        height: 450,
                         plugins: 'advlist link image code help lists wordcount insertdatetime',                        
                         toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | formatselect | bullist numlist outdent indent | code | help',
                         branding: false
                     }}
                     onChange={this.handleEditorChange.bind(this)}
                 />
+                <div className="error text-danger">
+                    {touched ? error : ''}
+                </div>
             </div>
         );
     }

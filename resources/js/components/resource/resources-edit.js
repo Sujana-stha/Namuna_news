@@ -15,9 +15,9 @@ class EditResource extends Component {
 
     renderInputField({ input, id, label, value, type, placeholder, meta: { touched, error } }) {
         return (
-            <div className="form-group">
+            <div className="form-group col-md-6 col-lg-6">
                 <label htmlFor={id}>{label}</label>
-                <input value={value} id={id} type={type} className={ touched ? "form-control is-invalid": "form-control"} placeholder={placeholder} {...input} />
+                <input value={value} id={id} type={type} className={ touched && error ? "form-control is-invalid": "form-control"} placeholder={placeholder} {...input} />
                 <div className="error text-danger">
                     {touched ? error : ''}
                 </div>
@@ -27,9 +27,9 @@ class EditResource extends Component {
 
     renderSelectField({ input, label, meta: { touched, error }, defaultValue, children }) {
         return (
-            <div className="form-group">
+            <div className="form-group col-md-6 col-lg-6">
                 <label>{label}</label>
-                <select value={defaultValue} {...input} className="form-control">
+                <select value={defaultValue} {...input} className={ touched && error ? "form-control is-invalid": "form-control"}>
                     {children}
                 </select>
                 <div className="error">
@@ -50,6 +50,7 @@ class EditResource extends Component {
 
                     <form onSubmit={handleSubmit} >
                         <div className="card-body">
+                            <div className="form-row">
                             <Field
                                 label="Select Resource Type"
                                 name="type"
@@ -97,6 +98,7 @@ class EditResource extends Component {
                                 placeholder="Enter Keywords"
                                 component={this.renderInputField}
                             />
+                            </div>
                         </div>
                         <div className="card-footer">
                             <button type="submit" className="btn btn-primary">Update</button>
@@ -111,10 +113,26 @@ class EditResource extends Component {
 function validate(values) {
     const errors = {}
 
-    if (!values.type) {
-        errors.type = "This field is empty."
-    } else if (values.type.length > 100) {
-        errors.type = "Must be 100 character or less!"
+    if (!values.url) {
+        errors.url = "This field is empty."
+    } else if (values.url.length > 200) {
+        errors.url = "Must be 200 character or less!"
+    }
+    if(!values.type) {
+        errors.type = "You must select a option."
+    }
+    if(!values.status) {
+        errors.status = "You must select a option."
+    }
+    if (!values.views) {
+        errors.views = "This field is empty."
+    } else if (values.views.length > 200) {
+        errors.url = "Must be 200 character or less!"
+    }
+    if (!values.keywords) {
+        errors.keywords = "This field is empty."
+    } else if (values.keywords.length > 500) {
+        errors.url = "Must be 500 character or less!"
     }
 
     return errors;

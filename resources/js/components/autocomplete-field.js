@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
-// import {requestVehicleAttrCreate} from '../../actions/deals-action';
-// import {requestLoggedUser} from '../../actions/users-action';
+
 
 class AutocompleteField extends Component {
     constructor(props) {
@@ -13,12 +12,8 @@ class AutocompleteField extends Component {
             placeholderText: 'Select one...'
         }
     }
-    // componentDidMount() {
-    //     this.props.requestLoggedUser();
-    // }
+    
     handleFocus(itemList) {
-        // const option = Object.keys(itemList).map((item) => ({label:itemList[item], value: item }))
-        console.log('items', itemList)
             const option = itemList.map((item) => {
                 if(item.language) {
                     return {
@@ -52,14 +47,14 @@ class AutocompleteField extends Component {
     }
        
     render() {
-        const { itemList, input } = this.props
+        const { itemList, input, meta: {touched, error}} = this.props
             return (
                 <div className="nm-select-field col-md-6">
                     <label className="">{this.props.label}</label>
-                    <div className="">
+                    <div className={ touched && error ? "form-control is-invalid": "form-control"}>
                         <Select
                         {...input}
-                        className="nm-select-box"
+                        className = "nm-select-box"
                         isClearable
                         placeholder={this.state.placeholderText}
                         onFocus={() => this.handleFocus(itemList)}
@@ -70,6 +65,9 @@ class AutocompleteField extends Component {
                         options={this.state.options}
                         value={this.state.value ? this.state.value : input.value }
                         />
+                    </div>
+                    <div className="error text-danger">
+                        {touched ? error : ''}
                     </div>
                 </div>
             )

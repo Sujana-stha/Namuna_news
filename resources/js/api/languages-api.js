@@ -65,3 +65,16 @@ export function getSingleLanguages (languageId) {
         }
     });
 }
+
+//Get all list of languages
+export function getAllLanguages() {
+    const access_token = window.localStorage.getItem('access_token')
+    const headers = getHeaders(access_token)
+    return axios.get(`/api/languages/all`,{headers})
+    .catch(error=> {
+        console.log(error)
+        return {
+            errors: error
+        }
+    });
+}

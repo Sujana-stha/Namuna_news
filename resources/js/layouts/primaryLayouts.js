@@ -59,7 +59,7 @@ class DashboardLayout extends Component {
                             <Route path= "/categories" component={CategoriesContainer}/>
                             
                             <Route path= "/languages" component={languagesContainer}/>
-                            <Route path = "/categrories-translation" component={CategoriesTransContainer}/>
+                            <Route path = "/categories-translation" component={CategoriesTransContainer}/>
                             <Route path = "/news" component={NewsContainer}/>
                             <Route path = "/add-news" component={NewsContainer} />
                             <Route path ="/edit-news" component={NewsContainer}/>

@@ -9,14 +9,20 @@ const initialState = {
     itemsCountPerPage: 10,
     totalItemsCount: 1,
     pageRangeDisplayed: 5,
+    all_categories: []
 }
 
 const categoriesReducer =  function(state = initialState, action) {
     switch(action.type) {
-        
-        case types.REQUEST_CATEGORIES: 
+        case types.CATEGORIES_LIST_ALL:
             
+            return Object.assign({}, state, {
+                all_categories: action.categories.data,
+                
+            })
 
+        // reducer to get paginated categories
+        case types.REQUEST_CATEGORIES: 
             return {...state, fetching: true};
            
         case types.GET_CATEGORIES_SUCCESS:
@@ -46,19 +52,7 @@ const categoriesReducer =  function(state = initialState, action) {
                 }),
                 sending: false
             };
-            case types.REQUEST_CHANGE_CATEGORIES_STATUS:
-                return {...state, fetching: true}
-            case types.CHANGE_CATEGORIES_STATUS_SUCCESS:
-                return {
-                    ...state,
-                    categories: state.categories.map(category => {
-                        if(category.id === action.resp.id) {
-                            return action.resp;
-                        }
-                        return category;
-                    }),
-                    fetching: false
-                }
+            
         case types.DELETE_CATEGORIES_SUCCESS:
             const newCategory = _.filter(state.categories, category => category.id !== action.categoryId);
             return Object.assign({}, state, {

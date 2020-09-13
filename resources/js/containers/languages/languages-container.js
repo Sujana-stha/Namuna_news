@@ -16,7 +16,6 @@ class LanguagesListContainer extends Component {
         this.state = {
             isEditing: false,
             confirmText: null,
-            
         }
         this.editLanguage = this.editLanguage.bind(this)
         this.deleteItem = this.deleteItem.bind(this)
@@ -28,7 +27,6 @@ class LanguagesListContainer extends Component {
         // call action to run the relative saga
         const pageNumber = this.props.activePage;
         this.props.requestLanguages(pageNumber);
-
     }
 
     // submit function for new data
@@ -64,9 +62,9 @@ class LanguagesListContainer extends Component {
     }
     // pagination function
     handlePageChange(pageNumber) {
-        
         this.props.requestLanguages(pageNumber)
     }
+
     hideDiv() {
         this.setState({ confirmText: null })
     }
@@ -89,7 +87,7 @@ class LanguagesListContainer extends Component {
                         {this.props.fetching ? (
                                 <Loading />
                             ) : (
-                                <div className="wr-not-loading"></div>
+                            <div className="wr-not-loading"></div>
                         )}
                         <table className="table table-bordered">
                             <thead>
@@ -122,6 +120,7 @@ class LanguagesListContainer extends Component {
                                     </tbody>
                                 )}
                         </table>
+                        
                         <div className="col-sm-12 left-align">
                             <Pagination
                                 activePage={this.props.activePage}

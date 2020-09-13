@@ -4,8 +4,8 @@ import store from '../../store';
 import { connect } from 'react-redux';
 import Pagination from 'react-js-pagination'
 import {requestAddNews, requestNews, requestDeleteNews, requestUpdateNews} from '../../actions/news-action';
-import {requestCategories} from '../../actions/categories-action'
-import {requestProvinces} from '../../actions/province-action';
+import {requestAllCategories} from '../../actions/categories-action'
+import {requestAllProvinces} from '../../actions/province-action';
 
 //COMPONENTS
 import AddNews from '../../components/news/news-add';
@@ -28,10 +28,10 @@ class NewsContainer extends Component {
     }
     componentDidMount() {
         const pageNumber = this.props.activePage;
-        
+
         this.props.requestNews(pageNumber);
-        this.props.requestCategories();
-        this.props.requestProvinces();
+        this.props.requestAllCategories();
+        this.props.requestAllProvinces();
     }
     //submit News form
     onSubmitForm(values) {
@@ -48,7 +48,6 @@ class NewsContainer extends Component {
         })
     }
     submitEditNews(values) {
-        console.log('addsf-values', values)
         const pageNumber = this.props.activePage;
         if ( typeof values.category_id =='number') { values.category_id = values.category_id } else { values.category_id = values.category_id.value }
         if ( typeof values.province_id == 'number') { values.province_id = values.province_id } else { values.province_id = values.province_id.value }
@@ -72,17 +71,18 @@ class NewsContainer extends Component {
     hideDiv() {
         this.setState({confirmText: null})
     }
+
     render() {
         if(this.props.match.path === "/edit-news") {
             return (
                 <div className="nm-content">
                     <div className="row">
                         <div className="col-sm-12 col-md-12">
-                            <NavLink to="/news" className="btn btn-primary"><i className="fas fa-list"></i> All News</NavLink>
+                            <NavLink to="/news" className="add-btn btn btn-primary"><i className="fas fa-list"></i> All News</NavLink>
                         </div>
                         <EditNews 
-                        categories ={this.props.categories}
-                        provinces = {this.props.provinces}
+                        categories ={this.props.allCategories}
+                        provinces = {this.props.allProvinces}
                         editId= {this.state.isEditing}
                         onSubmit={this.submitEditNews.bind(this)}
                         />
@@ -94,11 +94,11 @@ class NewsContainer extends Component {
                 <div className="nm-content">
                     <div className="row">
                         <div className="col-sm-12 col-md-12">
-                            <NavLink to="/news" className="btn btn-primary"><i className="fas fa-list"></i> All News</NavLink>
+                            <NavLink to="/news" className="add-btn btn btn-primary"><i className="fas fa-list"></i> All News</NavLink>
                         </div>
                         <AddNews
-                            categories ={this.props.categories}
-                            provinces = {this.props.provinces}
+                            categories ={this.props.allCategories}
+                            provinces = {this.props.allProvinces}
                             onSubmit={this.onSubmitForm.bind(this)}
                         />
                     </div>  
@@ -123,9 +123,8 @@ class NewsContainer extends Component {
                                     <th>S.N</th>
                                     <th className="news-title">Title</th>
                                     <th>Categories</th>
-                                    <th>Province</th>
                                     <th>Author</th>
-                                    <th>News Label</th>
+
                                     <th>Image</th>
                                     <th>Status</th>
                                     <th>Action</th>
@@ -174,12 +173,12 @@ function mapStateToProps(store) {
     return {
         news: store.newsState.news,
         fetching: store.newsState.fetching,
-        categories: store.categoryState.categories,
-        provinces: store.provincesState.provinces,
+        allCategories: store.categoryState.all_categories,
+        allProvinces: store.provincesState.all_provinces,
         activePage: store.newsState.activePage,
         itemsCountPerPage: store.newsState.itemsCountPerPage,
         totalItemsCount: store.newsState.totalItemsCount,
         pageRangeDisplayed: store.newsState.pageRangeDisplayed,
     }
 }
-export default connect(mapStateToProps, {requestAddNews, requestNews, requestDeleteNews, requestUpdateNews, requestCategories, requestProvinces})(NewsContainer);
+export default connect(mapStateToProps, {requestAddNews, requestNews, requestDeleteNews, requestUpdateNews, requestAllCategories, requestAllProvinces})(NewsContainer);

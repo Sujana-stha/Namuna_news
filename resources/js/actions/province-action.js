@@ -1,5 +1,18 @@
 import * as types from './action-types';
 
+//get all list of provinces
+export function requestAllProvinces() {
+    return {
+        type: types.REQUEST_ALL_PROVINCE
+    }
+}
+
+export function getAllProvinces(province) {
+    return {
+        type: types.ALL_PROVINCE,
+        province
+    }
+}
 //GET LIST OF PROVINCES
 export function requestProvinces(pageNumber) {
     return {

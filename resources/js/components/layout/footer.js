@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
     return (
         <footer className="main-footer">
-            <strong>Copyright &copy; 2019-2020 <a href="https://softtechmultimedia.com">STM</a>.</strong>
+            <strong>Copyright &copy; 2019-2020 <a href="https://softtechmultimedia.com">SoftTech Multimedia</a>.</strong>
     All rights reserved.
             <div className="float-right d-none d-sm-inline-block">
                 <b>Version</b> 1.0.0

@@ -6,6 +6,22 @@ import * as resourceAction from '../actions/resource-action';
 import {notify} from 'react-notify-toast';
 import { push } from 'connected-react-router';
 
+// watcher to call saga function to get all languages
+export function* AllResourcesWatcher() {
+    yield takeLatest(types.REQUEST_ALL_RESOURCES, AllResourcesSaga)
+}
+
+function* AllResourcesSaga() {
+    const response = yield call(api.getAllResources);
+    const resources = response.data
+
+    if (response) {
+        yield put({type: types.ALL_RESOURCES, resources});
+    } else {
+        yield put({ type: types.REQUEST_RESOURCES_FAILED, errors: response.error});
+    }
+}
+
 //Get RESOURCES data in table
 export function* ResourcesWatcher() {
     yield takeLatest(types.REQUEST_RESOURCES, ResourcesSaga)
@@ -13,7 +29,6 @@ export function* ResourcesWatcher() {
 function* ResourcesSaga(action) {
     
     const response = yield call(api.getResources, action.pageNumber);
-    console.log('cat', response)
     const resources = response
     if (response.errors) {
         yield put({ type: types.REQUEST_RESOURCES_FAILED, errors: response.error});
@@ -69,7 +84,6 @@ function* callEditResource (action) {
         error = result.error;
         notify.show("Update failed", "error", 5000)
     } else {
-        // yield put({type: types.UPDATE_RESOURCES_SUCCESS, resp, message: result.statusText});
         yield put({type: types.REQUEST_RESOURCES, pageNumber})
         notify.show("Updated successfully!", "success", 5000)
         yield put(push('/resources'));

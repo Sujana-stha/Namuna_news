@@ -11,9 +11,7 @@ export function* NewsTransWatcher() {
     yield takeLatest(types.REQUEST_NEWS_TRANSLATION, NewsTransSaga)
 }
 function* NewsTransSaga(action) {
-    console.log('aaa', action);
     const response = yield call(api.getNewsTrans, action.pageNumber);
-    console.log('cat', response)
     const newsTrans = response
     if (response.errors) {
         yield put({ type: types.REQUEST_NEWS_TRANSLATION_FAILED, errors: response.error});
