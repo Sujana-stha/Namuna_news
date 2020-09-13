@@ -29,7 +29,7 @@ class CategoryResource extends JsonResource
                 $this->subscribers
             ],
             'news' => [
-                $this->news
+                NewsResource::collection($this->news)
             ]
         ];
     }

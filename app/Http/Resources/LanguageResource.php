@@ -20,6 +20,7 @@ class LanguageResource extends JsonResource
             'language'=>$this->language,
             'category_translations'=>$this->categoryTranslations,
             'resource_translations'=>$this->resourceTranslations
+            // 'news_translations'=>NewsTranslationResource::collection($this->news_translations)
         ];
     }
 }

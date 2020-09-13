@@ -23,7 +23,7 @@ class ProvinceResource extends JsonResource
                 $this->provinceTranslations
             ],
             'news' => [
-                $this->news
+                NewsResource::collection($this->news)
             ]
         ];
     }

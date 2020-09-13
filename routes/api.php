@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
-}); 
+});
 
 Route::group(['prefix' => 'auth'], function () {
     Route::post('login', 'AuthController@login');
@@ -36,14 +36,16 @@ Route::get('/resources/all', 'MasterGetController@getResources')->name('resource
 Route::get('/resource-translation/all', 'MasterGetController@getResourceTranslations')->name('resource-translations.all');
 Route::get('/news/all', 'MasterGetController@getNews')->name('news.all');
 Route::get('/news-translation/all', 'MasterGetController@getNewsTranslations')->name('news-translation.all');
+Route::post('/search', 'MasterGetController@searchNews')->name('search.news');
 
+Route::apiResource('/users', 'UserController');
 Route::apiResource('/languages', 'LanguageController');
 Route::apiResource('/socials', 'SocialsController');
 Route::apiResource('/categories', 'CategoryController');
 Route::apiResource('/category-translation', 'CategoryTranslationController');
 Route::apiResource('/province', 'ProvinceController');
 Route::apiResource('/province-translation', 'ProvinceTranslationController');
-Route::apiResource('/subscriber', 'SubscriberController');
+Route::apiResource('/subscribers', 'NewsSubscriberController');
 Route::apiResource('/resources', 'AllResourceController');
 Route::apiResource('/resource-translation', 'ResourceTranslationController');
 Route::apiResource('/news', 'NewsController');
