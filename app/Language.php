@@ -15,4 +15,8 @@ class Language extends Model
     public function resourceTranslations() {
         return $this->hasMany('App\ResourceTranslation');
     }
+
+    public function newsTranslations() {
+        return $this->hasMany('App\NewsTranslation');
+    }
 }

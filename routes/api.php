@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
-}); 
+});
 
 Route::group(['prefix' => 'auth'], function () {
     Route::post('login', 'AuthController@login');
@@ -37,6 +37,7 @@ Route::get('/resource-translation/all', 'MasterGetController@getResourceTranslat
 Route::get('/news/all', 'MasterGetController@getNews')->name('news.all');
 Route::get('/news-translation/all', 'MasterGetController@getNewsTranslations')->name('news-translation.all');
 
+Route::apiResource('/users', 'UserController');
 Route::apiResource('/languages', 'LanguageController');
 Route::apiResource('/socials', 'SocialsController');
 Route::apiResource('/categories', 'CategoryController');
