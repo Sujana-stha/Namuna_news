@@ -43,7 +43,6 @@ class SubscriberController extends Controller
         // return ($request->category_id);
         $request->validate([
             'email'=>'required|email',
-            'preference'=>'required|in:daily,weekly,monthly,none'
         ]);
 
         $subscriber = Subscriber::create([

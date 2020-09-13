@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class News extends Model
 {
+    use Searchable;
+
     protected $fillable = ['slug', 'category_id', 'province_id', 'status', 'keywords', 'order', 'author_id', 'featured_image', 'news_label'];
 
     public function category() {

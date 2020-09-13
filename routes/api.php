@@ -44,7 +44,7 @@ Route::apiResource('/categories', 'CategoryController');
 Route::apiResource('/category-translation', 'CategoryTranslationController');
 Route::apiResource('/province', 'ProvinceController');
 Route::apiResource('/province-translation', 'ProvinceTranslationController');
-Route::apiResource('/subscriber', 'SubscriberController');
+Route::apiResource('/subscribers', 'NewsSubscriberController');
 Route::apiResource('/resources', 'AllResourceController');
 Route::apiResource('/resource-translation', 'ResourceTranslationController');
 Route::apiResource('/news', 'NewsController');
