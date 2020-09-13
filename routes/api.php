@@ -36,6 +36,7 @@ Route::get('/resources/all', 'MasterGetController@getResources')->name('resource
 Route::get('/resource-translation/all', 'MasterGetController@getResourceTranslations')->name('resource-translations.all');
 Route::get('/news/all', 'MasterGetController@getNews')->name('news.all');
 Route::get('/news-translation/all', 'MasterGetController@getNewsTranslations')->name('news-translation.all');
+Route::post('/search', 'MasterGetController@searchNews')->name('search.news');
 
 Route::apiResource('/users', 'UserController');
 Route::apiResource('/languages', 'LanguageController');

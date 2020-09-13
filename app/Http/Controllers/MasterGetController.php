@@ -14,12 +14,15 @@ use App\Http\Resources\NewsTranslationResource;
 use App\Http\Resources\ProvinceResource;
 use App\Http\Resources\ProvinceTranslationResource;
 use App\Http\Resources\ResourcesTranslationResource;
+use App\Http\Resources\SearchResource;
 use App\Language;
 use App\News;
+use App\NewsSubscriber;
 use App\NewsTranslation;
 use App\Province;
 use App\ProvinceTranslation;
 use App\ResourceTranslation;
+use Illuminate\Http\Request;
 
 class MasterGetController extends Controller
 {
@@ -75,6 +78,22 @@ class MasterGetController extends Controller
         $news_translations = NewsTranslation::latest()->get();
 
         return NewsTranslationResource::collection($news_translations);
+    }
+
+    public function getSubscribers() {
+        return NewsSubscriber::all();
+    }
+
+    public function searchNews(Request $request) {
+        $search = $request->search;
+
+        $news = NewsTranslation
+            ::where('title', 'LIKE','%'. $search .'%')
+            ->OrWhere('content', 'LIKE', '%'. $search. '%')
+            ->with('news')
+            ->get();
+
+        return SearchResource::collection($news);
     }
 
 }
