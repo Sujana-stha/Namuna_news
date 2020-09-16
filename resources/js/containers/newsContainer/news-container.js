@@ -124,7 +124,6 @@ class NewsContainer extends Component {
                                     <th className="news-title">Title</th>
                                     <th>Categories</th>
                                     <th>Author</th>
-
                                     <th>Image</th>
                                     <th>Status</th>
                                     <th>Action</th>

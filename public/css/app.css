@@ -10917,6 +10917,10 @@ a.text-dark:focus {
   font-weight: bold;
 }
 
+.nm-sidebar {
+  margin-bottom: 4rem;
+}
+
 .content-wrapper .row {
   margin-left: 0 !important;
   margin-right: 0 !important;
@@ -10950,6 +10954,7 @@ a.text-dark:focus {
 
 .content-wrapper .nm-content .nm-select-field .nm-select-box .css-yk16xz-control {
   border-color: transparent;
+  height: 37px;
 }
 
 .content-wrapper .nm-content .form-row > [class*=col-] {
@@ -11070,9 +11075,34 @@ a.text-dark:focus {
 
 .nm-news-content table .news-title,
 .nm-news-content table .news-content {
-  max-width: 350px;
+  max-width: 300px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.nm-news-edit .alert {
+  padding: 15px;
+  background-color: #ffaa2c;
+  color: white;
+}
+
+.nm-news-edit .alert .closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nm-news-edit .alert .closebtn:hover {
+  color: #000;
+}
+
+.nm-news-edit .translate-btn {
+  margin-left: 10px;
 }
 

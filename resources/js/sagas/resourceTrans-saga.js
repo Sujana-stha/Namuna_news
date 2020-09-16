@@ -15,9 +15,8 @@ function* ResourcesTransSaga(action) {
     const response = yield call(api.getResourcesTrans, action.pageNumber);
     const resourcesTrans = response
     if (response.errors) {
-        yield put({ type: types.REQUEST_RESOURCE_TRANSLATION_FAILED, errors: response.error});
-        error = response.errors;
         notify.show("Cannot get all resources Translation", "error", 5000)
+        yield put({ type: types.REQUEST_RESOURCE_TRANSLATION_FAILED, errors: response.errors});
     } else {
         yield put({type: types.GET_RESOURCE_TRANSLATION_SUCCESS, resourcesTrans});
     }
@@ -35,8 +34,8 @@ function* callResourcesTransSubmit(action) {
     const pageNumber= action.pageNumber
 
     if ((result.errors && !resp.success)|| (result.errors || !resp.success)) {
-        yield put({ type: types.REQUEST_RESOURCE_TRANSLATION_FAILED, errors: result.error || resp.errormsg});
-        error = result.error || resp.errormsg;
+        yield put({ type: types.REQUEST_RESOURCE_TRANSLATION_FAILED, errors: result.errors || resp.errormsg});
+        error = result.errors || resp.errormsg;
         if(resp.errorcode==23000) {
             notify.show("Resource Translation Description already exists!","error", 5000);
         }
@@ -64,7 +63,7 @@ function* callEditResourceTrans (action) {
     const pageNumber= action.pageNumber
     
     if (result.errors) {
-        yield put({ type: types.REQUEST_RESOURCE_TRANSLATION_FAILED, errors: result.error});
+        yield put({ type: types.REQUEST_RESOURCE_TRANSLATION_FAILED, errors: result.errors});
         error = result.error;
         notify.show("Update failed", "error", 5000)
     } else {
@@ -84,10 +83,10 @@ export function* deleteResourcesTransSaga() {
 
 function* callDeleteResourceTrans(action) {
     const result = yield call(api.deleteResourcesTrans, action.resourceTransId);
-
+    let error = {}
     if(result.errors) {
-        yield put({ type: types.REQUEST_RESOURCE_TRANSLATION_FAILED, errors: result.error});
-        error = result.error;
+        yield put({ type: types.REQUEST_RESOURCE_TRANSLATION_FAILED, errors: result.errors});
+        error = result.errors;
         notify.show("Delete failed", "error", 5000)
     } else {
         yield put(resourceTransAction.deleteResourcesTranslationSuccess(action.resourceTransId));

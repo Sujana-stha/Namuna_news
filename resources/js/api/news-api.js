@@ -37,7 +37,6 @@ function formValues(values) {
 export function addNews(values) {
     const access_token = window.localStorage.getItem('access_token')
     const headers = getHeaders(access_token)
-    console.log(headers);
     const data = formValues(values)
     return axios.post('/api/news', data,{headers})
     .catch(error=> {
@@ -78,9 +77,6 @@ function newsDetails (values) {
 
 // UPDATE NEWS API
 export function updateNews(newsId, values) {
-    console.log("Updated:");
-    console.log(newsId);
-    console.log(values);
     const access_token = window.localStorage.getItem('access_token')
     const headers = getHeaders(access_token)
 

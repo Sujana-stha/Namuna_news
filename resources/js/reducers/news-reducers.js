@@ -9,7 +9,8 @@ const initialState = {
     itemsCountPerPage: 10,
     totalItemsCount: 1,
     pageRangeDisplayed: 5,
-    all_news: []
+    all_news: [],
+    newNews: null
 }
 
 const newsReducer =  function(state = initialState, action) {
@@ -37,7 +38,8 @@ const newsReducer =  function(state = initialState, action) {
         
         case types.REQUEST_ADD_NEWS:
             return {...state, sending: true}
-
+        case types.ADD_NEWS_SUCCESS:
+            return {...state, newNews: action.newValue}  
         case types.REQUEST_EDIT_NEWS:
             return {...state, sending: true}
 

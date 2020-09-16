@@ -45,10 +45,10 @@ class EditCategoryTrans extends Component {
                 <div className="col-md-12 col-xs-12 col-lg-12">
                     <div className="card card-primary">
                         <div className="card-header">
-                            <h3 className="card-title">Edit Categories Translation</h3>
+                            <h3 className="card-title">Edit Translated Categories</h3>
                         </div>
 
-                        <form className="col s12" onSubmit={handleSubmit} >
+                        <form className="col-sm-12 col-md-12 col-lg-12" onSubmit={handleSubmit} >
                             <div className="card-body">
                                 
                                 <Field

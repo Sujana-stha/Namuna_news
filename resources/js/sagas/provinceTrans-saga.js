@@ -35,13 +35,12 @@ function* callProvincesTransSubmit(action) {
 
     if ((result.errors && !resp.success)|| (result.errors || !resp.success)) {
         yield put({ type: types.REQUEST_PROVINCE_TRANSLATION_FAILED, errors: result.error || resp.errormsg});
-        error = result.error || resp.errormsg;
+        error = result.errors || resp.errormsg;
         if(resp.errorcode==23000) {
             notify.show("Province Translation Description already exists!","error", 5000);
         }
         notify.show("Cannot create new Province Translation!", "error", 5000)
     } else {
-        // yield put({type: types.ADD_PROVINCES_TRANSLATION_SUCCESS, resp, message: result.statusText});
         yield put({type: types.REQUEST_PROVINCE_TRANSLATION, pageNumber})
         notify.show("Provinces Translation created successfully!", "success", 5000)
     }
@@ -63,7 +62,7 @@ function* callEditProvinceTrans (action) {
     
     if (result.errors) {
         yield put({ type: types.REQUEST_PROVINCE_TRANSLATION_FAILED, errors: result.error});
-        error = result.error;
+        error = result.errors;
         notify.show("Update failed", "error", 5000)
     } else {
         // yield put({type: types.UPDATE_PROVINCES_TRANSLATION_SUCCESS, resp, message: result.statusText});
@@ -85,7 +84,7 @@ function* callDeleteProvinceTrans(action) {
 
     if(result.errors) {
         yield put({ type: types.REQUEST_PROVINCE_TRANSLATION_FAILED, errors: result.error});
-        error = result.error;
+        error = result.errors;
         notify.show("Delete failed", "error", 5000)
     } else {
         yield put(provinceTransAction.deleteProvincesTranslationSuccess(action.provinceTransId));

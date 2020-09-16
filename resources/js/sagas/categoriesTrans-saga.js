@@ -13,6 +13,7 @@ export function* CategoryTransWatcher() {
 function* CategoryTransSaga(action) {
     const response = yield call(api.getCategoriesTrans, action.pageNumber);
     const categoriesTrans = response
+    let error = {};
     if (response.errors) {
         yield put({ type: types.REQUEST_CATEGORIES_TRANSLATION_FAILED, errors: response.error});
         error = response.errors;
@@ -34,13 +35,12 @@ function* callCategoriesTransSubmit(action) {
     const pageNumber= action.pageNumber
     if (result.errors) {
         yield put({ type: types.REQUEST_CATEGORIES_TRANSLATION_FAILED, errors: result.error});
-        error = result.error;
+        error = result.errors;
         if(resp.errorcode==23000) {
             notify.show("Category Translation Description already exists!","error", 5000);
         }
         notify.show("Cannot create new category Translation!", "error", 5000)
     } else {
-        // yield put({type: types.ADD_CATEGORIES_TRANSLATION_SUCCESS, resp, message: result.statusText});
         yield put({type: types.REQUEST_CATEGORIES_TRANSLATION, pageNumber})
         notify.show("Categories Translation created successfully!", "success", 5000)
     }
@@ -61,7 +61,7 @@ function* callEditCategoryTrans (action) {
     const pageNumber= action.pageNumber
     if (result.errors) {
         yield put({ type: types.REQUEST_CATEGORIES_TRANSLATION_FAILED, errors: result.error});
-        error = result.error;
+        error = result.errors;
         notify.show("Update failed", "error", 5000)
     } else {
         // yield put({type: types.UPDATE_CATEGORIES_TRANSLATION_SUCCESS, resp, message: result.statusText});
@@ -82,10 +82,11 @@ export function* deleteCategoriesTransSaga() {
 
 function* callDeleteCategoryTrans(action) {
     const result = yield call(api.deleteCategoriesTrans, action.categoryTransId);
-
+    let error = {};
+    
     if(result.errors) {
         yield put({ type: types.REQUEST_CATEGORIES_TRANSLATION_FAILED, errors: result.error});
-        error = result.error;
+        error = result.errors;
         notify.show("Delete failed", "error", 5000)
     } else {
         yield put(categoryTransAction.deleteCategoriesTranslationSuccess(action.categoryTransId));

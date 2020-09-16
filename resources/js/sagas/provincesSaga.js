@@ -18,7 +18,7 @@ function* AllProvincesSaga() {
     if (response) {
         yield put({type: types.ALL_PROVINCE, provinces});
     } else {
-        yield put({ type: types.REQUEST_PROVINCES_FAILED, errors: response.error});
+        yield put({ type: types.REQUEST_PROVINCES_FAILED, errors: response.errors});
     }
 }
 
@@ -28,7 +28,7 @@ export function* ProvincesWatcher() {
     yield takeLatest(types.REQUEST_PROVINCES, ProvincesSaga)
 }
 function* ProvincesSaga(action) {
-    
+    let error = {}
     const response = yield call(api.getProvinces, action.pageNumber);
     const provinces = response
     if (response.errors) {
@@ -53,7 +53,7 @@ function* callProvincesSubmit(action) {
 
     if ((result.errors && !resp.success)|| (result.errors || !resp.success)) {
         yield put({ type: types.REQUEST_PROVINCES_FAILED, errors: result.error || resp.errormsg});
-        error = result.error || resp.errormsg;
+        error = result.errors || resp.errormsg;
         if(resp.errorcode==23000) {
             notify.show("Province Description already exists!","error", 5000);
         }
@@ -81,7 +81,7 @@ function* callEditProvince (action) {
     
     if (result.errors) {
         yield put({ type: types.REQUEST_PROVINCES_FAILED, errors: result.error});
-        error = result.error;
+        error = result.errors;
         notify.show("Update failed", "error", 5000)
     } else {
         // yield put({type: types.UPDATE_PROVINCES_SUCCESS, resp, message: result.statusText});
@@ -100,7 +100,7 @@ export function* deleteProvincesSaga() {
 
 function* callDeleteProvince(action) {
     const result = yield call(api.deleteProvinces, action.provinceId);
-
+    let error = {}
     if(result.errors) {
         yield put({ type: types.REQUEST_PROVINCES_FAILED, errors: result.error});
         error = result.error;

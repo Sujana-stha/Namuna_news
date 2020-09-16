@@ -17,6 +17,7 @@ class TextEditorField extends Component {
             <div className="col-sm-12 col-md-12 col-lg-12">
                 <label>{this.props.label}</label>
                 <Editor
+                    apiKey='g0c467hlsp38g1c78ypi8w1vgg3g9khumwetg1udqnideku1'
                     initialValue={input.value == "" ? "": input.value}
                     value ={input.value == "" ? "": input.value}
                     init={{

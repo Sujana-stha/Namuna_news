@@ -18,7 +18,7 @@ function* AllLanguageSaga() {
     if (response) {
         yield put({type: types.ALL_LANGUAGE, languages});
     } else {
-        yield put({ type: types.REQUEST_LANGUAGES_FAILED, errors: response.error});
+        yield put({ type: types.REQUEST_LANGUAGES_FAILED, errors: response.errors});
     }
 }
 
@@ -29,9 +29,10 @@ export function* LanguageWatcher() {
 function* LanguageSaga(action) {
     const response = yield call(api.getLanguages, action.pageNumber);
     const languages = response
+    let error = {};
 
     if (response.errors) {
-        yield put({ type: types.REQUEST_LANGUAGES_FAILED, errors: response.error});
+        yield put({ type: types.REQUEST_LANGUAGES_FAILED, errors: response.errors});
         error = response.errors;
         notify.show("Cannot get all languages", "error", 5000)
     } else {
@@ -49,10 +50,11 @@ function* callLanguagesSubmit(action) {
     const result =  yield call(api.addLanguages, action.values);
     const resp = result.data
     const pageNumber= action.pageNumber
+    let error = {};
 
     if ((result.errors && !resp.success)|| (result.errors || !resp.success)) {
-        yield put({ type: types.REQUEST_LANGUAGES_FAILED, errors: result.error || resp.errormsg});
-        error = result.error || resp.errormsg;
+        yield put({ type: types.REQUEST_LANGUAGES_FAILED, errors: result.errors || resp.errormsg});
+        error = result.errors || resp.errormsg;
         if(resp.errorcode==23000) {
             notify.show("Languages Description already exists!","error", 5000);
         }
@@ -75,9 +77,10 @@ function* callEditLanguage (action) {
     yield put(startSubmit('EditLanguages'));
     const result =  yield call(api.updateLanguages, action.values.id, action.values);
     const pageNumber= action.pageNumber
+    let error = {};
 
     if (result.errors) {
-        yield put({ type: types.REQUEST_LANGUAGES_FAILED, errors: result.error});
+        yield put({ type: types.REQUEST_LANGUAGES_FAILED, errors: result.errors});
         notify.show("Update failed", "error", 5000)
     } else {
         yield put({type: types.REQUEST_LANGUAGES, pageNumber})
@@ -96,6 +99,7 @@ export function* deleteLanguagesSaga() {
 
 function* callDeleteLanguage(action) {
     const result = yield call(api.deleteLanguages, action.languageId);
+    let error = {};
 
     if(result.errors) {
         yield put({ type: types.REQUEST_LANGUAGES_FAILED, errors: result.error});

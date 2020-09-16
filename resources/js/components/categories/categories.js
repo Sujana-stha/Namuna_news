@@ -17,8 +17,8 @@ const CategoriesList = (props) => {
                             
                             {props.confirmText==category.id ? (
                                 <span className="confirm tooltip-text">Are you sure?&nbsp; 
-                                    <a onClick={props.deleteCategory.bind(null, category.id)} href="javascript:void(0);">Yes</a> &nbsp;
-                                    <a href="javascript:void(0);" onClick={props.hideConfirmBox.bind(null)}>No</a>
+                                    <a onClick={props.deleteCategory.bind(null, category.id)} href="# ">Yes</a> &nbsp;
+                                    <a href="# " onClick={props.hideConfirmBox.bind(null)}>No</a>
                                 </span>
                             ): null}
                         </td>

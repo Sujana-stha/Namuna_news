@@ -10,7 +10,9 @@ import * as categoryTransSaga from './categoriesTrans-saga';
 import * as provinceSaga from './provincesSaga';
 import * as provinceTransSaga from './provinceTrans-saga';
 import * as resourceSaga from './resourcesSaga';
-import * as resourceTransSaga from './resourceTrans-saga'
+import * as resourceTransSaga from './resourceTrans-saga';
+import * as userSaga from './usersSaga';
+import * as subscribeSaga from './subscribersSaga';
 
 export default function* rootSaga() {
     yield all (
@@ -24,7 +26,9 @@ export default function* rootSaga() {
             ...Object.values(provinceSaga),
             ...Object.values(provinceTransSaga),
             ...Object.values(resourceSaga),
-            ...Object.values(resourceTransSaga)
+            ...Object.values(resourceTransSaga),
+            ...Object.values(userSaga),
+            ...Object.values(subscribeSaga)
         ].map(fork)
     );
 }

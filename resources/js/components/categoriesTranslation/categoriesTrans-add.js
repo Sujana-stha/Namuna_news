@@ -37,7 +37,7 @@ const CategoryTransForm = props => {
             <div className="col-md-12 col-xs-12 col-lg-12">
                 <div className="card card-primary">
                     <div className="card-header">
-                        <h3 className="card-title">Add Categories Translation</h3>
+                        <h3 className="card-title">Translate Categories</h3>
                     </div>
 
                     <form onSubmit={handleSubmit} >

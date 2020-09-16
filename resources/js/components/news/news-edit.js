@@ -2,16 +2,27 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import AutocompleteField from '../autocomplete-field';
 import EditImagePreviewField from '../editImagePreview';
-import { connect } from 'react-redux';
 import * as newsApi from '../../api/news-api'
-import {requestUpdateNews} from '../../actions/news-action';
 
 class EditNews extends Component {
+    constructor(props) {
+        super(props);
+        this.state= {
+            newsData : null,
+            display: "block"
+        };
+        this.hideAlert = this.hideAlert.bind(this);
+    }
     componentDidMount() {
-
         const id = this.props.editId;
         newsApi.getSingleNews(id).then((response) => {
             const data = response.data.data;
+            if(data.news_translations.length){
+                this.setState({
+                    newsData : data
+                })
+            }
+            
             const news =  {
                 slug: data.slug,
                 category_id: data.category == null ? null : { label: data.category.slug, value: data.category.id },
@@ -21,11 +32,20 @@ class EditNews extends Component {
                 author: data.author,
                 news_label: data.news_label,
                 featured_image: data.featured_image,
-                id: data.id
+                id: data.id,
+                news_translations: data.news_translations
             }
             this.props.initialize(news);
         })
     }
+
+    //function to close alerts
+    hideAlert() {
+        this.setState({
+            display: "none"
+        })
+    }
+
     renderInputField({input,id, label, value, type, placeholder, meta: {touched, error}}) {
         return (
             <div className="form-group col-md-6">
@@ -39,11 +59,12 @@ class EditNews extends Component {
     }
     renderSelectField({ input, label, meta: { touched, error }, defaultValue, children }) {
         return (
-            <div className="form-group col-md-6">
+            <div className="form-group col-md-6 nm-news-select">
                 <label>{label}</label>
                 <select value={defaultValue} {...input} className={ touched && error ? "form-control is-invalid": "form-control"}>
                     {children}
                 </select>
+                
                 <div className="error">
                     {touched ? error : ''}
                 </div>
@@ -55,7 +76,13 @@ class EditNews extends Component {
     render() {
         const { handleSubmit } = this.props;
         return (
-            <div className="col-md-12 col-xs-12 col-lg-12 col-sm-12">
+            <div className="nm-news-edit col-md-12 col-xs-12 col-lg-12 col-sm-12 ">
+                {this.state.newsData == null ? (
+                    <div className="alert" style={{display: this.state.display}}>
+                        <span className="closebtn" onClick={this.hideAlert}>&times;</span> 
+                        <strong>Warning!</strong> This news is not active yet. You must add content or translate this news to activate it!
+                    </div>
+                ):null }
                 <div className="card card-primary">
                     <div className="card-header">
                         <h3 className="card-title">Edit News</h3>
@@ -82,7 +109,7 @@ class EditNews extends Component {
                                 placeholder="Enter Keywords"
                                 component={this.renderInputField}
                             />
-
+                            
                             <Field
                                 label="Select Status"
                                 name="status"
@@ -90,18 +117,24 @@ class EditNews extends Component {
                             >
                                 <option value="">Choose your option</option>
                                 <option value="draft">Draft</option>
-                                <option value="active">Active</option>
+                                {this.state.newsData ? ( 
+                                    <option value="active">Active</option>
+                                ):
+                                    <option className="nm-disabled" disabled value="active">Active</option>
+                                
+                                }
                                 <option value="hidden">Hidden</option>
                                 <option value="deleted">Deleted</option>
                             </Field>
+
                             <Field name="category_id"
-                                label="Categories"
+                                label="Select Categories"
                                 itemList={this.props.categories}
                                 apiName="categories"
                                 component={AutocompleteField}
                             />
                             <Field name="province_id"
-                                label="Provinces"
+                                label="Select Provinces"
                                 itemList={this.props.provinces}
                                 component={AutocompleteField}
                             />
@@ -125,6 +158,9 @@ class EditNews extends Component {
                         </div>
                         <div className="card-footer">
                             <button type="submit" className="btn btn-primary">Update</button>
+                            {this.state.newsData == null ? (
+                                <button type="submit" className="translate-btn btn btn-primary">Add News content</button>
+                            ):null}
                         </div>
                     </form>
                 </div>

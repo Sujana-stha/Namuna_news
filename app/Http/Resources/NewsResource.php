@@ -26,7 +26,7 @@ class NewsResource extends JsonResource
             'author' => $this->author->name,
             'news_label' => $this->news_label,
             'featured_image' => Storage::url($this->featured_image),
-            'news_translations' => [$this->newsTranslations],
+            'news_translations' => $this->newsTranslations,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

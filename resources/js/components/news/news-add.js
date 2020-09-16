@@ -69,17 +69,18 @@ let InsertNews = props => {
                             >
                                 <option value="">Choose your option</option>
                                 <option value="draft">Draft</option>
+                                
                                 <option value="hidden">Hidden</option>
                                 <option value="deleted">Deleted</option>
                             </Field>
                             <Field name="category_id"
-                                label="Categories"
+                                label="Select Categories"
                                 itemList={props.categories}
 
                                 component={AutocompleteField}
                             />
                             <Field name="province_id"
-                                label="Provinces"
+                                label="Select Provinces"
                                 itemList={props.provinces}
                                 component={AutocompleteField}
                             />
@@ -91,7 +92,6 @@ let InsertNews = props => {
                             >
                                 <option value="">Select News Label</option>
                                 <option value="normal">Normal</option>
-                                <option value="active">Active</option>
                                 <option value="featured">Featured</option>
                                 <option value="breaking">Breaking</option>
 
@@ -104,7 +104,7 @@ let InsertNews = props => {
                         </div>
                     </div>
                     <div className="card-footer">
-                        <button type="submit" className="btn btn-primary">Submit</button>
+                        <button type="submit" className="btn btn-primary">Add News Content</button>
                     </div>
                 </form>
             </div>

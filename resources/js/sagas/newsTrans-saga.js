@@ -13,6 +13,8 @@ export function* NewsTransWatcher() {
 function* NewsTransSaga(action) {
     const response = yield call(api.getNewsTrans, action.pageNumber);
     const newsTrans = response
+    let error = {};
+
     if (response.errors) {
         yield put({ type: types.REQUEST_NEWS_TRANSLATION_FAILED, errors: response.error});
         error = response.errors;
@@ -35,16 +37,27 @@ function* callNewsTransSubmit(action) {
 
     if ((result.errors && !resp.success)|| (result.errors || !resp.success)) {
         yield put({ type: types.REQUEST_NEWS_TRANSLATION_FAILED, errors: result.error || resp.errormsg});
-        error = result.error || resp.errormsg;
+        error = result.errors || resp.errormsg;
         if(resp.errorcode==23000) {
             notify.show("News Translation Description already exists!","error", 5000);
         }
         notify.show("Cannot create new News Translation!", "error", 5000)
     } else {
-        // yield put({type: types.ADD_CATEGORIES_SUCCESS, resp, message: result.statusText});
+        const values = {
+            status: 'active',
+            id: action.values.news_id,
+            slug: action.newsValues.slug,
+            category_id: action.newsValues.category.id,
+            featured_image: action.newsValues.featured_image,
+            province_id: action.newsValues.province.id,
+            news_label: action.newsValues.news_label,
+            keywords: action.newsValues.keywords
+        }
         yield put({type: types.REQUEST_NEWS_TRANSLATION, pageNumber})
+        yield put({type: types.REQUEST_EDIT_NEWS, values})
         notify.show("News Translation created successfully!", "success", 5000)
         yield put(push('/news-translation'));
+
     }
     yield put(stopSubmit('AddNewsTrans', error));
     yield put(reset('AddNewsTrans'));
@@ -64,11 +77,12 @@ function* callEditNewsTrans (action) {
    
     if (result.errors) {
         yield put({ type: types.REQUEST_NEWS_TRANSLATION_FAILED, errors: result.error});
-        error = result.error;
+        error = result.errors;
         notify.show("Update failed", "error", 5000)
     } else {
-        // yield put({type: types.UPDATE_CATEGORIES_SUCCESS, resp, message: result.statusText});
+        
         yield put({type: types.REQUEST_NEWS_TRANSLATION, pageNumber})
+
         notify.show("Updated successfully!", "success", 5000)
         yield put(push('/news-translation'));
     }
@@ -84,6 +98,7 @@ export function* deleteNewsTransSaga() {
 
 function* callDeleteNewsTrans(action) {
     const result = yield call(api.deleteNewsTrans, action.newsTransId);
+    let error = {};
 
     if(result.errors) {
         yield put({ type: types.REQUEST_NEWS_TRANSLATION_FAILED, errors: result.error});

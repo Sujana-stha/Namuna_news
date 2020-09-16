@@ -2,22 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Pagination from 'react-js-pagination'
 import store from '../../store';
-import { requestLanguages, requestDeleteLanguages, requestAddLanguages, requestUpdateLanguages } from '../../actions/languages-action';
+import { requestSubscription, requestDeleteSubscription } from '../../actions/subscriber-action';
 
 //COMPONENT
-import LanguageForm from '../../components/languages/languages-form';
-import EditLanguage from '../../components/languages/edit-languages-form';
-import LanguagesList from '../../components/languages/languages';
+import SubscribeList from '../../components/subscribers/subscribers';
 import Loading from '../../components/loading';
 
-class LanguagesListContainer extends Component {
+class SubscribeContainer extends Component {
     constructor() {
         super();
         this.state = {
-            isEditing: false,
-            confirmText: null,
+            confirmText: null
         }
-        this.editLanguage = this.editLanguage.bind(this)
         this.deleteItem = this.deleteItem.bind(this)
         this.hideDiv = this.hideDiv.bind(this)
         this.handlePageChange = this.handlePageChange.bind(this)
@@ -26,33 +22,11 @@ class LanguagesListContainer extends Component {
     componentDidMount() {
         // call action to run the relative saga
         const pageNumber = this.props.activePage;
-        this.props.requestLanguages(pageNumber);
+        this.props.requestSubscription(pageNumber);
     }
 
-    // submit function for new data
-    submitLanguage(values) {
-        const pageNumber = this.props.activePage;
-        this.props.requestAddLanguages(values, pageNumber);
-    }
-
-    // submit function to update data
-    submitEditLanguage(values) {
-        const pageNumber = this.props.activePage;
-        this.props.requestUpdateLanguages(values, pageNumber);
-        this.setState({
-            isEditing: false
-        })
-    }
-
-    //function to call form of edit
-    editLanguage(values) {
-        this.setState({
-            isEditing: values
-        })
-    }
-
-    deleteLanguageAction(languageId) {
-        this.props.requestDeleteLanguages(languageId);
+    deleteSubscribeAction(subscribeId) {
+        this.props.requestDeleteSubscription(subscribeId);
     }
 
     deleteItem(id) {
@@ -62,7 +36,7 @@ class LanguagesListContainer extends Component {
     }
     // pagination function
     handlePageChange(pageNumber) {
-        this.props.requestLanguages(pageNumber)
+        this.props.requestSubscription(pageNumber)
     }
 
     hideDiv() {
@@ -73,16 +47,6 @@ class LanguagesListContainer extends Component {
         return (
             <div className="nm-content">
                 <div className="row">
-                    <div className="col-sm-12 col-md-4 col-lg-4">
-                        {this.state.isEditing ? (
-                            <EditLanguage
-                                onSubmit={this.submitEditLanguage.bind(this)}
-                                editId={this.state.isEditing} />
-                        ) : (
-                                <LanguageForm onSubmit={this.submitLanguage.bind(this)} />
-                            )}
-
-                    </div>
                     <div className="col-sm-12 col-md-7 col-lg-7">
                         {this.props.fetching ? (
                                 <Loading />
@@ -93,21 +57,18 @@ class LanguagesListContainer extends Component {
                             <thead>
                                 <tr>
                                     <th>S.N</th>
-                                    <th >Code</th>
-                                    <th>Language</th>
+                                    <th >Email</th>
                                     <th>Action</th>
-                                    
                                 </tr>
                             </thead>
                             
-                            {this.props.languages.length ? (
-                                <LanguagesList
-                                    languages={this.props.languages}
-                                    onEditLanguage={this.editLanguage}
+                            {this.props.subscribes.length ? (
+                                <SubscribeList
+                                    subscribes={this.props.subscribes}
                                     confirmText={this.state.confirmText}
                                     showConfirmBox={this.deleteItem}
                                     hideConfirmBox={this.hideDiv}
-                                    deleteLanguage={this.props.requestDeleteLanguages}
+                                    deleteLanguage={this.props.requestDeleteSubscription}
                                     activePage={this.props.activePage}
                                     itemsCountPerPage={this.props.itemsCountPerPage}
                                 />
@@ -115,7 +76,7 @@ class LanguagesListContainer extends Component {
                             ) : (
                                     <tbody>
                                         <tr>
-                                            <td colSpan="4">No Results Found !</td>
+                                            <td colSpan="3">No Results Found !</td>
                                         </tr>
                                     </tbody>
                                 )}
@@ -143,7 +104,7 @@ class LanguagesListContainer extends Component {
 
 function mapStateToProps(store) {
     return {
-        languages: store.languageState.languages,
+        subscribes: store.subscribeState.subscribers,
         fetching: store.languageState.fetching,
         activePage: store.languageState.activePage,
         itemsCountPerPage: store.languageState.itemsCountPerPage,
@@ -152,4 +113,4 @@ function mapStateToProps(store) {
     }
 }
 
-export default connect(mapStateToProps, { requestLanguages, requestDeleteLanguages, requestAddLanguages, requestUpdateLanguages })(LanguagesListContainer);
+export default connect(mapStateToProps, { requestSubscription, requestDeleteSubscription })(SubscribeContainer);

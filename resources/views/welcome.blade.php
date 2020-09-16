@@ -23,6 +23,7 @@
         <!-- overlayScrollbars -->
         <link rel="stylesheet" href="{{asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
         <link rel="stylesheet" href="{{asset('css/app.css')}}" type="text/css">
+
        
     </head>
     <body  class="hold-transition sidebar-mini layout-fixed">

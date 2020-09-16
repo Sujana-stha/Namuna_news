@@ -44,7 +44,7 @@ class EditCategory extends Component {
                 <div className="col-md-12 col-xs-12 col-lg-12">
                     <div className="card card-primary">
                         <div className="card-header">
-                            <h3 className="card-title">Add Categories</h3>
+                            <h3 className="card-title">Edit Categories</h3>
                         </div>
 
                         <form className="col s12" onSubmit={handleSubmit} >
@@ -72,7 +72,7 @@ class EditCategory extends Component {
                                     component={this.renderSelectField}
                                 >
                                     <option value="">Choose your option</option>
-                                    <option value="0">Parent Category</option>
+                                    <option value="0">None</option>
                                     {this.props.categories.map(category => {
                                         return (
                                             <option key={category.id} value={category.id}>{category.slug}</option>
@@ -81,7 +81,7 @@ class EditCategory extends Component {
                                 </Field>
                             </div>
                             <div className="card-footer">
-                                <button type="submit" className="btn btn-primary">Submit</button>
+                                <button type="submit" className="btn btn-primary">Update</button>
                             </div>
                         </form>
                     </div>

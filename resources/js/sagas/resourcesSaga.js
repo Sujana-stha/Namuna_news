@@ -18,7 +18,7 @@ function* AllResourcesSaga() {
     if (response) {
         yield put({type: types.ALL_RESOURCES, resources});
     } else {
-        yield put({ type: types.REQUEST_RESOURCES_FAILED, errors: response.error});
+        yield put({ type: types.REQUEST_RESOURCES_FAILED, errors: response.errors});
     }
 }
 
@@ -27,11 +27,11 @@ export function* ResourcesWatcher() {
     yield takeLatest(types.REQUEST_RESOURCES, ResourcesSaga)
 }
 function* ResourcesSaga(action) {
-    
+    let error= {}
     const response = yield call(api.getResources, action.pageNumber);
     const resources = response
     if (response.errors) {
-        yield put({ type: types.REQUEST_RESOURCES_FAILED, errors: response.error});
+        yield put({ type: types.REQUEST_RESOURCES_FAILED, errors: response.errors});
         error = response.errors;
         notify.show("Cannot get all resources", "error", 5000)
     } else {
@@ -52,7 +52,7 @@ function* callResourcesSubmit(action) {
 
     if ((result.errors && !resp.success)|| (result.errors || !resp.success)) {
         yield put({ type: types.REQUEST_RESOURCES_FAILED, errors: result.error || resp.errormsg});
-        error = result.error || resp.errormsg;
+        error = result.errors || resp.errormsg;
         if(resp.errorcode==23000) {
             notify.show("Resource Description already exists!","error", 5000);
         }
@@ -81,7 +81,7 @@ function* callEditResource (action) {
     
     if (result.errors) {
         yield put({ type: types.REQUEST_RESOURCES_FAILED, errors: result.error});
-        error = result.error;
+        error = result.errors;
         notify.show("Update failed", "error", 5000)
     } else {
         yield put({type: types.REQUEST_RESOURCES, pageNumber})
@@ -100,7 +100,8 @@ export function* deleteResourcesSaga() {
 
 function* callDeleteResource(action) {
     const result = yield call(api.deleteResources, action.resourceId);
-
+    let error = {}
+    
     if(result.errors) {
         yield put({ type: types.REQUEST_RESOURCES_FAILED, errors: result.error});
         error = result.error;

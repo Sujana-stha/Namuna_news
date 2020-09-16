@@ -23,10 +23,10 @@ export function requestNewsTranslationFailed() {
 }
 
 // ADD NEW NEWS_TRANSLATION
-export function requestAddNewsTranslation(values, pageNumber) {
+export function requestAddNewsTranslation(values, pageNumber, newsValues) {
     return {
         type: types.REQUEST_ADD_NEWS_TRANSLATION,
-        values, pageNumber
+        values, pageNumber, newsValues
     }
 }
 

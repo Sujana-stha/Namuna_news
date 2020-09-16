@@ -5,7 +5,6 @@ import axios, {getHeaders} from './axiosInstance'
 export function getCategoriesTrans(pageNumber) {
     const access_token = window.localStorage.getItem('access_token')
     const headers = getHeaders(access_token)
-    console.log('api', headers)
     return axios.get(`/api/category-translation?page=${pageNumber}`,{headers})
     .catch(error=> {
         console.log(error)

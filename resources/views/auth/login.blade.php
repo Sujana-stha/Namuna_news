@@ -10,14 +10,12 @@
     <title>Namuna News | Login</title>
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Material ICONs -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
-    
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="{{asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
+    <link rel="stylesheet" href="{{('dist/css/adminlte.min.css')}}">
     <style>
         .row {
             margin-left: 0px;
@@ -26,7 +24,9 @@
         .login-logo img{
             width: 240px;
         }
-
+        body {
+            background: #e9ecef;
+        }
     </style>
 </head>
 
@@ -35,7 +35,7 @@
     <div class="container-login">
         <div class="row justify-content-center">
             
-            <div class="col-xl-3 col-lg-3 col-md-3">
+            <div class="col-xl-3 col-sm-6 col-lg-4 col-md-6">
                 <div class="login-logo">
                     <a href="#"><img src="{{('dist/img/Namuna News English Logo.png')}}" alt="Namuna News"></a>
                 </div>
@@ -76,7 +76,7 @@
                                             @enderror
                                         </div>
                                         <div class="form-group">
-                                            <div class="custom-control icheck-primary" style="line-height: 1.5rem;">
+                                            <div class="custom-control" style="line-height: 1.5rem;">
                                                 <input type="checkbox" class="custom-control-input" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                                                 <label class="custom-control-label" for="customCheck">Remember
                                                     Me</label>
@@ -95,12 +95,12 @@
                                         </div>
                                         <hr>
                                     </form>
-                                    <hr>
+                                    <!-- <hr>
                                     <div class="text-center">
                                         <a class="font-weight-bold small" href="/register">Create an Account!</a>
-                                    </div>
-                                    <div class="text-center">
-                                    </div>
+                                    </div> -->
+                                    <!-- <div class="text-center">
+                                    </div> -->
                                 </div>
                             </div>
                         </div>

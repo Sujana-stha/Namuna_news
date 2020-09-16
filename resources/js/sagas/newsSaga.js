@@ -18,7 +18,7 @@ function* AllNewsSaga() {
     if (response) {
         yield put({type: types.ALL_NEWS, news});
     } else {
-        yield put({ type: types.REQUEST_NEWS_FAILED, errors: response.error});
+        yield put({ type: types.REQUEST_NEWS_FAILED, errors: response.errors});
     }
 }
 
@@ -30,9 +30,10 @@ export function* NewsWatcher() {
 function* NewsSaga(action) {
     const response = yield call(api.getNews, action.pageNumber);
     const news = response
+    let error= {}
 
     if (response.errors) {
-        yield put({ type: types.REQUEST_NEWS_FAILED, errors: response.error});
+        yield put({ type: types.REQUEST_NEWS_FAILED, errors: response.errors});
         error = response.errors;
         notify.show("Cannot get all news", "error", 5000)
     } else {
@@ -46,23 +47,25 @@ export function* submitNewsSaga() {
 }
 function* callNewsSubmit(action) {
     yield put(startSubmit('AddNews'));
-    
+    const newValue = action.values
     const result =  yield call(api.addNews, action.values);
     const resp = result.data
     const pageNumber= action.pageNumber
+    let error = {};
 
     if ((result.errors && !resp.success)|| (result.errors || !resp.success)) {
+        notify.show("Cannot create new News!", "error", 5000)
         yield put({ type: types.REQUEST_NEWS_FAILED, errors: result.error || resp.errormsg});
         error = result.error || resp.errormsg;
         if(resp.errorcode==23000) {
             notify.show("News Description already exists!","error", 5000);
         }
-        notify.show("Cannot create new News!", "error", 5000)
     } else {
         
         yield put({type: types.REQUEST_NEWS, pageNumber})
+        yield put({type: types.ADD_NEWS_SUCCESS, newValue})
         notify.show("News created successfully!", "success", 5000);
-        yield put(push('/news'));
+        yield put(push('/add-news-translation'));
     }
 
     yield put(stopSubmit('AddNews', error));
@@ -79,16 +82,24 @@ function* callEditNews (action) {
     let error = {};
     const result =  yield call(api.updateNews, action.values.id, action.values);
     const pageNumber = action.pageNumber
+    const newValue = action.values
     
     if (result.errors) {
-        yield put({ type: types.REQUEST_NEWS_FAILED, errors: result.error});
-        error = result.error;
+        yield put({ type: types.REQUEST_NEWS_FAILED, errors: result.errors});
+        error = result.errors;
         notify.show("Update failed", "error", 5000)
     } else {
         
         yield put({type: types.REQUEST_NEWS, pageNumber})
+        if(newValue.news_translations && newValue.news_translations.length == 0) {
+
+            yield put({type: types.ADD_NEWS_SUCCESS, newValue})
+            yield put(push('/add-news-translation'));
+        } else {
+            yield put(push('/news'));
+
+        }
         notify.show("Updated successfully!", "success", 5000)
-        yield put(push('/news'));
     }
     yield put(stopSubmit('EditNews', error));
     yield put(reset('EditNews'));
@@ -102,6 +113,7 @@ export function* deleteNewsSaga() {
 
 function* callDeleteNews(action) {
     const result = yield call(api.deleteNews, action.newsId);
+    let error = {};
 
     if(result.errors) {
         yield put({ type: types.REQUEST_NEWS_FAILED, errors: result.error});

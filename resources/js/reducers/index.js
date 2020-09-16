@@ -13,11 +13,14 @@ import categoryTransReducer from './categoriesTrans-reducers';
 import newsTransReducer from './newsTrans-reducers';
 import resourcesTransReducer from './resourcesTrans-reducers';
 import provincesTransReducer from './provinceTrans-reducers';
+import usersReducer from './users-reducer';
+import subscribesReducer from './subscribers-reducer';
 
 const rootReducer = (history) => combineReducers({
     form: formReducer,
     router: connectRouter(history),
 
+    userState: usersReducer,
     loginState: loginReducer,
     categoryState: categoryReducer,
     languageState: languagesReducer,
@@ -27,7 +30,8 @@ const rootReducer = (history) => combineReducers({
     categoryTransState: categoryTransReducer,
     newsTransState: newsTransReducer,
     provinceTransState: provincesTransReducer,
-    resourcesTransState: resourcesTransReducer
+    resourcesTransState: resourcesTransReducer,
+    subscribeState: subscribesReducer
 });
 
 export default rootReducer;

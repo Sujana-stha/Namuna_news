@@ -27,7 +27,7 @@ class Sidebar extends Component {
                 
 
                     {/* <!-- Sidebar Menu --> */}
-                    <nav className="mt-2 mb-3">
+                    <nav className="mt-2 nm-sidebar">
                         <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                             {/* <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library --> */}
                             <li className="nav-item">
@@ -38,6 +38,15 @@ class Sidebar extends Component {
                                         
                                     </p>
                                 </NavLink>
+                            </li>
+                            <li className="nav-item has-treeview">
+                                <NavLink to="/users" className="nav-link">
+                                    <i className="nav-icon fas fa-user"></i>
+                                    <p>
+                                        User
+                                    </p>
+                                </NavLink>
+                                
                             </li>
                             <li className="nav-item has-treeview">
                                 <NavLink to="/categories" className="nav-link">
@@ -101,9 +110,23 @@ class Sidebar extends Component {
                                     <i className="nav-icon far fa-newspaper"></i>
                                     <p>
                                         News
+                                        {/* <i className="right fas fa-angle-left"></i> */}
                                     </p>
                                 </NavLink>
-                                
+                                {/* <ul className="nav nav-treeview">
+                                    <li className="nav-item">
+                                        <NavLink to="/news" className="nav-link">
+                                            <i className="far fa-circle nav-icon"></i>
+                                            <p>News List</p>
+                                        </NavLink>
+                                    </li>
+                                    <li className="nav-item">
+                                        <NavLink to="/add-news" className="nav-link">
+                                            <i className="far fa-circle nav-icon"></i>
+                                            <p>Add News</p>
+                                        </NavLink>
+                                    </li>
+                                </ul> */}
                             </li>
                             <li className="nav-item has-treeview">
                                 <NavLink to="/news-translation" className="nav-link">
@@ -127,6 +150,14 @@ class Sidebar extends Component {
                                     <i className="nav-icon fas fa-globe"></i>
                                     <p>
                                         Resources Translation
+                                    </p>
+                                </NavLink>
+                            </li>
+                            <li className="nav-item has-treeview">
+                                <NavLink to="/subscribers" className="nav-link">
+                                    <i className="nav-icon fas fa-envelope"></i>
+                                    <p>
+                                        Subscribers
                                     </p>
                                 </NavLink>
                             </li>

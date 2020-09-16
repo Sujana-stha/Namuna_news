@@ -1,11 +1,11 @@
 
 import axios, {getHeaders} from './axiosInstance'
 
-//GET ALL CATEGORIES API
-export function getCategories(pageNumber) {
+//GET ALL USERS API
+export function getUsers(pageNumber) {
     const access_token = window.localStorage.getItem('access_token')
     const headers = getHeaders(access_token)
-    return axios.get(`/api/categories?page=${pageNumber}`,{headers})
+    return axios.get(`/api/users?page=${pageNumber}`,{headers})
     .catch(error=> {
         console.log(error)
         return {
@@ -14,11 +14,11 @@ export function getCategories(pageNumber) {
     });
 }
 
-// ADD NEW CATEGORIES API
-export function addCategories(values) {
+// ADD NEW USERS API
+export function addUsers(values) {
     const access_token = window.localStorage.getItem('access_token')
     const headers = getHeaders(access_token)
-    return axios.post('/api/categories', values,{headers})
+    return axios.post('/api/users', values,{headers})
     .catch(error=> {
         console.log(error)
         return {
@@ -27,11 +27,11 @@ export function addCategories(values) {
     });
 }
 
-//DELETE CATEGORIES API
-export function deleteCategories(categoryId) {
+//DELETE USERS API
+export function deleteUsers(userId) {
     const access_token = window.localStorage.getItem('access_token')
     const headers = getHeaders(access_token)
-    return axios.delete('/api/categories/'+ categoryId,{headers})
+    return axios.delete('/api/users/'+ userId,{headers})
     .catch(error=> {
         console.log(error)
         return {
@@ -40,11 +40,11 @@ export function deleteCategories(categoryId) {
     });
 }
 
-// UPDATE CATEGORIES API
-export function updateCategories(categoryId, values) {
+// UPDATE USERS API
+export function updateUsers(userId, values) {
     const access_token = window.localStorage.getItem('access_token')
     const headers = getHeaders(access_token)
-    return axios.put('/api/categories/'+ categoryId, values,{headers})
+    return axios.put('/api/users/'+ userId, values,{headers})
     .catch(error=> {
         console.log(error)
         return {
@@ -53,11 +53,11 @@ export function updateCategories(categoryId, values) {
     });
 }
 
-// GET SINGLE DATA OF CAtegories
-export function getSingleCategories (categoryId) {
+// GET SINGLE DATA OF USERS
+export function getSingleUsers (userId) {
     const access_token = window.localStorage.getItem('access_token')
     const headers = getHeaders(access_token)
-    return axios.get('/api/categories/'+categoryId,{headers})
+    return axios.get('/api/users/'+userId,{headers})
     .catch(error=> {
         console.log(error)
         return {
@@ -66,15 +66,3 @@ export function getSingleCategories (categoryId) {
     });
 }
 
-// Get all data of categories
-export function getAllCategories() {
-    const access_token = window.localStorage.getItem('access_token')
-    const headers = getHeaders(access_token)
-    return axios.get(`/api/categories/all`,{headers})
-    .catch(error=> {
-        console.log(error)
-        return {
-            errors: error
-        }
-    });
-}

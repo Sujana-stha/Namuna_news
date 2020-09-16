@@ -31,7 +31,6 @@ export function addProvincesTrans(values) {
 export function deleteProvincesTrans(provinceTransId) {
     const access_token = window.localStorage.getItem('access_token')
     const headers = getHeaders(access_token)
-    console.log(provinceTransId)
     return axios.delete('/api/province-translation/'+ provinceTransId,{headers})
     .catch(error=> {
         console.log(error)

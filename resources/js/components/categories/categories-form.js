@@ -65,13 +65,12 @@ const CategoryForm = props => {
                                 component={renderSelectField}
                             >
                                 <option value="">Choose your option</option>
-                                <option value="0">Parent Category</option>
+                                <option value="0">None</option>
                                 {props.categories.map(category => {
                                     return (
                                         <option key={category.id} value={category.id}>{category.slug}</option>
                                     )
                                 })}
-                                <option value="show">Show</option>
                             </Field>
                         </div>
                         <div className="card-footer">

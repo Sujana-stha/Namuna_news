@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import Pagination from 'react-js-pagination'
 import {requestAddNewsTranslation, requestNewsTranslation, requestDeleteNewsTranslation, requestUpdateNewsTranslation} from '../../actions/newsTranslation-action';
 import {requestAllLanguages} from '../../actions/languages-action';
-import {requestAllNews} from '../../actions/news-action';
+import {requestAllNews, addNewsSuccess} from '../../actions/news-action';
 
 //COMPONENTS
 import AddNewsTrans from '../../components/newsTranslation/newsTrans-add';
@@ -30,11 +30,20 @@ class NewsTransContainer extends Component {
         this.props.requestNewsTranslation(pageNumber);
         this.props.requestAllNews();
         this.props.requestAllLanguages();
+        this.props.addNewsSuccess();
     }
     //submit News form
     onSubmitForm(values) {
         const pageNumber = this.props.activePage;
-        this.props.requestAddNewsTranslation(values, pageNumber);
+        if ( typeof values.news_id == 'number') { values.news_id = values.news_id } else { values.news_id = values.news_id.value }
+        let newsValues = null
+        this.props.allNews.forEach(news => {
+    
+            if(news.id == values.news_id) {
+                newsValues = news;
+            }
+        })
+        this.props.requestAddNewsTranslation(values,pageNumber, newsValues,);
     }
 
     // edit functions
@@ -94,6 +103,7 @@ class NewsTransContainer extends Component {
                             languages ={this.props.allLanguages}
                             news = {this.props.allNews}
                             onSubmit={this.onSubmitForm.bind(this)}
+                            newNews = {this.props.newNews}
                         />
                     </div>  
                 </div>
@@ -116,7 +126,7 @@ class NewsTransContainer extends Component {
                                 <tr>
                                     <th>S.N</th>
                                     <th className="news-title">Title</th>
-                                    <th>News</th>
+                                    <th className="news-title">News</th>
                                     <th>Language</th>
                                     <th>Action</th>
                                 </tr>
@@ -165,6 +175,7 @@ function mapStateToProps(store) {
         newsTrans:store.newsTransState.newsTrans,
         fetching: store.newsTransState.fetching,
         allNews: store.newsState.all_news,
+        newNews: store.newsState.newNews,
         allLanguages: store.languageState.all_languages,
         activePage: store.newsTransState.activePage,
         itemsCountPerPage: store.newsTransState.itemsCountPerPage,
@@ -172,4 +183,4 @@ function mapStateToProps(store) {
         pageRangeDisplayed: store.newsTransState.pageRangeDisplayed,
     }
 }
-export default connect(mapStateToProps, {requestAllNews, requestAddNewsTranslation, requestNewsTranslation, requestDeleteNewsTranslation, requestUpdateNewsTranslation,requestAllLanguages })(NewsTransContainer);
+export default connect(mapStateToProps, {requestAllNews, requestAddNewsTranslation, requestNewsTranslation, requestDeleteNewsTranslation, requestUpdateNewsTranslation,requestAllLanguages,addNewsSuccess })(NewsTransContainer);

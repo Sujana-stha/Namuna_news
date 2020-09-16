@@ -2,57 +2,59 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Pagination from 'react-js-pagination'
 import store from '../../store';
-import { requestLanguages, requestDeleteLanguages, requestAddLanguages, requestUpdateLanguages } from '../../actions/languages-action';
+import { requestUsers, requestDeleteUsers, requestAddUsers, requestUpdateUsers } from '../../actions/users-action';
+
 
 //COMPONENT
-import LanguageForm from '../../components/languages/languages-form';
-import EditLanguage from '../../components/languages/edit-languages-form';
-import LanguagesList from '../../components/languages/languages';
+import AddUser from '../../components/users/add-users';
+import EditUser from '../../components/users/edit-users';
+import UsersList from '../../components/users/users';
 import Loading from '../../components/loading';
 
-class LanguagesListContainer extends Component {
+class UsersListContainer extends Component {
     constructor() {
         super();
         this.state = {
             isEditing: false,
             confirmText: null,
+            isChecked: false
         }
-        this.editLanguage = this.editLanguage.bind(this)
+        this.handlePageChange = this.handlePageChange.bind(this);
+        this.editUsers = this.editUsers.bind(this)
         this.deleteItem = this.deleteItem.bind(this)
         this.hideDiv = this.hideDiv.bind(this)
-        this.handlePageChange = this.handlePageChange.bind(this)
     }
 
     componentDidMount() {
         // call action to run the relative saga
         const pageNumber = this.props.activePage;
-        this.props.requestLanguages(pageNumber);
+        this.props.requestUsers(pageNumber);
     }
 
     // submit function for new data
-    submitLanguage(values) {
+    submitUser(values) {
         const pageNumber = this.props.activePage;
-        this.props.requestAddLanguages(values, pageNumber);
+        this.props.requestAddUsers(values, pageNumber);
     }
 
     // submit function to update data
-    submitEditLanguage(values) {
+    submitEditUser(values) {
         const pageNumber = this.props.activePage;
-        this.props.requestUpdateLanguages(values, pageNumber);
+        this.props.requestUpdateUsers(values, pageNumber);
         this.setState({
             isEditing: false
         })
     }
 
     //function to call form of edit
-    editLanguage(values) {
+    editUsers(values) {
         this.setState({
             isEditing: values
         })
     }
 
-    deleteLanguageAction(languageId) {
-        this.props.requestDeleteLanguages(languageId);
+    deleteUserAction(userId) {
+        this.props.requestDeleteUsers(userId);
     }
 
     deleteItem(id) {
@@ -62,7 +64,7 @@ class LanguagesListContainer extends Component {
     }
     // pagination function
     handlePageChange(pageNumber) {
-        this.props.requestLanguages(pageNumber)
+        this.props.requestUsers(pageNumber)
     }
 
     hideDiv() {
@@ -75,39 +77,40 @@ class LanguagesListContainer extends Component {
                 <div className="row">
                     <div className="col-sm-12 col-md-4 col-lg-4">
                         {this.state.isEditing ? (
-                            <EditLanguage
-                                onSubmit={this.submitEditLanguage.bind(this)}
+                            <EditUser
+                                onSubmit={this.submitEditUser.bind(this)}
                                 editId={this.state.isEditing} />
                         ) : (
-                                <LanguageForm onSubmit={this.submitLanguage.bind(this)} />
+                                <AddUser onSubmit={this.submitUser.bind(this)}/>
                             )}
 
                     </div>
-                    <div className="col-sm-12 col-md-7 col-lg-7">
+                    <div className="col-sm-12 col-md-8 col-lg-8">
                         {this.props.fetching ? (
-                                <Loading />
-                            ) : (
+                            <Loading />
+                        ) : (
                             <div className="wr-not-loading"></div>
                         )}
                         <table className="table table-bordered">
                             <thead>
                                 <tr>
                                     <th>S.N</th>
-                                    <th >Code</th>
-                                    <th>Language</th>
+                                    <th >Name</th>
+                                    <th>Email</th>
+                                    <th>User Type</th>
+                                    <th>Status</th>
                                     <th>Action</th>
-                                    
                                 </tr>
                             </thead>
                             
-                            {this.props.languages.length ? (
-                                <LanguagesList
-                                    languages={this.props.languages}
-                                    onEditLanguage={this.editLanguage}
+                            {this.props.users.length ? (
+                                <UsersList
+                                    users={this.props.users}
+                                    onEditUser={this.editUsers}
                                     confirmText={this.state.confirmText}
                                     showConfirmBox={this.deleteItem}
                                     hideConfirmBox={this.hideDiv}
-                                    deleteLanguage={this.props.requestDeleteLanguages}
+                                    deleteUser={this.props.requestDeleteUsers}
                                     activePage={this.props.activePage}
                                     itemsCountPerPage={this.props.itemsCountPerPage}
                                 />
@@ -115,12 +118,11 @@ class LanguagesListContainer extends Component {
                             ) : (
                                     <tbody>
                                         <tr>
-                                            <td colSpan="4">No Results Found !</td>
+                                            <td colSpan="6">No Results Found !</td>
                                         </tr>
                                     </tbody>
                                 )}
                         </table>
-                        
                         <div className="col-sm-12 left-align">
                             <Pagination
                                 activePage={this.props.activePage}
@@ -142,14 +144,15 @@ class LanguagesListContainer extends Component {
 };
 
 function mapStateToProps(store) {
+    
     return {
-        languages: store.languageState.languages,
-        fetching: store.languageState.fetching,
-        activePage: store.languageState.activePage,
-        itemsCountPerPage: store.languageState.itemsCountPerPage,
-        totalItemsCount: store.languageState.totalItemsCount,
-        pageRangeDisplayed: store.languageState.pageRangeDisplayed,
+        users: store.userState.users,
+        fetching: store.categoryState.fetching,
+        activePage: store.categoryState.activePage,
+        itemsCountPerPage: store.categoryState.itemsCountPerPage,
+        totalItemsCount: store.categoryState.totalItemsCount,
+        pageRangeDisplayed: store.categoryState.pageRangeDisplayed,
     }
 }
 
-export default connect(mapStateToProps, { requestLanguages, requestDeleteLanguages, requestAddLanguages, requestUpdateLanguages })(LanguagesListContainer);
+export default connect(mapStateToProps, { requestUsers, requestDeleteUsers, requestAddUsers, requestUpdateUsers })(UsersListContainer);

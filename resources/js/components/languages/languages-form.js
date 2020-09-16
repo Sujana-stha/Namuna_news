@@ -20,7 +20,7 @@ const LanguageForm = props => {
             <div className="col-md-12 col-xs-12 col-lg-12">
                 <div className="card card-primary">
                     <div className="card-header">
-                        <h3 className="card-title">Add Languages</h3>
+                        <h3 className="card-title">Add Language</h3>
                     </div>
 
                     <form onSubmit={handleSubmit} >

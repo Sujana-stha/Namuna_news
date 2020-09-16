@@ -20,9 +20,10 @@ import ProvinceTransContainer from '../containers/provinceTranslation/provinceTr
 import NewsContainer from '../containers/newsContainer/news-container';
 import NewsTransContainer from '../containers/newsTranslation/newsTrans-container';
 import ResourcesContainer from '../containers/resources/resources-container';
-
 import ResourcesTransContainer from '../containers/resourcesTranslation/resourcesTrans-container'
-// import AddCategories from '../containers/categories/categories-add-container'
+import UsersContainer from '../containers/users/users-container';
+import SubscriberContainer from '../containers/subscribers/subscribers-container';
+
 
 class DashboardLayout extends Component {
     componentDidMount() {
@@ -74,6 +75,8 @@ class DashboardLayout extends Component {
                             <Route path = "/translated-resources" component={ResourcesTransContainer}/>
                             <Route path = "/add-resources-translation" component={ResourcesTransContainer}/>
                             <Route path = "/edit-translated-resources" component={ResourcesTransContainer}/>
+                            <Route path="/users" component={UsersContainer}/>
+                            <Route path="/subscribers" component={SubscriberContainer}/>
                             <Redirect to={`${match.url}`} />
                         </Switch>
                     </section>
