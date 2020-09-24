@@ -16,9 +16,9 @@ class Sidebar extends Component {
                 <div className="sidebar">
                     {/* <!-- Sidebar user panel (optional) --> */}
                     <div className="user-panel mt-3 pb-3 mb-3 d-flex">
-                        {/* <div className="image">
-                            <img src="dist/img/user2-160x160.jpg" className="img-circle elevation-2" alt="User Image" />
-                        </div> */}
+                        <div className="image">
+                            <img src="dist/img/Namuna-news-N.png" className="img-circle elevation-2" alt="User Image" />
+                        </div>
                         <div className="info">
                             <a href="#" className="d-block">Hello Admin!</a>
                         </div>
@@ -53,23 +53,9 @@ class Sidebar extends Component {
                                     <i className="nav-icon fas fa-chart-pie"></i>
                                     <p>
                                         Categories
-                                        {/* <i className="right fas fa-angle-left"></i> */}
                                     </p>
                                 </NavLink>
-                                {/* <ul className="nav nav-treeview">
-                                    <li className="nav-item">
-                                        <a href="pages/charts/chartjs.html" className="nav-link">
-                                            <i className="far fa-circle nav-icon"></i>
-                                            <p>Categories List</p>
-                                        </a>
-                                    </li>
-                                    <li className="nav-item">
-                                        <a href="pages/charts/flot.html" className="nav-link">
-                                            <i className="far fa-circle nav-icon"></i>
-                                            <p>Add Categories</p>
-                                        </a>
-                                    </li>
-                                </ul> */}
+                                
                             </li>
                             <li className="nav-item has-treeview">
                                 <NavLink to="/categories-translation" className="nav-link">
@@ -110,23 +96,9 @@ class Sidebar extends Component {
                                     <i className="nav-icon far fa-newspaper"></i>
                                     <p>
                                         News
-                                        {/* <i className="right fas fa-angle-left"></i> */}
                                     </p>
                                 </NavLink>
-                                {/* <ul className="nav nav-treeview">
-                                    <li className="nav-item">
-                                        <NavLink to="/news" className="nav-link">
-                                            <i className="far fa-circle nav-icon"></i>
-                                            <p>News List</p>
-                                        </NavLink>
-                                    </li>
-                                    <li className="nav-item">
-                                        <NavLink to="/add-news" className="nav-link">
-                                            <i className="far fa-circle nav-icon"></i>
-                                            <p>Add News</p>
-                                        </NavLink>
-                                    </li>
-                                </ul> */}
+                                
                             </li>
                             <li className="nav-item has-treeview">
                                 <NavLink to="/news-translation" className="nav-link">
