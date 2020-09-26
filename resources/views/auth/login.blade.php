@@ -34,7 +34,7 @@
     <!-- Login Content -->
     <div class="container-login">
         <div class="row justify-content-center">
-            
+
             <div class="col-xl-3 col-sm-6 col-lg-4 col-md-6">
                 <div class="login-logo">
                     <a href="#"><img src="{{('dist/img/Namuna News English Logo.png')}}" alt="Namuna News"></a>
@@ -50,7 +50,7 @@
                                     <form method="POST" action="{{ route('login') }}">
                                         @csrf
                                         <div class="input-group mb-3">
-                                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Email.." required autocomplete="email" autofocus>
+                                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email', session('remember_email', '')) }}" placeholder="Email.." required autocomplete="email" autofocus>
                                             <div class="input-group-append">
                                                 <div class="input-group-text">
                                                     <span class="fas fa-envelope"></span>
@@ -63,7 +63,7 @@
                                             @enderror
                                         </div>
                                         <div class="input-group mb-3">
-                                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password..">
+                                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ old('password', session('remember_password', '')) }}" required autocomplete="current-password" placeholder="Password..">
                                             <div class="input-group-append">
                                                 <div class="input-group-text">
                                                     <span class="fas fa-lock"></span>
@@ -77,8 +77,8 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control" style="line-height: 1.5rem;">
-                                                <input type="checkbox" class="custom-control-input" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                                <label class="custom-control-label" for="customCheck">Remember
+                                                <input type="checkbox" class="custom-control-input" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }} value="{{ old('remember', session('remember_me', '')) }}">
+                                                <label class="custom-control-label" for="remember">Remember
                                                     Me</label>
                                             </div>
                                         </div>

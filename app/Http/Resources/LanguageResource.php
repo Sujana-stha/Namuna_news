@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\NewsTranslation;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class LanguageResource extends JsonResource
@@ -19,8 +20,8 @@ class LanguageResource extends JsonResource
             'code'=>$this->code,
             'language'=>$this->language,
             'category_translations'=>$this->categoryTranslations,
-            'resource_translations'=>$this->resourceTranslations
-            // 'news_translations'=>NewsTranslationResource::collection($this->news_translations)
+            'resource_translations'=>$this->resourceTranslations,
+            'news_translations'=>$this->newsTranslations
         ];
     }
 }
