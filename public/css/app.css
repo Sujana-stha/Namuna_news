@@ -10936,6 +10936,10 @@ a.text-dark:focus {
   text-transform: capitalize;
 }
 
+.content-wrapper .nm-content table tbody tr td.nm-email {
+  text-transform: none;
+}
+
 .content-wrapper .nm-content .nm-select-field {
   margin-bottom: 15px;
 }

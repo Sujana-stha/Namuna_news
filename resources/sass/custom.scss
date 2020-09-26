@@ -38,6 +38,9 @@
                     td {
                         text-transform: capitalize;
                     }
+                    td.nm-email {
+                        text-transform: none;
+                    }
                 }
             }
         }

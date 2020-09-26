@@ -7,7 +7,6 @@ class EditUser extends Component {
 
         const id = this.props.editId;
         userApi.getSingleUsers(id).then((response) => {
-            console.log(response)
             const data = response.data;
             this.props.initialize(data);
         })

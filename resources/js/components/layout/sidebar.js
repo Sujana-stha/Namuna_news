@@ -43,7 +43,7 @@ class Sidebar extends Component {
                                 <NavLink to="/users" className="nav-link">
                                     <i className="nav-icon fas fa-user"></i>
                                     <p>
-                                        User
+                                        Users
                                     </p>
                                 </NavLink>
                                 

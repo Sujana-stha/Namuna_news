@@ -35,14 +35,14 @@ function* callUsersSubmit(action) {
 
     if (result.errors) {
         yield put({ type: types.REQUEST_USERS_FAILED, errors: result.errors});
-        if(resp.errorcode==23000) {
-            notify.show("User Description already exists!","error", 5000);
+        if(result.errors.email.length) {
+            notify.show("The email has already been taken","error", 5000);
         }
         error = result.errors
         notify.show("Cannot create new Users!", "error", 5000)
     } else {
         yield put({type: types.REQUEST_USERS, pageNumber})
-        notify.show("Categories created successfully!", "success", 5000)
+        notify.show("User created successfully!", "success", 5000)
     }
 
     yield put(stopSubmit('AddUser', error));
