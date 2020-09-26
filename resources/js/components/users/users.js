@@ -8,7 +8,7 @@ const UsersList = (props) => {
                     <tr key={user.id} className={`row-${user.id}`}>
                         <td>{((props.activePage-1)*props.itemsCountPerPage)+(index+1)}</td>
                         <td>{user.name == null ? '-': user.name}</td>
-                        <td>{user.email}</td>
+                        <td className="nm-email">{user.email}</td>
                         <td>{user.user_type}</td>
                         <td>{user.status}</td>
                         <td className="action">
