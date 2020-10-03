@@ -20,11 +20,11 @@ const subscriberReducer =  function(state = initialState, action) {
            
         case types.GET_SUBSCRIBERS_SUCCESS:
             return Object.assign({}, state, {
-                subscribers: action.subscribers.data,
+                subscribers: action.subscribers.data.data,
                 fetching: false,
-                itemsCountPerPage: action.subscribers.per_page,
-                totalItemsCount: action.subscribers.total,
-                activePage: action.subscribers.current_page,
+                itemsCountPerPage: action.subscribers.data.per_page,
+                totalItemsCount: action.subscribers.data.total,
+                activePage: action.subscribers.data.current_page,
                 sending: false
             })
            

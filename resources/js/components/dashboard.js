@@ -8,7 +8,7 @@ import {requestAllResources} from '../actions/resource-action';
 import {requestUsers} from '../actions/users-action';
 import {requestSubscription, requestDeleteSubscription} from '../actions/subscriber-action';
 
-import subscribeList from '../components/subscribers/subscribers'
+import SubscribeList from '../components/subscribers/subscribers';
 
 class Dashboard extends Component {
     constructor() {
@@ -180,13 +180,13 @@ class Dashboard extends Component {
                                         <th>Action</th>
                                     </tr>
                                 </thead>
-                                {this.props.subscribes.length ? (
-                                <SubscribeList
-                                    subscribes={this.props.subscribes}
+                                {this.props.subscribers.length ? (
+                                    <SubscribeList
+                                    subscribers={this.props.subscribers}
                                     confirmText={this.state.confirmText}
                                     showConfirmBox={this.deleteItem}
                                     hideConfirmBox={this.hideDiv}
-                                    deleteLanguage={this.props.requestDeleteSubscription}
+                                    deleteSubscriber={this.props.requestDeleteSubscription}
                                     activePage={this.props.activePage}
                                     itemsCountPerPage={this.props.itemsCountPerPage}
                                 />
@@ -215,7 +215,9 @@ function mapStateToProps(store) {
         news: store.newsState.all_news,
         users: store.userState.users,
         resources: store.resourceState.all_resources,
-        subscribes: store.subscribeState.subscribers
+        subscribers: store.subscribeState.subscribers,
+        activePage: store.subscribeState.activePage,
+        itemsCountPerPage: store.subscribeState.itemsCountPerPage
     }
 }
 export default connect(mapStateToProps,{requestAllCategories,requestAllNews, requestAllResources, requestUsers, requestSubscription, requestDeleteSubscription}) (Dashboard);

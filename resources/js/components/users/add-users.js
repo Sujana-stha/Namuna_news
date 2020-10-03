@@ -117,8 +117,8 @@ const validate = (values) => {
 
     if(!values.password) {
         errors.password = 'You must have Password'
-    } else if(values.password.length > 191) {
-        errors.password = "Must be 191 character or less!"
+    } else if(values.password.length < 8) {
+        errors.password = "Password must be a minimum of 8 characters."
     }
 
     if(!values.status) {

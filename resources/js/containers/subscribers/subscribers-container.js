@@ -62,13 +62,13 @@ class SubscribeContainer extends Component {
                                 </tr>
                             </thead>
                             
-                            {this.props.subscribes.length ? (
+                            {this.props.subscribers.length ? (
                                 <SubscribeList
-                                    subscribes={this.props.subscribes}
+                                    subscribers={this.props.subscribers}
                                     confirmText={this.state.confirmText}
                                     showConfirmBox={this.deleteItem}
                                     hideConfirmBox={this.hideDiv}
-                                    deleteLanguage={this.props.requestDeleteSubscription}
+                                    deleteSubscriber={this.props.requestDeleteSubscription}
                                     activePage={this.props.activePage}
                                     itemsCountPerPage={this.props.itemsCountPerPage}
                                 />
@@ -104,12 +104,12 @@ class SubscribeContainer extends Component {
 
 function mapStateToProps(store) {
     return {
-        subscribes: store.subscribeState.subscribers,
-        fetching: store.languageState.fetching,
-        activePage: store.languageState.activePage,
-        itemsCountPerPage: store.languageState.itemsCountPerPage,
-        totalItemsCount: store.languageState.totalItemsCount,
-        pageRangeDisplayed: store.languageState.pageRangeDisplayed,
+        subscribers: store.subscribeState.subscribers,
+        fetching: store.subscribeState.fetching,
+        activePage: store.subscribeState.activePage,
+        itemsCountPerPage: store.subscribeState.itemsCountPerPage,
+        totalItemsCount: store.subscribeState.totalItemsCount,
+        pageRangeDisplayed: store.subscribeState.pageRangeDisplayed,
     }
 }
 
