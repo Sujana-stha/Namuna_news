@@ -1,7 +1,6 @@
 import {all, fork} from 'redux-saga/effects';
 
 //SAGA FILE
-import * as loginSaga from './loginSaga';
 import * as categorySaga from './categoriesSaga';
 import * as languageSaga from './languagesSaga';
 import * as newsSaga from './newsSaga';
@@ -17,7 +16,6 @@ import * as subscribeSaga from './subscribersSaga';
 export default function* rootSaga() {
     yield all (
         [
-            ...Object.values(loginSaga),
             ...Object.values(categorySaga),
             ...Object.values(languageSaga),
             ...Object.values(newsSaga),

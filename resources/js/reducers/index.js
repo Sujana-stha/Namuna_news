@@ -3,7 +3,6 @@ import { reducer as formReducer } from 'redux-form';
 import { connectRouter } from 'connected-react-router';
 
 //REDUCER
-import loginReducer from './login-reducers';
 import categoryReducer from './categories-reducers';
 import languagesReducer from './languages-reducers';
 import newsReducer from './news-reducers';
@@ -21,7 +20,6 @@ const rootReducer = (history) => combineReducers({
     router: connectRouter(history),
 
     userState: usersReducer,
-    loginState: loginReducer,
     categoryState: categoryReducer,
     languageState: languagesReducer,
     newsState: newsReducer,

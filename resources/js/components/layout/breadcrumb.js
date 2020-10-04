@@ -40,6 +40,9 @@ const Breadcrumbs = () => {
 }
 const BreadcrumbsItem = ({ match }) => (
     <span>
+        <li className="breadcrumb-item first-item">
+            <Link to="/">Dashboard</Link>
+        </li>
         <li className={match.isExact ? 'active breadcrumb-item' : 'breadcrumb-item first-item'}>
             <Link to={match.url || ''}>
                 {match.params.path.replace(/-/g, ' ')}

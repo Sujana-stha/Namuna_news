@@ -112,7 +112,7 @@ class Dashboard extends Component {
                     <div className="card">
                         <div className="card-header">
                             <h3 className="card-title">
-                                <i className="fas fa-chart-pie mr-1"></i>
+                                <i className="fas fa-newspaper mr-1"></i>
                                 Lastest News
                             </h3>
                             <div className="card-tools">
