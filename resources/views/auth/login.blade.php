@@ -64,7 +64,7 @@
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password..">
                                 <div class="input-group-append">
                                     <div class="input-group-text">
-                                        <span class="fas fa-lock"></span>
+                                        <span class="far fa-eye" id="togglePassword"></span>
                                     </div>
                                 </div>
                                 @error('password')
@@ -105,6 +105,17 @@
             </div>
         </div>
     </div>
-                    
+    <script>
+        const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#password');
+
+        togglePassword.addEventListener('click', function (e) {
+        // toggle the type attribute
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+        // toggle the eye slash icon
+        this.classList.toggle('fa-eye-slash');
+    });
+    </script>               
 </body>
 </html>
