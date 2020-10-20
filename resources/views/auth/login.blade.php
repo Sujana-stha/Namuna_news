@@ -14,20 +14,12 @@
     <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
     <!-- icheck bootstrap -->
     <link rel="stylesheet" href="{{asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
+    <!-- animate css -->
+    <link rel="stylesheet" href="{{asset('plugins/animate/animate.css')}}"/>
     <!-- Theme style -->
     <link rel="stylesheet" href="{{('dist/css/adminlte.min.css')}}">
-    <style>
-        .row {
-            margin-left: 0px;
-            margin-right: 0px;
-        }
-        .login-logo img{
-            width: 240px;
-        }
-        .login-page {
-            background-image: linear-gradient(to bottom right, #03fcb1, #03fcf4);
-        }
-    </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{('css/login.css')}}"/>
 </head>
 
 <body class="hold-transition login-page">
@@ -41,15 +33,17 @@
                 <p class="login-box-msg">Sign in to start your session</p>
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
+                    
                     <div class="form-group row">
                         <div class="col-lg-12">
-                            <div class="input-group mb-3">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Email.." required autocomplete="email" autofocus>
-                                <div class="input-group-append">
+                            <div class="input-wrap mb-3 mt-4">
+                                <input id="email" type="email" class="input-box @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <span class="input-focus" data-placeholder="Email"></span>
+                                <!-- <div class="input-group-append">
                                     <div class="input-group-text">
                                         <span class="fas fa-envelope"></span>
                                     </div>
-                                </div>
+                                </div> -->
                                 @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -60,13 +54,17 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-lg-12">
-                            <div class="input-group">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password..">
-                                <div class="input-group-append">
+                            <div class="input-wrap">
+                                
+                                <input id="password" type="password" class="input-box @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <span class="input-focus" data-placeholder="Password"></span>
+                                <span class="far fa-eye float-right pw-icon" id="togglePassword"></span>
+                                
+                                <!-- <div class="input-group-append">
                                     <div class="input-group-text">
                                         <span class="far fa-eye" id="togglePassword"></span>
                                     </div>
-                                </div>
+                                </div> -->
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -82,6 +80,11 @@
                                 <input type="checkbox" class="form-check-input" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                                 <label class="form-check-label" for="remember">Remember Me</label>
                             </div>
+                                @error('remember')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                         </div>
                     </div>
                     <div class="form-group row mb-0">
@@ -105,6 +108,22 @@
             </div>
         </div>
     </div>
+
+    <!-- jQuery -->
+    <script src="{{asset('plugins/jquery/jquery.min.js')}}"></script>
+    <script>
+        /*[ Focus input ]*/
+        $('.input-box').each(function(){
+            $(this).on('blur', function(){
+                if($(this).val().trim() != "") {
+                    $(this).addClass('has-val');
+                }
+                else {
+                    $(this).removeClass('has-val');
+                }
+            })    
+        })
+    </script>
     <script>
         const togglePassword = document.querySelector('#togglePassword');
         const password = document.querySelector('#password');
@@ -116,6 +135,7 @@
         // toggle the eye slash icon
         this.classList.toggle('fa-eye-slash');
     });
-    </script>               
+    </script>  
+
 </body>
 </html>
