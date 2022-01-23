@@ -5,7 +5,7 @@ const UsersList = (props) => {
         <tbody>
             {props.users.map((user, index) => {
                 return (
-                    <tr key={user.id} className={`row-${user.id}`}>
+                    <tr key={user.id} className="users-row">
                         <td>{((props.activePage-1)*props.itemsCountPerPage)+(index+1)}</td>
                         <td>{user.name == null ? '-': user.name}</td>
                         <td className="nm-email">{user.email}</td>

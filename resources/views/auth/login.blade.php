@@ -134,6 +134,8 @@
         password.setAttribute('type', type);
         // toggle the eye slash icon
         this.classList.toggle('fa-eye-slash');
+
+        // function checkform()
     });
     </script>  
 

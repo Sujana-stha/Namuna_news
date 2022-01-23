@@ -6,16 +6,6 @@ $blue-bg-color: #0e3d69;
 $border-color: #eaeaea;
 $warning-bg-color: #ffaa2c;
 
-// login-page
-// .login-page {
-//     .login-box {
-//         .login-logo {
-//             img {
-//                 width: 230px;
-//             }
-//         }
-//     }
-// }
 
 // Breadcrumbs
 .breadcrumbs-wrapper{
@@ -98,6 +88,11 @@ $warning-bg-color: #ffaa2c;
                     }
                     td.nm-email {
                         text-transform: none;
+                    }
+                }
+                .users-row {
+                    .action {
+                        width: 130px;
                     }
                 }
             }

@@ -81,13 +81,13 @@ export function* deleteProvincesTransSaga() {
 
 function* callDeleteProvinceTrans(action) {
     const result = yield call(api.deleteProvincesTrans, action.procinceTransId);
-
+    console.log('saga', action)
     if(result.errors) {
         yield put({ type: types.REQUEST_PROVINCE_TRANSLATION_FAILED, errors: result.error});
         error = result.errors;
         notify.show("Delete failed", "error", 5000)
     } else {
-        yield put(provinceTransAction.deleteProvincesTranslationSuccess(action.provinceTransId));
+        yield put(provinceTransAction.deleteProvincesTranslationSuccess(action.procinceTransId));
         notify.show("Deleted successfully!", "error", 5000)
     }
 } 

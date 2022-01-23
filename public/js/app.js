@@ -106844,7 +106844,7 @@ var UsersList = function UsersList(props) {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, props.users.map(function (user, index) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
       key: user.id,
-      className: "row-".concat(user.id)
+      className: "users-row"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, (props.activePage - 1) * props.itemsCountPerPage + (index + 1)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, user.name == null ? '-' : user.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
       className: "nm-email"
     }, user.email), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, user.user_type), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, user.status), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
@@ -110215,6 +110215,8 @@ var provincesTransReducer = function provincesTransReducer() {
       });
 
     case _actions_action_types__WEBPACK_IMPORTED_MODULE_0__["DELETE_PROVINCE_TRANSLATION_SUCCESS"]:
+      console.log(action);
+
       var newProvincesTrans = lodash__WEBPACK_IMPORTED_MODULE_1___default.a.filter(state.provincesTrans, function (provinceTrans) {
         return provinceTrans.id !== action.provinceTransId;
       });
@@ -112923,32 +112925,33 @@ function callDeleteProvinceTrans(action) {
 
         case 2:
           result = _context8.sent;
+          console.log('saga', action);
 
           if (!result.errors) {
-            _context8.next = 10;
+            _context8.next = 11;
             break;
           }
 
-          _context8.next = 6;
+          _context8.next = 7;
           return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])({
             type: _actions_action_types__WEBPACK_IMPORTED_MODULE_3__["REQUEST_PROVINCE_TRANSLATION_FAILED"],
             errors: result.error
           });
 
-        case 6:
+        case 7:
           error = result.errors;
           react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Delete failed", "error", 5000);
-          _context8.next = 13;
+          _context8.next = 14;
           break;
 
-        case 10:
-          _context8.next = 12;
-          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(_actions_provinceTranslation_action__WEBPACK_IMPORTED_MODULE_5__["deleteProvincesTranslationSuccess"](action.provinceTransId));
-
-        case 12:
-          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Deleted successfully!", "error", 5000);
+        case 11:
+          _context8.next = 13;
+          return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_1__["put"])(_actions_provinceTranslation_action__WEBPACK_IMPORTED_MODULE_5__["deleteProvincesTranslationSuccess"](action.procinceTransId));
 
         case 13:
+          react_notify_toast__WEBPACK_IMPORTED_MODULE_6__["notify"].show("Deleted successfully!", "error", 5000);
+
+        case 14:
         case "end":
           return _context8.stop();
       }

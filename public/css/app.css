@@ -10980,6 +10980,10 @@ a.text-dark:focus {
   text-transform: none;
 }
 
+.content-wrapper .nm-content table tbody .users-row .action {
+  width: 130px;
+}
+
 .content-wrapper .nm-content .nm-select-field {
   margin-bottom: 15px;
 }

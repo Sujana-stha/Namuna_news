@@ -47,6 +47,7 @@ const provincesTransReducer =  function(state = initialState, action) {
             };
         
             case types.DELETE_PROVINCE_TRANSLATION_SUCCESS:
+                console.log(action)
                 const newProvincesTrans = _.filter(state.provincesTrans, provinceTrans => provinceTrans.id !== action.provinceTransId);
                 return Object.assign({}, state, {
                     provincesTrans: newProvincesTrans
